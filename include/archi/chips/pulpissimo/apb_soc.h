@@ -53,6 +53,7 @@
 #define APB_SOC_PADFUN_NO(pad)     ((pad) >> 4)
 #define APB_SOC_PADFUN_PAD(padfun) ((padfun)*16)
 #define APB_SOC_PADFUN_SIZE        2
+#define ARCHI_APB_SOC_PADFUN_NB          4
 #define APB_SOC_PADFUN_BIT(pad)    (((pad) & 0xF) << 1)
 
 #define APB_SOC_PADCFG_OFFSET(g)   (APB_SOC_PADCFG0_OFFSET+(g)*4) //sets config for pin  g*4+0(bits [7:0]) to pin  g*4+3(bits [31:24])
