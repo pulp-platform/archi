@@ -47,6 +47,7 @@
 #define CHIP_DEVCHIP               26
 #define CHIP_PULPISSIMO            27
 #define CHIP_BIGPULP_ZUX           28
+#define CHIP_PULP                  29
 
 #define CORE_OR1K_V1  0
 #define CORE_OR1K_V2  1
