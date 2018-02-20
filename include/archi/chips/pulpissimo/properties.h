@@ -49,7 +49,7 @@
 #define ITC_VERSION         1
 #define FLL_VERSION         1
 #define RISCV_VERSION       4
-
+#define HWME_VERSION        1
 
 
 /*
