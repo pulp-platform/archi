@@ -212,6 +212,7 @@
  */
 
 #define ARCHI_FC_EVT_TIMER0           10
+#define ARCHI_FC_EVT_TIMER1           11
 #define ARCHI_FC_EVT_SOC_EVT          27
 
 
