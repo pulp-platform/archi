@@ -40,7 +40,7 @@
 //bit4..5 Driving Strength
 //bit6..7 not used
 
-#define APB_SOC_BOOTADDR_OFFSET   0x04
+#define APB_SOC_BOOTADDR_OFFSET   0x10
 #define APB_SOC_INFO_OFFSET       0x00 //contains number of cores [31:16] and clusters [15:0]
 #define APB_SOC_INFOEXTD_OFFSET   0x04 //not used at the moment
 #define APB_SOC_NOTUSED0_OFFSET   0x08 //not used at the moment
