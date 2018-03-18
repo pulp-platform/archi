@@ -20,7 +20,7 @@
 
 #include "archi/chips/honey/properties.h"
 
-#include "archi/riscv/priv_1_9.h"
+#include "archi/riscv/priv_1_7.h"
 #include "archi/riscv/pcer_v1.h"
 
 #include "archi/chips/honey/memory_map.h"
