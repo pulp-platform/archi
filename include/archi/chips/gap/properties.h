@@ -26,6 +26,7 @@
 #define ARCHI_HAS_L1                   1
 #define ARCHI_HAS_FC_TCDM              1
 
+#define ARCHI_L1_SIZE                  65536
 
 
 /*

@@ -34,7 +34,7 @@
 #define ARCHI_HAS_L1_ALIAS             1
 #define ARCHI_NO_L1_TINY               1
 
-
+#define ARCHI_L1_SIZE                  262144
 
 /*
  * IP VERSIONS

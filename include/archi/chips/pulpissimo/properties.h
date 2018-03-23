@@ -30,7 +30,6 @@
  * MEMORY ALIAS
  */
 
-#define ARCHI_HAS_L1_ALIAS             1
 #define ARCHI_HAS_L2_ALIAS             1
 
 

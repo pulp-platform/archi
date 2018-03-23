@@ -32,6 +32,7 @@
 #define ARCHI_HAS_L2                   1
 #define ARCHI_HAS_L1                   1
 
+#define ARCHI_L1_SIZE                  65536
 
 
 /*

@@ -25,6 +25,7 @@
 
 #define ARCHI_HAS_UART 1  
 
+#define ARCHI_L1_SIZE                  65536
 
 
 /*

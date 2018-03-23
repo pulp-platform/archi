@@ -33,6 +33,7 @@
 
 #define ARCHI_HAS_L1_ALIAS             1
 
+#define ARCHI_L1_SIZE                  65536
 
 
 /*

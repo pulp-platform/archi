@@ -25,6 +25,7 @@
 #define ARCHI_HAS_L2                   1
 #define ARCHI_HAS_L1                   1
 
+#define ARCHI_L1_SIZE                  65536
 
 
 /*
@@ -87,27 +88,25 @@
  */
 
 #define ARCHI_UDMA_HAS_SPIM  1
-#define ARCHI_UDMA_HAS_HYPER 1
 #define ARCHI_UDMA_HAS_UART  1
 #define ARCHI_UDMA_HAS_I2C   1
 #define ARCHI_UDMA_HAS_I2S   1
 #define ARCHI_UDMA_HAS_CAM   1
 
 #define ARCHI_UDMA_NB_SPIM  1
-#define ARCHI_UDMA_NB_HYPER 1
 #define ARCHI_UDMA_NB_UART  1
 #define ARCHI_UDMA_NB_I2C   2
 #define ARCHI_UDMA_NB_I2S   1
 #define ARCHI_UDMA_NB_CAM   1
 
-#define ARCHI_UDMA_SPIM_ID(id)            (0 + (id))
-#define ARCHI_UDMA_HYPER_ID(id)           2
-#define ARCHI_UDMA_UART_ID(id)            3
-#define ARCHI_UDMA_I2C_ID(id)             (4 + (id))
-#define ARCHI_UDMA_I2S_ID(id)             6
-#define ARCHI_UDMA_CAM_ID(id)             7
+#define ARCHI_UDMA_UART_ID(id)            (0 + (id))
+#define ARCHI_UDMA_CPY_ID(id)             (1 + (id))
+#define ARCHI_UDMA_SPIM_ID(id)            (2 + (id))
+#define ARCHI_UDMA_I2C_ID(id)             (3 + (id))
+#define ARCHI_UDMA_I2S_ID(id)             (5 + (id))
+#define ARCHI_UDMA_CAM_ID(id)             (6 + (id))
 
-#define ARCHI_NB_PERIPH                   8
+#define ARCHI_NB_PERIPH                   7
 
 
 /*
