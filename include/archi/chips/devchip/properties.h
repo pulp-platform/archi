@@ -53,6 +53,7 @@
 #define FLL_VERSION         1
 #define RISCV_VERSION       4
 #define MCHAN_VERSION       6
+#define HWCE_VERSION        5
 
 
 /*
