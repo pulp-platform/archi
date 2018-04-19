@@ -35,7 +35,7 @@
 #define CHIP_FULMINE8              12
 #define CHIP_EXACONV               13
 #define CHIP_WOLFE                 14
-#define CHIP_NURAGHE               15
+#define CHIP_NEURAGHE              15
 #define CHIP_PATRONUS              16
 #define CHIP_VIVOSOC3              17
 #define CHIP_VIVOSOC2_1            18

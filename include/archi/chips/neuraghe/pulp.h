@@ -15,15 +15,15 @@
  */
 
 
-#ifndef __ARCHI_CHIPS_NURAGHE_PULP_H__
-#define __ARCHI_CHIPS_NURAGHE_PULP_H__
+#ifndef __ARCHI_CHIPS_NEURAGHE_PULP_H__
+#define __ARCHI_CHIPS_NEURAGHE_PULP_H__
 
-#include "archi/chips/nuraghe/properties.h"
+#include "archi/chips/neuraghe/properties.h"
 
 #include "archi/riscv/priv_1_9.h"
 #include "archi/riscv/pcer_v1.h"
 
-#include "archi/chips/nuraghe/memory_map.h"
+#include "archi/chips/neuraghe/memory_map.h"
 #include "archi/stdout/stdout_v3.h"
 
 #endif

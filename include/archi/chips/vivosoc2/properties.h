@@ -47,6 +47,7 @@
 #define APB_SOC_VERSION     1
 #define STDOUT_VERSION      2
 #define OR1K_VERSION        5
+#define UDMA_VERSION        1
 
 
 /*
@@ -76,6 +77,23 @@
 
 
 #define ARCHI_EVT_DMA    8
+
+
+/*
+ * UDMA
+ */
+
+#define ARCHI_UDMA_HAS_SPIM     1
+#define ARCHI_UDMA_HAS_UART     1
+#define ARCHI_UDMA_HAS_I2C      1
+#define ARCHI_UDMA_HAS_ADC      1
+
+#define ARCHI_UDMA_NB_SPIM   2
+#define ARCHI_UDMA_NB_UART   1
+#define ARCHI_UDMA_NB_I2C    1
+#define ARCHI_UDMA_NB_ADC    2
+
+#define ARCHI_NB_PERIPH                   6
 
 
 
