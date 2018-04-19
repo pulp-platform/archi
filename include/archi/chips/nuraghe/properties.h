@@ -37,6 +37,7 @@
 #define STDOUT_VERSION      2
 #define RISCV_VERSION       4
 #define EU_VERSION          3
+#define TIMER_VERSION       2
 
 
 /*
@@ -44,6 +45,7 @@
  */
 
 #define ARCHI_HAS_CLUSTER          1
+#define ARCHI_L1_TAS_BIT    20
 
 
 
