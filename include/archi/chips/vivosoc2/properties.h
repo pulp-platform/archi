@@ -93,8 +93,12 @@
 #define ARCHI_UDMA_NB_I2C    1
 #define ARCHI_UDMA_NB_ADC    2
 
-#define ARCHI_NB_PERIPH                   6
+#define ARCHI_NB_PERIPH                   7
 
+#define ARCHI_UDMA_UART_ID(id)            (1)
+#define ARCHI_UDMA_SPIM_ID(id)            (0 + (6*id))
+#define ARCHI_UDMA_I2C_ID(id)             (3)
+#define ARCHI_UDMA_ADC_ID(id)             (2 + (id))
 
 
 #endif
