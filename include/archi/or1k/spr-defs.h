@@ -27,10 +27,19 @@
 #define SPRGROUP_SYS	 (0<< MAX_SPRS_PER_GRP_BITS)
 
 /* System control and status group */
+#define SPR_SR         (SPRGROUP_SYS + 17)
 #define SPR_EPCR_BASE  (SPRGROUP_SYS + 32)
 
 /* PULP registers */
 #define SPR_CORE_ID    (SPRGROUP_SYS + 0x680)
 #define SPR_CLUSTER_ID (SPRGROUP_SYS + 0x681)
+
+/*
+ * Bit definitions for the Supervision Register
+ *
+ */
+
+
+#define SPR_SR_IEE         0x00000004  /* Interrupt Exception Enable */
 
 #endif	/* SPR_DEFS__H */

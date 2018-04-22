@@ -78,6 +78,19 @@
 
 #define ARCHI_EVT_DMA    8
 
+#define ARCHI_EVT_UDMA0    9
+#define ARCHI_EVT_UDMA1    10
+#define ARCHI_EVT_UDMA2    11
+#define ARCHI_EVT_UDMA3    12
+#define ARCHI_EVT_UDMA4    13
+#define ARCHI_EVT_UDMA5    14
+#define ARCHI_EVT_UDMA6    15
+#define ARCHI_EVT_UDMA7    16
+#define ARCHI_EVT_UDMA8    17
+#define ARCHI_EVT_UDMA9    18
+#define ARCHI_EVT_UDMA10   19
+
+
 
 /*
  * UDMA
@@ -99,6 +112,21 @@
 #define ARCHI_UDMA_SPIM_ID(id)            (0 + (6*id))
 #define ARCHI_UDMA_I2C_ID(id)             (3)
 #define ARCHI_UDMA_ADC_ID(id)             (2 + (id))
+
+#define ARCHI_UDMA_EVT_SPIM_TX                 0
+#define ARCHI_UDMA_EVT_SPIM_RX                 1
+#define ARCHI_UDMA_EVT_SPIM_EOT                2
+#define ARCHI_UDMA_EVT_SPIM1_TX                3
+#define ARCHI_UDMA_EVT_SPIM1_RX                4
+#define ARCHI_UDMA_EVT_SPIM1_EOT               5
+#define ARCHI_UDMA_EVT_UART_TX                 6
+#define ARCHI_UDMA_EVT_UART_RX                 7
+#define ARCHI_UDMA_EVT_I2C_TX                  8
+#define ARCHI_UDMA_EVT_I2C_RX                  9
+#define ARCHI_UDMA_EVT_ADC_CH0                 10
+#define ARCHI_UDMA_EVT_ADC_CH1                 11
+#define ARCHI_UDMA_EVT_ADC_CH2                 12
+#define ARCHI_UDMA_EVT_ADC_CH3                 13
 
 
 #endif
