@@ -47,6 +47,7 @@
 #define APB_SOC_VERSION     1
 #define STDOUT_VERSION      2
 #define OR1K_VERSION        5
+#define UDMA_VERSION        1
 
 
 /*
@@ -76,6 +77,44 @@
 
 
 #define ARCHI_EVT_DMA    8
+
+#define ARCHI_EVT_UDMA0    10
+#define ARCHI_EVT_UDMA1    11
+#define ARCHI_EVT_UDMA2    12
+#define ARCHI_EVT_UDMA3    13
+#define ARCHI_EVT_UDMA4    14
+#define ARCHI_EVT_UDMA5    15
+#define ARCHI_EVT_UDMA6    16
+#define ARCHI_EVT_UDMA7    17
+
+
+
+/*
+ * UDMA
+ */
+
+#define ARCHI_UDMA_HAS_SPIM     1
+#define ARCHI_UDMA_HAS_UART     1
+#define ARCHI_UDMA_HAS_I2C      1
+
+#define ARCHI_UDMA_NB_SPIM   2
+#define ARCHI_UDMA_NB_UART   1
+#define ARCHI_UDMA_NB_I2C    1
+
+#define ARCHI_NB_PERIPH                   7
+
+#define ARCHI_UDMA_UART_ID(id)            (1)
+#define ARCHI_UDMA_SPIM_ID(id)            (0 + (6*id))
+#define ARCHI_UDMA_I2C_ID(id)             (3)
+#define ARCHI_UDMA_ADC_ID(id)             (2 + (id))
+
+#define ARCHI_UDMA_EVT_SPIM_TX                 0
+#define ARCHI_UDMA_EVT_SPIM_RX                 1
+#define ARCHI_UDMA_EVT_SPIM_EOT                2
+#define ARCHI_UDMA_EVT_UART_TX                 3
+#define ARCHI_UDMA_EVT_UART_RX                 4
+#define ARCHI_UDMA_EVT_I2C_TX                  5
+#define ARCHI_UDMA_EVT_I2C_RX                  6
 
 
 
