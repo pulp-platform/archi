@@ -25,6 +25,7 @@
 
 #define ARCHI_HAS_UART 1  
 
+#define ARCHI_L1_SIZE                  65536
 
 
 /*
@@ -77,7 +78,7 @@
  * FLLS
 */
 
-#define ARCHI_NB_FLL  2
+#define ARCHI_NB_FLL  1
 
 
 

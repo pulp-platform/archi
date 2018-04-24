@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 ETH Zurich, University of Bologna
+ * Copyright (C) 2018 GreenWaves Technologies
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,17 +15,39 @@
  */
 
 
-#ifndef __ARCHI_CHIPS_HONEY_PULP_H__
-#define __ARCHI_CHIPS_HONEY_PULP_H__
+#ifndef __ARCHI_CHIPS_NEURAGHE_PROPERTIES_H__
+#define __ARCHI_CHIPS_NEURAGHE_PROPERTIES_H__
 
-#include "archi/chips/honey/properties.h"
+/*
+ * MEMORIES
+ */ 
 
-#include "archi/riscv/priv_1_7.h"
-#include "archi/riscv/pcer_v1.h"
+#define ARCHI_HAS_L2                   1
+#define ARCHI_HAS_L1                   1
 
-#include "archi/chips/honey/memory_map.h"
-#include "archi/chips/honey/apb_soc.h"
-#include "archi/chips/honey/padframe.h"
-#include "archi/stdout/stdout_v3.h"
+#define ARCHI_L1_SIZE                  0x400
+
+
+
+
+/*
+ * IP VERSIONS
+ */
+
+#define STDOUT_VERSION      2
+#define RISCV_VERSION       4
+#define EU_VERSION          3
+#define TIMER_VERSION       2
+
+
+/*
+ * CLUSTER
+ */
+
+#define ARCHI_HAS_CLUSTER          1
+#define ARCHI_L1_TAS_BIT    20
+
+
+
 
 #endif

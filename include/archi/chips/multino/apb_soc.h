@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef __ARCHI_VIVOSOC3_APB_SOC_H__
-#define __ARCHI_VIVOSOC3_APB_SOC_H__
+#ifndef __ARCHI_MULTINO_APB_SOC_H__
+#define __ARCHI_MULTINO_APB_SOC_H__
  
 #define APB_SOC_BOOT_OTHER    0
 #define APB_SOC_BOOT_JTAG     1
@@ -40,7 +40,7 @@
 //bit4..5 Driving Strength
 //bit6..7 not used
 
-#define APB_SOC_BOOTADDR_OFFSET   0x10
+#define APB_SOC_BOOTADDR_OFFSET   0x04
 #define APB_SOC_INFO_OFFSET       0x00 //contains number of cores [31:16] and clusters [15:0]
 #define APB_SOC_INFOEXTD_OFFSET   0x04 //not used at the moment
 #define APB_SOC_NOTUSED0_OFFSET   0x08 //not used at the moment
@@ -53,7 +53,6 @@
 #define APB_SOC_PADFUN_NO(pad)     ((pad) >> 4)
 #define APB_SOC_PADFUN_PAD(padfun) ((padfun)*16)
 #define APB_SOC_PADFUN_SIZE        2
-#define ARCHI_APB_SOC_PADFUN_NB          4
 #define APB_SOC_PADFUN_BIT(pad)    (((pad) & 0xF) << 1)
 
 #define APB_SOC_PADCFG_OFFSET(g)   (APB_SOC_PADCFG0_OFFSET+(g)*4) //sets config for pin  g*4+0(bits [7:0]) to pin  g*4+3(bits [31:24])
@@ -78,7 +77,7 @@
 #define APB_SOC_NOTUSED4_OFFSET   0x94 //not used at the moment
 #define APB_SOC_NOTUSED5_OFFSET   0x98 //not used at the moment
 #define APB_SOC_NOTUSED6_OFFSET   0x9C //not used at the moment
-#define APB_SOC_CORESTATUS_OFFSET 0x80 //32bit GP register to be used during testing to return EOC(bit[31]) and status(bit[30:0])
+#define APB_SOC_CORESTATUS_OFFSET 0xA0 //32bit GP register to be used during testing to return EOC(bit[31]) and status(bit[30:0])
 #define APB_SOC_CORESTATUS_RO_OFFSET 0xC0 //32bit GP register to be used during testing to return EOC(bit[31]) and status(bit[30:0])
 #define APB_SOC_PADS_CONFIG       0xC4
 

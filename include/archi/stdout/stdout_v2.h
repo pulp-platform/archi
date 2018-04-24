@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 ETH Zurich, University of Bologna
+ * Copyright (C) 2018 ETH Zurich and University of Bologna
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,12 @@
  * limitations under the License.
  */
 
+#ifndef ARCHI_STDOUT_STDOUT_V2_H
+#define ARCHI_STDOUT_STDOUT_V2_H
 
-#ifndef __ARCHI_CHIPS_HONEY_PULP_H__
-#define __ARCHI_CHIPS_HONEY_PULP_H__
-
-#include "archi/chips/honey/properties.h"
-
-#include "archi/riscv/priv_1_7.h"
-#include "archi/riscv/pcer_v1.h"
-
-#include "archi/chips/honey/memory_map.h"
-#include "archi/chips/honey/apb_soc.h"
-#include "archi/chips/honey/padframe.h"
-#include "archi/stdout/stdout_v3.h"
+#define STDOUT_PUTC_OFFSET      0x0
+#define STDOUT_OPEN_OFFSET      0x2000
+#define STDOUT_OPEN_END_OFFSET  0x3000
+#define STDOUT_READ_OFFSET      0x4000
 
 #endif

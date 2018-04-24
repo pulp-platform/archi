@@ -15,17 +15,11 @@
  */
 
 
-#ifndef __ARCHI_CHIPS_HONEY_PULP_H__
-#define __ARCHI_CHIPS_HONEY_PULP_H__
+#ifndef __ARCHI_CHIPS_VIVOSOC2_PULP_H__
+#define __ARCHI_CHIPS_VIVOSOC2_PULP_H__
 
-#include "archi/chips/honey/properties.h"
-
-#include "archi/riscv/priv_1_7.h"
-#include "archi/riscv/pcer_v1.h"
-
-#include "archi/chips/honey/memory_map.h"
-#include "archi/chips/honey/apb_soc.h"
-#include "archi/chips/honey/padframe.h"
-#include "archi/stdout/stdout_v3.h"
+#include "archi/chips/vivosoc2/memory_map.h"
+#include "archi/chips/vivosoc2/properties.h"
+#include "archi/stdout/stdout_v2.h"
 
 #endif

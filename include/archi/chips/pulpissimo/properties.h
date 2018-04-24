@@ -30,7 +30,6 @@
  * MEMORY ALIAS
  */
 
-#define ARCHI_HAS_L1_ALIAS             1
 #define ARCHI_HAS_L2_ALIAS             1
 
 
@@ -49,7 +48,7 @@
 #define ITC_VERSION         1
 #define FLL_VERSION         1
 #define RISCV_VERSION       4
-
+#define HWME_VERSION        1
 
 
 /*
@@ -113,9 +112,8 @@
 #define ARCHI_SOC_EVENT_UDMA_NB_EVT      15
 #define ARCHI_SOC_EVENT_UDMA_NB_TGEN_EVT 6
 
-#define ARCHI_SOC_EVENT_SPIM0_EOT    22
-#define ARCHI_SOC_EVENT_SPIM1_EOT    23
-#define ARCHI_SOC_EVENT_UART_EXTRA   25
+#define ARCHI_SOC_EVENT_UART_EXTRA   22
+#define ARCHI_SOC_EVENT_SPIM0_EOT    23
 #define ARCHI_SOC_EVENT_I2C0_EXTRA   26
 #define ARCHI_SOC_EVENT_I2C1_EXTRA   27
 #define ARCHI_SOC_EVENT_I2S_EXTRA    28

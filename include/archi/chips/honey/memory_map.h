@@ -35,7 +35,7 @@
 #define ARCHI_SOC_PERIPHERALS_ADDR    0x1A100000
 
 
-#define ARCHI_SOC_FLL_ADDR            0x00000000
+#define ARCHI_FLL_OFFSET              0x00000000
 #define ARCHI_GPIO_OFFSET             0x00001000
 #define ARCHI_UART_OFFSET             0x00003000
 #define ARCHI_APB_SOC_CTRL_OFFSET     0x00004000
@@ -56,7 +56,7 @@
  * CLUSTER
  */
 
-#define ARCHI_CLUSTER_ADDR              0x00000000
+#define ARCHI_CLUSTER_ADDR              0x10000000
 #define ARCHI_CLUSTER_SIZE              0x00400000
 #define ARCHI_CLUSTER_GLOBAL_ADDR(cid)  (0x10000000 + (cid)*ARCHI_CLUSTER_SIZE)
 

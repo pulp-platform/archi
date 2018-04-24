@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 ETH Zurich, University of Bologna
+ * Copyright (C) 2018 GreenWaves Technologies
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,17 +15,15 @@
  */
 
 
-#ifndef __ARCHI_CHIPS_HONEY_PULP_H__
-#define __ARCHI_CHIPS_HONEY_PULP_H__
+#ifndef __ARCHI_CHIPS_NEURAGHE_PULP_H__
+#define __ARCHI_CHIPS_NEURAGHE_PULP_H__
 
-#include "archi/chips/honey/properties.h"
+#include "archi/chips/neuraghe/properties.h"
 
-#include "archi/riscv/priv_1_7.h"
+#include "archi/riscv/priv_1_9.h"
 #include "archi/riscv/pcer_v1.h"
 
-#include "archi/chips/honey/memory_map.h"
-#include "archi/chips/honey/apb_soc.h"
-#include "archi/chips/honey/padframe.h"
+#include "archi/chips/neuraghe/memory_map.h"
 #include "archi/stdout/stdout_v3.h"
 
 #endif

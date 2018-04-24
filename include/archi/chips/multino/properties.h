@@ -15,8 +15,8 @@
  */
 
 
-#ifndef __ARCHI_CHIPS_OPRECOMPKW_PROPERTIES_H__
-#define __ARCHI_CHIPS_OPRECOMPKW_PROPERTIES_H__
+#ifndef __ARCHI_CHIPS_MULTINO_PROPERTIES_H__
+#define __ARCHI_CHIPS_MULTINO_PROPERTIES_H__
 
 /*
  * MEMORIES
@@ -32,9 +32,9 @@
  */
 
 #define ARCHI_HAS_L1_ALIAS             1
+#define ARCHI_NO_L1_TINY               1
 
-#define ARCHI_L1_SIZE                  65536
-
+#define ARCHI_L1_SIZE                  262144
 
 /*
  * IP VERSIONS
@@ -58,6 +58,7 @@
 
 
 
+
 /*
  * CLOCKS
  */
@@ -70,7 +71,7 @@
 /*
  * CLUSTER EVENTS
  */
-
+#define ARCHI_EVT_RAB_WAKEUP  0
 #define ARCHI_EVT_DMA0        8
 #define ARCHI_EVT_DMA1        9
 #define ARCHI_EVT_TIMER0      10
@@ -86,6 +87,10 @@
 #define ARCHI_EVT_SOC_EVT     30
 #define ARCHI_EVT_SOC_FIFO    31
 
+/*
+ * PERIPHS
+ */
 
+#define ARCHI_HAS_UART       1
 
 #endif

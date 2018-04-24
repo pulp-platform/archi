@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 GreenWaves Technologies
+ * Copyright (C) 2018 ETH Zurich, University of Bologna
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,8 @@
  */
 
 
-#ifndef __ARCHI_CHIPS_GAP_PROPERTIES_H__
-#define __ARCHI_CHIPS_GAP_PROPERTIES_H__
+#ifndef __ARCHI_CHIPS_VEGA_PROPERTIES_H__
+#define __ARCHI_CHIPS_VEGA_PROPERTIES_H__
 
 /*
  * MEMORIES
@@ -24,7 +24,6 @@
 
 #define ARCHI_HAS_L2                   1
 #define ARCHI_HAS_L1                   1
-#define ARCHI_HAS_FC_TCDM              1
 
 #define ARCHI_L1_SIZE                  65536
 
@@ -34,6 +33,7 @@
  */
 
 #define ARCHI_HAS_L1_ALIAS             1
+#define ARCHI_HAS_L2_ALIAS             1
 
 
 
@@ -49,19 +49,19 @@
 #define STDOUT_VERSION      2
 #define GPIO_VERSION        2
 #define EU_VERSION          3
+#define ITC_VERSION         1
 #define FLL_VERSION         1
 #define RISCV_VERSION       4
-#define HWCE_VERSION        4
 #define MCHAN_VERSION       6
+#define HWCE_VERSION        5
 
 
 /*
  * CLUSTER
  */
 
-#define ARCHI_HAS_CLUSTER          1
-#define ARCHI_L1_TAS_BIT           20
-#define ARCHI_HAS_CLUSTER_CLK_GATE 1
+#define ARCHI_HAS_CLUSTER   1
+#define ARCHI_L1_TAS_BIT    20
 
 
 
@@ -70,9 +70,8 @@
  * FC
  */
 
-#define ARCHI_FC_CID        32
-#define ARCHI_HAS_FC_EU     1
-#define ARCHI_FC_HAS_ICACHE 1
+#define ARCHI_FC_CID        31
+#define ARCHI_HAS_FC_ITC     1
 
 
 
@@ -89,35 +88,28 @@
  * UDMA
  */
 
-#define ARCHI_UDMA_HAS_RF    1
 #define ARCHI_UDMA_HAS_SPIM  1
 #define ARCHI_UDMA_HAS_HYPER 1
 #define ARCHI_UDMA_HAS_UART  1
 #define ARCHI_UDMA_HAS_I2C   1
 #define ARCHI_UDMA_HAS_I2S   1
-#define ARCHI_UDMA_HAS_TCDM  1
 #define ARCHI_UDMA_HAS_CAM   1
 
-#define ARCHI_UDMA_NB_RF    1
-#define ARCHI_UDMA_NB_SPIM  2
+#define ARCHI_UDMA_NB_SPIM  1
 #define ARCHI_UDMA_NB_HYPER 1
 #define ARCHI_UDMA_NB_UART  1
 #define ARCHI_UDMA_NB_I2C   2
 #define ARCHI_UDMA_NB_I2S   1
-#define ARCHI_UDMA_NB_TCDM  1
 #define ARCHI_UDMA_NB_CAM   1
 
-#define ARCHI_UDMA_RF_ID(id)              0
-#define ARCHI_UDMA_SPIM_ID(id)            (1 + (id))
-#define ARCHI_UDMA_HYPER_ID(id)           3
-#define ARCHI_UDMA_UART_ID(id)            4
-#define ARCHI_UDMA_I2C_ID(id)             (5 + (id))
-#define ARCHI_UDMA_TCDM_ID(id)            7
-#define ARCHI_UDMA_I2S_ID(id)             8
-#define ARCHI_UDMA_CAM_ID(id)             9
+#define ARCHI_UDMA_UART_ID(id)            0
+#define ARCHI_UDMA_HYPER_ID(id)           1
+#define ARCHI_UDMA_SPIM_ID(id)            (2 + (id))
+#define ARCHI_UDMA_I2C_ID(id)             (3 + (id))
+#define ARCHI_UDMA_I2S_ID(id)             5
+#define ARCHI_UDMA_CAM_ID(id)             6
 
-#define ARCHI_NB_PERIPH                   10
-
+#define ARCHI_NB_PERIPH                   7
 
 
 /*
@@ -133,42 +125,29 @@
  */
 
 #define ARCHI_SOC_EVENT_UDMA_FIRST_EVT   0
-#define ARCHI_SOC_EVENT_UDMA_NB_EVT      19
-#define ARCHI_SOC_EVENT_UDMA_NB_TGEN_EVT 0
+#define ARCHI_SOC_EVENT_UDMA_NB_EVT      15
+#define ARCHI_SOC_EVENT_UDMA_NB_TGEN_EVT 6
 
-#define ARCHI_SOC_EVENT_LVDS_HP0     20
-#define ARCHI_SOC_EVENT_LVDS_HP1     21
-#define ARCHI_SOC_EVENT_SPIM0_EOT    22
-#define ARCHI_SOC_EVENT_SPIM1_EOT    23
-#define ARCHI_SOC_EVENT_SPIM2_EOT    24
-#define ARCHI_SOC_EVENT_UART_EXTRA   25
-#define ARCHI_SOC_EVENT_I2C0_EXTRA   26
-#define ARCHI_SOC_EVENT_I2C1_EXTRA   27
-#define ARCHI_SOC_EVENT_I2S_EXTRA    28
-#define ARCHI_SOC_EVENT_CAM_EXTRA    29
+#define ARCHI_SOC_EVENT_UART_EXTRA   22
+#define ARCHI_SOC_EVENT_SPIM0_EOT    23
+#define ARCHI_SOC_EVENT_HYPER_EOT    24
+#define ARCHI_SOC_EVENT_I2C0_EXTRA   25
+#define ARCHI_SOC_EVENT_I2C1_EXTRA   26
+#define ARCHI_SOC_EVENT_I2S_EXTRA    27
+#define ARCHI_SOC_EVENT_CAM_EXTRA    28
 
 #define ARCHI_SOC_EVENT_CLUSTER_ON_OFF   31
-#define ARCHI_SOC_EVENT_MSP              32
-#define ARCHI_SOC_EVENT_ICU_MODE_CHANGED 33
-#define ARCHI_SOC_EVENT_ICU_OK           34
-#define ARCHI_SOC_EVENT_ICU_DELAYED      35
+#define ARCHI_SOC_EVENT_MSP              37
+#define ARCHI_SOC_EVENT_ICU_MODE_CHANGED 37
+#define ARCHI_SOC_EVENT_ICU_OK           37
+#define ARCHI_SOC_EVENT_ICU_DELAYED      37
+#define ARCHI_SOC_EVENT_CLUSTER_CG_OK    35
 #define ARCHI_SOC_EVENT_PICL_OK          36
 #define ARCHI_SOC_EVENT_SCU_OK           37
 #define ARCHI_SOC_EVENT_PMU_FIRST_EVENT  ARCHI_SOC_EVENT_CLUSTER_ON_OFF
 #define ARCHI_SOC_EVENT_PMU_NB_EVENTS    7
 
 #define ARCHI_SOC_EVENT_GPIO         42
-
-#define ARCHI_SOC_EVENT_RTC_APB_IRQ      43
-#define ARCHI_SOC_EVENT_RTC_IRQ          44
-#define ARCHI_SOC_EVENT_RTC_FIRST_EVT    ARCHI_SOC_EVENT_RTC_APB_IRQ
-
-#define ARCHI_SOC_EVENT_ADV_TIMER0       38
-#define ARCHI_SOC_EVENT_ADV_TIMER1       39
-#define ARCHI_SOC_EVENT_ADV_TIMER2       40
-#define ARCHI_SOC_EVENT_ADV_TIMER3       41
-#define ARCHI_SOC_EVENT_ADV_TIMER_FIRST_EVT    ARCHI_SOC_EVENT_ADV_TIMER0
-#define ARCHI_SOC_EVENT_ADV_TIMER_NB_EVT       4
 
 
 #define ARCHI_SOC_EVENT_NB_I2S_CHANNELS  4
@@ -213,9 +192,24 @@
  * FC EVENTS
  */
 
-#define ARCHI_FC_EVT_TIMER0           10
-#define ARCHI_FC_EVT_TIMER1           11
-#define ARCHI_FC_EVT_SOC_EVT          27
+#define ARCHI_FC_EVT_FIRST_SW   0
+#define ARCHI_FC_EVT_NB_SW      8
+#define ARCHI_FC_EVT_TIMER0     10
+#define ARCHI_FC_EVT_TIMER1     11
+#define ARCHI_FC_EVT_CLK_REF    14
+#define ARCHI_FC_EVT_GPIO       15
+#define ARCHI_FC_EVT_RTC        16
+#define ARCHI_FC_EVT_ADV_TIMER0 17
+#define ARCHI_FC_EVT_ADV_TIMER1 18
+#define ARCHI_FC_EVT_ADV_TIMER2 19
+#define ARCHI_FC_EVT_ADV_TIMER3 20
+#define ARCHI_FC_EVT_CLUSTER_NOT_BUSY 21
+#define ARCHI_FC_EVT_CLUSTER_POK      22
+#define ARCHI_FC_EVT_CLUSTER_CG_OK    23
+#define ARCHI_FC_EVT_PICL_OK          24
+#define ARCHI_FC_EVT_SCU_OK           25
+#define ARCHI_FC_EVT_SOC_EVT          26
+#define ARCHI_FC_EVT_QUEUE_ERROR      29
 
 
 #endif
