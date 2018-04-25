@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 ETH Zurich, University of Bologna
+ * Copyright (C) 2018 ETH Zurich and University of Bologna
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,13 +14,20 @@
  * limitations under the License.
  */
 
+#ifndef __ARCHI_FULMINE_APB_SOC_H__
+#define __ARCHI_FULMINE_APB_SOC_H__
+ 
+#define APB_SOC_INFO_OFFSET          0x10
+#define APB_SOC_INFO_CORES_OFFSET    (APB_SOC_INFO_OFFSET + 2)
+#define APB_SOC_INFO_CLUSTERS_OFFSET (APB_SOC_INFO_OFFSET)
+ 
+#define APB_SOC_NB_CORE_BIT     16
 
-#ifndef __ARCHI_CHIPS_FULMINE_PULP_H__
-#define __ARCHI_CHIPS_FULMINE_PULP_H__
+#define SOC_CTRL_PADFUN0              ( ARCHI_APB_SOC_CTRL_ADDR + 0x00 )
+#define SOC_CTRL_PADFUN1              ( ARCHI_APB_SOC_CTRL_ADDR + 0x04 )
 
-#include "archi/chips/fulmine/memory_map.h"
-#include "archi/chips/fulmine/properties.h"
-#include "archi/chips/fulmine/apb_soc.h"
-#include "archi/stdout/stdout_v2.h"
+
+#define ARCHI_APB_SOC_PADFUN_NB 2
+
 
 #endif
