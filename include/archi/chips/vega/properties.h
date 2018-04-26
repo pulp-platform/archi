@@ -45,7 +45,7 @@
 #define PERIPH_VERSION      2
 #define TIMER_VERSION       2
 #define SOC_EU_VERSION      1
-#define APB_SOC_VERSION     2
+#define APB_SOC_VERSION     3
 #define STDOUT_VERSION      2
 #define GPIO_VERSION        2
 #define EU_VERSION          3
@@ -62,8 +62,8 @@
 
 #define ARCHI_HAS_CLUSTER   1
 #define ARCHI_L1_TAS_BIT    20
-
-
+#define ARCHI_HAS_CC        1
+#define ARCHI_CC_CORE_ID    8
 
 
 /*
@@ -102,14 +102,14 @@
 #define ARCHI_UDMA_NB_I2S   1
 #define ARCHI_UDMA_NB_CAM   1
 
-#define ARCHI_UDMA_UART_ID(id)            0
-#define ARCHI_UDMA_HYPER_ID(id)           1
-#define ARCHI_UDMA_SPIM_ID(id)            (2 + (id))
-#define ARCHI_UDMA_I2C_ID(id)             (3 + (id))
-#define ARCHI_UDMA_I2S_ID(id)             5
-#define ARCHI_UDMA_CAM_ID(id)             6
+#define ARCHI_UDMA_SPIM_ID(id)            (0 + (id))
+#define ARCHI_UDMA_HYPER_ID(id)           2
+#define ARCHI_UDMA_UART_ID(id)            3
+#define ARCHI_UDMA_I2C_ID(id)             (4 + (id))
+#define ARCHI_UDMA_I2S_ID(id)             6
+#define ARCHI_UDMA_CAM_ID(id)             7
 
-#define ARCHI_NB_PERIPH                   7
+#define ARCHI_NB_PERIPH                   8
 
 
 /*
@@ -128,13 +128,14 @@
 #define ARCHI_SOC_EVENT_UDMA_NB_EVT      15
 #define ARCHI_SOC_EVENT_UDMA_NB_TGEN_EVT 6
 
-#define ARCHI_SOC_EVENT_UART_EXTRA   22
-#define ARCHI_SOC_EVENT_SPIM0_EOT    23
+#define ARCHI_SOC_EVENT_SPIM0_EOT    22
+#define ARCHI_SOC_EVENT_SPIM1_EOT    23
 #define ARCHI_SOC_EVENT_HYPER_EOT    24
-#define ARCHI_SOC_EVENT_I2C0_EXTRA   25
-#define ARCHI_SOC_EVENT_I2C1_EXTRA   26
-#define ARCHI_SOC_EVENT_I2S_EXTRA    27
-#define ARCHI_SOC_EVENT_CAM_EXTRA    28
+#define ARCHI_SOC_EVENT_UART_EXTRA   25
+#define ARCHI_SOC_EVENT_I2C0_EXTRA   26
+#define ARCHI_SOC_EVENT_I2C1_EXTRA   27
+#define ARCHI_SOC_EVENT_I2S_EXTRA    28
+#define ARCHI_SOC_EVENT_CAM_EXTRA    29
 
 #define ARCHI_SOC_EVENT_CLUSTER_ON_OFF   31
 #define ARCHI_SOC_EVENT_MSP              37
