@@ -62,8 +62,8 @@
 
 #define ARCHI_HAS_CLUSTER   1
 #define ARCHI_L1_TAS_BIT    20
-#define ARCHI_HAS_CC        1
-#define ARCHI_CC_CORE_ID    8
+//#define ARCHI_HAS_CC        1
+#define ARCHI_CC_CORE_ID    0
 
 
 /*
