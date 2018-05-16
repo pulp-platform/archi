@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-#ifndef __ARCHI_UDMA_UDMA_V2_H__
-#define __ARCHI_UDMA_UDMA_V2_H__
+#ifndef __ARCHI_UDMA_UDMA_V3_H__
+#define __ARCHI_UDMA_UDMA_V3_H__
 
-#include "archi/udma/udma_periph_v2.h"
+#include "archi/udma/udma_periph_v3.h"
 
 /*
  * Global register map

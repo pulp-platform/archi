@@ -41,7 +41,7 @@
  * IP VERSIONS
  */
 
-#define UDMA_VERSION        2
+#define UDMA_VERSION        3
 #define PERIPH_VERSION      2
 #define TIMER_VERSION       2
 #define SOC_EU_VERSION      1
