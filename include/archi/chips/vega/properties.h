@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 ETH Zurich, University of Bologna
+ * Copyright (C) 2018 ETH Zurich, University of Bologna and GreenWaves Technologies
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,7 +63,10 @@
 #define ARCHI_HAS_CLUSTER   1
 #define ARCHI_L1_TAS_BIT    20
 //#define ARCHI_HAS_CC        1
-#define ARCHI_CC_CORE_ID    0
+//#define ARCHI_CC_CORE_ID    0
+
+
+
 
 
 /*
@@ -94,29 +97,32 @@
 #define ARCHI_UDMA_HAS_I2C   1
 #define ARCHI_UDMA_HAS_I2S   1
 #define ARCHI_UDMA_HAS_CAM   1
+#define ARCHI_UDMA_HAS_SDIO  1
 
-#define ARCHI_UDMA_NB_SPIM  1
+#define ARCHI_UDMA_NB_SPIM  4
 #define ARCHI_UDMA_NB_HYPER 1
 #define ARCHI_UDMA_NB_UART  1
-#define ARCHI_UDMA_NB_I2C   2
+#define ARCHI_UDMA_NB_I2C   3
 #define ARCHI_UDMA_NB_I2S   1
 #define ARCHI_UDMA_NB_CAM   1
+#define ARCHI_UDMA_NB_SDIO  1
 
-#define ARCHI_UDMA_SPIM_ID(id)            (0 + (id))
-#define ARCHI_UDMA_HYPER_ID(id)           2
-#define ARCHI_UDMA_UART_ID(id)            3
-#define ARCHI_UDMA_I2C_ID(id)             (4 + (id))
-#define ARCHI_UDMA_I2S_ID(id)             6
-#define ARCHI_UDMA_CAM_ID(id)             7
+#define ARCHI_UDMA_SPIM_ID(id)            (0  + (id))
+#define ARCHI_UDMA_UART_ID(id)            (4  + (id))
+#define ARCHI_UDMA_I2C_ID(id)             (5  + (id))
+#define ARCHI_UDMA_HYPER_ID(id)           (8  + (id))
+#define ARCHI_UDMA_SDIO_ID(id)            (9  + (id))
+#define ARCHI_UDMA_I2S_ID(id)             (10 + (id))
+#define ARCHI_UDMA_CAM_ID(id)             (11 + (id))
 
-#define ARCHI_NB_PERIPH                   8
+#define ARCHI_NB_PERIPH                   12
 
 
 /*
  * FLLS
 */
 
-#define ARCHI_NB_FLL  2
+#define ARCHI_NB_FLL  3
 
 
 
@@ -128,14 +134,13 @@
 #define ARCHI_SOC_EVENT_UDMA_NB_EVT      15
 #define ARCHI_SOC_EVENT_UDMA_NB_TGEN_EVT 6
 
-#define ARCHI_SOC_EVENT_SPIM0_EOT    22
-#define ARCHI_SOC_EVENT_SPIM1_EOT    23
+#define ARCHI_SOC_EVENT_UART_EXTRA   22
+#define ARCHI_SOC_EVENT_SPIM0_EOT    23
 #define ARCHI_SOC_EVENT_HYPER_EOT    24
-#define ARCHI_SOC_EVENT_UART_EXTRA   25
-#define ARCHI_SOC_EVENT_I2C0_EXTRA   26
-#define ARCHI_SOC_EVENT_I2C1_EXTRA   27
-#define ARCHI_SOC_EVENT_I2S_EXTRA    28
-#define ARCHI_SOC_EVENT_CAM_EXTRA    29
+#define ARCHI_SOC_EVENT_I2C0_EXTRA   25
+#define ARCHI_SOC_EVENT_I2C1_EXTRA   26
+#define ARCHI_SOC_EVENT_I2S_EXTRA    27
+#define ARCHI_SOC_EVENT_CAM_EXTRA    28
 
 #define ARCHI_SOC_EVENT_CLUSTER_ON_OFF   31
 #define ARCHI_SOC_EVENT_MSP              37
