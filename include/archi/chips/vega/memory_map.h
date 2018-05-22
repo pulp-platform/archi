@@ -33,7 +33,7 @@
 #define ARCHI_SOC_EU_OFFSET           0x00006000
 #define ARCHI_FC_ITC_OFFSET           0x00009800
 #define ARCHI_FC_TIMER_OFFSET         0x0000B000
-#define ARCHI_STDOUT_OFFSET           0x0000F000
+#define ARCHI_STDOUT_OFFSET           0x00012000
 
 
 
