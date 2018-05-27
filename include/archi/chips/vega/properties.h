@@ -64,8 +64,15 @@
 #define ARCHI_L1_TAS_BIT    20
 //#define ARCHI_HAS_CC        1
 //#define ARCHI_CC_CORE_ID    0
+#define ARCHI_CLUSTER_NB_PE 8
 
 
+
+/*
+ * HWS
+ */
+
+#define ARCHI_EU_NB_HW_MUTEX 1
 
 
 
