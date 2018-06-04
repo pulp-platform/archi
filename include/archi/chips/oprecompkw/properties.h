@@ -34,6 +34,7 @@
 #define ARCHI_HAS_L1_ALIAS             1
 
 #define ARCHI_L1_SIZE                  65536
+#define ARCHI_NO_L1_TINY               1
 
 
 /*
@@ -55,6 +56,7 @@
 #define ARCHI_HAS_CLUSTER   1
 #define ARCHI_L1_TAS_BIT    20
 #define ARCHI_CLUSTER_NB_PE 8
+#define ARCHI_HAS_MCHAN_64  1
 
 
 
