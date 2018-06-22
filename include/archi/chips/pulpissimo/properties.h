@@ -72,17 +72,19 @@
  * UDMA
  */
 
-#define ARCHI_UDMA_HAS_SPIM  1
-#define ARCHI_UDMA_HAS_UART  1
-#define ARCHI_UDMA_HAS_I2C   1
-#define ARCHI_UDMA_HAS_I2S   1
-#define ARCHI_UDMA_HAS_CAM   1
+#define ARCHI_UDMA_HAS_SPIM   1
+#define ARCHI_UDMA_HAS_UART   1
+#define ARCHI_UDMA_HAS_I2C    1
+#define ARCHI_UDMA_HAS_I2S    1
+#define ARCHI_UDMA_HAS_CAM    1
+#define ARCHI_UDMA_HAS_TRACER 1
 
-#define ARCHI_UDMA_NB_SPIM 1
-#define ARCHI_UDMA_NB_UART 1
-#define ARCHI_UDMA_NB_I2C  1
-#define ARCHI_UDMA_NB_I2S  1
-#define ARCHI_UDMA_NB_CAM  1
+#define ARCHI_UDMA_NB_SPIM   1
+#define ARCHI_UDMA_NB_UART   1
+#define ARCHI_UDMA_NB_I2C    1
+#define ARCHI_UDMA_NB_I2S    1
+#define ARCHI_UDMA_NB_CAM    1
+#define ARCHI_UDMA_NB_TRACER 1
 
 #define ARCHI_UDMA_UART_ID(id)            0
 #define ARCHI_UDMA_SPIM_ID(id)            1
@@ -90,9 +92,10 @@
 #define ARCHI_UDMA_I2C_ID(id)             (3 + (id))
 #define ARCHI_UDMA_I2S_ID(id)             5
 #define ARCHI_UDMA_CAM_ID(id)             6
-#define ARCHI_UDMA_TGEN_ID(id)            7
+#define ARCHI_UDMA_TRACER_ID(id)          7
+#define ARCHI_UDMA_TGEN_ID(id)            8
 
-#define ARCHI_NB_PERIPH                   8
+#define ARCHI_NB_PERIPH                   9
 
 
 
