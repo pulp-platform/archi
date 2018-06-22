@@ -93,8 +93,11 @@
 #define ARCHI_EVT_BAR         16
 #define ARCHI_EVT_MUTEX       17
 #define ARCHI_EVT_DISPATCH    18
-#define ARCHI_EVT_SPIM0       19
-#define ARCHI_EVT_SPIM1       20
+#define ARCHI_EVT_GPIO        19
+#define ARCHI_EVT_UART        20
+#define ARCHI_EVT_SPIM0       21
+#define ARCHI_EVT_SPIM1       22
+#define ARCHI_EVT_CLKREF      23
 #define ARCHI_EVT_MPU_ERROR   28
 #define ARCHI_EVT_SOC_EVT     30
 #define ARCHI_EVT_SOC_FIFO    31
