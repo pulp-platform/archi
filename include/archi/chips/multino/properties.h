@@ -46,6 +46,7 @@
 #define STDOUT_VERSION      2
 #define EU_VERSION          3
 #define RISCV_VERSION       4
+#define GPIO_VERSION        2
 
 
 /*
@@ -92,6 +93,8 @@
 #define ARCHI_EVT_BAR         16
 #define ARCHI_EVT_MUTEX       17
 #define ARCHI_EVT_DISPATCH    18
+#define ARCHI_EVT_SPIM0       19
+#define ARCHI_EVT_SPIM1       20
 #define ARCHI_EVT_MPU_ERROR   28
 #define ARCHI_EVT_SOC_EVT     30
 #define ARCHI_EVT_SOC_FIFO    31
@@ -100,6 +103,6 @@
  * PERIPHS
  */
 
-#define ARCHI_HAS_UART       1
+//#define ARCHI_HAS_UART       1
 
 #endif
