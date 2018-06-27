@@ -30,7 +30,8 @@
  * MEMORY ALIAS
  */
 
-#define ARCHI_HAS_L2_ALIAS             1
+// Alias is deactivated to allow putting the code and data in scm
+//#define ARCHI_HAS_L2_ALIAS             1
 
 
 
