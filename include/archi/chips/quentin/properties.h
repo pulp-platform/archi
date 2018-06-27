@@ -23,6 +23,7 @@
  */ 
 
 #define ARCHI_HAS_L2                   1
+#define ARCHI_HAS_L2_SCM               1
 
 
 
