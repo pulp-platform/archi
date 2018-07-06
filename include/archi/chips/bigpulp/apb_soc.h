@@ -49,6 +49,8 @@
 #define	APB_SOC_PADFUN0_OFFSET	  0x10
 #define	APB_SOC_PADCFG0_OFFSET	  0x20
 
+#define ARCHI_APB_SOC_PADFUN_NB          4
+
 #define APB_SOC_PADFUN_OFFSET(g)   (APB_SOC_PADFUN0_OFFSET+(g)*4) //sets the mux for pins  g*16+0 (bits [1:0]) to g*16+15 (bits [31:30])
 #define APB_SOC_PADFUN_NO(pad)     ((pad) >> 4)
 #define APB_SOC_PADFUN_PAD(padfun) ((padfun)*16)
