@@ -44,8 +44,8 @@
 #define HWCE_W_BASE_ADDR           0x7C
 #define HWCE_JOB_CONFIG0           0x80
 #define HWCE_JOB_CONFIG1           0x84
-
-#define HWCE_NB_IO_REGS    18
+#define HWCE_JOB_CONFIG2           0x88
+#define HWCE_TH_BASE_ADDR          0x90
 
 #define HWCE_ACQUIRE_CONTEXT_COPY -3
 #define HWCE_ACQUIRE_LOCKED       -2
@@ -94,10 +94,12 @@
 #define HWCE_LOOP_ORDER_OF_IF 2
 #define HWCE_LOOP_ORDER_IF_OF 3
 
-// 8-bit and 4-bit pixel modes
-#define HWCE_PIXMODE_16BIT 0
-#define HWCE_PIXMODE_8BIT  1
-#define HWCE_PIXMODE_4BIT  2
+// quantization modes
+#define HWCE_QMODE_16BIT 0
+#define HWCE_QMODE_8BIT  4
+#define HWCE_QMODE_4BIT  3
+#define HWCE_QMODE_2BIT  2
+#define HWCE_QMODE_1BIT  1
 
 // y_in modes
 #define HWCE_Y_IN_MODE_ON  1
