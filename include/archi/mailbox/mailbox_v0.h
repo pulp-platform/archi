@@ -15,8 +15,8 @@
  */
 
 
-#ifndef __ARCHI_CHIPS_BIGPULP_MAILBOX_H__
-#define __ARCHI_CHIPS_BIGPULP_MAILBOX_H__
+#ifndef __ARCHI_MAILBOX_V0_H__
+#define __ARCHI_MAILBOX_V0_H__
 
 #if PULP_CHIP_FAMILY != CHIP_BIGPULP
 #error This file must be included only for bigpulp chip
