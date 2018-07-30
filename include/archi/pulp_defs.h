@@ -53,6 +53,7 @@
 #define CHIP_HERO_Z_7045           32
 #define CHIP_OPRECOMPKW_SA         33
 #define CHIP_OPRECOMPKW_SFLOAT     34
+#define CHIP_OPRECOMPKW_SFLOAT_SA  35
 
 #define CORE_OR1K_V1  0
 #define CORE_OR1K_V2  1
