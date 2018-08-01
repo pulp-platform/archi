@@ -96,6 +96,28 @@
 #define ARCHI_EVT_SOC_FIFO    31
 
 /*
+ * RAB
+ */
+#define RAB_PORT_ID_WIDTH            1
+#define RAB_L1_N_SLICES_PORT_0       4
+#define RAB_L1_N_SLICES_PORT_1      32
+#define RAB_L2_N_SETS               32
+#define RAB_L2_N_ENTRIES_PER_SET    32
+
+/*
+ * AXI
+ */
+#define AXI_USER_WIDTH          6
+#define AXI_ID_WIDTH_CORE       4
+#define AXI_ID_WIDTH_CLUSTER    2
+#if PULP_CHIP == CHIP_BIGPULP       // Juno
+    #define AXI_ID_WIDTH_SOC    3
+#else
+    #define AXI_ID_WIDTH_SOC    1
+#endif
+#define AXI_ID_WIDTH            (AXI_ID_WIDTH_CORE + AXI_ID_WIDTH_CLUSTER + AXI_ID_WIDTH_SOC)
+
+/*
  * PERIPHS
  */
 
