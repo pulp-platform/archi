@@ -96,6 +96,20 @@
 #define ARCHI_EVT_SOC_FIFO    31
 
 /*
+ * Host Architecture
+ */
+#define ARM     0
+#define ARM64   1
+
+#if (PULP_CHIP == CHIP_BIGPULP) || (PULP_CHIP == CHIP_BIGPULP_ZUX)
+    #define HOST_ARCH   ARM64
+#elif (PULP_CHIP == CHIP_BIGPULP_Z_7045) || (PULP_CHIP == CHIP_HERO_Z_7045)
+    #define HOST_ARCH   ARM
+#else
+    #error "Failed to define HOST_ARCH for unknown configuration!"
+#endif
+
+/*
  * RAB
  */
 #define RAB_PORT_ID_WIDTH            1
