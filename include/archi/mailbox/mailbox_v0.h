@@ -23,13 +23,12 @@
 #endif
 
 /* MAILBOX REGISTERS */
-#define MAILBOX_BASE_ADDR             ( ARCHI_SOC_PERIPHERALS_ADDR + 0x21000 ) // Interface 1
-#define MAILBOX_REG_WRDATA            ( MAILBOX_BASE_ADDR + 0x0 )
-#define MAILBOX_REG_RDDATA            ( MAILBOX_BASE_ADDR + 0x8 )
-#define MAILBOX_REG_STATUS            ( MAILBOX_BASE_ADDR + 0x10)
-#define MAILBOX_REG_ERROR             ( MAILBOX_BASE_ADDR + 0x14)
-#define MAILBOX_REG_IS                ( MAILBOX_BASE_ADDR + 0x20)
-#define MAILBOX_REG_IE                ( MAILBOX_BASE_ADDR + 0x24)
+#define MAILBOX_REG_WRDATA            ( ARCHI_MAILBOX_BASE_ADDR + 0x0 )
+#define MAILBOX_REG_RDDATA            ( ARCHI_MAILBOX_BASE_ADDR + 0x8 )
+#define MAILBOX_REG_STATUS            ( ARCHI_MAILBOX_BASE_ADDR + 0x10)
+#define MAILBOX_REG_ERROR             ( ARCHI_MAILBOX_BASE_ADDR + 0x14)
+#define MAILBOX_REG_IS                ( ARCHI_MAILBOX_BASE_ADDR + 0x20)
+#define MAILBOX_REG_IE                ( ARCHI_MAILBOX_BASE_ADDR + 0x24)
 
 /* SIGNALING */
 #define PULP_READY                    ( 0x01U   )
@@ -48,4 +47,5 @@
 #define TO_RUNTIME                    ( 0x10000000U ) // bypass PULP driver
 #define RAB_UPDATE                    ( 0x20000000U ) // handled by PULP driver
 #define RAB_SWITCH                    ( 0x30000000U ) // handled by PULP driver
+
 #endif
