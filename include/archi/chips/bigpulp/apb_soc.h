@@ -79,7 +79,7 @@
 #define APB_SOC_NOTUSED4_OFFSET   0x94 //not used at the moment
 #define APB_SOC_NOTUSED5_OFFSET   0x98 //not used at the moment
 #define APB_SOC_NOTUSED6_OFFSET   0x9C //not used at the moment
-#define APB_SOC_CORESTATUS_OFFSET 0xA0 //32bit GP register to be used during testing to return EOC(bit[31]) and status(bit[30:0])
+#define APB_SOC_CORESTATUS_OFFSET 0x80 //32bit GP register to be used during testing to return EOC(bit[31]) and status(bit[30:0])
 #define APB_SOC_CORESTATUS_RO_OFFSET 0xC0 //32bit GP register to be used during testing to return EOC(bit[31]) and status(bit[30:0])
 #define APB_SOC_PADS_CONFIG       0xC4
 
