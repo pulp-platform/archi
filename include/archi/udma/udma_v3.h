@@ -73,7 +73,7 @@
 // The UDMA also has a global configuration are defined here
 
 // Configuration area offset
-#define UDMA_CONF_OFFSET            0x780
+#define UDMA_CONF_OFFSET            0x0
 
 // Configuration area size
 #define UDMA_CONF_SIZE              0x040
@@ -125,7 +125,7 @@
 #define UDMA_CONF_EVTIN_EVT(udmaId,globalId) ((globalId)<<(udmaId*8))
 
 // Return the offset of a peripheral from its identifier
-#define UDMA_PERIPH_OFFSET(id)              ((id)<<UDMA_PERIPH_AREA_SIZE_LOG2)
+#define UDMA_PERIPH_OFFSET(id)              ((id)<<UDMA_PERIPH_AREA_SIZE_LOG2)+0x80
 
 // Returns the identifier of a peripheral from its offset
 #define UDMA_PERIPH_GET(offset)             ((offset)>>UDMA_PERIPH_AREA_SIZE_LOG2)
@@ -183,9 +183,9 @@
 #endif
 
 #ifdef ARCHI_UDMA_HAS_SPIM
-#define UDMA_SPIM_CMD_ADDR(id)        (ARCHI_UDMA_ADDR + UDMA_SPIM_OFFSET(id) + 0x00)
-#define UDMA_SPIM_RX_ADDR(id)         (ARCHI_UDMA_ADDR + UDMA_SPIM_OFFSET(id) + 0x10)
-#define UDMA_SPIM_TX_ADDR(id)         (ARCHI_UDMA_ADDR + UDMA_SPIM_OFFSET(id) + 0x20)
+#define UDMA_SPIM_CMD_ADDR(id)        (ARCHI_UDMA_ADDR + UDMA_SPIM_OFFSET(id) + 0x20)
+#define UDMA_SPIM_RX_ADDR(id)         (ARCHI_UDMA_ADDR + UDMA_SPIM_OFFSET(id) + 0x00)
+#define UDMA_SPIM_TX_ADDR(id)         (ARCHI_UDMA_ADDR + UDMA_SPIM_OFFSET(id) + 0x10)
 #define UDMA_SPIM_CUSTOM_ADDR(id)     (ARCHI_UDMA_ADDR + UDMA_SPIM_OFFSET(id) + UDMA_CHANNEL_CUSTOM_OFFSET)
 #endif
 
