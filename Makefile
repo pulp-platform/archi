@@ -6,7 +6,7 @@ INSTALL_FILES += $(foreach file,$(ARCHI_FILES),include/$(file))
 
 WS_INSTALL_FILES += $(INSTALL_FILES)
 
-debug:
-	echo $(ARCHI_FILES)
+gen:
+	cd include && plpdoc --name=itc --config=ips/itc_v1.json --header=archi/itc/itc_v1.h memmap
 
 include $(PULP_SDK_HOME)/install/rules/pulp.mk

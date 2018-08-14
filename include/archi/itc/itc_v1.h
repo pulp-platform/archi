@@ -1,3 +1,7 @@
+
+/* THIS FILE HAS BEEN GENERATED, DO NOT MODIFY IT.
+ */
+
 /*
  * Copyright (C) 2018 ETH Zurich and University of Bologna
  *
@@ -17,18 +21,15 @@
 #ifndef __ARCHI_ITC_ITC_V1_H__
 #define __ARCHI_ITC_ITC_V1_H__
 
-#define ARCHI_ITC_MASK        0x00
-#define ARCHI_ITC_MASK_SET    0x04
-#define ARCHI_ITC_MASK_CLR    0x08
-
-#define ARCHI_ITC_STATUS      0x0C
-#define ARCHI_ITC_STATUS_SET  0x10
-#define ARCHI_ITC_STATUS_CLR  0x14
-
-#define ARCHI_ITC_ACK         0x18
-#define ARCHI_ITC_ACK_SET     0x1C
-#define ARCHI_ITC_ACK_CLR     0x20
-
-#define ARCHI_ITC_FIFO        0x24
+#define ARCHI_ITC_MASK_OFFSET                    0x0
+#define ARCHI_ITC_MASK_SET_OFFSET                0x4
+#define ARCHI_ITC_MASK_CLR_OFFSET                0x8
+#define ARCHI_ITC_STATUS_OFFSET                  0xc
+#define ARCHI_ITC_STATUS_SET_OFFSET              0x10
+#define ARCHI_ITC_STATUS_CLR_OFFSET              0x14
+#define ARCHI_ITC_ACK_OFFSET                     0x18
+#define ARCHI_ITC_ACK_SET_OFFSET                 0x1c
+#define ARCHI_ITC_ACK_CLR_OFFSET                 0x20
+#define ARCHI_ITC_FIFO_OFFSET                    0x24
 
 #endif
