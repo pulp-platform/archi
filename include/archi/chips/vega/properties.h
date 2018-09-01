@@ -125,8 +125,9 @@
 
 #define ARCHI_UDMA_SPIM_ID(id)            (0  + (id))
 #define ARCHI_UDMA_UART_ID(id)            (4  + (id))
-#define ARCHI_UDMA_I2C_ID(id)             (5  + (id))
-#define ARCHI_UDMA_HYPER_ID(id)           (8  + (id))
+#define ARCHI_UDMA_I2C_ID(id)             (6  + (id))
+#define ARCHI_UDMA_HYPER_ID(id)           (7  + (id))
+#define ARCHI_UDMA_JTAG_ID(id)            (8  + (id))
 #define ARCHI_UDMA_SDIO_ID(id)            (9  + (id))
 #define ARCHI_UDMA_I2S_ID(id)             (10 + (id))
 #define ARCHI_UDMA_CAM_ID(id)             (11 + (id))
