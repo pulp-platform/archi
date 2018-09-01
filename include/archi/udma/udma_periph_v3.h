@@ -486,6 +486,9 @@
 
 #ifdef ARCHI_UDMA_HAS_SPIM
 
+#define ARCHI_SPIM_CMD_OFFSET      0x20
+
+
 // SPI commands IDS definition
 #define SPI_CMD_CFG_ID       0
 #define SPI_CMD_SOT_ID       1
