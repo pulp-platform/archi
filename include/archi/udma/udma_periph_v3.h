@@ -608,8 +608,9 @@
 // FULL DUPLEX
 #define SPI_CMD_FUL_SIZE_OFFSET              0
 #define SPI_CMD_FUL_SIZE_WIDTH              16
-#define SPI_CMD_FUL_BYTE_ALIGN_OFFSET       26
-#define SPI_CMD_FUL_BYTE_ALIGN_WIDTH         1
+#define SPI_CMD_FUL_WORDTRANS_OFFSET 21
+#define SPI_CMD_FUL_LSBFIRST_OFFSET 26
+#define SPI_CMD_FUL_BITSWORD_OFFSET 16
 
 #define SPI_CMD_SETUP_UC_TXRXEN_OFFSET 27
 #define SPI_CMD_SETUP_UC_DS_OFFSET     25
@@ -645,7 +646,7 @@
 
 #define SPI_CMD_WAIT(event)               ((SPI_CMD_WAIT_ID<<SPI_CMD_ID_OFFSET) | ((event) << SPI_CMD_WAIT_EVENT_OFFSET))
 #define SPI_CMD_RPT_END()                 ((SPI_CMD_RPT_END_ID<<SPI_CMD_ID_OFFSET))
-#define SPI_CMD_FUL(bits,byte_align)      ((SPI_CMD_FUL_ID<<SPI_CMD_ID_OFFSET) | (((bits)-1) << SPI_CMD_FUL_SIZE_OFFSET) | ((byte_align)<<SPI_CMD_FUL_BYTE_ALIGN_OFFSET))
+#define SPI_CMD_FUL(words,wordstrans,bitsword,lsbfirst) ((SPI_CMD_FUL_ID<<SPI_CMD_ID_OFFSET)   | ((wordstrans)<<SPI_CMD_FUL_WORDTRANS_OFFSET) | ((bitsword-1)<<SPI_CMD_FUL_BITSWORD_OFFSET) | (((words)-1) << SPI_CMD_FUL_SIZE_OFFSET) | ((lsbfirst)<<SPI_CMD_FUL_LSBFIRST_OFFSET))
 
 #endif
 
