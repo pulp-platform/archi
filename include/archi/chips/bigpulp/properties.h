@@ -105,6 +105,7 @@
     #define HOST_ARCH   ARM64
 #elif (PULP_CHIP == CHIP_BIGPULP_Z_7045) || (PULP_CHIP == CHIP_HERO_Z_7045)
     #define HOST_ARCH   ARM
+#elif (PULP_CHIP == CHIP_BIGPULP_STANDALONE)
 #else
     #error "Failed to define HOST_ARCH for unknown configuration!"
 #endif
