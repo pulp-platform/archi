@@ -26,6 +26,8 @@
 #include "archi/chips/bigpulp/memory_map.h"
 #include "archi/chips/bigpulp/apb_soc.h"
 #include "archi/stdout/stdout_v3.h"
+#if PULP_CHIP != CHIP_BIGPULP_STANDALONE
 #include "archi/mailbox/mailbox_v0.h"
+#endif
 
 #endif
