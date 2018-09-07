@@ -133,12 +133,6 @@
 #define AXI_ID_WIDTH            (AXI_ID_WIDTH_CORE + AXI_ID_WIDTH_CLUSTER + AXI_ID_WIDTH_SOC)
 
 /*
- * L3 Memory
- */
-#define L3_MEM_BASE_ADDR    0x80000000
-#define L3_MEM_SIZE_B       0x08000000
-
-/*
  * PERIPHS
  */
 
