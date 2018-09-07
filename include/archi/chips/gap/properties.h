@@ -70,6 +70,7 @@
 
 //#define ARCHI_HAS_NO_BARRIER    1
 //#define ARCHI_HAS_NO_DISPATCH   1
+//#define ARCHI_HAS_NO_MUTEX   1
 
 
 
