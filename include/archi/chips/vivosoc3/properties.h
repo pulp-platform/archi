@@ -153,19 +153,19 @@
  * CLUSTER EVENTS
  */
 
-#define ARCHI_EVT_DMA0        8
-#define ARCHI_EVT_DMA1        9
+#define ARCHI_CL_EVT_DMA0        8
+#define ARCHI_CL_EVT_DMA1        9
 #define ARCHI_EVT_TIMER0      10
 #define ARCHI_EVT_TIMER1      11
-#define ARCHI_EVT_ACC0        12
-#define ARCHI_EVT_ACC1        13
-#define ARCHI_EVT_ACC2        14
-#define ARCHI_EVT_ACC3        15
-#define ARCHI_EVT_BAR         16
-#define ARCHI_EVT_MUTEX       17
-#define ARCHI_EVT_DISPATCH    18
+#define ARCHI_CL_EVT_ACC0        12
+#define ARCHI_CL_EVT_ACC1        13
+#define ARCHI_CL_EVT_ACC2        14
+#define ARCHI_CL_EVT_ACC3        15
+#define ARCHI_CL_EVT_BAR         16
+#define ARCHI_CL_EVT_MUTEX       17
+#define ARCHI_CL_EVT_DISPATCH    18
 #define ARCHI_EVT_MPU_ERROR   28
-#define ARCHI_EVT_SOC_EVT     30
+#define ARCHI_CL_EVT_SOC_EVT     30
 #define ARCHI_EVT_SOC_FIFO    31
 
 
@@ -176,8 +176,8 @@
 
 #define ARCHI_FC_EVT_FIRST_SW   0
 #define ARCHI_FC_EVT_NB_SW      8
-#define ARCHI_FC_EVT_TIMER0     10
-#define ARCHI_FC_EVT_TIMER1     11
+#define ARCHI_FC_EVT_TIMER0_LO     10
+#define ARCHI_FC_EVT_TIMER0_HI     11
 #define ARCHI_FC_EVT_CLK_REF    14
 #define ARCHI_FC_EVT_GPIO       15
 #define ARCHI_FC_EVT_RTC        16
