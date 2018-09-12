@@ -138,7 +138,7 @@
 #define ARCHI_UDMA_NB_HYPER     1
 #define ARCHI_UDMA_NB_SDIO      1
 #define ARCHI_UDMA_NB_UART      2
-#define ARCHI_UDMA_NB_I2C       3
+#define ARCHI_UDMA_NB_I2C       1
 #define ARCHI_UDMA_NB_I2S       1
 #define ARCHI_UDMA_NB_JTAG_FIFO 1
 #define ARCHI_UDMA_NB_MRAM      1
