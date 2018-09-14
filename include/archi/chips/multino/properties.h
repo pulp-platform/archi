@@ -82,24 +82,24 @@
  * CLUSTER EVENTS
  */
 #define ARCHI_EVT_RAB_WAKEUP  0
-#define ARCHI_EVT_DMA0        8
-#define ARCHI_EVT_DMA1        9
+#define ARCHI_CL_EVT_DMA0        8
+#define ARCHI_CL_EVT_DMA1        9
 #define ARCHI_EVT_TIMER0      10
 #define ARCHI_EVT_TIMER1      11
-#define ARCHI_EVT_ACC0        12
-#define ARCHI_EVT_ACC1        13
-#define ARCHI_EVT_ACC2        14
-#define ARCHI_EVT_ACC3        15
-#define ARCHI_EVT_BAR         16
-#define ARCHI_EVT_MUTEX       17
-#define ARCHI_EVT_DISPATCH    18
+#define ARCHI_CL_EVT_ACC0        12
+#define ARCHI_CL_EVT_ACC1        13
+#define ARCHI_CL_EVT_ACC2        14
+#define ARCHI_CL_EVT_ACC3        15
+#define ARCHI_CL_EVT_BAR         16
+#define ARCHI_CL_EVT_MUTEX       17
+#define ARCHI_CL_EVT_DISPATCH    18
 #define ARCHI_EVT_GPIO        19
 #define ARCHI_EVT_UART        20
 #define ARCHI_EVT_SPIM0       21
 #define ARCHI_EVT_SPIM1       22
 #define ARCHI_EVT_CLKREF      23
 #define ARCHI_EVT_MPU_ERROR   28
-#define ARCHI_EVT_SOC_EVT     30
+#define ARCHI_CL_EVT_SOC_EVT     30
 #define ARCHI_EVT_SOC_FIFO    31
 
 /*
