@@ -55,4 +55,6 @@
 #define SOC_CL_MASK(x)    (SOC_CL_FIRST_MASK + (x)*4)
 #define SOC_PR_MASK(x)    (SOC_PR_FIRST_MASK + (x)*4)
 
+#define ARCHI_SOC_EVENT_PERIPH_EVT_BASE(periph) ((periph)*ARCHI_SOC_EVENT_UDMA_NB_CHANNEL_EVT)
+
 #endif
