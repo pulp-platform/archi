@@ -125,7 +125,7 @@
 #define UDMA_CONF_EVTIN_EVT(udmaId,globalId) ((globalId)<<(udmaId*8))
 
 // Return the offset of a peripheral from its identifier
-#define UDMA_PERIPH_OFFSET(id)              ((id)<<UDMA_PERIPH_AREA_SIZE_LOG2)+0x80
+#define UDMA_PERIPH_OFFSET(id)              (((id)<<UDMA_PERIPH_AREA_SIZE_LOG2)+0x80)
 
 // Returns the identifier of a peripheral from its offset
 #define UDMA_PERIPH_GET(offset)             ((offset)>>UDMA_PERIPH_AREA_SIZE_LOG2)
