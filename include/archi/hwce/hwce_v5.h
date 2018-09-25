@@ -45,7 +45,10 @@
 #define HWCE_JOB_CONFIG0           0x80
 #define HWCE_JOB_CONFIG1           0x84
 #define HWCE_JOB_CONFIG2           0x88
-#define HWCE_TH_BASE_ADDR          0x90
+#define HWCE_TH_BASE_ADDR          0x8C
+#define HWCE_LBUFXTRANSSIZE_ADDR   0x90
+
+#define HWCE_NB_IO_REGS    19
 
 #define HWCE_ACQUIRE_CONTEXT_COPY -3
 #define HWCE_ACQUIRE_LOCKED       -2
@@ -90,9 +93,8 @@
 #define HWCE_LBSIZE 32
 
 // loop order modes
-#define HWCE_LOOP_ORDER_OLD   0
-#define HWCE_LOOP_ORDER_OF_IF 2
-#define HWCE_LOOP_ORDER_IF_OF 3
+#define HWCE_LOOP_ORDER_OF_IF 0
+#define HWCE_LOOP_ORDER_IF_OF 1
 
 // quantization modes
 #define HWCE_QMODE_16BIT 0
