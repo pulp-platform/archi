@@ -634,7 +634,8 @@
 #define SPI_CMD_TX_DATA(words,wordstrans,bitsword,qpi,lsbfirst) ((SPI_CMD_TX_DATA_ID<<SPI_CMD_ID_OFFSET)   | ((qpi)<<SPI_CMD_TX_DATA_QPI_OFFSET)        | ((wordstrans)<<SPI_CMD_TX_DATA_WORDTRANS_OFFSET) | ((bitsword-1)<<SPI_CMD_TX_DATA_BITSWORD_OFFSET) | (((words)-1) << SPI_CMD_TX_DATA_SIZE_OFFSET) | ((lsbfirst)<<SPI_CMD_TX_DATA_LSBFIRST_OFFSET))
 #define SPI_CMD_RX_DATA(words,wordstrans,bitsword,qpi,lsbfirst) ((SPI_CMD_RX_DATA_ID<<SPI_CMD_ID_OFFSET)   | ((qpi)<<SPI_CMD_RX_DATA_QPI_OFFSET)        | ((wordstrans)<<SPI_CMD_RX_DATA_WORDTRANS_OFFSET) | ((bitsword-1)<<SPI_CMD_RX_DATA_BITSWORD_OFFSET) | (((words)-1) << SPI_CMD_RX_DATA_SIZE_OFFSET) | ((lsbfirst)<<SPI_CMD_RX_DATA_LSBFIRST_OFFSET))
 #define SPI_CMD_RPT(iter)                                       ((SPI_CMD_RPT_ID<<SPI_CMD_ID_OFFSET)       | ((iter)<<SPI_CMD_RPT_NB_OFFSET))
-#define SPI_CMD_EOT(evt)                                        ((SPI_CMD_EOT_ID<<SPI_CMD_ID_OFFSET)       | ((evt)<<SPI_CMD_EOT_GEN_EVT_OFFSET))
+
+#define SPI_CMD_EOT(evt,cs_keep)    ((SPI_CMD_EOT_ID<<28) | ((evt)<<0) | ((cs_keep)<<1))
 
 #define SPI_CMD_RX_CHECK(mode,bits,value,qpi,byte_align) \
   ((SPI_CMD_RX_CHECK_ID<<SPI_CMD_ID_OFFSET) | \
