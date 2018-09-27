@@ -256,9 +256,10 @@
 
 #define ARCHI_SOC_EVENT_GPIO              139
 
-#define ARCHI_SOC_EVENT_RTC               141   
+#define ARCHI_SOC_EVENT_RTC_APB           140
+#define ARCHI_SOC_EVENT_RTC               141
 
-#define ARCHI_SOC_EVENT_SW_EVENT0         160 
+#define ARCHI_SOC_EVENT_SW_EVENT0         160
 #define ARCHI_SOC_EVENT_SW_EVENT1         161
 #define ARCHI_SOC_EVENT_SW_EVENT2         162
 #define ARCHI_SOC_EVENT_SW_EVENT3         163
@@ -266,7 +267,6 @@
 #define ARCHI_SOC_EVENT_SW_EVENT5         165
 #define ARCHI_SOC_EVENT_SW_EVENT6         166
 #define ARCHI_SOC_EVENT_SW_EVENT7         167
-
 #define ARCHI_SOC_EVENT_REFCLK            168  
 
 /*
