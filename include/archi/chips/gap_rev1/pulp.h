@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 ETH Zurich and University of Bologna
+ * Copyright (C) 2018 GreenWaves Technologies
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-#ifndef _ARCHI_RISCV_PRIV_1_9_H
-#define _ARCHI_RISCV_PRIV_1_9_H
 
-#define RV_CSR_MSTATUS  0x300
-#define RV_CSR_MEPC     0x341
-#define RV_CSR_MCAUSE   0x342
-#define RV_CSR_MTVAL    0x343
-#define RV_CSR_MESTATUS 0x7C0
-#define RV_CSR_MISA     0xF10
-#define RV_CSR_MIMPID   0xF13
-#define RV_CSR_MHARTID  0xF14
+#ifndef __ARCHI_CHIPS_GAP_REV1_PULP_H__
+#define __ARCHI_CHIPS_GAP_REV1_PULP_H__
+
+#include "archi/chips/gap_rev1/properties.h"
+
+#include "archi/riscv/priv_1_9.h"
+#include "archi/riscv/pcer_v1.h"
+
+#include "archi/chips/gap_rev1/memory_map.h"
+#include "archi/chips/gap_rev1/apb_soc.h"
+#include "archi/stdout/stdout_v3.h"
 
 #endif
