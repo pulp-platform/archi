@@ -27,6 +27,27 @@
 
 #endif
 
+/*
+ * CSI2
+ */
+#ifdef ARCHI_UDMA_HAS_CSI2
+
+// CSI2 custom registers offset definition
+
+#define CSI2_CLK_CFG_OFFSET 			(0x00)
+
+// CSI2 custom registers bitfields offset, mask, value definition
+#define CSI2_CLK_CFG_CCI_BIT			0
+#define CSI2_CLK_CFG_CCI_BITS			8
+#define CSI2_CLK_CFG_CCI_MASK			ARCHI_REG_MASK(CSI2_CLK_CFG_CCI_BIT, CSI2_CLK_CFG_CCI_BITS)
+#define CSI2_CLK_CFG_CCI(val)			(val << CSI2_CLK_CFG_CCI_BIT)
+
+#define CSI2_CLK_CFG_PIXEL_BIT			8
+#define CSI2_CLK_CFG_PIXEL_BITS			8
+#define CSI2_CLK_CFG_PIXEL_MASK			ARCHI_REG_MASK(CSI2_CLK_CFG_PIXEL_BIT, CSI2_CLK_CFG_PIXEL_BITS)
+#define CSI2_CLK_CFG_PIXEL(val)			(val << CSI2_CLK_CFG_PIXEL_BIT)
+
+#endif // ARCHI_UDMA_HAS_CSI2
 
 
 /*

@@ -86,7 +86,14 @@
 #define ARCHI_STDOUT_ADDR            ( ARCHI_SOC_PERIPHERALS_ADDR + ARCHI_STDOUT_OFFSET )
 #define ARCHI_QUIDDIKEY_ADDR         ( ARCHI_SOC_PERIPHERALS_ADDR + ARCHI_QUIDDIKEY_OFFSET )
 
+
+
+// VEGA HAL Handles definition
 #define QUIDDIKEY_HANDLE ((halQuiddikeyHandle_t *)(ARCHI_QUIDDIKEY_ADDR))
+#define CSI2_HANDLE ((halCsi2Handle_t *)(ARCHI_CSI2_ADDR))
+#define DPHY_HANDLE ((halDphyHandle_t *)(ARCHI_DPHY_ADDR))
+
+#define UDMA_CSI2_HANDLE(id) ((plpUdmaCsi2Handle_t *)(ARCHI_UDMA_ADDR + UDMA_CSI2_OFFSET(id)))
 
 
 
