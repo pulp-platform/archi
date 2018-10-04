@@ -101,7 +101,7 @@
 #define ARM     0
 #define ARM64   1
 
-#if (PULP_CHIP == CHIP_BIGPULP) || (PULP_CHIP == CHIP_BIGPULP_ZUX) || (PULP_CHIP == CHIP_BIGPULP_JUNO)
+#if (PULP_CHIP == CHIP_BIGPULP_ZUX) || (PULP_CHIP == CHIP_BIGPULP_JUNO)
     #define HOST_ARCH   ARM64
 #elif (PULP_CHIP == CHIP_BIGPULP_Z_7045) || (PULP_CHIP == CHIP_HERO_Z_7045)
     #define HOST_ARCH   ARM
@@ -125,7 +125,7 @@
 #define AXI_USER_WIDTH          6
 #define AXI_ID_WIDTH_CORE       4
 #define AXI_ID_WIDTH_CLUSTER    2
-#if PULP_CHIP == CHIP_BIGPULP       // Juno
+#if PULP_CHIP == CHIP_BIGPULP_JUNO
     #define AXI_ID_WIDTH_SOC    3
 #else
     #define AXI_ID_WIDTH_SOC    1
