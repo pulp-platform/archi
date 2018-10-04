@@ -58,6 +58,7 @@
 #define CHIP_BIGPULP_STANDALONE    37
 #define CHIP_GAP_REV1              38
 #define CHIP_USOC_V1               39
+#define CHIP_BIGPULP_JUNO          40
 
 #define CORE_OR1K_V1  0
 #define CORE_OR1K_V2  1
