@@ -23,7 +23,6 @@
  */ 
 
 #define ARCHI_HAS_L2                   1
-#define ARCHI_HAS_L1                   1
 
 
 
@@ -31,10 +30,8 @@
  * MEMORY ALIAS
  */
 
-#define ARCHI_HAS_L1_ALIAS             1
 #define ARCHI_HAS_L2_ALIAS             1
 
-#define ARCHI_L1_SIZE                  65536
 
 
 
@@ -49,19 +46,9 @@
 #define APB_SOC_VERSION     2
 #define STDOUT_VERSION      2
 #define GPIO_VERSION        2
-#define EU_VERSION          3
 #define ITC_VERSION         1
 #define RISCV_VERSION       4
-#define MCHAN_VERSION       6
 
-
-/*
- * CLUSTER
- */
-
-#define ARCHI_HAS_CLUSTER   1
-#define ARCHI_L1_TAS_BIT    20
-#define ARCHI_CLUSTER_NB_PE 8
 
 
 
@@ -168,26 +155,6 @@
 #define ARCHI_SOC_EVENT_NB           8
 
 #define ARCHI_SOC_EVENT_REF_CLK_RISE 56
-
-
-/*
- * CLUSTER EVENTS
- */
-
-#define ARCHI_CL_EVT_DMA0        8
-#define ARCHI_CL_EVT_DMA1        9
-#define ARCHI_EVT_TIMER0      10
-#define ARCHI_EVT_TIMER1      11
-#define ARCHI_CL_EVT_ACC0        12
-#define ARCHI_CL_EVT_ACC1        13
-#define ARCHI_CL_EVT_ACC2        14
-#define ARCHI_CL_EVT_ACC3        15
-#define ARCHI_CL_EVT_BAR         16
-#define ARCHI_CL_EVT_MUTEX       17
-#define ARCHI_CL_EVT_DISPATCH    18
-#define ARCHI_EVT_MPU_ERROR   28
-#define ARCHI_CL_EVT_SOC_EVT     30
-#define ARCHI_EVT_SOC_FIFO    31
 
 
 
