@@ -89,18 +89,18 @@
 #define ARCHI_UDMA_HAS_HYPER 1
 
 #define ARCHI_UDMA_NB_SPIM  8
-#define ARCHI_UDMA_NB_UART  4
+#define ARCHI_UDMA_NB_UART  3
 #define ARCHI_UDMA_NB_I2C   4
 #define ARCHI_UDMA_NB_I2S   4
 #define ARCHI_UDMA_NB_HYPER 1
 
-#define ARCHI_UDMA_SPIM_ID(id)            (4 + (id))
+#define ARCHI_UDMA_SPIM_ID(id)            (3 + (id))
 #define ARCHI_UDMA_UART_ID(id)            (0 + (id))
-#define ARCHI_UDMA_I2C_ID(id)             (11 + (id))
-#define ARCHI_UDMA_I2S_ID(id)             (15 + (id))
-#define ARCHI_UDMA_HYPER_ID(id)           (20 + (id))
+#define ARCHI_UDMA_I2C_ID(id)             (10 + (id))
+#define ARCHI_UDMA_I2S_ID(id)             (14 + (id))
+#define ARCHI_UDMA_HYPER_ID(id)           (19 + (id))
 
-#define ARCHI_NB_PERIPH                   21
+#define ARCHI_NB_PERIPH                   20
 
 
 
