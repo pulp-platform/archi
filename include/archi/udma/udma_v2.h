@@ -73,7 +73,7 @@
 // The UDMA also has a global configuration are defined here
 
 // Configuration area offset
-#if PULP_CHIP_FAMILY == CHIP_USOC_V1
+#if defined(PULP_CHIP_FAMILY) && PULP_CHIP_FAMILY == CHIP_USOC_V1
 #define UDMA_CONF_OFFSET            0xF80
 #else
 #define UDMA_CONF_OFFSET            0x780
