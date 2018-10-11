@@ -231,13 +231,19 @@
 
 // DPHY Registers offset definition
 #define APB_CSI2_DPHY_LANE_ENABLE_OFFSET             (0x00 << 2)
+
+//TODO
+// #define APB_CSI2_DPHY_LANE_ENABLE_OFFSET             (0x0d << 2)
+// #define APB_CSI2_DPHY_LANE_ENABLE_OFFSET             (0x0e << 2)
+// #define APB_CSI2_DPHY_LANE_ENABLE_OFFSET             (0x0f << 2)
+
 #define APB_CSI2_DPHY_RESET_DIG_LOGIC_OFFSET         (0x20 << 2)
-#define APB_CSI2_DPHY_LANE_CK_HS_COUNTDOWN_OFFSET    (0x38 << 2)
-#define APB_CSI2_DPHY_LANE_CK_CONT_MODE_OFFSET       (0x2a << 2)
-#define APB_CSI2_DPHY_LANE_CK_RX_CALIB_ENABLE_OFFSET (0x3a << 2)
+#define APB_CSI2_DPHY_LANE_CK_CONT_MODE_OFFSET       (0x4a << 2)
+#define APB_CSI2_DPHY_LANE_CK_HS_COUNTDOWN_OFFSET    (0x58 << 2)
+#define APB_CSI2_DPHY_LANE_CK_RX_CALIB_ENABLE_OFFSET (0x5a << 2)
 #define APB_CSI2_DPHY_LANE_0_HS_COUNTDOWN_OFFSET     (0x78 << 2)
-#define APB_CSI2_DPHY_LANE_0_RX_CALIB_ENABLE_OFFSET  (0x9a << 2)
-#define APB_CSI2_DPHY_LANE_1_HS_COUNTDOWN_OFFSET     (0x88 << 2)
+#define APB_CSI2_DPHY_LANE_0_RX_CALIB_ENABLE_OFFSET  (0x7a << 2)
+#define APB_CSI2_DPHY_LANE_1_HS_COUNTDOWN_OFFSET     (0x98 << 2)
 #define APB_CSI2_DPHY_LANE_1_RX_CALIB_ENABLE_OFFSET  (0x9a << 2)
 
 // DPHY Registers bitfields offset, mask, value definition
