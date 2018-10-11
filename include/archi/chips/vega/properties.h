@@ -68,6 +68,7 @@
 #define HWCE_VERSION           5
 
 #define CL_CTRL_VERSION        2
+#define PADS_VERSION        2
 
 
 /*

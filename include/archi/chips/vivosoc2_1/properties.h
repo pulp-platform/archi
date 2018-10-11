@@ -48,6 +48,7 @@
 #define STDOUT_VERSION      2
 #define OR1K_VERSION        5
 #define UDMA_VERSION        1
+#define PADS_VERSION        2
 
 
 /*

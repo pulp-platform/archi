@@ -17,6 +17,16 @@
 #ifndef __ARCHI_UDMA_UDMA_I2S_V1_H__
 #define __ARCHI_UDMA_UDMA_I2S_V1_H__
 
+#include "archi/udma/udma_v2.h"
+
+#define UDMA_I2S_ADDR(id)             (ARCHI_UDMA_ADDR + UDMA_I2S_OFFSET(id)) //FIXME shall be removed because deprecated
+#define UDMA_I2S_RX0_ADDR(id)         (ARCHI_UDMA_ADDR + UDMA_I2S_OFFSET(id) + UDMA_CHANNEL_RX_OFFSET)
+#define UDMA_I2S_RX1_ADDR(id)         (ARCHI_UDMA_ADDR + UDMA_I2S_OFFSET(id) + UDMA_CHANNEL_TX_OFFSET)
+#define UDMA_I2S_CUSTOM_ADDR(id)      (ARCHI_UDMA_ADDR + UDMA_I2S_OFFSET(id) + UDMA_CHANNEL_CUSTOM_OFFSET)
+
+
+#define UDMA_I2S_OFFSET(id)           UDMA_PERIPH_OFFSET(ARCHI_UDMA_I2S_ID(id))
+
 // I2S custom registers offset definition
 #define I2S_EXT_OFFSET             (0x00)
 #define I2S_CFG_CLKGEN0_OFFSET            (0x04)

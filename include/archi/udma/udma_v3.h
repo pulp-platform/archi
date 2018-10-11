@@ -17,8 +17,6 @@
 #ifndef __ARCHI_UDMA_UDMA_V3_H__
 #define __ARCHI_UDMA_UDMA_V3_H__
 
-#include "archi/udma/udma_periph_v3.h"
-
 /*
  * Global register map
  */
@@ -161,19 +159,5 @@
 #endif
 
 
-#ifdef ARCHI_UDMA_HAS_HYPER
-
-#define ARCHI_UDMA_HYPER_RX_EVT           0
-#define ARCHI_UDMA_HYPER_TX_EVT           1
-
-#endif
-
-
-#ifdef ARCHI_UDMA_HAS_UART
-
-#define ARCHI_UDMA_UART_RX_EVT           0
-#define ARCHI_UDMA_UART_TX_EVT           1
-
-#endif
 
 #endif

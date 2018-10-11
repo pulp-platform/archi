@@ -76,4 +76,7 @@
 #define UART_CLKDIV_MASK    (0xffff << UART_CLKDIV_OFFSET)
 #define UART_CLKDIV(val)    (val << UART_CLKDIV_OFFSET)
 
+#define ARCHI_UDMA_UART_RX_EVT           0
+#define ARCHI_UDMA_UART_TX_EVT           1
+
 #endif

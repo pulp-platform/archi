@@ -27,4 +27,8 @@
 #include "archi/chips/vivosoc3/apb_soc.h"
 #include "archi/stdout/stdout_v3.h"
 
+#include "archi/udma/i2c/udma_i2c_v2.h"
+#include "archi/udma/spim/udma_spim_v2.h"
+#include "archi/udma/uart/udma_uart_v1.h"
+
 #endif

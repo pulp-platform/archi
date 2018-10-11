@@ -17,16 +17,17 @@
 #ifndef __ARCHI_UDMA_UDMA_I2C_V1_H__
 #define __ARCHI_UDMA_UDMA_I2C_V1_H__
 
-// I2C command IDS definition
-#define I2C_CMD_OFFSET       4
-#define I2C_CMD_START                    (0x0 << I2C_CMD_OFFSET)
-#define I2C_CMD_STOP                     (0x2 << I2C_CMD_OFFSET)
-#define I2C_CMD_RD_ACK                   (0x4 << I2C_CMD_OFFSET)
-#define I2C_CMD_RD_NACK                  (0x6 << I2C_CMD_OFFSET)
-#define I2C_CMD_WR                       (0x8 << I2C_CMD_OFFSET)
-#define I2C_CMD_WAIT                     (0xA << I2C_CMD_OFFSET)
-#define I2C_CMD_RPT                      (0xC << I2C_CMD_OFFSET)
-#define I2C_CMD_CFG                      (0xE << I2C_CMD_OFFSET)
-#define I2C_CMD_WAIT_EV                  (0x1 << I2C_CMD_OFFSET)
+#define ARCHI_I2C_SETUP_OFFSET          0x0
+
+#define I2C_CMD_START   0x02
+#define I2C_CMD_STOP    0x04
+#define I2C_CMD_RD_ACK  0x08
+#define I2C_CMD_RD_NACK 0x10
+#define I2C_CMD_WR      0x20
+#define I2C_CMD_WAIT    0x40
+#define I2C_CMD_RPT     0x80
+
+#define I2C_CMD_SETUP_ENABLE_BIT           8
+#define I2C_CMD_SETUP_DIV_BIT              16
 
 #endif

@@ -1,74 +1,21 @@
 /*
- * Copyright (C) 2015 ETH Zurich and University of Bologna
- * All rights reserved.
+ * Copyright (C) 2018 ETH Zurich and University of Bologna
  *
- * This software may be modified and distributed under the terms
- * of the BSD license.  See the LICENSE file for details.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-#ifndef __ARCHI_UDMA_PERIPH_V1_H__
-#define __ARCHI_UDMA_PERIPH_V1_H__
-
-
-/*
- * I2S
- */
-
-#ifdef PLP_UDMA_HAS_I2S
-
-#define I2S_CHMODE_OFFSET                (0x00)
-#define I2S_USEDDR_OFFSET                (0x04)
-#define I2S_EXT_SETUP_OFFSET             (0x08)
-#define I2S_CFG0_SETUP_OFFSET            (0x0C)
-#define I2S_CFG1_SETUP_OFFSET            (0x10)
-
-#endif
-
-
-/*
- * UART
- */
-
-#ifdef PLP_UDMA_HAS_UART
-
-#define UART_SETUP_OFFSET                (0x00)
-#define UART_STATUS_OFFSET               (0x0A)
- 
-#endif
-
-
-
-
-/*
- * I2C
- */
-
-#ifdef ARCHI_UDMA_HAS_I2C
-
-#define ARCHI_I2C_SETUP_OFFSET          0x0
-
-#define I2C_CMD_START   0x02
-#define I2C_CMD_STOP    0x04
-#define I2C_CMD_RD_ACK  0x08
-#define I2C_CMD_RD_NACK 0x10
-#define I2C_CMD_WR      0x20
-#define I2C_CMD_WAIT    0x40
-#define I2C_CMD_RPT     0x80
-
-#define I2C_CMD_SETUP_ENABLE_BIT           8
-#define I2C_CMD_SETUP_DIV_BIT              16
-
-#endif
-
-
-
-
-/*
- * SPIM
- */
-
-#ifdef ARCHI_UDMA_HAS_SPIM
+#ifndef __ARCHI_UDMA_UDMA_SPIM_V1_H__
+#define __ARCHI_UDMA_UDMA_SPIM_V1_H__
 
 #define SPIM_RX_SADDR_OFFSET             0x000
 #define SPIM_RX_SIZE_OFFSET              0x004
@@ -118,8 +65,5 @@
 #define SPIM_CMD_WR                      1
 #define SPIM_CMD_QRD                     2
 #define SPIM_CMD_QWR                     3
-
-#endif
-
 
 #endif
