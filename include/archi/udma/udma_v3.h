@@ -143,6 +143,11 @@
 
 
 
+#define ARCHI_SOC_EVENT_UDMA_RX(periph)   ((periph)*2)
+#define ARCHI_SOC_EVENT_UDMA_TX(periph)   ((periph)*2 + 1)
+
+
+
 // Define UMDA peripheral common register base address map
 
 #ifdef ARCHI_UDMA_HAS_SPIM
