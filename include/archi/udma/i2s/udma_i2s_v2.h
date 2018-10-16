@@ -53,19 +53,19 @@
 // REGISTERS FIELDS
 //
 
-//  (access: R/W)
+// LSB of master clock divider. (access: R/W)
 #define UDMA_I2S_CLKCFG_SETUP_MASTER_CLK_DIV_BIT                     0
 #define UDMA_I2S_CLKCFG_SETUP_MASTER_CLK_DIV_WIDTH                   8
 #define UDMA_I2S_CLKCFG_SETUP_MASTER_CLK_DIV_MASK                    0xff
 #define UDMA_I2S_CLKCFG_SETUP_MASTER_CLK_DIV_RESET                   0x0
 
-//  (access: R/W)
+// LSB of slave clock divider. (access: R/W)
 #define UDMA_I2S_CLKCFG_SETUP_SLAVE_CLK_DIV_BIT                      8
 #define UDMA_I2S_CLKCFG_SETUP_SLAVE_CLK_DIV_WIDTH                    16
 #define UDMA_I2S_CLKCFG_SETUP_SLAVE_CLK_DIV_MASK                     0xffff00
 #define UDMA_I2S_CLKCFG_SETUP_SLAVE_CLK_DIV_RESET                    0x0
 
-//  (access: R/W)
+// MSBs of both master and slave clock divider. (access: R/W)
 #define UDMA_I2S_CLKCFG_SETUP_COMMON_CLK_DIV_BIT                     16
 #define UDMA_I2S_CLKCFG_SETUP_COMMON_CLK_DIV_WIDTH                   8
 #define UDMA_I2S_CLKCFG_SETUP_COMMON_CLK_DIV_MASK                    0xff0000
@@ -207,9 +207,9 @@
 
 typedef union {
   struct {
-    unsigned int master_clk_div  :8 ; // 
-    unsigned int slave_clk_div   :16; // 
-    unsigned int common_clk_div  :8 ; // 
+    unsigned int master_clk_div  :8 ; // LSB of master clock divider.
+    unsigned int slave_clk_div   :16; // LSB of slave clock divider.
+    unsigned int common_clk_div  :8 ; // MSBs of both master and slave clock divider.
     unsigned int slave_clk_en    :1 ; // Enables Slave clock
     unsigned int master_clk_en   :1 ; // Enables Master clock
     unsigned int pdm_clk_en      :1 ; // When enabled slave output clock is taken from PDM module
