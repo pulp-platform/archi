@@ -1,7 +1,6 @@
 import os
 import subprocess
 import shlex
-import plptree
 import plpconfig
 import SCons.Util
 
