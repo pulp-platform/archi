@@ -50,6 +50,7 @@
 
 // related to XX_FIRST_MASK registers
 #define SOC_NB_EVENT_REGS        8
+#define SOC_NB_EVENT_TARGETS     3
 
 #define SOC_FC_MASK(x)    (SOC_FC_FIRST_MASK + (x)*4)
 #define SOC_CL_MASK(x)    (SOC_CL_FIRST_MASK + (x)*4)
