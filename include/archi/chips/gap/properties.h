@@ -62,8 +62,10 @@
 
 #define ARCHI_HAS_CLUSTER          1
 #define ARCHI_L1_TAS_BIT           20
-#define ARCHI_HAS_CLUSTER_CLK_GATE 1
 #define ARCHI_CLUSTER_NB_PE        8
+#if PULP_CHIP != CHIP_GAP
+#define ARCHI_HAS_CLUSTER_CLK_GATE 1
+#endif
 
 /*
  * CLUSTER EVENT UNIT

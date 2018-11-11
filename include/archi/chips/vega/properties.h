@@ -83,6 +83,7 @@
 //#define ARCHI_HAS_CC        1
 //#define ARCHI_CC_CORE_ID    0
 #define ARCHI_CLUSTER_NB_PE 8
+#define ARCHI_HAS_CLUSTER_CLK_GATE 1
 
 
 /*
