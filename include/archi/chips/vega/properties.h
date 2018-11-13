@@ -61,6 +61,7 @@
 #define STDOUT_VERSION         2
 #define QUIDDIKEY_VERSION      1
 #define ROM_VERSION            2
+#define RTC_VERSION            1
 
 #define EU_VERSION             3
 #define RISCV_VERSION          4
