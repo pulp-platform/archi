@@ -66,16 +66,22 @@
 // REGISTERS FIELDS
 //
 
-// Direction of the transfer on the PICL bus. dir = 1 means read operation, dir = 0 means write operation. (access: R/W)
-#define MAESTRO_DLC_PCTRL_START_BIT                                  15
+// Start of PICL access sequence. A rising edge of the start bit starts a PICL picl transfer. Start bit remains high until the end of the sequence, which means that no new access can be performed if an access is on going. (access: R/W)
+#define MAESTRO_DLC_PCTRL_START_BIT                                  0
 #define MAESTRO_DLC_PCTRL_START_WIDTH                                1
-#define MAESTRO_DLC_PCTRL_START_MASK                                 0x8000
+#define MAESTRO_DLC_PCTRL_START_MASK                                 0x1
 #define MAESTRO_DLC_PCTRL_START_RESET                                0x0
 
 // Address of the transfer on the PICL bus. (access: R/W)
-#define MAESTRO_DLC_PCTRL_DIR_BIT                                    1
-#define MAESTRO_DLC_PCTRL_DIR_WIDTH                                  14
-#define MAESTRO_DLC_PCTRL_DIR_MASK                                   0x7ffe
+#define MAESTRO_DLC_PCTRL_PADDR_BIT                                  1
+#define MAESTRO_DLC_PCTRL_PADDR_WIDTH                                14
+#define MAESTRO_DLC_PCTRL_PADDR_MASK                                 0x7ffe
+#define MAESTRO_DLC_PCTRL_PADDR_RESET                                0x0
+
+// Direction of the transfer on the PICL bus. dir = 1 means read operation, dir = 0 means write operation. (access: R/W)
+#define MAESTRO_DLC_PCTRL_DIR_BIT                                    15
+#define MAESTRO_DLC_PCTRL_DIR_WIDTH                                  1
+#define MAESTRO_DLC_PCTRL_DIR_MASK                                   0x8000
 #define MAESTRO_DLC_PCTRL_DIR_RESET                                  0x0
 
 // Data to write on the PICL bus. (access: R/W)
@@ -190,8 +196,9 @@
 
 typedef union {
   struct {
-    unsigned int start           :1 ; // Direction of the transfer on the PICL bus. dir = 1 means read operation, dir = 0 means write operation.
-    unsigned int dir             :14; // Address of the transfer on the PICL bus.
+    unsigned int start           :1 ; // Start of PICL access sequence. A rising edge of the start bit starts a PICL picl transfer. Start bit remains high until the end of the sequence, which means that no new access can be performed if an access is on going.
+    unsigned int paddr           :14; // Address of the transfer on the PICL bus.
+    unsigned int dir             :1 ; // Direction of the transfer on the PICL bus. dir = 1 means read operation, dir = 0 means write operation.
     unsigned int pwdata          :16; // Data to write on the PICL bus.
   };
   unsigned int raw;
@@ -320,15 +327,20 @@ static inline void maestro_dlc_imcifr_set(uint32_t base, uint32_t value) { ARCHI
 
 #ifndef LANGUAGE_ASSEMBLY
 
-#define MAESTRO_DLC_PCTRL_START_GET(value)                 (ARCHI_BEXTRACTU((value),1,15))
-#define MAESTRO_DLC_PCTRL_START_GETS(value)                (ARCHI_BEXTRACT((value),1,15))
-#define MAESTRO_DLC_PCTRL_START_SET(value,field)           (ARCHI_BINSERT((value),(field),1,15))
-#define MAESTRO_DLC_PCTRL_START(val)                       ((val) << 15)
+#define MAESTRO_DLC_PCTRL_START_GET(value)                 (ARCHI_BEXTRACTU((value),1,0))
+#define MAESTRO_DLC_PCTRL_START_GETS(value)                (ARCHI_BEXTRACT((value),1,0))
+#define MAESTRO_DLC_PCTRL_START_SET(value,field)           (ARCHI_BINSERT((value),(field),1,0))
+#define MAESTRO_DLC_PCTRL_START(val)                       ((val) << 0)
 
-#define MAESTRO_DLC_PCTRL_DIR_GET(value)                   (ARCHI_BEXTRACTU((value),14,1))
-#define MAESTRO_DLC_PCTRL_DIR_GETS(value)                  (ARCHI_BEXTRACT((value),14,1))
-#define MAESTRO_DLC_PCTRL_DIR_SET(value,field)             (ARCHI_BINSERT((value),(field),14,1))
-#define MAESTRO_DLC_PCTRL_DIR(val)                         ((val) << 1)
+#define MAESTRO_DLC_PCTRL_PADDR_GET(value)                 (ARCHI_BEXTRACTU((value),14,1))
+#define MAESTRO_DLC_PCTRL_PADDR_GETS(value)                (ARCHI_BEXTRACT((value),14,1))
+#define MAESTRO_DLC_PCTRL_PADDR_SET(value,field)           (ARCHI_BINSERT((value),(field),14,1))
+#define MAESTRO_DLC_PCTRL_PADDR(val)                       ((val) << 1)
+
+#define MAESTRO_DLC_PCTRL_DIR_GET(value)                   (ARCHI_BEXTRACTU((value),1,15))
+#define MAESTRO_DLC_PCTRL_DIR_GETS(value)                  (ARCHI_BEXTRACT((value),1,15))
+#define MAESTRO_DLC_PCTRL_DIR_SET(value,field)             (ARCHI_BINSERT((value),(field),1,15))
+#define MAESTRO_DLC_PCTRL_DIR(val)                         ((val) << 15)
 
 #define MAESTRO_DLC_PCTRL_PWDATA_GET(value)                (ARCHI_BEXTRACTU((value),16,16))
 #define MAESTRO_DLC_PCTRL_PWDATA_GETS(value)               (ARCHI_BEXTRACT((value),16,16))
