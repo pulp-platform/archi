@@ -35,16 +35,27 @@ for config in configs:
 
   chip = config.get_child_str('**/pulp_chip_family')
 
-
+  # UDMA I2S
   udma_i2s = config.get_child_int('**/udma/i2s/version')
   if udma_i2s is not None:
     append_file('archi/udma/i2s/udma_i2s_v%d.h' % udma_i2s)
 
-
+  # RTC
   rtc = config.get('**/soc/rtc')
   if rtc is not None:
     append_file('archi/vendors/dolphin/rtc.h')
   
+  # PMU
+  pmu = config.get_child_int('**/soc/pmu/version')
+  if pmu is not None:
+    if pmu == 3:
+      append_file('archi/maestro/maestro_v%d.h' % pmu)
+
+  # ITC
+  itc = config.get_child_int('**/soc/fc_itc/version')
+  if itc is not None:
+    append_file('archi/itc/itc_v%d.h' % itc)
+
 
   # Chip specific files can be included here
   if chip == 'vega':
