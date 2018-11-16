@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2018 ETH Zurich and University of Bologna
+ * Copyright (C) 2018 ETH Zurich, University of Bologna and
+ * GreenWaves Technologies
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +37,7 @@
 	Channel Thresh:	+ PWM_TIMER_TH_CHANNEL_OFFSET + Channel*PWM_CHANNEL_TO_CHANNEL_OFFSET
 	Channel LUT:	+ PWM_TIMER_LUT_CHANNEL_OFFSET + Channel*PWM_CHANNEL_TO_CHANNEL_OFFSET
 */
-#define PWM_TIMER_BASE_ADDR(timer)                      (PWM_BASE_ADDR + timer*PWM_TIMER_TO_TIMER_OFFSET)
+#define PWM_TIMER_BASE_ADDR(timer)                      (ARCHI_PWM_ADDR + timer*PWM_TIMER_TO_TIMER_OFFSET)
 #define PWM_TIMER_CMD_ADDR(timer)                       (PWM_TIMER_BASE_ADDR(timer) + PWM_TIMER_CMD_OFFSET)
 #define PWM_TIMER_CONFIG_ADDR(timer)                    (PWM_TIMER_BASE_ADDR(timer) + PWM_TIMER_CONFIG_OFFSET)
 #define PWM_TIMER_THRESHOLD_ADDR(timer)                 (PWM_TIMER_BASE_ADDR(timer) + PWM_TIMER_THRESHOLD_OFFSET)
@@ -44,8 +45,8 @@
 #define PWM_TIMER_LUT_CHANNEL_ADDR(timer, channel)      (PWM_TIMER_BASE_ADDR(timer) + PWM_TIMER_LUT_CHANNEL_OFFSET + (channel*PWM_CHANNEL_TO_CHANNEL_OFFSET))
 #define PWM_TIMER_COUNTER_ADDR(timer)                   (PWM_TIMER_BASE_ADDR(timer) + PWM_TIMER_COUNTER_OFFSET)
 
-#define REG_EVENT_CFG                                   (PWM_BASE_ADDR + 0x100)
-#define REG_PWM_TIMER_EN                                (PWM_BASE_ADDR + 0X104)
+#define REG_EVENT_CFG                                   (ARCHI_PWM_ADDR + 0x100)
+#define REG_PWM_TIMER_EN                                (ARCHI_PWM_ADDR + 0X104)
 
 #define PWM_TIMER_EN(timer)                             (0x1<<timer)
 #define PWM_TIMER_EN_ALL                                (0xF)
