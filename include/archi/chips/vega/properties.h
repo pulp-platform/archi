@@ -56,7 +56,7 @@
 #define DPHY_VERSION           1
 #define CSI2_VERSION           1
 #define MPU_VERSION            1
-// #define EFUSE_VERSION          1 // FIXME wait integ in HW
+#define EFUSE_VERSION          1
 #define DEBUG_VERSION          1
 #define STDOUT_VERSION         2
 #define QUIDDIKEY_VERSION      1
