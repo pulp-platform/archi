@@ -17,8 +17,6 @@
 #ifndef __ARCHI_UDMA_UDMA_V3_H__
 #define __ARCHI_UDMA_UDMA_V3_H__
 
-#include "archi/udma/udma_periph_v3.h"
-
 /*
  * Global register map
  */
@@ -36,6 +34,8 @@
 
 // Channel area size
 #define UDMA_CHANNEL_SIZE           (1<<UDMA_CHANNEL_SIZE_LOG2)
+
+#define UDMA_FIRST_CHANNEL_OFFSET   0x80
 
 
 
@@ -125,7 +125,7 @@
 #define UDMA_CONF_EVTIN_EVT(udmaId,globalId) ((globalId)<<(udmaId*8))
 
 // Return the offset of a peripheral from its identifier
-#define UDMA_PERIPH_OFFSET(id)              (((id)<<UDMA_PERIPH_AREA_SIZE_LOG2)+0x80)
+#define UDMA_PERIPH_OFFSET(id)              (((id)<<UDMA_PERIPH_AREA_SIZE_LOG2)+UDMA_FIRST_CHANNEL_OFFSET)
 
 // Returns the identifier of a peripheral from its offset
 #define UDMA_PERIPH_GET(offset)             ((offset)>>UDMA_PERIPH_AREA_SIZE_LOG2)
@@ -145,6 +145,11 @@
 
 
 
+#define ARCHI_SOC_EVENT_UDMA_RX(periph)   ((periph)*2)
+#define ARCHI_SOC_EVENT_UDMA_TX(periph)   ((periph)*2 + 1)
+
+
+
 // Define UMDA peripheral common register base address map
 
 #ifdef ARCHI_UDMA_HAS_SPIM
@@ -161,19 +166,5 @@
 #endif
 
 
-#ifdef ARCHI_UDMA_HAS_HYPER
-
-#define ARCHI_UDMA_HYPER_RX_EVT           0
-#define ARCHI_UDMA_HYPER_TX_EVT           1
-
-#endif
-
-
-#ifdef ARCHI_UDMA_HAS_UART
-
-#define ARCHI_UDMA_UART_RX_EVT           0
-#define ARCHI_UDMA_UART_TX_EVT           1
-
-#endif
 
 #endif

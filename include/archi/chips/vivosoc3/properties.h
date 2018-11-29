@@ -53,6 +53,7 @@
 #define ITC_VERSION         1
 #define RISCV_VERSION       4
 #define MCHAN_VERSION       6
+#define PADS_VERSION        2
 
 
 /*
@@ -96,20 +97,17 @@
  */
 
 #define ARCHI_UDMA_HAS_SPIM  1
-#define ARCHI_UDMA_HAS_HYPER 1
 #define ARCHI_UDMA_HAS_UART  1
 #define ARCHI_UDMA_HAS_I2C   1
 #define ARCHI_UDMA_HAS_ADC   1
 
 #define ARCHI_UDMA_NB_SPIM  2
-#define ARCHI_UDMA_NB_HYPER 1
 #define ARCHI_UDMA_NB_UART  2
 #define ARCHI_UDMA_NB_I2C   1
 #define ARCHI_UDMA_NB_ADC   3
 
 #define ARCHI_UDMA_SPIM_ID(id)            (0 + (id))
 #define ARCHI_UDMA_UART_ID(id)            (2 + (id))
-#define ARCHI_UDMA_HYPER_ID(id)           4
 #define ARCHI_UDMA_I2C_ID(id)             (5 + (id))
 #define ARCHI_UDMA_ADC_ID(id)             (6 + (id))
 
@@ -123,11 +121,16 @@
  * SOC EVENTS
  */
 
+#define ARCHI_SOC_EVENT_UDMA_NB_CHANNEL_EVT_LOG2 1
+#define ARCHI_SOC_EVENT_UDMA_NB_CHANNEL_EVT (1<<ARCHI_SOC_EVENT_UDMA_NB_CHANNEL_EVT_LOG2)
+
 #define ARCHI_SOC_EVENT_UDMA_FIRST_EVT   0
 #define ARCHI_SOC_EVENT_UDMA_NB_EVT      17
 #define ARCHI_SOC_EVENT_UDMA_NB_TGEN_EVT 0
 #define ARCHI_SOC_EVENT_UDMA_FIRST_EXTRA_EVT 20
 #define ARCHI_SOC_EVENT_UDMA_NB_EXTRA_EVT 4
+
+#define ARCHI_SOC_EVENT_PERIPH_FIRST_EVT(x)     ((x)*ARCHI_SOC_EVENT_UDMA_NB_CHANNEL_EVT)
 
 #define ARCHI_SOC_EVENT_SPIM0_EOT    20
 #define ARCHI_SOC_EVENT_SPIM1_EOT    21

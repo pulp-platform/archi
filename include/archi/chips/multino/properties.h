@@ -47,6 +47,7 @@
 #define EU_VERSION          3
 #define RISCV_VERSION       4
 #define GPIO_VERSION        2
+#define PADS_VERSION        2
 
 
 /*

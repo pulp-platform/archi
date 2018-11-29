@@ -51,6 +51,7 @@
 #define FLL_VERSION         1
 #define RISCV_VERSION       4
 #define XNE_VERSION         1
+#define PADS_VERSION        2
 
 
 

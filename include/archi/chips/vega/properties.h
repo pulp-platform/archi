@@ -56,11 +56,12 @@
 #define DPHY_VERSION           1
 #define CSI2_VERSION           1
 #define MPU_VERSION            1
-// #define EFUSE_VERSION          1 // FIXME wait integ in HW
+#define EFUSE_VERSION          1
 #define DEBUG_VERSION          1
 #define STDOUT_VERSION         2
 #define QUIDDIKEY_VERSION      1
 #define ROM_VERSION            2
+#define RTC_VERSION            1
 
 #define EU_VERSION             3
 #define RISCV_VERSION          4
@@ -68,6 +69,7 @@
 #define HWCE_VERSION           5
 
 #define CL_CTRL_VERSION        2
+#define PADS_VERSION        2
 
 
 /*
@@ -82,6 +84,7 @@
 //#define ARCHI_HAS_CC        1
 //#define ARCHI_CC_CORE_ID    0
 #define ARCHI_CLUSTER_NB_PE 8
+#define ARCHI_HAS_CLUSTER_CLK_GATE 1
 
 
 /*
@@ -256,9 +259,10 @@
 
 #define ARCHI_SOC_EVENT_GPIO              139
 
-#define ARCHI_SOC_EVENT_RTC               141   
+#define ARCHI_SOC_EVENT_RTC_APB_IRQ       140
+#define ARCHI_SOC_EVENT_RTC_IRQ           141
 
-#define ARCHI_SOC_EVENT_SW_EVENT0         160 
+#define ARCHI_SOC_EVENT_SW_EVENT0         160
 #define ARCHI_SOC_EVENT_SW_EVENT1         161
 #define ARCHI_SOC_EVENT_SW_EVENT2         162
 #define ARCHI_SOC_EVENT_SW_EVENT3         163
@@ -266,7 +270,6 @@
 #define ARCHI_SOC_EVENT_SW_EVENT5         165
 #define ARCHI_SOC_EVENT_SW_EVENT6         166
 #define ARCHI_SOC_EVENT_SW_EVENT7         167
-
 #define ARCHI_SOC_EVENT_REFCLK            168  
 
 /*
