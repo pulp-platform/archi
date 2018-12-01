@@ -56,6 +56,13 @@ for config in configs:
   if itc is not None:
     append_file('archi/itc/itc_v%d.h' % itc)
 
+  # TIMER
+  timer = config.get_child_int('**/timer/version')
+  if timer is not None:
+    append_file('archi/timer/timer_v%d.h' % timer)
+    if timer == 2:
+      append_file('archi/timer/timer_v%d_new.h' % timer)
+
 
   # Chip specific files can be included here
   if chip == 'vega':

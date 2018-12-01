@@ -17,6 +17,8 @@
 #ifndef __ARCHI_TIMER_TIMER_V2_H__
 #define __ARCHI_TIMER_TIMER_V2_H__
 
+#include "archi/timer/timer_v2_new.h"
+
 #define PLP_TIMER_LO 0
 #define PLP_TIMER_HI 1
 

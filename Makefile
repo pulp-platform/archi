@@ -5,8 +5,9 @@ clean:
 	scons -c
 
 gen:
-	cd include && plpdoc --name=itc --config=ips/itc/itc_v1.json --header=archi/itc/itc_v1.h memmap --regs --fields
-	cd include && plpdoc --name=udma_i2s --config=ips/udma/i2s/udma_i2s_v2.json --header=archi/udma/i2s/udma_i2s_v2.h memmap --regs --fields
-	cd include && plpdoc --name=maestro --config=ips/pmu/pmu_v3.json --header=archi/maestro/maestro_v3.h memmap --regs --fields
+	regmap --name=itc      --input-json=ips/itc/itc_v1.json           --header=include/archi/itc/itc_v1.h
+	regmap --name=udma_i2s --input-json=ips/udma/i2s/udma_i2s_v2.json --header=include/archi/udma/i2s/udma_i2s_v2.h
+	regmap --name=maestro  --input-json=ips/pmu/pmu_v3.json           --header=include/archi/maestro/maestro_v3.h
+	regmap --name=timer    --input-xls=doc/TIMER_UNIT_reference.xlsx  --header=include/archi/timer/timer_v2_new.h
 
 .PHONY: build clean gen

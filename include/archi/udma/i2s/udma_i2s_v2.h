@@ -19,8 +19,8 @@
  * limitations under the License.
  */
 
-#ifndef __ARCHI_UDMA_I2S_UDMA_I2S_V2_H__
-#define __ARCHI_UDMA_I2S_UDMA_I2S_V2_H__
+#ifndef __INCLUDE_ARCHI_UDMA_I2S_UDMA_I2S_V2_H__
+#define __INCLUDE_ARCHI_UDMA_I2S_UDMA_I2S_V2_H__
 
 #ifndef LANGUAGE_ASSEMBLY
 
@@ -269,7 +269,7 @@ typedef struct {
   unsigned int slave_setup     ; // Configuration of I2S slave
   unsigned int master_setup    ; // Configuration of I2S master
   unsigned int pdm_setup       ; // Configuration of PDM module
-} __attribute__((packed)) udma_i2s_None_t;
+} __attribute__((packed)) udma_i2s_udma_i2s_t;
 
 #endif
 

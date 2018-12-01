@@ -19,8 +19,8 @@
  * limitations under the License.
  */
 
-#ifndef __ARCHI_MAESTRO_MAESTRO_V3_H__
-#define __ARCHI_MAESTRO_MAESTRO_V3_H__
+#ifndef __INCLUDE_ARCHI_MAESTRO_MAESTRO_V3_H__
+#define __INCLUDE_ARCHI_MAESTRO_MAESTRO_V3_H__
 
 #ifndef LANGUAGE_ASSEMBLY
 
@@ -281,7 +281,7 @@ typedef struct {
   unsigned int dlc_ioifr       ; // icu_ok interrupt flag register
   unsigned int dlc_idifr       ; // icu_delayed interrupt flag register
   unsigned int dlc_imcifr      ; // icu_mode_changed interrupt flags register
-} __attribute__((packed)) maestro_None_t;
+} __attribute__((packed)) maestro_maestro_t;
 
 #endif
 

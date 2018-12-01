@@ -19,8 +19,8 @@
  * limitations under the License.
  */
 
-#ifndef __ARCHI_ITC_ITC_V1_H__
-#define __ARCHI_ITC_ITC_V1_H__
+#ifndef __INCLUDE_ARCHI_ITC_ITC_V1_H__
+#define __INCLUDE_ARCHI_ITC_ITC_V1_H__
 
 #ifndef LANGUAGE_ASSEMBLY
 
@@ -151,7 +151,7 @@ typedef struct {
   unsigned int ack_set         ;
   unsigned int ack_clr         ;
   unsigned int fifo            ;
-} __attribute__((packed)) itc_None_t;
+} __attribute__((packed)) itc_itc_t;
 
 #endif
 
