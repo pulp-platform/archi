@@ -25,6 +25,7 @@
 #define HWCE_SOFT_CLEAR      0x14
 #define HWCE_GEN_CONFIG0     0x20
 #define HWCE_GEN_CONFIG1     0x24
+#define HWCE_GEN_CONFIG2     0x28
 
 #define HWCE_Y_TRANS_SIZE          0x40
 #define HWCE_Y_LINE_STRIDE_LENGTH  0x44
