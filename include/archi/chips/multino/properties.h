@@ -85,8 +85,8 @@
 #define ARCHI_EVT_RAB_WAKEUP  0
 #define ARCHI_CL_EVT_DMA0        8
 #define ARCHI_CL_EVT_DMA1        9
-#define ARCHI_EVT_TIMER0      10
-#define ARCHI_EVT_TIMER1      11
+#define ARCHI_EVT_TIMER0_LO      10
+#define ARCHI_EVT_TIMER0_HI      11
 #define ARCHI_CL_EVT_ACC0        12
 #define ARCHI_CL_EVT_ACC1        13
 #define ARCHI_CL_EVT_ACC2        14
