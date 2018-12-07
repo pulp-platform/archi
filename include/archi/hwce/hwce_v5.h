@@ -23,6 +23,9 @@
 #define HWCE_STATUS          0x0C
 #define HWCE_RUNNING_JOB     0x10
 #define HWCE_SOFT_CLEAR      0x14
+#define HWCE_OFFLOADER_ID    0x18
+#define HWCE_SW_EVT          0x1C
+
 #define HWCE_GEN_CONFIG0     0x20
 #define HWCE_GEN_CONFIG1     0x24
 #define HWCE_GEN_CONFIG2     0x28
