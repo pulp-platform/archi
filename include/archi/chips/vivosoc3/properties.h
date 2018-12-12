@@ -54,6 +54,7 @@
 #define RISCV_VERSION       4
 #define MCHAN_VERSION       6
 #define PADS_VERSION        2
+#define FLL_VERSION			1
 
 
 /*
@@ -90,6 +91,8 @@
 #define ARCHI_REF_CLOCK_LOG2 15
 #define ARCHI_REF_CLOCK      (1<<ARCHI_REF_CLOCK_LOG2)
 
+#define ARCHI_FLL_REF_CLOCK_SLOW 	(ARCHI_REF_CLOCK) 	// 32768Hz
+#define ARCHI_FLL_REF_CLOCK_FAST 	(ARCHI_REF_CLOCK*500) // 16384000Hz
 
 
 /*
@@ -112,6 +115,13 @@
 #define ARCHI_UDMA_ADC_ID(id)             (6 + (id))
 
 #define ARCHI_NB_PERIPH                   9
+
+
+/*
+ * FLLS
+*/
+
+#define ARCHI_NB_FLL  3
 
 
 
