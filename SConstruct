@@ -60,8 +60,6 @@ for config in configs:
   timer = config.get_child_int('**/timer/version')
   if timer is not None:
     append_file('archi/timer/timer_v%d.h' % timer)
-    if timer == 2:
-      append_file('archi/timer/timer_v%d_new.h' % timer)
 
 
   # Chip specific files can be included here
