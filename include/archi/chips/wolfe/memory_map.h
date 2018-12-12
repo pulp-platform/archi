@@ -41,6 +41,8 @@
 #define ARCHI_SOC_PERIPHERALS_ADDR    0x1A100000
 
 
+#define ARCHI_FC_TIMER_SIZE                 0x00000800
+
 #define ARCHI_FLL_OFFSET              0x00000000
 #define ARCHI_GPIO_OFFSET             0x00001000
 #define ARCHI_UDMA_OFFSET             0x00002000
@@ -90,6 +92,8 @@
  */
 
 #define ARCHI_CLUSTER_PERIPHERALS_OFFSET 0x00200000
+
+#define ARCHI_TIMER_SIZE                 0x00000800
 
 #define ARCHI_CLUSTER_CTRL_OFFSET        0x00000000
 #define ARCHI_TIMER_OFFSET               0x00000400
