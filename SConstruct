@@ -50,6 +50,9 @@ for config in configs:
   if pmu is not None:
     if pmu == 3:
       append_file('archi/maestro/maestro_v%d.h' % pmu)
+    elif pmu == 1:
+      append_file('archi/maestro/maestro_v%d.h' % pmu)
+      append_file('archi/maestro/maestro_v%d_new.h' % pmu)
 
   # ITC
   itc = config.get_child_int('**/soc/fc_itc/version')

@@ -84,6 +84,7 @@
 #define ARCHI_FC_CID        32
 #define ARCHI_HAS_FC_EU     1
 #define ARCHI_FC_HAS_ICACHE 1
+#define ARCHI_HAS_FC        1
 
 
 
