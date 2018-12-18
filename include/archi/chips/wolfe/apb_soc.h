@@ -115,6 +115,8 @@
 #define APB_SOC_FLL_CTRL_CLUSTER_BIT    1
 #define APB_SOC_FLL_CTRL_PERIPH_BIT     2
 
+#define APB_SOC_SLEEP_CONTROL     0x104
+
 
 #define APB_SOC_RTC_OFFSET     0x1D0
 
