@@ -44,7 +44,11 @@ for config in configs:
   if rtc is None:
     rtc = config.get('**/chip/rtc')
   if rtc is not None:
-    append_file('archi/vendors/dolphin/rtc.h')
+    rtc_version = config.get_child_int('**/rtc/version')
+    if rtc_version == 1 or rtc_version is None:
+      append_file('archi/vendors/dolphin/rtc.h')
+    else:
+      append_file('archi/rtc/rtc_v%d.h' % (rtc_version))
   
   # PMU
   pmu = config.get_child_int('**/soc/pmu/version')
@@ -52,9 +56,9 @@ for config in configs:
     pmu = config.get_child_int('**/chip/pmu/version')
 
   if pmu is not None:
-    if pmu == 3:
+    if pmu >= 3:
       append_file('archi/maestro/maestro_v%d.h' % pmu)
-    elif pmu == 1:
+    else:
       append_file('archi/maestro/maestro_v%d.h' % pmu)
       append_file('archi/maestro/maestro_v%d_new.h' % pmu)
 
@@ -74,6 +78,9 @@ for config in configs:
     append_file('archi/pwm/pwm_v1.h')
   elif chip == 'gap':
     append_file('archi/pwm/pwm_v1.h')
+  elif chip == 'wolfe':
+    append_file('archi/chips/wolfe/apb_soc.h')
+    append_file('archi/chips/wolfe/apb_soc_ctrl_new.h')
   elif chip == 'wolfe':
     append_file('archi/pwm/pwm_v1.h')
   elif chip == 'vivosoc3':

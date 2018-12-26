@@ -17,6 +17,8 @@
 #ifndef __ARCHI_WOLFE_APB_SOC_H__
 #define __ARCHI_WOLFE_APB_SOC_H__
  
+#include "archi/chips/wolfe/apb_soc_ctrl_new.h"
+
 #define APB_SOC_BOOT_OTHER    0
 #define APB_SOC_BOOT_JTAG     1
 #define APB_SOC_BOOT_SPI      2

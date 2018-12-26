@@ -135,6 +135,66 @@ typedef union {
 
 
 //
+// REGISTERS STRUCTS
+//
+
+#ifdef __GVSOC__
+
+class vp_itc_mask : public vp::reg_32
+{
+public:
+};
+
+class vp_itc_mask_set : public vp::reg_32
+{
+public:
+};
+
+class vp_itc_mask_clr : public vp::reg_32
+{
+public:
+};
+
+class vp_itc_status : public vp::reg_32
+{
+public:
+};
+
+class vp_itc_status_set : public vp::reg_32
+{
+public:
+};
+
+class vp_itc_status_clr : public vp::reg_32
+{
+public:
+};
+
+class vp_itc_ack : public vp::reg_32
+{
+public:
+};
+
+class vp_itc_ack_set : public vp::reg_32
+{
+public:
+};
+
+class vp_itc_ack_clr : public vp::reg_32
+{
+public:
+};
+
+class vp_itc_fifo : public vp::reg_32
+{
+public:
+};
+
+#endif
+
+
+
+//
 // REGISTERS GLOBAL STRUCT
 //
 
