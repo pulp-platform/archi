@@ -55,6 +55,7 @@
 #define RISCV_VERSION       4
 #define MCHAN_VERSION       6
 #define PADS_VERSION        2
+#define RTC_VERSION        2
 
 
 /*
