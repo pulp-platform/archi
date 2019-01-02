@@ -67,6 +67,12 @@ for config in configs:
   if itc is not None:
     append_file('archi/itc/itc_v%d.h' % itc)
 
+  # GPIO
+  gpio = config.get_child_int('**/gpio/version')
+  if gpio is not None and gpio == 2:
+    append_file('archi/gpio/gpio_v%d.h' % gpio)
+    append_file('archi/gpio/gpio_v%d_new.h' % gpio)
+
   # TIMER
   timer = config.get_child_int('**/timer/version')
   if timer is not None:
@@ -79,6 +85,7 @@ for config in configs:
   elif chip == 'gap':
     append_file('archi/pwm/pwm_v1.h')
   elif chip == 'wolfe':
+    append_file('archi/chips/wolfe/pmu.h')
     append_file('archi/chips/wolfe/apb_soc.h')
     append_file('archi/chips/wolfe/apb_soc_ctrl_new.h')
   elif chip == 'wolfe':

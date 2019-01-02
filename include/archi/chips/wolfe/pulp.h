@@ -26,6 +26,8 @@
 #include "archi/chips/wolfe/memory_map.h"
 #include "archi/chips/wolfe/apb_soc.h"
 #include "archi/stdout/stdout_v3.h"
+#include "archi/chips/wolfe/pmu.h"
+#include "archi/maestro/maestro_v2_new.h"
 
 #include "archi/udma/cpi/udma_cpi_v1.h"
 #include "archi/udma/hyper/udma_hyper_v1.h"

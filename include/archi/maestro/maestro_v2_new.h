@@ -528,7 +528,7 @@ static inline void maestro_dlc_imcifr_set(uint32_t base, uint32_t value) { ARCHI
 // GROUP wiu
 //
 
-#define MAESTRO_WIU_OFFSET                       0x0
+#define MAESTRO_WIU_OFFSET                       0x1
 
 
 
