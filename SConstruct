@@ -56,6 +56,7 @@ for config in configs:
     pmu = config.get_child_int('**/chip/pmu/version')
 
   if pmu is not None:
+    append_file('archi/maestro/maestro_v1_new.h')
     if pmu >= 3:
       append_file('archi/maestro/maestro_v%d.h' % pmu)
     else:
