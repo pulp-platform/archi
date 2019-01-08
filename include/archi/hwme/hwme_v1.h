@@ -85,5 +85,6 @@
 #define HWME_LEN_ITER        0x54
 #define HWME_SHIFT_SIMPLEMUL 0x58
 #define HWME_VECTSTRIDE      0x5c
+#define HWME_VECTSTRIDE2     0x60
 
 #endif
