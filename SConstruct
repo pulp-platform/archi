@@ -94,6 +94,9 @@ for config in configs:
   elif chip == 'vivosoc3':
     append_file('archi/chips/vivosoc3/fll.h')
     append_file('archi/chips/vivosoc3/freq.h')
+  elif chip == 'vivosoc3_5':
+    append_file('archi/chips/vivosoc3_5/fll.h')
+    append_file('archi/chips/vivosoc3_5/freq.h')
 
 targets = []
 
