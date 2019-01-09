@@ -57,6 +57,7 @@
  *     6  |  0x0058  |  31:16  |  0xffff0000  ||  SHIFT
  *        |          |   0: 0  |  0x00000001  ||  SIMPLEMUL
  *     7  |  0x005c  |  31: 0  |  0xffffffff  ||  VECTSTRIDE
+ *     8  |  0x0060  |  31: 0  |  0xffffffff  ||  VECTSTRIDE2
  * ================================================================================
  *
  */
@@ -85,5 +86,6 @@
 #define HWME_LEN_ITER        0x54
 #define HWME_SHIFT_SIMPLEMUL 0x58
 #define HWME_VECTSTRIDE      0x5c
+#define HWME_VECTSTRIDE2     0x60
 
 #endif
