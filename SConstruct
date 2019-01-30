@@ -86,6 +86,7 @@ for config in configs:
   elif chip == 'gap':
     append_file('archi/pwm/pwm_v1.h')
   elif chip == 'wolfe':
+    append_file('archi/pwm/pwm_v1.h')
     append_file('archi/chips/wolfe/pmu.h')
     append_file('archi/chips/wolfe/apb_soc.h')
     append_file('archi/chips/wolfe/apb_soc_ctrl_new.h')
