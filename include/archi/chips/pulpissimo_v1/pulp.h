@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 ETH Zurich, University of Bologna
+ * Copyright (C) 2018 ETH Zurich and University of Bologna
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,22 +15,17 @@
  */
 
 
-#ifndef __ARCHI_CHIPS_PULP_V2_PULP_H__
-#define __ARCHI_CHIPS_PULP_V2_PULP_H__
+#ifndef __ARCHI_PULPISSIMO_V1_PULP_H__
+#define __ARCHI_PULPISSIMO_V1_PULP_H__
 
-#include "archi/chips/pulp_v2/properties.h"
+#include "archi/chips/pulpissimo_v1/properties.h"
 
+//#include "archi/periph_v2.h"
+//#include "archi/gpio_v2.h"
 #include "archi/riscv/priv_1_9.h"
 #include "archi/riscv/pcer_v1.h"
 
-#include "archi/chips/pulp_v2/memory_map.h"
-#include "archi/chips/pulp_v2/apb_soc.h"
-#include "archi/stdout/stdout_v3.h"
-
-#include "archi/udma/cpi/udma_cpi_v1.h"
-#include "archi/udma/i2c/udma_i2c_v2.h"
-#include "archi/udma/i2s/udma_i2s_v1.h"
-#include "archi/udma/spim/udma_spim_v2.h"
-#include "archi/udma/uart/udma_uart_v1.h"
+#include "archi/chips/pulpissimo_v1/memory_map.h"
+#include "archi/chips/pulpissimo_v1/apb_soc.h"
 
 #endif

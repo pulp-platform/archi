@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef __ARCHI_PULP_V2_APB_SOC_H__
-#define __ARCHI_PULP_V2_APB_SOC_H__
+#ifndef __ARCHI_PULP_V1_APB_SOC_H__
+#define __ARCHI_PULP_V1_APB_SOC_H__
  
 #define APB_SOC_BOOT_OTHER    0
 #define APB_SOC_BOOT_JTAG     1
