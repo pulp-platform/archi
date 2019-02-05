@@ -21,7 +21,7 @@
 #include "archi/chips/vega/properties.h"
 
 #include "archi/riscv/priv_1_9.h"
-#include "archi/riscv/pcer_v1.h"
+#include "archi/riscv/pcer_v2.h"
 
 #include "archi/chips/vega/memory_map.h"
 #include "archi/chips/vega/apb_soc.h"
