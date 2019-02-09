@@ -14,6 +14,7 @@ if target_install_dir is None:
   target_install_dir = 'install'
 
 files = [ 'archi/pulp_defs.h', 'archi/pulp.h', 'archi/utils.h' ]
+files.append('archi/gvsoc/gvsoc.h')
 
 files += subprocess.check_output(shlex.split('plpfiles copy --item=archi_files')).decode('UTF-8').split()
 
