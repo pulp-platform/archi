@@ -16,7 +16,11 @@ if target_install_dir is None:
 files = [ 'archi/pulp_defs.h', 'archi/pulp.h', 'archi/utils.h' ]
 files.append('archi/gvsoc/gvsoc.h')
 
-files += subprocess.check_output(shlex.split('plpfiles copy --item=archi_files')).decode('UTF-8').split()
+try:
+  files += subprocess.check_output(shlex.split('plpfiles copy --item=archi_files')).decode('UTF-8').split()
+except subprocess.CalledProcessError as e:
+  print (e.output)
+  raise
 
 configs = plpconfig.get_configs_from_env()
 
