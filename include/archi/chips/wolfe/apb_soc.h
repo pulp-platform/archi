@@ -83,6 +83,7 @@
 #define APB_SOC_CORESTATUS_OFFSET 0xA0 //32bit GP register to be used during testing to return EOC(bit[31]) and status(bit[30:0])
 #define APB_SOC_CORESTATUS_RO_OFFSET 0xC0 //32bit GP register to be used during testing to return EOC(bit[31]) and status(bit[30:0])
 #define APB_SOC_PADS_CONFIG       0xC4
+#define APB_SOC_RAR               0x100
 
 #define APB_SOC_PADS_CONFIG_BOOTSEL_BIT 0
 
