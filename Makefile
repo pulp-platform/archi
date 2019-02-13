@@ -13,7 +13,8 @@ gen:
 	regmap --name=maestro  --input-json=ips/pmu/pmu_v1.json           --header=include/archi/maestro/maestro_v1_new.h
 	regmap --name=timer    --input-xls=doc/TIMER_UNIT_reference.xlsx  --header=include/archi/timer/timer_v2.h
 	regmap --name=rtc      --input-xls=doc/RTC_UNIT_reference.xlsx    --header=include/archi/rtc/rtc_v2.h
-	regmap --name=apb_soc  --input-xls=doc/WOLFE_APB_SOC_CTRL_reference.xlsx    --header=include/archi/chips/wolfe/apb_soc_ctrl_new.h
+	regmap --name=apb_soc  --input-xls=doc/WOLFE_APB_SOC_CTRL_reference.xlsx  --header=include/archi/chips/wolfe/apb_soc_ctrl_new.h
+	regmap --name=apb_soc  --input-xls doc/gap/APB_SOC_CTRL_reference.xlsx    --header=include/archi/chips/gap/apb_soc.h
 	regmap --name=gpio     --input-xls=doc/APB_GPIO_reference.xlsx    --header=include/archi/gpio/gpio_v2_new.h
 
 .PHONY: build clean gen
