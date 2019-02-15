@@ -57,6 +57,7 @@
 #define ARCHI_HAS_CLUSTER    1
 #define ARCHI_L1_TAS_BIT     20
 #define ARCHI_CLUSTER_NB_PE  2
+#define ARCHI_NB_CLUSTER     2
 
 
 
