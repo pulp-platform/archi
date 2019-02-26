@@ -104,6 +104,28 @@ for config in configs:
     append_file('archi/chips/vivosoc3_5/fll.h')
     append_file('archi/chips/vivosoc3_5/freq.h')
 
+
+  if chip == 'vega':
+    out_file_path = 'archi/chips/%s/memory_map.h' % chip
+
+    try:
+        os.makedirs(os.path.dirname(out_file_path))
+    except:
+        pass
+
+    with open('include/' + out_file_path, 'w') as out_file:
+      with open('include/archi/chips/%s/memory_map.h.in' % chip, 'r') as in_file:
+        content = in_file.read()
+
+        content = content.replace('@l2_shared_size@', config.get_int('**/l2_shared/size'))
+
+        out_file.write(content)
+
+        append_file(out_file_path)
+
+
+
+
 targets = []
 
 for file in files:
