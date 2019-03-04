@@ -43,6 +43,8 @@ for config in configs:
   udma_i2s = config.get_child_int('**/udma/i2s/version')
   if udma_i2s is not None:
     append_file('archi/udma/i2s/udma_i2s_v%d.h' % udma_i2s)
+    if udma_i2s == 1:
+      append_file('archi/udma/i2s/udma_i2s_v%d_new.h' % udma_i2s)
 
   # RTC
   rtc = config.get('**/soc/rtc')
@@ -103,6 +105,9 @@ for config in configs:
   elif chip == 'vivosoc3_5':
     append_file('archi/chips/vivosoc3_5/fll.h')
     append_file('archi/chips/vivosoc3_5/freq.h')
+  elif chip == 'vivosoc3_1':
+    append_file('archi/chips/vivosoc3_1/fll.h')
+    append_file('archi/chips/vivosoc3_1/freq.h')
 
 
   if chip == 'vega':

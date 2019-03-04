@@ -63,6 +63,7 @@
 #define CHIP_PULPISSIMO_V1         42
 #define CHIP_VIVOSOC3_5            43
 #define CHIP_PULP_V1               44
+#define CHIP_VIVOSOC3_1            45
 
 #define CORE_OR1K_V1  0
 #define CORE_OR1K_V2  1
