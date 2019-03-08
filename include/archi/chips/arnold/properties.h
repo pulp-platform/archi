@@ -89,6 +89,8 @@
 #define ARCHI_UDMA_NB_FILTER 1
 #define ARCHI_UDMA_NB_FPGA   1
 
+#define ARCHI_UDMA_HYPER_VERSION 2
+
 #define ARCHI_UDMA_SPIM_ID(id)             (0   + (id))
 #define ARCHI_UDMA_UART_ID(id)             (1   + (id))
 #define ARCHI_UDMA_I2C_ID(id)              (2   + (id))
