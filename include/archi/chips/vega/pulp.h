@@ -25,6 +25,7 @@
 
 #include "archi/chips/vega/memory_map.h"
 #include "archi/chips/vega/apb_soc.h"
+#include "archi/chips/vega/apb_soc_ctrl.h"
 #include "archi/stdout/stdout_v3.h"
 
 #include "archi/udma/cpi/udma_cpi_v1.h"

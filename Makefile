@@ -4,6 +4,9 @@ build:
 clean:
 	scons -c
 
+vega:
+	regmap --name=apb_soc  --input-xls=doc/VEGA_APB_SOC_CTRL_reference.xlsx  --header=include/archi/chips/vega/apb_soc_ctrl.h
+
 gen:
 	regmap --name=itc      --input-json=ips/itc/itc_v1.json           --header=include/archi/itc/itc_v1.h
 	regmap --name=udma_i2s --input-xls=doc/I2S_V1_reference.xlsx      --header=include/archi/udma/i2s/udma_i2s_v1_new.h
