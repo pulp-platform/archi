@@ -17,15 +17,6 @@
 #ifndef __ARCHI_VEGA_APB_SOC_H__
 #define __ARCHI_VEGA_APB_SOC_H__
  
-#define APB_SOC_BOOT_OTHER    0
-#define APB_SOC_BOOT_JTAG     1
-#define APB_SOC_BOOT_SPI      2
-#define APB_SOC_BOOT_ROM      3
-#define APB_SOC_BOOT_PRELOAD  4
-#define APB_SOC_BOOT_HYPER    5
-#define APB_SOC_BOOT_SPIM     6
-#define APB_SOC_BOOT_SPIM_QPI 7
-
 #define APB_SOC_PLT_OTHER   0
 #define APB_SOC_PLT_FPGA    1
 #define APB_SOC_PLT_RTL     2
