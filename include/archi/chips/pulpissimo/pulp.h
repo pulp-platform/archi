@@ -19,6 +19,7 @@
 #define __ARCHI_PULPISSIMO_PULP_H__
 
 #include "archi/chips/pulpissimo/properties.h"
+#include "archi/chips/pulpissimo/apb_soc_ctrl.h"
 
 //#include "archi/periph_v2.h"
 //#include "archi/gpio_v2.h"
