@@ -1311,10 +1311,8 @@ static inline void maestro_wiu_icr_15_set(uint32_t base, uint32_t value) { ARCHI
 
 
 //
-// GROUP icu0
+// GROUP icu
 //
-
-#define MAESTRO_ICU0_OFFSET                      0x2
 
 
 
@@ -1322,11 +1320,53 @@ static inline void maestro_wiu_icr_15_set(uint32_t base, uint32_t value) { ARCHI
 // REGISTERS
 //
 
+// ICU control register
+#define MAESTRO_ICU_CTRL_OFFSET                  0x0
+
+// ICU mode register
+#define MAESTRO_ICU_MODE_OFFSET                  0x1
+
+// Island mode register
+#define MAESTRO_ISLAND_MODE_OFFSET               0x2
+
+// DMU mode register 0
+#define MAESTRO_DMU_MODE_OFFSET                  0x3
+
 
 
 //
 // REGISTERS FIELDS
 //
+
+// When a new mode corresponding to one of sixteen mode of the island mode table of the ICU is written as mode transition sequence is started to reach the written mode. (access: R/W)
+#define MAESTRO_ICU_CTRL_ICU_CTRL_BIT                                0
+#define MAESTRO_ICU_CTRL_ICU_CTRL_WIDTH                              4
+#define MAESTRO_ICU_CTRL_ICU_CTRL_MASK                               0xf
+#define MAESTRO_ICU_CTRL_ICU_CTRL_RESET                              0x0
+
+// Returns the current mode of the ICU when icu_mode_defined is low. (access: R)
+#define MAESTRO_ICU_MODE_ICU_MODE_BIT                                0
+#define MAESTRO_ICU_MODE_ICU_MODE_WIDTH                              4
+#define MAESTRO_ICU_MODE_ICU_MODE_MASK                               0xf
+#define MAESTRO_ICU_MODE_ICU_MODE_RESET                              0xf
+
+// When high, indicates that the current mode of the ICU is not defined in the mode table of the ICU When low, the value of the current mode is given by the icu_mode bits (access: R)
+#define MAESTRO_ICU_MODE_ICU_MODE_DEFINED_BIT                        4
+#define MAESTRO_ICU_MODE_ICU_MODE_DEFINED_WIDTH                      1
+#define MAESTRO_ICU_MODE_ICU_MODE_DEFINED_MASK                       0x10
+#define MAESTRO_ICU_MODE_ICU_MODE_DEFINED_RESET                      0x1
+
+// Mode of the island. (access: R)
+#define MAESTRO_ISLAND_MODE_ISL_MODE_BIT                             0
+#define MAESTRO_ISLAND_MODE_ISL_MODE_WIDTH                           2
+#define MAESTRO_ISLAND_MODE_ISL_MODE_MASK                            0x3
+#define MAESTRO_ISLAND_MODE_ISL_MODE_RESET                           0x0
+
+// Mode of the DMU 0. (access: R)
+#define MAESTRO_DMU_MODE_ISL_MODE_BIT                                0
+#define MAESTRO_DMU_MODE_ISL_MODE_WIDTH                              2
+#define MAESTRO_DMU_MODE_ISL_MODE_MASK                               0x3
+#define MAESTRO_DMU_MODE_ISL_MODE_RESET                              0x0
 
 
 
@@ -1335,6 +1375,35 @@ static inline void maestro_wiu_icr_15_set(uint32_t base, uint32_t value) { ARCHI
 //
 
 #ifndef LANGUAGE_ASSEMBLY
+
+typedef union {
+  struct {
+    unsigned int icu_ctrl        :4 ; // When a new mode corresponding to one of sixteen mode of the island mode table of the ICU is written as mode transition sequence is started to reach the written mode.
+  };
+  unsigned int raw;
+} __attribute__((packed)) maestro_icu_ctrl_t;
+
+typedef union {
+  struct {
+    unsigned int icu_mode        :4 ; // Returns the current mode of the ICU when icu_mode_defined is low.
+    unsigned int icu_mode_defined:1 ; // When high, indicates that the current mode of the ICU is not defined in the mode table of the ICU When low, the value of the current mode is given by the icu_mode bits
+  };
+  unsigned int raw;
+} __attribute__((packed)) maestro_icu_mode_t;
+
+typedef union {
+  struct {
+    unsigned int isl_mode        :2 ; // Mode of the island.
+  };
+  unsigned int raw;
+} __attribute__((packed)) maestro_island_mode_t;
+
+typedef union {
+  struct {
+    unsigned int isl_mode        :2 ; // Mode of the DMU 0.
+  };
+  unsigned int raw;
+} __attribute__((packed)) maestro_dmu_mode_t;
 
 #endif
 
@@ -1345,6 +1414,36 @@ static inline void maestro_wiu_icr_15_set(uint32_t base, uint32_t value) { ARCHI
 //
 
 #ifdef __GVSOC__
+
+class vp_maestro_icu_ctrl : public vp::reg_8
+{
+public:
+  inline void icu_ctrl_set(uint8_t value) { this->set_field(value, MAESTRO_ICU_CTRL_ICU_CTRL_BIT, MAESTRO_ICU_CTRL_ICU_CTRL_WIDTH); }
+  inline uint8_t icu_ctrl_get() { return this->get_field(MAESTRO_ICU_CTRL_ICU_CTRL_BIT, MAESTRO_ICU_CTRL_ICU_CTRL_WIDTH); }
+};
+
+class vp_maestro_icu_mode : public vp::reg_8
+{
+public:
+  inline void icu_mode_set(uint8_t value) { this->set_field(value, MAESTRO_ICU_MODE_ICU_MODE_BIT, MAESTRO_ICU_MODE_ICU_MODE_WIDTH); }
+  inline uint8_t icu_mode_get() { return this->get_field(MAESTRO_ICU_MODE_ICU_MODE_BIT, MAESTRO_ICU_MODE_ICU_MODE_WIDTH); }
+  inline void icu_mode_defined_set(uint8_t value) { this->set_field(value, MAESTRO_ICU_MODE_ICU_MODE_DEFINED_BIT, MAESTRO_ICU_MODE_ICU_MODE_DEFINED_WIDTH); }
+  inline uint8_t icu_mode_defined_get() { return this->get_field(MAESTRO_ICU_MODE_ICU_MODE_DEFINED_BIT, MAESTRO_ICU_MODE_ICU_MODE_DEFINED_WIDTH); }
+};
+
+class vp_maestro_island_mode : public vp::reg_8
+{
+public:
+  inline void isl_mode_set(uint8_t value) { this->set_field(value, MAESTRO_ISLAND_MODE_ISL_MODE_BIT, MAESTRO_ISLAND_MODE_ISL_MODE_WIDTH); }
+  inline uint8_t isl_mode_get() { return this->get_field(MAESTRO_ISLAND_MODE_ISL_MODE_BIT, MAESTRO_ISLAND_MODE_ISL_MODE_WIDTH); }
+};
+
+class vp_maestro_dmu_mode : public vp::reg_8
+{
+public:
+  inline void isl_mode_set(uint8_t value) { this->set_field(value, MAESTRO_DMU_MODE_ISL_MODE_BIT, MAESTRO_DMU_MODE_ISL_MODE_WIDTH); }
+  inline uint8_t isl_mode_get() { return this->get_field(MAESTRO_DMU_MODE_ISL_MODE_BIT, MAESTRO_DMU_MODE_ISL_MODE_WIDTH); }
+};
 
 #endif
 
@@ -1357,7 +1456,11 @@ static inline void maestro_wiu_icr_15_set(uint32_t base, uint32_t value) { ARCHI
 #ifndef LANGUAGE_ASSEMBLY
 
 typedef struct {
-} __attribute__((packed)) maestro_icu0_t;
+  unsigned int icu_ctrl        ; // ICU control register
+  unsigned int icu_mode        ; // ICU mode register
+  unsigned int island_mode     ; // Island mode register
+  unsigned int dmu_mode        ; // DMU mode register 0
+} __attribute__((packed)) maestro_icu_t;
 
 #endif
 
@@ -1369,78 +1472,17 @@ typedef struct {
 
 #ifndef LANGUAGE_ASSEMBLY
 
-#endif
+static inline uint32_t maestro_icu_ctrl_get(uint32_t base) { return ARCHI_READ(base, MAESTRO_ICU_CTRL_OFFSET); }
+static inline void maestro_icu_ctrl_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, MAESTRO_ICU_CTRL_OFFSET, value); }
 
+static inline uint32_t maestro_icu_mode_get(uint32_t base) { return ARCHI_READ(base, MAESTRO_ICU_MODE_OFFSET); }
+static inline void maestro_icu_mode_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, MAESTRO_ICU_MODE_OFFSET, value); }
 
+static inline uint32_t maestro_island_mode_get(uint32_t base) { return ARCHI_READ(base, MAESTRO_ISLAND_MODE_OFFSET); }
+static inline void maestro_island_mode_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, MAESTRO_ISLAND_MODE_OFFSET, value); }
 
-//
-// REGISTERS FIELDS MACROS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-#endif
-
-
-
-//
-// GROUP icu1
-//
-
-#define MAESTRO_ICU1_OFFSET                      0x3
-
-
-
-//
-// REGISTERS
-//
-
-
-
-//
-// REGISTERS FIELDS
-//
-
-
-
-//
-// REGISTERS STRUCTS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-#endif
-
-
-
-//
-// REGISTERS STRUCTS
-//
-
-#ifdef __GVSOC__
-
-#endif
-
-
-
-//
-// REGISTERS GLOBAL STRUCT
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-typedef struct {
-} __attribute__((packed)) maestro_icu1_t;
-
-#endif
-
-
-
-//
-// REGISTERS ACCESS FUNCTIONS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
+static inline uint32_t maestro_dmu_mode_get(uint32_t base) { return ARCHI_READ(base, MAESTRO_DMU_MODE_OFFSET); }
+static inline void maestro_dmu_mode_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, MAESTRO_DMU_MODE_OFFSET, value); }
 
 #endif
 
@@ -1452,297 +1494,30 @@ typedef struct {
 
 #ifndef LANGUAGE_ASSEMBLY
 
-#endif
-
-
-
-//
-// GROUP icu2
-//
-
-#define MAESTRO_ICU2_OFFSET                      0x4
-
-
-
-//
-// REGISTERS
-//
-
-
-
-//
-// REGISTERS FIELDS
-//
-
-
-
-//
-// REGISTERS STRUCTS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-#endif
-
-
-
-//
-// REGISTERS STRUCTS
-//
-
-#ifdef __GVSOC__
-
-#endif
-
-
-
-//
-// REGISTERS GLOBAL STRUCT
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-typedef struct {
-} __attribute__((packed)) maestro_icu2_t;
-
-#endif
-
-
-
-//
-// REGISTERS ACCESS FUNCTIONS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-#endif
-
-
-
-//
-// REGISTERS FIELDS MACROS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-#endif
-
-
-
-//
-// GROUP icu3
-//
-
-#define MAESTRO_ICU3_OFFSET                      0x5
-
-
-
-//
-// REGISTERS
-//
-
-
-
-//
-// REGISTERS FIELDS
-//
-
-
-
-//
-// REGISTERS STRUCTS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-#endif
-
-
-
-//
-// REGISTERS STRUCTS
-//
-
-#ifdef __GVSOC__
-
-#endif
-
-
-
-//
-// REGISTERS GLOBAL STRUCT
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-typedef struct {
-} __attribute__((packed)) maestro_icu3_t;
-
-#endif
-
-
-
-//
-// REGISTERS ACCESS FUNCTIONS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-#endif
-
-
-
-//
-// REGISTERS FIELDS MACROS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-#endif
-
-
-
-//
-// GROUP dmu0
-//
-
-#define MAESTRO_DMU0_OFFSET                      0x6
-
-
-
-//
-// REGISTERS
-//
-
-
-
-//
-// REGISTERS FIELDS
-//
-
-
-
-//
-// REGISTERS STRUCTS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-#endif
-
-
-
-//
-// REGISTERS STRUCTS
-//
-
-#ifdef __GVSOC__
-
-#endif
-
-
-
-//
-// REGISTERS GLOBAL STRUCT
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-typedef struct {
-} __attribute__((packed)) maestro_dmu0_t;
-
-#endif
-
-
-
-//
-// REGISTERS ACCESS FUNCTIONS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-#endif
-
-
-
-//
-// REGISTERS FIELDS MACROS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-#endif
-
-
-
-//
-// GROUP dmu1
-//
-
-#define MAESTRO_DMU1_OFFSET                      0x7
-
-
-
-//
-// REGISTERS
-//
-
-
-
-//
-// REGISTERS FIELDS
-//
-
-
-
-//
-// REGISTERS STRUCTS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-#endif
-
-
-
-//
-// REGISTERS STRUCTS
-//
-
-#ifdef __GVSOC__
-
-#endif
-
-
-
-//
-// REGISTERS GLOBAL STRUCT
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-typedef struct {
-} __attribute__((packed)) maestro_dmu1_t;
-
-#endif
-
-
-
-//
-// REGISTERS ACCESS FUNCTIONS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
-
-#endif
-
-
-
-//
-// REGISTERS FIELDS MACROS
-//
-
-#ifndef LANGUAGE_ASSEMBLY
+#define MAESTRO_ICU_CTRL_ICU_CTRL_GET(value)               (ARCHI_BEXTRACTU((value),4,0))
+#define MAESTRO_ICU_CTRL_ICU_CTRL_GETS(value)              (ARCHI_BEXTRACT((value),4,0))
+#define MAESTRO_ICU_CTRL_ICU_CTRL_SET(value,field)         (ARCHI_BINSERT((value),(field),4,0))
+#define MAESTRO_ICU_CTRL_ICU_CTRL(val)                     ((val) << 0)
+
+#define MAESTRO_ICU_MODE_ICU_MODE_GET(value)               (ARCHI_BEXTRACTU((value),4,0))
+#define MAESTRO_ICU_MODE_ICU_MODE_GETS(value)              (ARCHI_BEXTRACT((value),4,0))
+#define MAESTRO_ICU_MODE_ICU_MODE_SET(value,field)         (ARCHI_BINSERT((value),(field),4,0))
+#define MAESTRO_ICU_MODE_ICU_MODE(val)                     ((val) << 0)
+
+#define MAESTRO_ICU_MODE_ICU_MODE_DEFINED_GET(value)       (ARCHI_BEXTRACTU((value),1,4))
+#define MAESTRO_ICU_MODE_ICU_MODE_DEFINED_GETS(value)      (ARCHI_BEXTRACT((value),1,4))
+#define MAESTRO_ICU_MODE_ICU_MODE_DEFINED_SET(value,field) (ARCHI_BINSERT((value),(field),1,4))
+#define MAESTRO_ICU_MODE_ICU_MODE_DEFINED(val)             ((val) << 4)
+
+#define MAESTRO_ISLAND_MODE_ISL_MODE_GET(value)            (ARCHI_BEXTRACTU((value),2,0))
+#define MAESTRO_ISLAND_MODE_ISL_MODE_GETS(value)           (ARCHI_BEXTRACT((value),2,0))
+#define MAESTRO_ISLAND_MODE_ISL_MODE_SET(value,field)      (ARCHI_BINSERT((value),(field),2,0))
+#define MAESTRO_ISLAND_MODE_ISL_MODE(val)                  ((val) << 0)
+
+#define MAESTRO_DMU_MODE_ISL_MODE_GET(value)               (ARCHI_BEXTRACTU((value),2,0))
+#define MAESTRO_DMU_MODE_ISL_MODE_GETS(value)              (ARCHI_BEXTRACT((value),2,0))
+#define MAESTRO_DMU_MODE_ISL_MODE_SET(value,field)         (ARCHI_BINSERT((value),(field),2,0))
+#define MAESTRO_DMU_MODE_ISL_MODE(val)                     ((val) << 0)
 
 #endif
 
@@ -1751,11 +1526,20 @@ typedef struct {
 //
 // CUSTOM FIELDS
 //
-#define MAESTRO_SOC_ACTIVE_NV 0x01
-#define MAESTRO_SOC_ACTIVE_LV 0x02
-#define MAESTRO_SOC_CLUSTER_ACTIVE_NV 0x04
-#define MAESTRO_SOC_CLUSTER_ACTIVE_LV 0x08
-#define MAESTRO_DEEP_SLEEP_ALL_OFF 0x10
-#define MAESTRO_DEEP_SLEEP_RETENTIVE 0x20
+#define MAESTRO_ICU_SUPPLY_EXT 0x0
+#define MAESTRO_ICU_SUPPLY_RET 0x1
+#define MAESTRO_ICU_SUPPLY_CKOFF 0x2
+#define MAESTRO_ICU_SUPPLY_ON 0x3
+#define MAESTRO_ICU_REGU_NONE 0x7
+#define MAESTRO_ICU_REGU_OFF 0x0
+#define MAESTRO_ICU_REGU_RV 0x1
+#define MAESTRO_ICU_REGU_LV 0x2
+#define MAESTRO_ICU_REGU_MV 0x3
+#define MAESTRO_ICU_REGU_NV 0x4
+#define MAESTRO_ICU_CLK_FNONE 0x7
+#define MAESTRO_ICU_CLK_FOFF 0x0
+#define MAESTRO_ICU_CLK_LF 0x1
+#define MAESTRO_ICU_CLK_MF 0x2
+#define MAESTRO_ICU_CLK_NF 0x3
 
 #endif

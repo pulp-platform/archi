@@ -24,6 +24,8 @@
 #include "archi/riscv/pcer_v2.h"
 
 #include "archi/chips/vega/memory_map.h"
+#include "archi/chips/vega/pmu.h"
+#include "archi/maestro/maestro_v3.h"
 #include "archi/chips/vega/apb_soc.h"
 #include "archi/chips/vega/apb_soc_ctrl.h"
 #include "archi/stdout/stdout_v3.h"

@@ -95,6 +95,7 @@ for config in configs:
   if chip == 'vega':
     append_file('archi/pwm/pwm_v1.h')
     append_file('archi/chips/vega/apb_soc_ctrl.h')
+    append_file('archi/chips/vega/pmu.h')
   elif chip == 'pulpissimo':
     append_file('archi/chips/pulpissimo/apb_soc_ctrl.h')
   elif chip == 'gap':
