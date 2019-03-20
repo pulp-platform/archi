@@ -87,8 +87,8 @@
 // -
 #define HYPER__RESERVED1_OFFSET                  0x48
 
-// -
-#define HYPER__RESERVED2_OFFSET                  0x4c
+// OSPI interrupt enable register
+#define HYPER_IRQ_EN_OFFSET                      0x4c
 
 // Clock divide.
 #define HYPER_CLK_DIV_OFFSET                     0x50
@@ -172,15 +172,15 @@
 #define HYPER_EXT_ADDR_REG_ACCESS_WIDTH                              1
 #define HYPER_EXT_ADDR_REG_ACCESS_MASK                               0x80000000
 
-// Latency Cycle value for both HyperRAM and HyperFLASH bitfield. When using HyperRAM memory, this bit should be set to the same value as the read latency in configuration register of HyperRAM memory the read latency in configuration register of HyperRAM memory. For SPI, is the dummy cycle after ADDRESS stage : - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK (access: R/W)
-#define HYPER_TIMING_CFG_LATENCY_BIT                                 0
-#define HYPER_TIMING_CFG_LATENCY_WIDTH                               4
-#define HYPER_TIMING_CFG_LATENCY_MASK                                0xf
+// Latency Cycle value for both HyperRAM and HyperFLASH for chip select 0. When using HyperRAM memory, this bit should be set to the same value as the read latency in configuration register of HyperRAM memory the read latency in configuration register of HyperRAM memory. For SPI, is the dummy cycle after ADDRESS stage : - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK (access: R/W)
+#define HYPER_TIMING_CFG_LATENCY0_BIT                                0
+#define HYPER_TIMING_CFG_LATENCY0_WIDTH                              4
+#define HYPER_TIMING_CFG_LATENCY0_MASK                               0xf
 
-// Auto check for RWDS high or low for additional latency : - 1'b0: additional latency no autocheck - 1'b1: additional latency autocheck (access: R/W)
-#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_BIT         4
-#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_WIDTH       1
-#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_MASK        0x10
+// Latency Cycle value for both HyperRAM and HyperFLASH for chip select 1. When using HyperRAM memory, this bit should be set to the same value as the read latency in configuration register of HyperRAM memory the read latency in configuration register of HyperRAM memory. For SPI, is the dummy cycle after ADDRESS stage : - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK (access: R/W)
+#define HYPER_TIMING_CFG_LATENCY1_BIT                                4
+#define HYPER_TIMING_CFG_LATENCY1_WIDTH                              4
+#define HYPER_TIMING_CFG_LATENCY1_MASK                               0xf0
 
 // Some HyperBus devices may require a minimum time between the end of a prior transaction and the start of a new access. This time is referred to as Read-Write-Recovery time (tRWR). The master interface must start driving CS# Low only at a time when the CA1 transfer will complete after tRWR is satisfied. - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK (access: R/W)
 #define HYPER_TIMING_CFG_RW_RECOVERY_BIT                             8
@@ -191,6 +191,11 @@
 #define HYPER_TIMING_CFG_RWDS_DELAY_BIT                              12
 #define HYPER_TIMING_CFG_RWDS_DELAY_WIDTH                            3
 #define HYPER_TIMING_CFG_RWDS_DELAY_MASK                             0x7000
+
+// Auto check for RWDS high or low for additional latency : - 1'b0: additional latency no autocheck - 1'b1: additional latency autocheck (access: R/W)
+#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_BIT         15
+#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_WIDTH       1
+#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_MASK        0x8000
 
 // Maximum chip select low time for self-refresh HYPERRAM to valid the data transfer : - 16'h0000: 1 CK - 16'h0001: 2 CK - 16'h0011: 3 CK - … - 16'hFFFF: 65536 CK (access: R/W)
 #define HYPER_TIMING_CFG_CS_MAX_BIT                                  16
@@ -271,6 +276,11 @@
 #define HYPER_OSPI_CSN_CSN_VAL_BIT                                   5
 #define HYPER_OSPI_CSN_CSN_VAL_WIDTH                                 1
 #define HYPER_OSPI_CSN_CSN_VAL_MASK                                  0x20
+
+// Octo SPI interrupt enable control :  - 1'b0: interrupt disable -  1'b1: Interrupt enable  (access: R/W)
+#define HYPER_IRQ_EN_EN_BIT                                          0
+#define HYPER_IRQ_EN_EN_WIDTH                                        1
+#define HYPER_IRQ_EN_EN_MASK                                         0x1
 
 // Clock divide data, form 0 – 255, frequency divide table is : -8’h0 – IO_FREQUENCY / 1 -8’h1 – IO_FREQUENCY / 2 -8’h2 – IO_FREQUENCY / 4 …  (access: R/W)
 #define HYPER_CLK_DIV_DATA_BIT                                       0
@@ -365,12 +375,11 @@ typedef union {
 
 typedef union {
   struct {
-    unsigned int latency         :4 ; // Latency Cycle value for both HyperRAM and HyperFLASH bitfield. When using HyperRAM memory, this bit should be set to the same value as the read latency in configuration register of HyperRAM memory the read latency in configuration register of HyperRAM memory. For SPI, is the dummy cycle after ADDRESS stage : - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK
-    unsigned int additional_latency_autocheck_en:1 ; // Auto check for RWDS high or low for additional latency : - 1'b0: additional latency no autocheck - 1'b1: additional latency autocheck
-    unsigned int padding0:3 ;
+    unsigned int latency0        :4 ; // Latency Cycle value for both HyperRAM and HyperFLASH for chip select 0. When using HyperRAM memory, this bit should be set to the same value as the read latency in configuration register of HyperRAM memory the read latency in configuration register of HyperRAM memory. For SPI, is the dummy cycle after ADDRESS stage : - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK
+    unsigned int latency1        :4 ; // Latency Cycle value for both HyperRAM and HyperFLASH for chip select 1. When using HyperRAM memory, this bit should be set to the same value as the read latency in configuration register of HyperRAM memory the read latency in configuration register of HyperRAM memory. For SPI, is the dummy cycle after ADDRESS stage : - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK
     unsigned int rw_recovery     :4 ; // Some HyperBus devices may require a minimum time between the end of a prior transaction and the start of a new access. This time is referred to as Read-Write-Recovery time (tRWR). The master interface must start driving CS# Low only at a time when the CA1 transfer will complete after tRWR is satisfied. - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK
     unsigned int rwds_delay      :3 ; // Delay of RWDS for center aligned read: - 3'b000: 0 logic delay - 3'b001: 1 logic delay - 3'b010: 2 logic delay … - 3'b111: 7 logic delay
-    unsigned int padding1:1 ;
+    unsigned int additional_latency_autocheck_en:1 ; // Auto check for RWDS high or low for additional latency : - 1'b0: additional latency no autocheck - 1'b1: additional latency autocheck
     unsigned int cs_max          :16; // Maximum chip select low time for self-refresh HYPERRAM to valid the data transfer : - 16'h0000: 1 CK - 16'h0001: 2 CK - 16'h0011: 3 CK - … - 16'hFFFF: 65536 CK
   };
   unsigned int raw;
@@ -453,9 +462,10 @@ typedef union {
 
 typedef union {
   struct {
+    unsigned int en              :1 ; // Octo SPI interrupt enable control :  - 1'b0: interrupt disable -  1'b1: Interrupt enable 
   };
   unsigned int raw;
-} __attribute__((packed)) hyper__reserved2_t;
+} __attribute__((packed)) hyper_irq_en_t;
 
 typedef union {
   struct {
@@ -550,14 +560,16 @@ public:
 class vp_hyper_timing_cfg : public vp::reg_32
 {
 public:
-  inline void latency_set(uint32_t value) { this->set_field(value, HYPER_TIMING_CFG_LATENCY_BIT, HYPER_TIMING_CFG_LATENCY_WIDTH); }
-  inline uint32_t latency_get() { return this->get_field(HYPER_TIMING_CFG_LATENCY_BIT, HYPER_TIMING_CFG_LATENCY_WIDTH); }
-  inline void additional_latency_autocheck_en_set(uint32_t value) { this->set_field(value, HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_BIT, HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_WIDTH); }
-  inline uint32_t additional_latency_autocheck_en_get() { return this->get_field(HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_BIT, HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_WIDTH); }
+  inline void latency0_set(uint32_t value) { this->set_field(value, HYPER_TIMING_CFG_LATENCY0_BIT, HYPER_TIMING_CFG_LATENCY0_WIDTH); }
+  inline uint32_t latency0_get() { return this->get_field(HYPER_TIMING_CFG_LATENCY0_BIT, HYPER_TIMING_CFG_LATENCY0_WIDTH); }
+  inline void latency1_set(uint32_t value) { this->set_field(value, HYPER_TIMING_CFG_LATENCY1_BIT, HYPER_TIMING_CFG_LATENCY1_WIDTH); }
+  inline uint32_t latency1_get() { return this->get_field(HYPER_TIMING_CFG_LATENCY1_BIT, HYPER_TIMING_CFG_LATENCY1_WIDTH); }
   inline void rw_recovery_set(uint32_t value) { this->set_field(value, HYPER_TIMING_CFG_RW_RECOVERY_BIT, HYPER_TIMING_CFG_RW_RECOVERY_WIDTH); }
   inline uint32_t rw_recovery_get() { return this->get_field(HYPER_TIMING_CFG_RW_RECOVERY_BIT, HYPER_TIMING_CFG_RW_RECOVERY_WIDTH); }
   inline void rwds_delay_set(uint32_t value) { this->set_field(value, HYPER_TIMING_CFG_RWDS_DELAY_BIT, HYPER_TIMING_CFG_RWDS_DELAY_WIDTH); }
   inline uint32_t rwds_delay_get() { return this->get_field(HYPER_TIMING_CFG_RWDS_DELAY_BIT, HYPER_TIMING_CFG_RWDS_DELAY_WIDTH); }
+  inline void additional_latency_autocheck_en_set(uint32_t value) { this->set_field(value, HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_BIT, HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_WIDTH); }
+  inline uint32_t additional_latency_autocheck_en_get() { return this->get_field(HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_BIT, HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_WIDTH); }
   inline void cs_max_set(uint32_t value) { this->set_field(value, HYPER_TIMING_CFG_CS_MAX_BIT, HYPER_TIMING_CFG_CS_MAX_WIDTH); }
   inline uint32_t cs_max_get() { return this->get_field(HYPER_TIMING_CFG_CS_MAX_BIT, HYPER_TIMING_CFG_CS_MAX_WIDTH); }
 };
@@ -637,9 +649,11 @@ class vp_hyper__reserved1 : public vp::reg_32
 public:
 };
 
-class vp_hyper__reserved2 : public vp::reg_32
+class vp_hyper_irq_en : public vp::reg_32
 {
 public:
+  inline void en_set(uint32_t value) { this->set_field(value, HYPER_IRQ_EN_EN_BIT, HYPER_IRQ_EN_EN_WIDTH); }
+  inline uint32_t en_get() { return this->get_field(HYPER_IRQ_EN_EN_BIT, HYPER_IRQ_EN_EN_WIDTH); }
 };
 
 class vp_hyper_clk_div : public vp::reg_32
@@ -690,7 +704,7 @@ typedef struct {
   unsigned int ospi_csn        ; // OSPI chip select configuration
   unsigned int _reserved0      ; // -
   unsigned int _reserved1      ; // -
-  unsigned int _reserved2      ; // -
+  unsigned int irq_en          ; // OSPI interrupt enable register
   unsigned int clk_div         ; // Clock divide.
   unsigned int status          ; // Transfer status for error.
 } __attribute__((packed)) hyper_hyper_t;
@@ -756,8 +770,8 @@ static inline void hyper__reserved0_set(uint32_t base, uint32_t value) { ARCHI_W
 static inline uint32_t hyper__reserved1_get(uint32_t base) { return ARCHI_READ(base, HYPER__RESERVED1_OFFSET); }
 static inline void hyper__reserved1_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, HYPER__RESERVED1_OFFSET, value); }
 
-static inline uint32_t hyper__reserved2_get(uint32_t base) { return ARCHI_READ(base, HYPER__RESERVED2_OFFSET); }
-static inline void hyper__reserved2_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, HYPER__RESERVED2_OFFSET, value); }
+static inline uint32_t hyper_irq_en_get(uint32_t base) { return ARCHI_READ(base, HYPER_IRQ_EN_OFFSET); }
+static inline void hyper_irq_en_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, HYPER_IRQ_EN_OFFSET, value); }
 
 static inline uint32_t hyper_clk_div_get(uint32_t base) { return ARCHI_READ(base, HYPER_CLK_DIV_OFFSET); }
 static inline void hyper_clk_div_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, HYPER_CLK_DIV_OFFSET, value); }
@@ -845,15 +859,15 @@ static inline void hyper_status_set(uint32_t base, uint32_t value) { ARCHI_WRITE
 #define HYPER_EXT_ADDR_REG_ACCESS_SET(value,field)         (ARCHI_BINSERT((value),(field),1,31))
 #define HYPER_EXT_ADDR_REG_ACCESS(val)                     ((val) << 31)
 
-#define HYPER_TIMING_CFG_LATENCY_GET(value)                (ARCHI_BEXTRACTU((value),4,0))
-#define HYPER_TIMING_CFG_LATENCY_GETS(value)               (ARCHI_BEXTRACT((value),4,0))
-#define HYPER_TIMING_CFG_LATENCY_SET(value,field)          (ARCHI_BINSERT((value),(field),4,0))
-#define HYPER_TIMING_CFG_LATENCY(val)                      ((val) << 0)
+#define HYPER_TIMING_CFG_LATENCY0_GET(value)               (ARCHI_BEXTRACTU((value),4,0))
+#define HYPER_TIMING_CFG_LATENCY0_GETS(value)              (ARCHI_BEXTRACT((value),4,0))
+#define HYPER_TIMING_CFG_LATENCY0_SET(value,field)         (ARCHI_BINSERT((value),(field),4,0))
+#define HYPER_TIMING_CFG_LATENCY0(val)                     ((val) << 0)
 
-#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_GET(value) (ARCHI_BEXTRACTU((value),1,4))
-#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_GETS(value) (ARCHI_BEXTRACT((value),1,4))
-#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_SET(value,field) (ARCHI_BINSERT((value),(field),1,4))
-#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN(val) ((val) << 4)
+#define HYPER_TIMING_CFG_LATENCY1_GET(value)               (ARCHI_BEXTRACTU((value),4,4))
+#define HYPER_TIMING_CFG_LATENCY1_GETS(value)              (ARCHI_BEXTRACT((value),4,4))
+#define HYPER_TIMING_CFG_LATENCY1_SET(value,field)         (ARCHI_BINSERT((value),(field),4,4))
+#define HYPER_TIMING_CFG_LATENCY1(val)                     ((val) << 4)
 
 #define HYPER_TIMING_CFG_RW_RECOVERY_GET(value)            (ARCHI_BEXTRACTU((value),4,8))
 #define HYPER_TIMING_CFG_RW_RECOVERY_GETS(value)           (ARCHI_BEXTRACT((value),4,8))
@@ -864,6 +878,11 @@ static inline void hyper_status_set(uint32_t base, uint32_t value) { ARCHI_WRITE
 #define HYPER_TIMING_CFG_RWDS_DELAY_GETS(value)            (ARCHI_BEXTRACT((value),3,12))
 #define HYPER_TIMING_CFG_RWDS_DELAY_SET(value,field)       (ARCHI_BINSERT((value),(field),3,12))
 #define HYPER_TIMING_CFG_RWDS_DELAY(val)                   ((val) << 12)
+
+#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_GET(value) (ARCHI_BEXTRACTU((value),1,15))
+#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_GETS(value) (ARCHI_BEXTRACT((value),1,15))
+#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_SET(value,field) (ARCHI_BINSERT((value),(field),1,15))
+#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN(val) ((val) << 15)
 
 #define HYPER_TIMING_CFG_CS_MAX_GET(value)                 (ARCHI_BEXTRACTU((value),16,16))
 #define HYPER_TIMING_CFG_CS_MAX_GETS(value)                (ARCHI_BEXTRACT((value),16,16))
@@ -944,6 +963,11 @@ static inline void hyper_status_set(uint32_t base, uint32_t value) { ARCHI_WRITE
 #define HYPER_OSPI_CSN_CSN_VAL_GETS(value)                 (ARCHI_BEXTRACT((value),1,5))
 #define HYPER_OSPI_CSN_CSN_VAL_SET(value,field)            (ARCHI_BINSERT((value),(field),1,5))
 #define HYPER_OSPI_CSN_CSN_VAL(val)                        ((val) << 5)
+
+#define HYPER_IRQ_EN_EN_GET(value)                         (ARCHI_BEXTRACTU((value),1,0))
+#define HYPER_IRQ_EN_EN_GETS(value)                        (ARCHI_BEXTRACT((value),1,0))
+#define HYPER_IRQ_EN_EN_SET(value,field)                   (ARCHI_BINSERT((value),(field),1,0))
+#define HYPER_IRQ_EN_EN(val)                               ((val) << 0)
 
 #define HYPER_CLK_DIV_DATA_GET(value)                      (ARCHI_BEXTRACTU((value),8,0))
 #define HYPER_CLK_DIV_DATA_GETS(value)                     (ARCHI_BEXTRACT((value),8,0))

@@ -7,10 +7,13 @@ clean:
 udma_i2s_v2:
 	regmap --name=udma_i2s --input-xls=doc/I2S_V2_reference.xlsx --header=include/archi/udma/i2s/udma_i2s_v2.h
 	
+udma_hyper_v2:
+	regmap --name=hyper --input-xls=doc/HYPER_V2_reference.xlsx --header=include/archi/udma/hyper/udma_hyper_v2.h
+	
 pmu_v3:
 	regmap --name=maestro  --input-json=ips/pmu/pmu_v3.json           --header=include/archi/maestro/maestro_v3.h
 	
-vega: udma_i2s_v2 pmu_v3
+vega: udma_i2s_v2 pmu_v3 udma_hyper_v2
 	regmap --name=apb_soc  --input-xls=doc/VEGA_APB_SOC_CTRL_reference.xlsx  --header=include/archi/chips/vega/apb_soc_ctrl.h
 	regmap --name=pmu      --input-json=chips/vega/pmu.json           --header=include/archi/chips/vega/pmu.h
 
