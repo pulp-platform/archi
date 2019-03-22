@@ -122,15 +122,15 @@
 #define HYPER_RX_CFG_EN_WIDTH                                        1
 #define HYPER_RX_CFG_EN_MASK                                         0x10
 
-// RX channel clear and stop transfer: -1'b0: disable -1'b1: stop and clear the on-going transfer (access: W)
-#define HYPER_RX_CFG_CLR_BIT                                         5
-#define HYPER_RX_CFG_CLR_WIDTH                                       1
-#define HYPER_RX_CFG_CLR_MASK                                        0x20
-
 // RX transfer pending in queue status flag: -1'b0: no pending transfer in the queue -1'b1: pending transfer in the queue (access: R)
 #define HYPER_RX_CFG_PENDING_BIT                                     5
 #define HYPER_RX_CFG_PENDING_WIDTH                                   1
 #define HYPER_RX_CFG_PENDING_MASK                                    0x20
+
+// RX channel clear and stop transfer: -1'b0: disable -1'b1: stop and clear the on-going transfer (access: W)
+#define HYPER_RX_CFG_CLR_BIT                                         6
+#define HYPER_RX_CFG_CLR_WIDTH                                       1
+#define HYPER_RX_CFG_CLR_MASK                                        0x40
 
 // TX buffer base address bitfield: - Read: returns value of the buffer pointer until transfer is finished. Else returns 0. - Write: sets buffer base address (access: R/W)
 #define HYPER_TX_SADDR_TX_SADDR_BIT                                  0
@@ -152,15 +152,15 @@
 #define HYPER_TX_CFG_EN_WIDTH                                        1
 #define HYPER_TX_CFG_EN_MASK                                         0x10
 
-// TX channel clear and stop transfer bitfield: -1'b0: disabled -1'b1: stop and clear the on-going transfer (access: W)
-#define HYPER_TX_CFG_CLR_BIT                                         5
-#define HYPER_TX_CFG_CLR_WIDTH                                       1
-#define HYPER_TX_CFG_CLR_MASK                                        0x20
-
 // TX transfer pending in queue status flag: -1'b0: no pending transfer in the queue -1'b1: pending transfer in the queue (access: R)
 #define HYPER_TX_CFG_PENDING_BIT                                     5
 #define HYPER_TX_CFG_PENDING_WIDTH                                   1
 #define HYPER_TX_CFG_PENDING_MASK                                    0x20
+
+// TX channel clear and stop transfer bitfield: -1'b0: disabled -1'b1: stop and clear the on-going transfer (access: W)
+#define HYPER_TX_CFG_CLR_BIT                                         6
+#define HYPER_TX_CFG_CLR_WIDTH                                       1
+#define HYPER_TX_CFG_CLR_MASK                                        0x40
 
 // Memory access address bitfield. (access: R/W)
 #define HYPER_EXT_ADDR_SADDR_BIT                                     0
@@ -174,33 +174,33 @@
 
 // Latency Cycle value for both HyperRAM and HyperFLASH for chip select 0. When using HyperRAM memory, this bit should be set to the same value as the read latency in configuration register of HyperRAM memory the read latency in configuration register of HyperRAM memory. For SPI, is the dummy cycle after ADDRESS stage : - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK (access: R/W)
 #define HYPER_TIMING_CFG_LATENCY0_BIT                                0
-#define HYPER_TIMING_CFG_LATENCY0_WIDTH                              4
-#define HYPER_TIMING_CFG_LATENCY0_MASK                               0xf
+#define HYPER_TIMING_CFG_LATENCY0_WIDTH                              5
+#define HYPER_TIMING_CFG_LATENCY0_MASK                               0x1f
 
-// Latency Cycle value for both HyperRAM and HyperFLASH for chip select 1. When using HyperRAM memory, this bit should be set to the same value as the read latency in configuration register of HyperRAM memory the read latency in configuration register of HyperRAM memory. For SPI, is the dummy cycle after ADDRESS stage : - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK (access: R/W)
-#define HYPER_TIMING_CFG_LATENCY1_BIT                                4
-#define HYPER_TIMING_CFG_LATENCY1_WIDTH                              4
-#define HYPER_TIMING_CFG_LATENCY1_MASK                               0xf0
+// Latency Cycle value for both HyperRAM and HyperFLASH for chip select 1. When using HyperRAM memory, this bit should be set to the same value as the read latency in configuration register of HyperRAM memory the read latency in configuration register of HyperRAM memory. For SPI, is the dummy cycle after ADDRESS stage : - 5'b00000: 0 CK - 5'b00001: 1 CK - 5'b000001: 2 CK ... - 5'b11111: 31 CK (access: R/W)
+#define HYPER_TIMING_CFG_LATENCY1_BIT                                5
+#define HYPER_TIMING_CFG_LATENCY1_WIDTH                              5
+#define HYPER_TIMING_CFG_LATENCY1_MASK                               0x3e0
 
-// Some HyperBus devices may require a minimum time between the end of a prior transaction and the start of a new access. This time is referred to as Read-Write-Recovery time (tRWR). The master interface must start driving CS# Low only at a time when the CA1 transfer will complete after tRWR is satisfied. - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK (access: R/W)
-#define HYPER_TIMING_CFG_RW_RECOVERY_BIT                             8
+// Some HyperBus devices may require a minimum time between the end of a prior transaction and the start of a new access. This time is referred to as Read-Write-Recovery time (tRWR). The master interface must start driving CS# Low only at a time when the CA1 transfer will complete after tRWR is satisfied. - 5'b00000: 0 CK - 5'b00001: 1 CK - 5'b000001: 2 CK ... - 5'b11111: 31 CK (access: R/W)
+#define HYPER_TIMING_CFG_RW_RECOVERY_BIT                             10
 #define HYPER_TIMING_CFG_RW_RECOVERY_WIDTH                           4
-#define HYPER_TIMING_CFG_RW_RECOVERY_MASK                            0xf00
+#define HYPER_TIMING_CFG_RW_RECOVERY_MASK                            0x3c00
 
 // Delay of RWDS for center aligned read: - 3'b000: 0 logic delay - 3'b001: 1 logic delay - 3'b010: 2 logic delay … - 3'b111: 7 logic delay (access: R/W)
-#define HYPER_TIMING_CFG_RWDS_DELAY_BIT                              12
+#define HYPER_TIMING_CFG_RWDS_DELAY_BIT                              14
 #define HYPER_TIMING_CFG_RWDS_DELAY_WIDTH                            3
-#define HYPER_TIMING_CFG_RWDS_DELAY_MASK                             0x7000
+#define HYPER_TIMING_CFG_RWDS_DELAY_MASK                             0x1c000
 
 // Auto check for RWDS high or low for additional latency : - 1'b0: additional latency no autocheck - 1'b1: additional latency autocheck (access: R/W)
-#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_BIT         15
+#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_BIT         17
 #define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_WIDTH       1
-#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_MASK        0x8000
+#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_MASK        0x20000
 
-// Maximum chip select low time for self-refresh HYPERRAM to valid the data transfer : - 16'h0000: 1 CK - 16'h0001: 2 CK - 16'h0011: 3 CK - … - 16'hFFFF: 65536 CK (access: R/W)
-#define HYPER_TIMING_CFG_CS_MAX_BIT                                  16
+// Maximum chip select low time for self-refresh HYPERRAM to valid the data transfer : - 14'h0000: 1 CK - 14'h0001: 2 CK - 14'h0011: 3 CK - … - 14'h3FFF: 16383 CK (access: R/W)
+#define HYPER_TIMING_CFG_CS_MAX_BIT                                  18
 #define HYPER_TIMING_CFG_CS_MAX_WIDTH                                16
-#define HYPER_TIMING_CFG_CS_MAX_MASK                                 0xffff0000
+#define HYPER_TIMING_CFG_CS_MAX_MASK                                 0x3fffc0000
 
 // Memory Base Address 0 for both RAM and FLASH bitfield. The base address of addressable region to each memory is set up. Since register can be set in 16M bytes boundary, lower 24 bit is fixed to 0. MBA0 can be greater than MBA1, the chip select which decided by the relationship among MBA0, MBA1, and EXT_ADDR.  - MBA0 < MBA1, if (MBA1 <= EXT_ADDR) CS1 = 0;  else CS0 = 0; - MBA0 > MBA1, if (MBA0 <= EXT_ADDR) CS0 = 0;  else CS1 = 0; (access: R/W)
 #define HYPER_MBA0_MBA0_BIT                                          24
@@ -334,8 +334,8 @@ typedef union {
     unsigned int continous       :1 ; // RX channel continuous mode bitfield: -1'b0: disabled -1'b1: enabled At the end of the buffer transfer, the uDMA reloads the address / buffer size and starts a new transfer.
     unsigned int padding0:3 ;
     unsigned int en              :1 ; // RX channel enable and start transfer bitfield: -1'b0: disable -1'b1: enable and start the transfer This signal is used also to queue a transfer if one is already ongoing.
-    unsigned int clr             :1 ; // RX channel clear and stop transfer: -1'b0: disable -1'b1: stop and clear the on-going transfer
     unsigned int pending         :1 ; // RX transfer pending in queue status flag: -1'b0: no pending transfer in the queue -1'b1: pending transfer in the queue
+    unsigned int clr             :1 ; // RX channel clear and stop transfer: -1'b0: disable -1'b1: stop and clear the on-going transfer
   };
   unsigned int raw;
 } __attribute__((packed)) hyper_rx_cfg_t;
@@ -359,8 +359,8 @@ typedef union {
     unsigned int continous       :1 ; // TX channel continuous mode bitfield: -1'b0: disabled -1'b1: enabled At the end of the buffer transfer, the uDMA reloads the address / buffer size and starts a new transfer.
     unsigned int padding0:3 ;
     unsigned int en              :1 ; // TX channel enable and start transfer bitfield: -1'b0: disabled -1'b1: enable and start the transfer This signal is used also to queue a transfer if one is already ongoing.
-    unsigned int clr             :1 ; // TX channel clear and stop transfer bitfield: -1'b0: disabled -1'b1: stop and clear the on-going transfer
     unsigned int pending         :1 ; // TX transfer pending in queue status flag: -1'b0: no pending transfer in the queue -1'b1: pending transfer in the queue
+    unsigned int clr             :1 ; // TX channel clear and stop transfer bitfield: -1'b0: disabled -1'b1: stop and clear the on-going transfer
   };
   unsigned int raw;
 } __attribute__((packed)) hyper_tx_cfg_t;
@@ -375,12 +375,12 @@ typedef union {
 
 typedef union {
   struct {
-    unsigned int latency0        :4 ; // Latency Cycle value for both HyperRAM and HyperFLASH for chip select 0. When using HyperRAM memory, this bit should be set to the same value as the read latency in configuration register of HyperRAM memory the read latency in configuration register of HyperRAM memory. For SPI, is the dummy cycle after ADDRESS stage : - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK
-    unsigned int latency1        :4 ; // Latency Cycle value for both HyperRAM and HyperFLASH for chip select 1. When using HyperRAM memory, this bit should be set to the same value as the read latency in configuration register of HyperRAM memory the read latency in configuration register of HyperRAM memory. For SPI, is the dummy cycle after ADDRESS stage : - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK
-    unsigned int rw_recovery     :4 ; // Some HyperBus devices may require a minimum time between the end of a prior transaction and the start of a new access. This time is referred to as Read-Write-Recovery time (tRWR). The master interface must start driving CS# Low only at a time when the CA1 transfer will complete after tRWR is satisfied. - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK
+    unsigned int latency0        :5 ; // Latency Cycle value for both HyperRAM and HyperFLASH for chip select 0. When using HyperRAM memory, this bit should be set to the same value as the read latency in configuration register of HyperRAM memory the read latency in configuration register of HyperRAM memory. For SPI, is the dummy cycle after ADDRESS stage : - 4'b0000: 16 CK - 4'b0001: 1 CK - 4'b0001: 2 CK ... - 4'b1111: 15 CK
+    unsigned int latency1        :5 ; // Latency Cycle value for both HyperRAM and HyperFLASH for chip select 1. When using HyperRAM memory, this bit should be set to the same value as the read latency in configuration register of HyperRAM memory the read latency in configuration register of HyperRAM memory. For SPI, is the dummy cycle after ADDRESS stage : - 5'b00000: 0 CK - 5'b00001: 1 CK - 5'b000001: 2 CK ... - 5'b11111: 31 CK
+    unsigned int rw_recovery     :4 ; // Some HyperBus devices may require a minimum time between the end of a prior transaction and the start of a new access. This time is referred to as Read-Write-Recovery time (tRWR). The master interface must start driving CS# Low only at a time when the CA1 transfer will complete after tRWR is satisfied. - 5'b00000: 0 CK - 5'b00001: 1 CK - 5'b000001: 2 CK ... - 5'b11111: 31 CK
     unsigned int rwds_delay      :3 ; // Delay of RWDS for center aligned read: - 3'b000: 0 logic delay - 3'b001: 1 logic delay - 3'b010: 2 logic delay … - 3'b111: 7 logic delay
     unsigned int additional_latency_autocheck_en:1 ; // Auto check for RWDS high or low for additional latency : - 1'b0: additional latency no autocheck - 1'b1: additional latency autocheck
-    unsigned int cs_max          :16; // Maximum chip select low time for self-refresh HYPERRAM to valid the data transfer : - 16'h0000: 1 CK - 16'h0001: 2 CK - 16'h0011: 3 CK - … - 16'hFFFF: 65536 CK
+    unsigned int cs_max          :16; // Maximum chip select low time for self-refresh HYPERRAM to valid the data transfer : - 14'h0000: 1 CK - 14'h0001: 2 CK - 14'h0011: 3 CK - … - 14'h3FFF: 16383 CK
   };
   unsigned int raw;
 } __attribute__((packed)) hyper_timing_cfg_t;
@@ -515,10 +515,10 @@ public:
   inline uint32_t continous_get() { return this->get_field(HYPER_RX_CFG_CONTINOUS_BIT, HYPER_RX_CFG_CONTINOUS_WIDTH); }
   inline void en_set(uint32_t value) { this->set_field(value, HYPER_RX_CFG_EN_BIT, HYPER_RX_CFG_EN_WIDTH); }
   inline uint32_t en_get() { return this->get_field(HYPER_RX_CFG_EN_BIT, HYPER_RX_CFG_EN_WIDTH); }
-  inline void clr_set(uint32_t value) { this->set_field(value, HYPER_RX_CFG_CLR_BIT, HYPER_RX_CFG_CLR_WIDTH); }
-  inline uint32_t clr_get() { return this->get_field(HYPER_RX_CFG_CLR_BIT, HYPER_RX_CFG_CLR_WIDTH); }
   inline void pending_set(uint32_t value) { this->set_field(value, HYPER_RX_CFG_PENDING_BIT, HYPER_RX_CFG_PENDING_WIDTH); }
   inline uint32_t pending_get() { return this->get_field(HYPER_RX_CFG_PENDING_BIT, HYPER_RX_CFG_PENDING_WIDTH); }
+  inline void clr_set(uint32_t value) { this->set_field(value, HYPER_RX_CFG_CLR_BIT, HYPER_RX_CFG_CLR_WIDTH); }
+  inline uint32_t clr_get() { return this->get_field(HYPER_RX_CFG_CLR_BIT, HYPER_RX_CFG_CLR_WIDTH); }
 };
 
 class vp_hyper_tx_saddr : public vp::reg_32
@@ -542,10 +542,10 @@ public:
   inline uint32_t continous_get() { return this->get_field(HYPER_TX_CFG_CONTINOUS_BIT, HYPER_TX_CFG_CONTINOUS_WIDTH); }
   inline void en_set(uint32_t value) { this->set_field(value, HYPER_TX_CFG_EN_BIT, HYPER_TX_CFG_EN_WIDTH); }
   inline uint32_t en_get() { return this->get_field(HYPER_TX_CFG_EN_BIT, HYPER_TX_CFG_EN_WIDTH); }
-  inline void clr_set(uint32_t value) { this->set_field(value, HYPER_TX_CFG_CLR_BIT, HYPER_TX_CFG_CLR_WIDTH); }
-  inline uint32_t clr_get() { return this->get_field(HYPER_TX_CFG_CLR_BIT, HYPER_TX_CFG_CLR_WIDTH); }
   inline void pending_set(uint32_t value) { this->set_field(value, HYPER_TX_CFG_PENDING_BIT, HYPER_TX_CFG_PENDING_WIDTH); }
   inline uint32_t pending_get() { return this->get_field(HYPER_TX_CFG_PENDING_BIT, HYPER_TX_CFG_PENDING_WIDTH); }
+  inline void clr_set(uint32_t value) { this->set_field(value, HYPER_TX_CFG_CLR_BIT, HYPER_TX_CFG_CLR_WIDTH); }
+  inline uint32_t clr_get() { return this->get_field(HYPER_TX_CFG_CLR_BIT, HYPER_TX_CFG_CLR_WIDTH); }
 };
 
 class vp_hyper_ext_addr : public vp::reg_32
@@ -809,15 +809,15 @@ static inline void hyper_status_set(uint32_t base, uint32_t value) { ARCHI_WRITE
 #define HYPER_RX_CFG_EN_SET(value,field)                   (ARCHI_BINSERT((value),(field),1,4))
 #define HYPER_RX_CFG_EN(val)                               ((val) << 4)
 
-#define HYPER_RX_CFG_CLR_GET(value)                        (ARCHI_BEXTRACTU((value),1,5))
-#define HYPER_RX_CFG_CLR_GETS(value)                       (ARCHI_BEXTRACT((value),1,5))
-#define HYPER_RX_CFG_CLR_SET(value,field)                  (ARCHI_BINSERT((value),(field),1,5))
-#define HYPER_RX_CFG_CLR(val)                              ((val) << 5)
-
 #define HYPER_RX_CFG_PENDING_GET(value)                    (ARCHI_BEXTRACTU((value),1,5))
 #define HYPER_RX_CFG_PENDING_GETS(value)                   (ARCHI_BEXTRACT((value),1,5))
 #define HYPER_RX_CFG_PENDING_SET(value,field)              (ARCHI_BINSERT((value),(field),1,5))
 #define HYPER_RX_CFG_PENDING(val)                          ((val) << 5)
+
+#define HYPER_RX_CFG_CLR_GET(value)                        (ARCHI_BEXTRACTU((value),1,6))
+#define HYPER_RX_CFG_CLR_GETS(value)                       (ARCHI_BEXTRACT((value),1,6))
+#define HYPER_RX_CFG_CLR_SET(value,field)                  (ARCHI_BINSERT((value),(field),1,6))
+#define HYPER_RX_CFG_CLR(val)                              ((val) << 6)
 
 #define HYPER_TX_SADDR_TX_SADDR_GET(value)                 (ARCHI_BEXTRACTU((value),16,0))
 #define HYPER_TX_SADDR_TX_SADDR_GETS(value)                (ARCHI_BEXTRACT((value),16,0))
@@ -839,15 +839,15 @@ static inline void hyper_status_set(uint32_t base, uint32_t value) { ARCHI_WRITE
 #define HYPER_TX_CFG_EN_SET(value,field)                   (ARCHI_BINSERT((value),(field),1,4))
 #define HYPER_TX_CFG_EN(val)                               ((val) << 4)
 
-#define HYPER_TX_CFG_CLR_GET(value)                        (ARCHI_BEXTRACTU((value),1,5))
-#define HYPER_TX_CFG_CLR_GETS(value)                       (ARCHI_BEXTRACT((value),1,5))
-#define HYPER_TX_CFG_CLR_SET(value,field)                  (ARCHI_BINSERT((value),(field),1,5))
-#define HYPER_TX_CFG_CLR(val)                              ((val) << 5)
-
 #define HYPER_TX_CFG_PENDING_GET(value)                    (ARCHI_BEXTRACTU((value),1,5))
 #define HYPER_TX_CFG_PENDING_GETS(value)                   (ARCHI_BEXTRACT((value),1,5))
 #define HYPER_TX_CFG_PENDING_SET(value,field)              (ARCHI_BINSERT((value),(field),1,5))
 #define HYPER_TX_CFG_PENDING(val)                          ((val) << 5)
+
+#define HYPER_TX_CFG_CLR_GET(value)                        (ARCHI_BEXTRACTU((value),1,6))
+#define HYPER_TX_CFG_CLR_GETS(value)                       (ARCHI_BEXTRACT((value),1,6))
+#define HYPER_TX_CFG_CLR_SET(value,field)                  (ARCHI_BINSERT((value),(field),1,6))
+#define HYPER_TX_CFG_CLR(val)                              ((val) << 6)
 
 #define HYPER_EXT_ADDR_SADDR_GET(value)                    (ARCHI_BEXTRACTU((value),31,0))
 #define HYPER_EXT_ADDR_SADDR_GETS(value)                   (ARCHI_BEXTRACT((value),31,0))
@@ -859,35 +859,35 @@ static inline void hyper_status_set(uint32_t base, uint32_t value) { ARCHI_WRITE
 #define HYPER_EXT_ADDR_REG_ACCESS_SET(value,field)         (ARCHI_BINSERT((value),(field),1,31))
 #define HYPER_EXT_ADDR_REG_ACCESS(val)                     ((val) << 31)
 
-#define HYPER_TIMING_CFG_LATENCY0_GET(value)               (ARCHI_BEXTRACTU((value),4,0))
-#define HYPER_TIMING_CFG_LATENCY0_GETS(value)              (ARCHI_BEXTRACT((value),4,0))
-#define HYPER_TIMING_CFG_LATENCY0_SET(value,field)         (ARCHI_BINSERT((value),(field),4,0))
+#define HYPER_TIMING_CFG_LATENCY0_GET(value)               (ARCHI_BEXTRACTU((value),5,0))
+#define HYPER_TIMING_CFG_LATENCY0_GETS(value)              (ARCHI_BEXTRACT((value),5,0))
+#define HYPER_TIMING_CFG_LATENCY0_SET(value,field)         (ARCHI_BINSERT((value),(field),5,0))
 #define HYPER_TIMING_CFG_LATENCY0(val)                     ((val) << 0)
 
-#define HYPER_TIMING_CFG_LATENCY1_GET(value)               (ARCHI_BEXTRACTU((value),4,4))
-#define HYPER_TIMING_CFG_LATENCY1_GETS(value)              (ARCHI_BEXTRACT((value),4,4))
-#define HYPER_TIMING_CFG_LATENCY1_SET(value,field)         (ARCHI_BINSERT((value),(field),4,4))
-#define HYPER_TIMING_CFG_LATENCY1(val)                     ((val) << 4)
+#define HYPER_TIMING_CFG_LATENCY1_GET(value)               (ARCHI_BEXTRACTU((value),5,5))
+#define HYPER_TIMING_CFG_LATENCY1_GETS(value)              (ARCHI_BEXTRACT((value),5,5))
+#define HYPER_TIMING_CFG_LATENCY1_SET(value,field)         (ARCHI_BINSERT((value),(field),5,5))
+#define HYPER_TIMING_CFG_LATENCY1(val)                     ((val) << 5)
 
-#define HYPER_TIMING_CFG_RW_RECOVERY_GET(value)            (ARCHI_BEXTRACTU((value),4,8))
-#define HYPER_TIMING_CFG_RW_RECOVERY_GETS(value)           (ARCHI_BEXTRACT((value),4,8))
-#define HYPER_TIMING_CFG_RW_RECOVERY_SET(value,field)      (ARCHI_BINSERT((value),(field),4,8))
-#define HYPER_TIMING_CFG_RW_RECOVERY(val)                  ((val) << 8)
+#define HYPER_TIMING_CFG_RW_RECOVERY_GET(value)            (ARCHI_BEXTRACTU((value),4,10))
+#define HYPER_TIMING_CFG_RW_RECOVERY_GETS(value)           (ARCHI_BEXTRACT((value),4,10))
+#define HYPER_TIMING_CFG_RW_RECOVERY_SET(value,field)      (ARCHI_BINSERT((value),(field),4,10))
+#define HYPER_TIMING_CFG_RW_RECOVERY(val)                  ((val) << 10)
 
-#define HYPER_TIMING_CFG_RWDS_DELAY_GET(value)             (ARCHI_BEXTRACTU((value),3,12))
-#define HYPER_TIMING_CFG_RWDS_DELAY_GETS(value)            (ARCHI_BEXTRACT((value),3,12))
-#define HYPER_TIMING_CFG_RWDS_DELAY_SET(value,field)       (ARCHI_BINSERT((value),(field),3,12))
-#define HYPER_TIMING_CFG_RWDS_DELAY(val)                   ((val) << 12)
+#define HYPER_TIMING_CFG_RWDS_DELAY_GET(value)             (ARCHI_BEXTRACTU((value),3,14))
+#define HYPER_TIMING_CFG_RWDS_DELAY_GETS(value)            (ARCHI_BEXTRACT((value),3,14))
+#define HYPER_TIMING_CFG_RWDS_DELAY_SET(value,field)       (ARCHI_BINSERT((value),(field),3,14))
+#define HYPER_TIMING_CFG_RWDS_DELAY(val)                   ((val) << 14)
 
-#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_GET(value) (ARCHI_BEXTRACTU((value),1,15))
-#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_GETS(value) (ARCHI_BEXTRACT((value),1,15))
-#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_SET(value,field) (ARCHI_BINSERT((value),(field),1,15))
-#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN(val) ((val) << 15)
+#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_GET(value) (ARCHI_BEXTRACTU((value),1,17))
+#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_GETS(value) (ARCHI_BEXTRACT((value),1,17))
+#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN_SET(value,field) (ARCHI_BINSERT((value),(field),1,17))
+#define HYPER_TIMING_CFG_ADDITIONAL_LATENCY_AUTOCHECK_EN(val) ((val) << 17)
 
-#define HYPER_TIMING_CFG_CS_MAX_GET(value)                 (ARCHI_BEXTRACTU((value),16,16))
-#define HYPER_TIMING_CFG_CS_MAX_GETS(value)                (ARCHI_BEXTRACT((value),16,16))
-#define HYPER_TIMING_CFG_CS_MAX_SET(value,field)           (ARCHI_BINSERT((value),(field),16,16))
-#define HYPER_TIMING_CFG_CS_MAX(val)                       ((val) << 16)
+#define HYPER_TIMING_CFG_CS_MAX_GET(value)                 (ARCHI_BEXTRACTU((value),16,18))
+#define HYPER_TIMING_CFG_CS_MAX_GETS(value)                (ARCHI_BEXTRACT((value),16,18))
+#define HYPER_TIMING_CFG_CS_MAX_SET(value,field)           (ARCHI_BINSERT((value),(field),16,18))
+#define HYPER_TIMING_CFG_CS_MAX(val)                       ((val) << 18)
 
 #define HYPER_MBA0_MBA0_GET(value)                         (ARCHI_BEXTRACTU((value),7,24))
 #define HYPER_MBA0_MBA0_GETS(value)                        (ARCHI_BEXTRACT((value),7,24))
