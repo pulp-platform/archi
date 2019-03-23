@@ -39,29 +39,86 @@
 // Core information register
 #define APB_SOC_INFO_OFFSET                      0x0
 
-// RFU
-#define APB_SOC_NOTUSED0_OFFSET                  0x4
+// Boot address
+#define APB_SOC_FC_BOOT_OFFSET                   0x4
 
-// RFU
-#define APB_SOC_NOTUSED1_OFFSET                  0x8
+// FC Fetch enable
+#define APB_SOC_FC_FETCH_OFFSET                  0x8
 
 // Isolate cluster register
 #define APB_SOC_CL_ISOLATE_OFFSET                0xc
 
+// Mux config register (pad 0-15)
+#define APB_SOC_PADFUN0_OFFSET                   0x10
+
+// Mux config register (pad 16-31)
+#define APB_SOC_PADFUN1_OFFSET                   0x14
+
+// Mux config register (pad 32-47)
+#define APB_SOC_PADFUN2_OFFSET                   0x18
+
+// Mux config register (pad 48-63)
+#define APB_SOC_PADFUN3_OFFSET                   0x1c
+
+// Function register (pad 0 to 3)
+#define APB_SOC_PADCFG0_OFFSET                   0x20
+
+// Function register (pad 4 to 7)
+#define APB_SOC_PADCFG1_OFFSET                   0x24
+
+// Function register (pad 8 to 11)
+#define APB_SOC_PADCFG2_OFFSET                   0x28
+
+// Function register (pad 12 to 15)
+#define APB_SOC_PADCFG3_OFFSET                   0x2c
+
+// Function register (pad 16 to 19)
+#define APB_SOC_PADCFG4_OFFSET                   0x30
+
+// Function register (pad 20 to 23)
+#define APB_SOC_PADCFG5_OFFSET                   0x34
+
+// Function register (pad 24 to 27)
+#define APB_SOC_PADCFG6_OFFSET                   0x38
+
+// Function register (pad 28 to 31)
+#define APB_SOC_PADCFG7_OFFSET                   0x3c
+
+// Function register (pad 32 to 35)
+#define APB_SOC_PADCFG8_OFFSET                   0x40
+
+// Function register (pad 36 to 39)
+#define APB_SOC_PADCFG9_OFFSET                   0x44
+
+// Function register (pad 40 to 43)
+#define APB_SOC_PADCFG10_OFFSET                  0x48
+
+// Function register (pad 44 to 47)
+#define APB_SOC_PADCFG11_OFFSET                  0x4c
+
+// Function register (pad 48 to 51)
+#define APB_SOC_PADCFG12_OFFSET                  0x50
+
+// Function register (pad 52 to 55)
+#define APB_SOC_PADCFG13_OFFSET                  0x54
+
+// Function register (pad 56 to 59)
+#define APB_SOC_PADCFG14_OFFSET                  0x58
+
+// Function register (pad 60 to 63)
+#define APB_SOC_PADCFG15_OFFSET                  0x5c
+
 // Cluster busy register
 #define APB_SOC_CL_BUSY_OFFSET                   0x6c
-
-// PMU bypass configuration register
-#define APB_SOC_CL_BYPASS_OFFSET                 0x70
 
 // JTAG external register
 #define APB_SOC_JTAGREG_OFFSET                   0x74
 
-// L2 sleep configuration register
-#define APB_SOC_L2_SLEEP_OFFSET                  0x78
-
 // Alias for SAFE_PMU_SLEEPCTRL
 #define APB_SOC_SLEEP_CTRL_OFFSET                0x7c
+
+// Clock divider for I3C
+#define APB_SOC_CLK_DIV_I3C_OFFSET               0x80
 
 // EOC and chip status register
 #define APB_SOC_CORESTATUS_OFFSET                0xa0
@@ -72,26 +129,50 @@
 // Value of pad bootsel
 #define APB_SOC_BOOTSEL_OFFSET                   0xc4
 
-// DC/DC configuration register
-#define APB_SOC_SAFE_PMU_RAR_OFFSET              0x100
+// Clear WD timer
+#define APB_SOC_WD_CLR_OFFSET                    0xc8
+
+// Clock selection for SOC,Cluster and Periph
+#define APB_SOC_CLK_SEL_OFFSET                   0xd0
+
+// SOC Clock Divider settings
+#define APB_SOC_CLK_DIV_SOC_OFFSET               0xd4
+
+// Cluster Clock Divider settings
+#define APB_SOC_CLK_DIV_CLU_OFFSET               0xd8
+
+// Peripheral Clock Divider Settings
+#define APB_SOC_CLK_DIV_PER_OFFSET               0xdc
+
+// nan
+#define APB_SOC_SUPERVISOR_DBG_OFFSET            0xe0
+
+// nan
+#define APB_SOC_RWM_GRP0_OFFSET                  0xe4
+
+// nan
+#define APB_SOC_RWM_GRP1_OFFSET                  0xe8
+
+// nan
+#define APB_SOC_RWM_GRP2_OFFSET                  0xec
+
+// nan
+#define APB_SOC_RWM_GRP3_OFFSET                  0xf0
+
+// nan
+#define APB_SOC_RWM_GRP4_OFFSET                  0xf4
+
+// nan
+#define APB_SOC_RWM_GRP5_OFFSET                  0xf8
+
+// nan
+#define APB_SOC_RWM_GRP6_OFFSET                  0xfc
 
 // Sleep modes configuration register
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_OFFSET        0x104
 
-// L2 rententive state configuration
-#define APB_SOC_SAFE_PMU_FORCE_OFFSET            0x108
-
-// Mux config register (pad 0-15)
-#define APB_SOC_SAFE_PADFUN0_OFFSET              0x140
-
-// Mux config register (pad 16-31)
-#define APB_SOC_SAFE_PADFUN1_OFFSET              0x144
-
-// Mux config register (pad 32-47)
-#define APB_SOC_SAFE_PADFUN2_OFFSET              0x148
-
-// Mux config register (pad 48-63)
-#define APB_SOC_SAFE_PADFUN3_OFFSET              0x14c
+// Enables and configures WatchDog Timer
+#define APB_SOC_SAFE_WD_OFFSET                   0x110
 
 // Sleep config register (pad 0-15)
 #define APB_SOC_SAFE_SLEEPPADCFG0_OFFSET         0x150
@@ -108,53 +189,11 @@
 // Enable Sleep mode for pads
 #define APB_SOC_SAFE_PADSLEEP_OFFSET             0x160
 
-// Function register (pad 0 to 3)
-#define APB_SOC_SAFE_PADCFG0_OFFSET              0x180
+// Config timings for NEVA
+#define APB_SOC_SAFE_NEVACF_OFFSET               0x164
 
-// Function register (pad 4 to 7)
-#define APB_SOC_SAFE_PADCFG1_OFFSET              0x184
-
-// Function register (pad 8 to 11)
-#define APB_SOC_SAFE_PADCFG2_OFFSET              0x188
-
-// Function register (pad 12 to 15)
-#define APB_SOC_SAFE_PADCFG3_OFFSET              0x18c
-
-// Function register (pad 16 to 19)
-#define APB_SOC_SAFE_PADCFG4_OFFSET              0x190
-
-// Function register (pad 20 to 23)
-#define APB_SOC_SAFE_PADCFG5_OFFSET              0x194
-
-// Function register (pad 24 to 27)
-#define APB_SOC_SAFE_PADCFG6_OFFSET              0x198
-
-// Function register (pad 28 to 31)
-#define APB_SOC_SAFE_PADCFG7_OFFSET              0x19c
-
-// Function register (pad 32 to 35)
-#define APB_SOC_SAFE_PADCFG8_OFFSET              0x1a0
-
-// Function register (pad 36 to 39)
-#define APB_SOC_SAFE_PADCFG9_OFFSET              0x1a4
-
-// Function register (pad 40 to 43)
-#define APB_SOC_SAFE_PADCFG10_OFFSET             0x1a8
-
-// Function register (pad 44 to 47)
-#define APB_SOC_SAFE_PADCFG11_OFFSET             0x1ac
-
-// Function register (pad 48 to 51)
-#define APB_SOC_SAFE_PADCFG12_OFFSET             0x1b0
-
-// Function register (pad 52 to 55)
-#define APB_SOC_SAFE_PADCFG13_OFFSET             0x1b4
-
-// Function register (pad 56 to 59)
-#define APB_SOC_SAFE_PADCFG14_OFFSET             0x1b8
-
-// Function register (pad 60 to 63)
-#define APB_SOC_SAFE_PADCFG15_OFFSET             0x1bc
+// General purpouse register AO
+#define APB_SOC_SAFE_GPREG_OFFSET                0x170
 
 // GPIO power domain pad input isolation register
 #define APB_SOC_REG_GPIO_ISO_OFFSET              0x1c0
@@ -181,6 +220,16 @@
 #define APB_SOC_INFO_NB_CORES_WIDTH                                  16
 #define APB_SOC_INFO_NB_CORES_MASK                                   0xffff0000
 
+// FC Boot Address (access: R/W)
+#define APB_SOC_FC_BOOT_ADDR_BIT                                     0
+#define APB_SOC_FC_BOOT_ADDR_WIDTH                                   32
+#define APB_SOC_FC_BOOT_ADDR_MASK                                    0xffffffff
+
+// FC Fetch Enable (access: R/W)
+#define APB_SOC_FC_FETCH_FC_FE_BIT                                   0
+#define APB_SOC_FC_FETCH_FC_FE_WIDTH                                 1
+#define APB_SOC_FC_FETCH_FC_FE_MASK                                  0x1
+
 // Isolate cluster. Inhibits AXI transactions from cluster to SoC: - 1'b0:  Disable - 1'b1: Enable (access: R/W)
 #define APB_SOC_CL_ISOLATE_EN_BIT                                    0
 #define APB_SOC_CL_ISOLATE_EN_WIDTH                                  1
@@ -190,76 +239,6 @@
 #define APB_SOC_CL_BUSY_BUSY_BIT                                     0
 #define APB_SOC_CL_BUSY_BUSY_WIDTH                                   1
 #define APB_SOC_CL_BUSY_BUSY_MASK                                    0x1
-
-// Bypass Maestro PMU controller configuration bitfield: - 1’b0: disabled - 1’b1: enabled (access: R/W)
-#define APB_SOC_CL_BYPASS_BYP_POW_BIT                                0
-#define APB_SOC_CL_BYPASS_BYP_POW_WIDTH                              1
-#define APB_SOC_CL_BYPASS_BYP_POW_MASK                               0x1
-
-// Bypass Maestro PMU configuration selection configuration bitfield: - 1’b0: use default - 1’b1: use user configuration (bitfields from bits 3 to 15 of CL_BYPASS register) (access: R/W)
-#define APB_SOC_CL_BYPASS_BYP_CFG_BIT                                1
-#define APB_SOC_CL_BYPASS_BYP_CFG_WIDTH                              1
-#define APB_SOC_CL_BYPASS_BYP_CFG_MASK                               0x2
-
-// Cluster state configuration and status bitfield: - 1’b0: off - 1’b1: on Status information is correct only when bypass mode is enabled. (access: R/W)
-#define APB_SOC_CL_BYPASS_CL_STATE_BIT                               3
-#define APB_SOC_CL_BYPASS_CL_STATE_WIDTH                             1
-#define APB_SOC_CL_BYPASS_CL_STATE_MASK                              0x8
-
-// Max current allowed on cluster TRC configuration bitfield. (access: R/W)
-#define APB_SOC_CL_BYPASS_CURRSET_BIT                                4
-#define APB_SOC_CL_BYPASS_CURRSET_WIDTH                              3
-#define APB_SOC_CL_BYPASS_CURRSET_MASK                               0x70
-
-// Number of REFCLK 32kHz after cluster power ok has arised to release TR isolation configuration bitfield. (access: R/W)
-#define APB_SOC_CL_BYPASS_PROG_DEL_BIT                               7
-#define APB_SOC_CL_BYPASS_PROG_DEL_WIDTH                             2
-#define APB_SOC_CL_BYPASS_PROG_DEL_MASK                              0x180
-
-// Bypass cluster clock and reset control by Maestro PMU configuration bitfield: - 1’b0: disabled - 1’b1: enabled (access: R/W)
-#define APB_SOC_CL_BYPASS_BYP_CLK_BIT                                9
-#define APB_SOC_CL_BYPASS_BYP_CLK_WIDTH                              1
-#define APB_SOC_CL_BYPASS_BYP_CLK_MASK                               0x200
-
-// Cluster clock gate configuration bitfield: - 1’b0: disabled - 1’b1: enabled It should always be used before switching cluster FLL to shutdown or retentive mode. (access: R/W)
-#define APB_SOC_CL_BYPASS_CG_BIT                                     10
-#define APB_SOC_CL_BYPASS_CG_WIDTH                                   1
-#define APB_SOC_CL_BYPASS_CG_MASK                                    0x400
-
-// Cluster FLL shutdown configuration bitfield: - 1’b0: FLL on - 1’b1: FLL shutdown mode (access: R/W)
-#define APB_SOC_CL_BYPASS_FLL_PWD_BIT                                11
-#define APB_SOC_CL_BYPASS_FLL_PWD_WIDTH                              1
-#define APB_SOC_CL_BYPASS_FLL_PWD_MASK                               0x800
-
-// Cluster FLL retentive configuration bitfield: - 1’b0: FLL on - 1’b1: FLL retentive mode (access: R/W)
-#define APB_SOC_CL_BYPASS_FLL_RET_BIT                                12
-#define APB_SOC_CL_BYPASS_FLL_RET_WIDTH                              1
-#define APB_SOC_CL_BYPASS_FLL_RET_MASK                               0x1000
-
-// Cluster reset configuration bitfield: - 1’b0: nothing - 1’b1: reset the cluster (access: R/W)
-#define APB_SOC_CL_BYPASS_RST_BIT                                    13
-#define APB_SOC_CL_BYPASS_RST_WIDTH                                  1
-#define APB_SOC_CL_BYPASS_RST_MASK                                   0x2000
-
-// ? (access: R/W)
-#define APB_SOC_CL_BYPASS_BYP_ISO_BIT                                14
-#define APB_SOC_CL_BYPASS_BYP_ISO_WIDTH                              1
-#define APB_SOC_CL_BYPASS_BYP_ISO_MASK                               0x4000
-
-// ? (access: R/W)
-#define APB_SOC_CL_BYPASS_PWISO_BIT                                  15
-#define APB_SOC_CL_BYPASS_PWISO_WIDTH                                1
-#define APB_SOC_CL_BYPASS_PWISO_MASK                                 0x8000
-
-// Cluster power ok from cluster TRC status bitfield (access: R/W)
-#define APB_SOC_CL_BYPASS_TRCPOWOK_BIT                               16
-#define APB_SOC_CL_BYPASS_TRCPOWOK_WIDTH                             1
-#define APB_SOC_CL_BYPASS_TRCPOWOK_MASK                              0x10000
-
-// Cluster power down from Maestro PMU status bitfield. (access: R/W)
-#define APB_SOC_CL_BYPASS_PMUPOWDOWN_BIT                             17
-#define APB_SOC_CL_BYPASS_PMUPOWDOWN_WIDTH                           1
-#define APB_SOC_CL_BYPASS_PMUPOWDOWN_MASK                            0x20000
 
 // JTAG internal register used for synchronisation from external debugger (access: R/W)
 #define APB_SOC_JTAGREG_INT_SYNC_BIT                                 0
@@ -281,11 +260,6 @@
 #define APB_SOC_JTAGREG_EXT_BT_MD_WIDTH                              3
 #define APB_SOC_JTAGREG_EXT_BT_MD_MASK                               0xe00
 
-// L2 memory sleep configuration (access: R/W)
-#define APB_SOC_L2_SLEEP_L2_SLEEP_BIT                                0
-#define APB_SOC_L2_SLEEP_L2_SLEEP_WIDTH                              1
-#define APB_SOC_L2_SLEEP_L2_SLEEP_MASK                               0x1
-
 // Alias for SAFE_PMU_SLEEPCTRL(i.e. will be accessible in 1 clock cycle) (access: R)
 #define APB_SOC_SLEEP_CTRL_SLEEP_CTRL_BIT                            0
 #define APB_SOC_SLEEP_CTRL_SLEEP_CTRL_WIDTH                          32
@@ -301,25 +275,15 @@
 #define APB_SOC_CORESTATUS_RO_STATUS_WIDTH                           32
 #define APB_SOC_CORESTATUS_RO_STATUS_MASK                            0xffffffff
 
-// DC/DC Nominal Voltage setting (access: R/W)
-#define APB_SOC_SAFE_PMU_RAR_NV_VOLT_BIT                             0
-#define APB_SOC_SAFE_PMU_RAR_NV_VOLT_WIDTH                           5
-#define APB_SOC_SAFE_PMU_RAR_NV_VOLT_MASK                            0x1f
+// SoC domain clock selection: - 1’b0: First FLL is used (FLL1) - 1’b1: Second FLL is used (FLL2) (access: R/W)
+#define APB_SOC_CLK_SEL_CLK_SOC_BIT                                  0
+#define APB_SOC_CLK_SEL_CLK_SOC_WIDTH                                1
+#define APB_SOC_CLK_SEL_CLK_SOC_MASK                                 0x1
 
-// DC/DC Medium Voltage setting (not used) (access: R/W)
-#define APB_SOC_SAFE_PMU_RAR_MV_VOLT_BIT                             8
-#define APB_SOC_SAFE_PMU_RAR_MV_VOLT_WIDTH                           5
-#define APB_SOC_SAFE_PMU_RAR_MV_VOLT_MASK                            0x1f00
-
-// DC/DC Low Voltage setting (access: R/W)
-#define APB_SOC_SAFE_PMU_RAR_LV_VOLT_BIT                             16
-#define APB_SOC_SAFE_PMU_RAR_LV_VOLT_WIDTH                           5
-#define APB_SOC_SAFE_PMU_RAR_LV_VOLT_MASK                            0x1f0000
-
-// DC/DC Retentive Voltage setting (access: R/W)
-#define APB_SOC_SAFE_PMU_RAR_RV_VOLT_BIT                             24
-#define APB_SOC_SAFE_PMU_RAR_RV_VOLT_WIDTH                           5
-#define APB_SOC_SAFE_PMU_RAR_RV_VOLT_MASK                            0x1f000000
+// Cluster domain clock selection: - 2’b00: First FLL is used (FLL1) - 2’b01: Second FLL is used (FLL2) - 2’b10: Third FLL is used (FLL3) (access: R/W)
+#define APB_SOC_CLK_SEL_CLK_CLUSTER_BIT                              1
+#define APB_SOC_CLK_SEL_CLK_CLUSTER_WIDTH                            2
+#define APB_SOC_CLK_SEL_CLK_CLUSTER_MASK                             0x6
 
 // Configure retention mode for region 0 of L2 memory: - 1'b0: Non retentive - 1'b1: Retentive (access: R/W)
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0_BIT                         0
@@ -391,65 +355,10 @@
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_WIDTH                     1
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_MASK                      0x100000
 
-// Force retentive state on region 0 of L2 memory: 1'b0: not state retentive 1'b1: state retentive (access: R/W)
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R0_BIT                         0
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R0_WIDTH                       1
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R0_MASK                        0x1
-
-// Force retentive state on region 1 of L2 memory: 1'b0: not state retentive 1'b1: state retentive (access: R/W)
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R1_BIT                         1
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R1_WIDTH                       1
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R1_MASK                        0x2
-
-// Force retentive state on region 2 of L2 memory: 1'b0: not state retentive 1'b1: state retentive (access: R/W)
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R2_BIT                         2
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R2_WIDTH                       1
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R2_MASK                        0x4
-
-// Force retentive state on region 3 of L2 memory: 1'b0: not state retentive 1'b1: state retentive (access: R/W)
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R3_BIT                         3
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R3_WIDTH                       1
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R3_MASK                        0x8
-
-// Force power down on region 0 of L2 memory: 1'b0: power up 1'b1: power down (access: R/W)
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R0_BIT                          4
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R0_WIDTH                        1
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R0_MASK                         0x10
-
-// Force power down on region 1 of L2 memory: 1'b0: power up 1'b1: power down (access: R/W)
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R1_BIT                          5
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R1_WIDTH                        1
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R1_MASK                         0x20
-
-// Force power down on region 2 of L2 memory: 1'b0: power up 1'b1: power down (access: R/W)
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R2_BIT                          6
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R2_WIDTH                        1
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R2_MASK                         0x40
-
-// Force power down on region 3 of L2 memory: 1'b0: power up 1'b1: power down (access: R/W)
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R3_BIT                          7
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R3_WIDTH                        1
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R3_MASK                         0x80
-
 // Enable pad sleep mode: 1'b0: disable 1'b1: enable (access: R/W)
 #define APB_SOC_SAFE_PADSLEEP_EN_BIT                                 0
 #define APB_SOC_SAFE_PADSLEEP_EN_WIDTH                               1
 #define APB_SOC_SAFE_PADSLEEP_EN_MASK                                0x1
-
-// Configuration of GPIO domain pads isolation: - 1'b0: not isolated - 1'b1: isolated (access: R/W)
-#define APB_SOC_REG_GPIO_ISO_ISO_BIT                                 0
-#define APB_SOC_REG_GPIO_ISO_ISO_WIDTH                               1
-#define APB_SOC_REG_GPIO_ISO_ISO_MASK                                0x1
-
-// Configuration of CAM domain pads isolation: - 1'b0: not isolated - 1'b1: isolated (access: R/W)
-#define APB_SOC_REG_CAM_ISO_ISO_BIT                                  0
-#define APB_SOC_REG_CAM_ISO_ISO_WIDTH                                1
-#define APB_SOC_REG_CAM_ISO_ISO_MASK                                 0x1
-
-// Configuration of LVDS domain pads isolation: - 1'b0: not isolated - 1'b1: isolated (access: R/W)
-#define APB_SOC_REG_LVDS_ISO_ISO_BIT                                 0
-#define APB_SOC_REG_LVDS_ISO_ISO_WIDTH                               1
-#define APB_SOC_REG_LVDS_ISO_ISO_MASK                                0x1
 
 
 
@@ -469,15 +378,17 @@ typedef union {
 
 typedef union {
   struct {
+    unsigned int addr            :32; // FC Boot Address
   };
   unsigned int raw;
-} __attribute__((packed)) apb_soc_notused0_t;
+} __attribute__((packed)) apb_soc_fc_boot_t;
 
 typedef union {
   struct {
+    unsigned int fc_fe           :1 ; // FC Fetch Enable
   };
   unsigned int raw;
-} __attribute__((packed)) apb_soc_notused1_t;
+} __attribute__((packed)) apb_soc_fc_fetch_t;
 
 typedef union {
   struct {
@@ -488,31 +399,130 @@ typedef union {
 
 typedef union {
   struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padfun0_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padfun1_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padfun2_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padfun3_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg0_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg1_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg2_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg3_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg4_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg5_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg6_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg7_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg8_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg9_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg10_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg11_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg12_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg13_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg14_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_padcfg15_t;
+
+typedef union {
+  struct {
     unsigned int busy            :1 ; // Cluster busy flag (i.e. It's 1 if there is at least 1 active block in the cluster)
   };
   unsigned int raw;
 } __attribute__((packed)) apb_soc_cl_busy_t;
-
-typedef union {
-  struct {
-    unsigned int byp_pow         :1 ; // Bypass Maestro PMU controller configuration bitfield: - 1’b0: disabled - 1’b1: enabled
-    unsigned int byp_cfg         :1 ; // Bypass Maestro PMU configuration selection configuration bitfield: - 1’b0: use default - 1’b1: use user configuration (bitfields from bits 3 to 15 of CL_BYPASS register)
-    unsigned int padding0:1 ;
-    unsigned int cl_state        :1 ; // Cluster state configuration and status bitfield: - 1’b0: off - 1’b1: on Status information is correct only when bypass mode is enabled.
-    unsigned int currset         :3 ; // Max current allowed on cluster TRC configuration bitfield.
-    unsigned int prog_del        :2 ; // Number of REFCLK 32kHz after cluster power ok has arised to release TR isolation configuration bitfield.
-    unsigned int byp_clk         :1 ; // Bypass cluster clock and reset control by Maestro PMU configuration bitfield: - 1’b0: disabled - 1’b1: enabled
-    unsigned int cg              :1 ; // Cluster clock gate configuration bitfield: - 1’b0: disabled - 1’b1: enabled It should always be used before switching cluster FLL to shutdown or retentive mode.
-    unsigned int fll_pwd         :1 ; // Cluster FLL shutdown configuration bitfield: - 1’b0: FLL on - 1’b1: FLL shutdown mode
-    unsigned int fll_ret         :1 ; // Cluster FLL retentive configuration bitfield: - 1’b0: FLL on - 1’b1: FLL retentive mode
-    unsigned int rst             :1 ; // Cluster reset configuration bitfield: - 1’b0: nothing - 1’b1: reset the cluster
-    unsigned int byp_iso         :1 ; // ?
-    unsigned int pwiso           :1 ; // ?
-    unsigned int trcpowok        :1 ; // Cluster power ok from cluster TRC status bitfield
-    unsigned int pmupowdown      :1 ; // Cluster power down from Maestro PMU status bitfield.
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_cl_bypass_t;
 
 typedef union {
   struct {
@@ -527,17 +537,16 @@ typedef union {
 
 typedef union {
   struct {
-    unsigned int l2_sleep        :1 ; // L2 memory sleep configuration
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_l2_sleep_t;
-
-typedef union {
-  struct {
     unsigned int sleep_ctrl      :32; // Alias for SAFE_PMU_SLEEPCTRL(i.e. will be accessible in 1 clock cycle)
   };
   unsigned int raw;
 } __attribute__((packed)) apb_soc_sleep_ctrl_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_clk_div_i3c_t;
 
 typedef union {
   struct {
@@ -561,16 +570,83 @@ typedef union {
 
 typedef union {
   struct {
-    unsigned int nv_volt         :5 ; // DC/DC Nominal Voltage setting
-    unsigned int padding0:3 ;
-    unsigned int mv_volt         :5 ; // DC/DC Medium Voltage setting (not used)
-    unsigned int padding1:3 ;
-    unsigned int lv_volt         :5 ; // DC/DC Low Voltage setting
-    unsigned int padding2:3 ;
-    unsigned int rv_volt         :5 ; // DC/DC Retentive Voltage setting
   };
   unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_pmu_rar_t;
+} __attribute__((packed)) apb_soc_wd_clr_t;
+
+typedef union {
+  struct {
+    unsigned int clk_soc         :1 ; // SoC domain clock selection: - 1’b0: First FLL is used (FLL1) - 1’b1: Second FLL is used (FLL2)
+    unsigned int clk_cluster     :2 ; // Cluster domain clock selection: - 2’b00: First FLL is used (FLL1) - 2’b01: Second FLL is used (FLL2) - 2’b10: Third FLL is used (FLL3)
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_clk_sel_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_clk_div_soc_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_clk_div_clu_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_clk_div_per_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_supervisor_dbg_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_rwm_grp0_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_rwm_grp1_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_rwm_grp2_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_rwm_grp3_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_rwm_grp4_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_rwm_grp5_t;
+
+typedef union {
+  struct {
+  };
+  unsigned int raw;
+} __attribute__((packed)) apb_soc_rwm_grp6_t;
 
 typedef union {
   struct {
@@ -595,41 +671,9 @@ typedef union {
 
 typedef union {
   struct {
-    unsigned int ret_l2_r0       :1 ; // Force retentive state on region 0 of L2 memory: 1'b0: not state retentive 1'b1: state retentive
-    unsigned int ret_l2_r1       :1 ; // Force retentive state on region 1 of L2 memory: 1'b0: not state retentive 1'b1: state retentive
-    unsigned int ret_l2_r2       :1 ; // Force retentive state on region 2 of L2 memory: 1'b0: not state retentive 1'b1: state retentive
-    unsigned int ret_l2_r3       :1 ; // Force retentive state on region 3 of L2 memory: 1'b0: not state retentive 1'b1: state retentive
-    unsigned int pd_l2_r0        :1 ; // Force power down on region 0 of L2 memory: 1'b0: power up 1'b1: power down
-    unsigned int pd_l2_r1        :1 ; // Force power down on region 1 of L2 memory: 1'b0: power up 1'b1: power down
-    unsigned int pd_l2_r2        :1 ; // Force power down on region 2 of L2 memory: 1'b0: power up 1'b1: power down
-    unsigned int pd_l2_r3        :1 ; // Force power down on region 3 of L2 memory: 1'b0: power up 1'b1: power down
   };
   unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_pmu_force_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padfun0_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padfun1_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padfun2_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padfun3_t;
+} __attribute__((packed)) apb_soc_safe_wd_t;
 
 typedef union {
   struct {
@@ -666,115 +710,28 @@ typedef union {
   struct {
   };
   unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg0_t;
+} __attribute__((packed)) apb_soc_safe_nevacf_t;
 
 typedef union {
   struct {
   };
   unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg1_t;
+} __attribute__((packed)) apb_soc_safe_gpreg_t;
 
 typedef union {
   struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg2_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg3_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg4_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg5_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg6_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg7_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg8_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg9_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg10_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg11_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg12_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg13_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg14_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padcfg15_t;
-
-typedef union {
-  struct {
-    unsigned int iso             :1 ; // Configuration of GPIO domain pads isolation: - 1'b0: not isolated - 1'b1: isolated
   };
   unsigned int raw;
 } __attribute__((packed)) apb_soc_reg_gpio_iso_t;
 
 typedef union {
   struct {
-    unsigned int iso             :1 ; // Configuration of CAM domain pads isolation: - 1'b0: not isolated - 1'b1: isolated
   };
   unsigned int raw;
 } __attribute__((packed)) apb_soc_reg_cam_iso_t;
 
 typedef union {
   struct {
-    unsigned int iso             :1 ; // Configuration of LVDS domain pads isolation: - 1'b0: not isolated - 1'b1: isolated
   };
   unsigned int raw;
 } __attribute__((packed)) apb_soc_reg_lvds_iso_t;
@@ -798,14 +755,18 @@ public:
   inline uint32_t nb_cores_get() { return this->get_field(APB_SOC_INFO_NB_CORES_BIT, APB_SOC_INFO_NB_CORES_WIDTH); }
 };
 
-class vp_apb_soc_notused0 : public vp::reg_32
+class vp_apb_soc_fc_boot : public vp::reg_32
 {
 public:
+  inline void addr_set(uint32_t value) { this->set_field(value, APB_SOC_FC_BOOT_ADDR_BIT, APB_SOC_FC_BOOT_ADDR_WIDTH); }
+  inline uint32_t addr_get() { return this->get_field(APB_SOC_FC_BOOT_ADDR_BIT, APB_SOC_FC_BOOT_ADDR_WIDTH); }
 };
 
-class vp_apb_soc_notused1 : public vp::reg_32
+class vp_apb_soc_fc_fetch : public vp::reg_32
 {
 public:
+  inline void fc_fe_set(uint32_t value) { this->set_field(value, APB_SOC_FC_FETCH_FC_FE_BIT, APB_SOC_FC_FETCH_FC_FE_WIDTH); }
+  inline uint32_t fc_fe_get() { return this->get_field(APB_SOC_FC_FETCH_FC_FE_BIT, APB_SOC_FC_FETCH_FC_FE_WIDTH); }
 };
 
 class vp_apb_soc_cl_isolate : public vp::reg_32
@@ -815,44 +776,111 @@ public:
   inline uint32_t en_get() { return this->get_field(APB_SOC_CL_ISOLATE_EN_BIT, APB_SOC_CL_ISOLATE_EN_WIDTH); }
 };
 
+class vp_apb_soc_padfun0 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padfun1 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padfun2 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padfun3 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg0 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg1 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg2 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg3 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg4 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg5 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg6 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg7 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg8 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg9 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg10 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg11 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg12 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg13 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg14 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_padcfg15 : public vp::reg_32
+{
+public:
+};
+
 class vp_apb_soc_cl_busy : public vp::reg_32
 {
 public:
   inline void busy_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BUSY_BUSY_BIT, APB_SOC_CL_BUSY_BUSY_WIDTH); }
   inline uint32_t busy_get() { return this->get_field(APB_SOC_CL_BUSY_BUSY_BIT, APB_SOC_CL_BUSY_BUSY_WIDTH); }
-};
-
-class vp_apb_soc_cl_bypass : public vp::reg_32
-{
-public:
-  inline void byp_pow_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_BYP_POW_BIT, APB_SOC_CL_BYPASS_BYP_POW_WIDTH); }
-  inline uint32_t byp_pow_get() { return this->get_field(APB_SOC_CL_BYPASS_BYP_POW_BIT, APB_SOC_CL_BYPASS_BYP_POW_WIDTH); }
-  inline void byp_cfg_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_BYP_CFG_BIT, APB_SOC_CL_BYPASS_BYP_CFG_WIDTH); }
-  inline uint32_t byp_cfg_get() { return this->get_field(APB_SOC_CL_BYPASS_BYP_CFG_BIT, APB_SOC_CL_BYPASS_BYP_CFG_WIDTH); }
-  inline void cl_state_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_CL_STATE_BIT, APB_SOC_CL_BYPASS_CL_STATE_WIDTH); }
-  inline uint32_t cl_state_get() { return this->get_field(APB_SOC_CL_BYPASS_CL_STATE_BIT, APB_SOC_CL_BYPASS_CL_STATE_WIDTH); }
-  inline void currset_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_CURRSET_BIT, APB_SOC_CL_BYPASS_CURRSET_WIDTH); }
-  inline uint32_t currset_get() { return this->get_field(APB_SOC_CL_BYPASS_CURRSET_BIT, APB_SOC_CL_BYPASS_CURRSET_WIDTH); }
-  inline void prog_del_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_PROG_DEL_BIT, APB_SOC_CL_BYPASS_PROG_DEL_WIDTH); }
-  inline uint32_t prog_del_get() { return this->get_field(APB_SOC_CL_BYPASS_PROG_DEL_BIT, APB_SOC_CL_BYPASS_PROG_DEL_WIDTH); }
-  inline void byp_clk_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_BYP_CLK_BIT, APB_SOC_CL_BYPASS_BYP_CLK_WIDTH); }
-  inline uint32_t byp_clk_get() { return this->get_field(APB_SOC_CL_BYPASS_BYP_CLK_BIT, APB_SOC_CL_BYPASS_BYP_CLK_WIDTH); }
-  inline void cg_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_CG_BIT, APB_SOC_CL_BYPASS_CG_WIDTH); }
-  inline uint32_t cg_get() { return this->get_field(APB_SOC_CL_BYPASS_CG_BIT, APB_SOC_CL_BYPASS_CG_WIDTH); }
-  inline void fll_pwd_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_FLL_PWD_BIT, APB_SOC_CL_BYPASS_FLL_PWD_WIDTH); }
-  inline uint32_t fll_pwd_get() { return this->get_field(APB_SOC_CL_BYPASS_FLL_PWD_BIT, APB_SOC_CL_BYPASS_FLL_PWD_WIDTH); }
-  inline void fll_ret_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_FLL_RET_BIT, APB_SOC_CL_BYPASS_FLL_RET_WIDTH); }
-  inline uint32_t fll_ret_get() { return this->get_field(APB_SOC_CL_BYPASS_FLL_RET_BIT, APB_SOC_CL_BYPASS_FLL_RET_WIDTH); }
-  inline void rst_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_RST_BIT, APB_SOC_CL_BYPASS_RST_WIDTH); }
-  inline uint32_t rst_get() { return this->get_field(APB_SOC_CL_BYPASS_RST_BIT, APB_SOC_CL_BYPASS_RST_WIDTH); }
-  inline void byp_iso_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_BYP_ISO_BIT, APB_SOC_CL_BYPASS_BYP_ISO_WIDTH); }
-  inline uint32_t byp_iso_get() { return this->get_field(APB_SOC_CL_BYPASS_BYP_ISO_BIT, APB_SOC_CL_BYPASS_BYP_ISO_WIDTH); }
-  inline void pwiso_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_PWISO_BIT, APB_SOC_CL_BYPASS_PWISO_WIDTH); }
-  inline uint32_t pwiso_get() { return this->get_field(APB_SOC_CL_BYPASS_PWISO_BIT, APB_SOC_CL_BYPASS_PWISO_WIDTH); }
-  inline void trcpowok_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_TRCPOWOK_BIT, APB_SOC_CL_BYPASS_TRCPOWOK_WIDTH); }
-  inline uint32_t trcpowok_get() { return this->get_field(APB_SOC_CL_BYPASS_TRCPOWOK_BIT, APB_SOC_CL_BYPASS_TRCPOWOK_WIDTH); }
-  inline void pmupowdown_set(uint32_t value) { this->set_field(value, APB_SOC_CL_BYPASS_PMUPOWDOWN_BIT, APB_SOC_CL_BYPASS_PMUPOWDOWN_WIDTH); }
-  inline uint32_t pmupowdown_get() { return this->get_field(APB_SOC_CL_BYPASS_PMUPOWDOWN_BIT, APB_SOC_CL_BYPASS_PMUPOWDOWN_WIDTH); }
 };
 
 class vp_apb_soc_jtagreg : public vp::reg_32
@@ -868,18 +896,16 @@ public:
   inline uint32_t ext_bt_md_get() { return this->get_field(APB_SOC_JTAGREG_EXT_BT_MD_BIT, APB_SOC_JTAGREG_EXT_BT_MD_WIDTH); }
 };
 
-class vp_apb_soc_l2_sleep : public vp::reg_32
-{
-public:
-  inline void l2_sleep_set(uint32_t value) { this->set_field(value, APB_SOC_L2_SLEEP_L2_SLEEP_BIT, APB_SOC_L2_SLEEP_L2_SLEEP_WIDTH); }
-  inline uint32_t l2_sleep_get() { return this->get_field(APB_SOC_L2_SLEEP_L2_SLEEP_BIT, APB_SOC_L2_SLEEP_L2_SLEEP_WIDTH); }
-};
-
 class vp_apb_soc_sleep_ctrl : public vp::reg_32
 {
 public:
   inline void sleep_ctrl_set(uint32_t value) { this->set_field(value, APB_SOC_SLEEP_CTRL_SLEEP_CTRL_BIT, APB_SOC_SLEEP_CTRL_SLEEP_CTRL_WIDTH); }
   inline uint32_t sleep_ctrl_get() { return this->get_field(APB_SOC_SLEEP_CTRL_SLEEP_CTRL_BIT, APB_SOC_SLEEP_CTRL_SLEEP_CTRL_WIDTH); }
+};
+
+class vp_apb_soc_clk_div_i3c : public vp::reg_32
+{
+public:
 };
 
 class vp_apb_soc_corestatus : public vp::reg_32
@@ -901,17 +927,73 @@ class vp_apb_soc_bootsel : public vp::reg_32
 public:
 };
 
-class vp_apb_soc_safe_pmu_rar : public vp::reg_32
+class vp_apb_soc_wd_clr : public vp::reg_32
 {
 public:
-  inline void nv_volt_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_RAR_NV_VOLT_BIT, APB_SOC_SAFE_PMU_RAR_NV_VOLT_WIDTH); }
-  inline uint32_t nv_volt_get() { return this->get_field(APB_SOC_SAFE_PMU_RAR_NV_VOLT_BIT, APB_SOC_SAFE_PMU_RAR_NV_VOLT_WIDTH); }
-  inline void mv_volt_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_RAR_MV_VOLT_BIT, APB_SOC_SAFE_PMU_RAR_MV_VOLT_WIDTH); }
-  inline uint32_t mv_volt_get() { return this->get_field(APB_SOC_SAFE_PMU_RAR_MV_VOLT_BIT, APB_SOC_SAFE_PMU_RAR_MV_VOLT_WIDTH); }
-  inline void lv_volt_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_RAR_LV_VOLT_BIT, APB_SOC_SAFE_PMU_RAR_LV_VOLT_WIDTH); }
-  inline uint32_t lv_volt_get() { return this->get_field(APB_SOC_SAFE_PMU_RAR_LV_VOLT_BIT, APB_SOC_SAFE_PMU_RAR_LV_VOLT_WIDTH); }
-  inline void rv_volt_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_RAR_RV_VOLT_BIT, APB_SOC_SAFE_PMU_RAR_RV_VOLT_WIDTH); }
-  inline uint32_t rv_volt_get() { return this->get_field(APB_SOC_SAFE_PMU_RAR_RV_VOLT_BIT, APB_SOC_SAFE_PMU_RAR_RV_VOLT_WIDTH); }
+};
+
+class vp_apb_soc_clk_sel : public vp::reg_32
+{
+public:
+  inline void clk_soc_set(uint32_t value) { this->set_field(value, APB_SOC_CLK_SEL_CLK_SOC_BIT, APB_SOC_CLK_SEL_CLK_SOC_WIDTH); }
+  inline uint32_t clk_soc_get() { return this->get_field(APB_SOC_CLK_SEL_CLK_SOC_BIT, APB_SOC_CLK_SEL_CLK_SOC_WIDTH); }
+  inline void clk_cluster_set(uint32_t value) { this->set_field(value, APB_SOC_CLK_SEL_CLK_CLUSTER_BIT, APB_SOC_CLK_SEL_CLK_CLUSTER_WIDTH); }
+  inline uint32_t clk_cluster_get() { return this->get_field(APB_SOC_CLK_SEL_CLK_CLUSTER_BIT, APB_SOC_CLK_SEL_CLK_CLUSTER_WIDTH); }
+};
+
+class vp_apb_soc_clk_div_soc : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_clk_div_clu : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_clk_div_per : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_supervisor_dbg : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_rwm_grp0 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_rwm_grp1 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_rwm_grp2 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_rwm_grp3 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_rwm_grp4 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_rwm_grp5 : public vp::reg_32
+{
+public:
+};
+
+class vp_apb_soc_rwm_grp6 : public vp::reg_32
+{
+public:
 };
 
 class vp_apb_soc_safe_pmu_sleepctrl : public vp::reg_32
@@ -947,43 +1029,7 @@ public:
   inline uint32_t cl_wake_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_WIDTH); }
 };
 
-class vp_apb_soc_safe_pmu_force : public vp::reg_32
-{
-public:
-  inline void ret_l2_r0_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_FORCE_RET_L2_R0_BIT, APB_SOC_SAFE_PMU_FORCE_RET_L2_R0_WIDTH); }
-  inline uint32_t ret_l2_r0_get() { return this->get_field(APB_SOC_SAFE_PMU_FORCE_RET_L2_R0_BIT, APB_SOC_SAFE_PMU_FORCE_RET_L2_R0_WIDTH); }
-  inline void ret_l2_r1_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_FORCE_RET_L2_R1_BIT, APB_SOC_SAFE_PMU_FORCE_RET_L2_R1_WIDTH); }
-  inline uint32_t ret_l2_r1_get() { return this->get_field(APB_SOC_SAFE_PMU_FORCE_RET_L2_R1_BIT, APB_SOC_SAFE_PMU_FORCE_RET_L2_R1_WIDTH); }
-  inline void ret_l2_r2_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_FORCE_RET_L2_R2_BIT, APB_SOC_SAFE_PMU_FORCE_RET_L2_R2_WIDTH); }
-  inline uint32_t ret_l2_r2_get() { return this->get_field(APB_SOC_SAFE_PMU_FORCE_RET_L2_R2_BIT, APB_SOC_SAFE_PMU_FORCE_RET_L2_R2_WIDTH); }
-  inline void ret_l2_r3_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_FORCE_RET_L2_R3_BIT, APB_SOC_SAFE_PMU_FORCE_RET_L2_R3_WIDTH); }
-  inline uint32_t ret_l2_r3_get() { return this->get_field(APB_SOC_SAFE_PMU_FORCE_RET_L2_R3_BIT, APB_SOC_SAFE_PMU_FORCE_RET_L2_R3_WIDTH); }
-  inline void pd_l2_r0_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_FORCE_PD_L2_R0_BIT, APB_SOC_SAFE_PMU_FORCE_PD_L2_R0_WIDTH); }
-  inline uint32_t pd_l2_r0_get() { return this->get_field(APB_SOC_SAFE_PMU_FORCE_PD_L2_R0_BIT, APB_SOC_SAFE_PMU_FORCE_PD_L2_R0_WIDTH); }
-  inline void pd_l2_r1_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_FORCE_PD_L2_R1_BIT, APB_SOC_SAFE_PMU_FORCE_PD_L2_R1_WIDTH); }
-  inline uint32_t pd_l2_r1_get() { return this->get_field(APB_SOC_SAFE_PMU_FORCE_PD_L2_R1_BIT, APB_SOC_SAFE_PMU_FORCE_PD_L2_R1_WIDTH); }
-  inline void pd_l2_r2_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_FORCE_PD_L2_R2_BIT, APB_SOC_SAFE_PMU_FORCE_PD_L2_R2_WIDTH); }
-  inline uint32_t pd_l2_r2_get() { return this->get_field(APB_SOC_SAFE_PMU_FORCE_PD_L2_R2_BIT, APB_SOC_SAFE_PMU_FORCE_PD_L2_R2_WIDTH); }
-  inline void pd_l2_r3_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_FORCE_PD_L2_R3_BIT, APB_SOC_SAFE_PMU_FORCE_PD_L2_R3_WIDTH); }
-  inline uint32_t pd_l2_r3_get() { return this->get_field(APB_SOC_SAFE_PMU_FORCE_PD_L2_R3_BIT, APB_SOC_SAFE_PMU_FORCE_PD_L2_R3_WIDTH); }
-};
-
-class vp_apb_soc_safe_padfun0 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padfun1 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padfun2 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padfun3 : public vp::reg_32
+class vp_apb_soc_safe_wd : public vp::reg_32
 {
 public:
 };
@@ -1015,82 +1061,12 @@ public:
   inline uint32_t en_get() { return this->get_field(APB_SOC_SAFE_PADSLEEP_EN_BIT, APB_SOC_SAFE_PADSLEEP_EN_WIDTH); }
 };
 
-class vp_apb_soc_safe_padcfg0 : public vp::reg_32
+class vp_apb_soc_safe_nevacf : public vp::reg_32
 {
 public:
 };
 
-class vp_apb_soc_safe_padcfg1 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg2 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg3 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg4 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg5 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg6 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg7 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg8 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg9 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg10 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg11 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg12 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg13 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg14 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padcfg15 : public vp::reg_32
+class vp_apb_soc_safe_gpreg : public vp::reg_32
 {
 public:
 };
@@ -1098,22 +1074,16 @@ public:
 class vp_apb_soc_reg_gpio_iso : public vp::reg_32
 {
 public:
-  inline void iso_set(uint32_t value) { this->set_field(value, APB_SOC_REG_GPIO_ISO_ISO_BIT, APB_SOC_REG_GPIO_ISO_ISO_WIDTH); }
-  inline uint32_t iso_get() { return this->get_field(APB_SOC_REG_GPIO_ISO_ISO_BIT, APB_SOC_REG_GPIO_ISO_ISO_WIDTH); }
 };
 
 class vp_apb_soc_reg_cam_iso : public vp::reg_32
 {
 public:
-  inline void iso_set(uint32_t value) { this->set_field(value, APB_SOC_REG_CAM_ISO_ISO_BIT, APB_SOC_REG_CAM_ISO_ISO_WIDTH); }
-  inline uint32_t iso_get() { return this->get_field(APB_SOC_REG_CAM_ISO_ISO_BIT, APB_SOC_REG_CAM_ISO_ISO_WIDTH); }
 };
 
 class vp_apb_soc_reg_lvds_iso : public vp::reg_32
 {
 public:
-  inline void iso_set(uint32_t value) { this->set_field(value, APB_SOC_REG_LVDS_ISO_ISO_BIT, APB_SOC_REG_LVDS_ISO_ISO_WIDTH); }
-  inline uint32_t iso_get() { return this->get_field(APB_SOC_REG_LVDS_ISO_ISO_BIT, APB_SOC_REG_LVDS_ISO_ISO_WIDTH); }
 };
 
 #endif
@@ -1128,45 +1098,58 @@ public:
 
 typedef struct {
   unsigned int info            ; // Core information register
-  unsigned int notused0        ; // RFU
-  unsigned int notused1        ; // RFU
+  unsigned int fc_boot         ; // Boot address
+  unsigned int fc_fetch        ; // FC Fetch enable
   unsigned int cl_isolate      ; // Isolate cluster register
+  unsigned int padfun0         ; // Mux config register (pad 0-15)
+  unsigned int padfun1         ; // Mux config register (pad 16-31)
+  unsigned int padfun2         ; // Mux config register (pad 32-47)
+  unsigned int padfun3         ; // Mux config register (pad 48-63)
+  unsigned int padcfg0         ; // Function register (pad 0 to 3)
+  unsigned int padcfg1         ; // Function register (pad 4 to 7)
+  unsigned int padcfg2         ; // Function register (pad 8 to 11)
+  unsigned int padcfg3         ; // Function register (pad 12 to 15)
+  unsigned int padcfg4         ; // Function register (pad 16 to 19)
+  unsigned int padcfg5         ; // Function register (pad 20 to 23)
+  unsigned int padcfg6         ; // Function register (pad 24 to 27)
+  unsigned int padcfg7         ; // Function register (pad 28 to 31)
+  unsigned int padcfg8         ; // Function register (pad 32 to 35)
+  unsigned int padcfg9         ; // Function register (pad 36 to 39)
+  unsigned int padcfg10        ; // Function register (pad 40 to 43)
+  unsigned int padcfg11        ; // Function register (pad 44 to 47)
+  unsigned int padcfg12        ; // Function register (pad 48 to 51)
+  unsigned int padcfg13        ; // Function register (pad 52 to 55)
+  unsigned int padcfg14        ; // Function register (pad 56 to 59)
+  unsigned int padcfg15        ; // Function register (pad 60 to 63)
   unsigned int cl_busy         ; // Cluster busy register
-  unsigned int cl_bypass       ; // PMU bypass configuration register
   unsigned int jtagreg         ; // JTAG external register
-  unsigned int l2_sleep        ; // L2 sleep configuration register
   unsigned int sleep_ctrl      ; // Alias for SAFE_PMU_SLEEPCTRL
+  unsigned int clk_div_i3c     ; // Clock divider for I3C
   unsigned int corestatus      ; // EOC and chip status register
   unsigned int corestatus_ro   ; // EOC and chip status register read mirror
   unsigned int bootsel         ; // Value of pad bootsel
-  unsigned int safe_pmu_rar    ; // DC/DC configuration register
+  unsigned int wd_clr          ; // Clear WD timer
+  unsigned int clk_sel         ; // Clock selection for SOC,Cluster and Periph
+  unsigned int clk_div_soc     ; // SOC Clock Divider settings
+  unsigned int clk_div_clu     ; // Cluster Clock Divider settings
+  unsigned int clk_div_per     ; // Peripheral Clock Divider Settings
+  unsigned int supervisor_dbg  ; // nan
+  unsigned int rwm_grp0        ; // nan
+  unsigned int rwm_grp1        ; // nan
+  unsigned int rwm_grp2        ; // nan
+  unsigned int rwm_grp3        ; // nan
+  unsigned int rwm_grp4        ; // nan
+  unsigned int rwm_grp5        ; // nan
+  unsigned int rwm_grp6        ; // nan
   unsigned int safe_pmu_sleepctrl; // Sleep modes configuration register
-  unsigned int safe_pmu_force  ; // L2 rententive state configuration
-  unsigned int safe_padfun0    ; // Mux config register (pad 0-15)
-  unsigned int safe_padfun1    ; // Mux config register (pad 16-31)
-  unsigned int safe_padfun2    ; // Mux config register (pad 32-47)
-  unsigned int safe_padfun3    ; // Mux config register (pad 48-63)
+  unsigned int safe_wd         ; // Enables and configures WatchDog Timer
   unsigned int safe_sleeppadcfg0; // Sleep config register (pad 0-15)
   unsigned int safe_sleeppadcfg1; // Mux config register (pad 16-31)
   unsigned int safe_sleeppadcfg2; // Mux config register (pad 32-47)
   unsigned int safe_sleeppadcfg3; // Mux config register (pad 48-63)
   unsigned int safe_padsleep   ; // Enable Sleep mode for pads
-  unsigned int safe_padcfg0    ; // Function register (pad 0 to 3)
-  unsigned int safe_padcfg1    ; // Function register (pad 4 to 7)
-  unsigned int safe_padcfg2    ; // Function register (pad 8 to 11)
-  unsigned int safe_padcfg3    ; // Function register (pad 12 to 15)
-  unsigned int safe_padcfg4    ; // Function register (pad 16 to 19)
-  unsigned int safe_padcfg5    ; // Function register (pad 20 to 23)
-  unsigned int safe_padcfg6    ; // Function register (pad 24 to 27)
-  unsigned int safe_padcfg7    ; // Function register (pad 28 to 31)
-  unsigned int safe_padcfg8    ; // Function register (pad 32 to 35)
-  unsigned int safe_padcfg9    ; // Function register (pad 36 to 39)
-  unsigned int safe_padcfg10   ; // Function register (pad 40 to 43)
-  unsigned int safe_padcfg11   ; // Function register (pad 44 to 47)
-  unsigned int safe_padcfg12   ; // Function register (pad 48 to 51)
-  unsigned int safe_padcfg13   ; // Function register (pad 52 to 55)
-  unsigned int safe_padcfg14   ; // Function register (pad 56 to 59)
-  unsigned int safe_padcfg15   ; // Function register (pad 60 to 63)
+  unsigned int safe_nevacf     ; // Config timings for NEVA
+  unsigned int safe_gpreg      ; // General purpouse register AO
   unsigned int reg_gpio_iso    ; // GPIO power domain pad input isolation register
   unsigned int reg_cam_iso     ; // CAM power domain pad input isolation register
   unsigned int reg_lvds_iso    ; // LVDS power domain pad input isolation register
@@ -1185,29 +1168,86 @@ typedef struct {
 static inline uint32_t apb_soc_info_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_INFO_OFFSET); }
 static inline void apb_soc_info_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_INFO_OFFSET, value); }
 
-static inline uint32_t apb_soc_notused0_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_NOTUSED0_OFFSET); }
-static inline void apb_soc_notused0_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_NOTUSED0_OFFSET, value); }
+static inline uint32_t apb_soc_fc_boot_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_FC_BOOT_OFFSET); }
+static inline void apb_soc_fc_boot_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_FC_BOOT_OFFSET, value); }
 
-static inline uint32_t apb_soc_notused1_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_NOTUSED1_OFFSET); }
-static inline void apb_soc_notused1_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_NOTUSED1_OFFSET, value); }
+static inline uint32_t apb_soc_fc_fetch_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_FC_FETCH_OFFSET); }
+static inline void apb_soc_fc_fetch_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_FC_FETCH_OFFSET, value); }
 
 static inline uint32_t apb_soc_cl_isolate_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_CL_ISOLATE_OFFSET); }
 static inline void apb_soc_cl_isolate_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_CL_ISOLATE_OFFSET, value); }
 
+static inline uint32_t apb_soc_padfun0_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADFUN0_OFFSET); }
+static inline void apb_soc_padfun0_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADFUN0_OFFSET, value); }
+
+static inline uint32_t apb_soc_padfun1_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADFUN1_OFFSET); }
+static inline void apb_soc_padfun1_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADFUN1_OFFSET, value); }
+
+static inline uint32_t apb_soc_padfun2_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADFUN2_OFFSET); }
+static inline void apb_soc_padfun2_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADFUN2_OFFSET, value); }
+
+static inline uint32_t apb_soc_padfun3_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADFUN3_OFFSET); }
+static inline void apb_soc_padfun3_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADFUN3_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg0_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG0_OFFSET); }
+static inline void apb_soc_padcfg0_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG0_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg1_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG1_OFFSET); }
+static inline void apb_soc_padcfg1_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG1_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg2_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG2_OFFSET); }
+static inline void apb_soc_padcfg2_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG2_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg3_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG3_OFFSET); }
+static inline void apb_soc_padcfg3_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG3_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg4_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG4_OFFSET); }
+static inline void apb_soc_padcfg4_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG4_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg5_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG5_OFFSET); }
+static inline void apb_soc_padcfg5_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG5_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg6_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG6_OFFSET); }
+static inline void apb_soc_padcfg6_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG6_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg7_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG7_OFFSET); }
+static inline void apb_soc_padcfg7_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG7_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg8_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG8_OFFSET); }
+static inline void apb_soc_padcfg8_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG8_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg9_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG9_OFFSET); }
+static inline void apb_soc_padcfg9_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG9_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg10_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG10_OFFSET); }
+static inline void apb_soc_padcfg10_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG10_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg11_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG11_OFFSET); }
+static inline void apb_soc_padcfg11_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG11_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg12_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG12_OFFSET); }
+static inline void apb_soc_padcfg12_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG12_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg13_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG13_OFFSET); }
+static inline void apb_soc_padcfg13_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG13_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg14_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG14_OFFSET); }
+static inline void apb_soc_padcfg14_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG14_OFFSET, value); }
+
+static inline uint32_t apb_soc_padcfg15_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_PADCFG15_OFFSET); }
+static inline void apb_soc_padcfg15_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_PADCFG15_OFFSET, value); }
+
 static inline uint32_t apb_soc_cl_busy_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_CL_BUSY_OFFSET); }
 static inline void apb_soc_cl_busy_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_CL_BUSY_OFFSET, value); }
-
-static inline uint32_t apb_soc_cl_bypass_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_CL_BYPASS_OFFSET); }
-static inline void apb_soc_cl_bypass_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_CL_BYPASS_OFFSET, value); }
 
 static inline uint32_t apb_soc_jtagreg_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_JTAGREG_OFFSET); }
 static inline void apb_soc_jtagreg_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_JTAGREG_OFFSET, value); }
 
-static inline uint32_t apb_soc_l2_sleep_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_L2_SLEEP_OFFSET); }
-static inline void apb_soc_l2_sleep_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_L2_SLEEP_OFFSET, value); }
-
 static inline uint32_t apb_soc_sleep_ctrl_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SLEEP_CTRL_OFFSET); }
 static inline void apb_soc_sleep_ctrl_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SLEEP_CTRL_OFFSET, value); }
+
+static inline uint32_t apb_soc_clk_div_i3c_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_CLK_DIV_I3C_OFFSET); }
+static inline void apb_soc_clk_div_i3c_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_CLK_DIV_I3C_OFFSET, value); }
 
 static inline uint32_t apb_soc_corestatus_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_CORESTATUS_OFFSET); }
 static inline void apb_soc_corestatus_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_CORESTATUS_OFFSET, value); }
@@ -1218,26 +1258,50 @@ static inline void apb_soc_corestatus_ro_set(uint32_t base, uint32_t value) { AR
 static inline uint32_t apb_soc_bootsel_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_BOOTSEL_OFFSET); }
 static inline void apb_soc_bootsel_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_BOOTSEL_OFFSET, value); }
 
-static inline uint32_t apb_soc_safe_pmu_rar_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PMU_RAR_OFFSET); }
-static inline void apb_soc_safe_pmu_rar_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PMU_RAR_OFFSET, value); }
+static inline uint32_t apb_soc_wd_clr_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_WD_CLR_OFFSET); }
+static inline void apb_soc_wd_clr_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_WD_CLR_OFFSET, value); }
+
+static inline uint32_t apb_soc_clk_sel_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_CLK_SEL_OFFSET); }
+static inline void apb_soc_clk_sel_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_CLK_SEL_OFFSET, value); }
+
+static inline uint32_t apb_soc_clk_div_soc_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_CLK_DIV_SOC_OFFSET); }
+static inline void apb_soc_clk_div_soc_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_CLK_DIV_SOC_OFFSET, value); }
+
+static inline uint32_t apb_soc_clk_div_clu_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_CLK_DIV_CLU_OFFSET); }
+static inline void apb_soc_clk_div_clu_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_CLK_DIV_CLU_OFFSET, value); }
+
+static inline uint32_t apb_soc_clk_div_per_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_CLK_DIV_PER_OFFSET); }
+static inline void apb_soc_clk_div_per_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_CLK_DIV_PER_OFFSET, value); }
+
+static inline uint32_t apb_soc_supervisor_dbg_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SUPERVISOR_DBG_OFFSET); }
+static inline void apb_soc_supervisor_dbg_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SUPERVISOR_DBG_OFFSET, value); }
+
+static inline uint32_t apb_soc_rwm_grp0_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_RWM_GRP0_OFFSET); }
+static inline void apb_soc_rwm_grp0_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_RWM_GRP0_OFFSET, value); }
+
+static inline uint32_t apb_soc_rwm_grp1_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_RWM_GRP1_OFFSET); }
+static inline void apb_soc_rwm_grp1_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_RWM_GRP1_OFFSET, value); }
+
+static inline uint32_t apb_soc_rwm_grp2_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_RWM_GRP2_OFFSET); }
+static inline void apb_soc_rwm_grp2_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_RWM_GRP2_OFFSET, value); }
+
+static inline uint32_t apb_soc_rwm_grp3_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_RWM_GRP3_OFFSET); }
+static inline void apb_soc_rwm_grp3_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_RWM_GRP3_OFFSET, value); }
+
+static inline uint32_t apb_soc_rwm_grp4_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_RWM_GRP4_OFFSET); }
+static inline void apb_soc_rwm_grp4_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_RWM_GRP4_OFFSET, value); }
+
+static inline uint32_t apb_soc_rwm_grp5_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_RWM_GRP5_OFFSET); }
+static inline void apb_soc_rwm_grp5_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_RWM_GRP5_OFFSET, value); }
+
+static inline uint32_t apb_soc_rwm_grp6_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_RWM_GRP6_OFFSET); }
+static inline void apb_soc_rwm_grp6_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_RWM_GRP6_OFFSET, value); }
 
 static inline uint32_t apb_soc_safe_pmu_sleepctrl_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PMU_SLEEPCTRL_OFFSET); }
 static inline void apb_soc_safe_pmu_sleepctrl_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PMU_SLEEPCTRL_OFFSET, value); }
 
-static inline uint32_t apb_soc_safe_pmu_force_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PMU_FORCE_OFFSET); }
-static inline void apb_soc_safe_pmu_force_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PMU_FORCE_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padfun0_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADFUN0_OFFSET); }
-static inline void apb_soc_safe_padfun0_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADFUN0_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padfun1_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADFUN1_OFFSET); }
-static inline void apb_soc_safe_padfun1_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADFUN1_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padfun2_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADFUN2_OFFSET); }
-static inline void apb_soc_safe_padfun2_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADFUN2_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padfun3_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADFUN3_OFFSET); }
-static inline void apb_soc_safe_padfun3_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADFUN3_OFFSET, value); }
+static inline uint32_t apb_soc_safe_wd_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_WD_OFFSET); }
+static inline void apb_soc_safe_wd_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_WD_OFFSET, value); }
 
 static inline uint32_t apb_soc_safe_sleeppadcfg0_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_SLEEPPADCFG0_OFFSET); }
 static inline void apb_soc_safe_sleeppadcfg0_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_SLEEPPADCFG0_OFFSET, value); }
@@ -1254,53 +1318,11 @@ static inline void apb_soc_safe_sleeppadcfg3_set(uint32_t base, uint32_t value) 
 static inline uint32_t apb_soc_safe_padsleep_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADSLEEP_OFFSET); }
 static inline void apb_soc_safe_padsleep_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADSLEEP_OFFSET, value); }
 
-static inline uint32_t apb_soc_safe_padcfg0_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG0_OFFSET); }
-static inline void apb_soc_safe_padcfg0_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG0_OFFSET, value); }
+static inline uint32_t apb_soc_safe_nevacf_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_NEVACF_OFFSET); }
+static inline void apb_soc_safe_nevacf_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_NEVACF_OFFSET, value); }
 
-static inline uint32_t apb_soc_safe_padcfg1_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG1_OFFSET); }
-static inline void apb_soc_safe_padcfg1_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG1_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg2_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG2_OFFSET); }
-static inline void apb_soc_safe_padcfg2_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG2_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg3_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG3_OFFSET); }
-static inline void apb_soc_safe_padcfg3_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG3_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg4_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG4_OFFSET); }
-static inline void apb_soc_safe_padcfg4_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG4_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg5_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG5_OFFSET); }
-static inline void apb_soc_safe_padcfg5_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG5_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg6_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG6_OFFSET); }
-static inline void apb_soc_safe_padcfg6_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG6_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg7_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG7_OFFSET); }
-static inline void apb_soc_safe_padcfg7_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG7_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg8_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG8_OFFSET); }
-static inline void apb_soc_safe_padcfg8_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG8_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg9_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG9_OFFSET); }
-static inline void apb_soc_safe_padcfg9_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG9_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg10_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG10_OFFSET); }
-static inline void apb_soc_safe_padcfg10_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG10_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg11_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG11_OFFSET); }
-static inline void apb_soc_safe_padcfg11_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG11_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg12_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG12_OFFSET); }
-static inline void apb_soc_safe_padcfg12_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG12_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg13_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG13_OFFSET); }
-static inline void apb_soc_safe_padcfg13_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG13_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg14_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG14_OFFSET); }
-static inline void apb_soc_safe_padcfg14_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG14_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padcfg15_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADCFG15_OFFSET); }
-static inline void apb_soc_safe_padcfg15_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADCFG15_OFFSET, value); }
+static inline uint32_t apb_soc_safe_gpreg_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_GPREG_OFFSET); }
+static inline void apb_soc_safe_gpreg_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_GPREG_OFFSET, value); }
 
 static inline uint32_t apb_soc_reg_gpio_iso_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_REG_GPIO_ISO_OFFSET); }
 static inline void apb_soc_reg_gpio_iso_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_REG_GPIO_ISO_OFFSET, value); }
@@ -1331,6 +1353,16 @@ static inline void apb_soc_reg_lvds_iso_set(uint32_t base, uint32_t value) { ARC
 #define APB_SOC_INFO_NB_CORES_SET(value,field)             (ARCHI_BINSERT((value),(field),16,16))
 #define APB_SOC_INFO_NB_CORES(val)                         ((val) << 16)
 
+#define APB_SOC_FC_BOOT_ADDR_GET(value)                    (ARCHI_BEXTRACTU((value),32,0))
+#define APB_SOC_FC_BOOT_ADDR_GETS(value)                   (ARCHI_BEXTRACT((value),32,0))
+#define APB_SOC_FC_BOOT_ADDR_SET(value,field)              (ARCHI_BINSERT((value),(field),32,0))
+#define APB_SOC_FC_BOOT_ADDR(val)                          ((val) << 0)
+
+#define APB_SOC_FC_FETCH_FC_FE_GET(value)                  (ARCHI_BEXTRACTU((value),1,0))
+#define APB_SOC_FC_FETCH_FC_FE_GETS(value)                 (ARCHI_BEXTRACT((value),1,0))
+#define APB_SOC_FC_FETCH_FC_FE_SET(value,field)            (ARCHI_BINSERT((value),(field),1,0))
+#define APB_SOC_FC_FETCH_FC_FE(val)                        ((val) << 0)
+
 #define APB_SOC_CL_ISOLATE_EN_GET(value)                   (ARCHI_BEXTRACTU((value),1,0))
 #define APB_SOC_CL_ISOLATE_EN_GETS(value)                  (ARCHI_BEXTRACT((value),1,0))
 #define APB_SOC_CL_ISOLATE_EN_SET(value,field)             (ARCHI_BINSERT((value),(field),1,0))
@@ -1340,76 +1372,6 @@ static inline void apb_soc_reg_lvds_iso_set(uint32_t base, uint32_t value) { ARC
 #define APB_SOC_CL_BUSY_BUSY_GETS(value)                   (ARCHI_BEXTRACT((value),1,0))
 #define APB_SOC_CL_BUSY_BUSY_SET(value,field)              (ARCHI_BINSERT((value),(field),1,0))
 #define APB_SOC_CL_BUSY_BUSY(val)                          ((val) << 0)
-
-#define APB_SOC_CL_BYPASS_BYP_POW_GET(value)               (ARCHI_BEXTRACTU((value),1,0))
-#define APB_SOC_CL_BYPASS_BYP_POW_GETS(value)              (ARCHI_BEXTRACT((value),1,0))
-#define APB_SOC_CL_BYPASS_BYP_POW_SET(value,field)         (ARCHI_BINSERT((value),(field),1,0))
-#define APB_SOC_CL_BYPASS_BYP_POW(val)                     ((val) << 0)
-
-#define APB_SOC_CL_BYPASS_BYP_CFG_GET(value)               (ARCHI_BEXTRACTU((value),1,1))
-#define APB_SOC_CL_BYPASS_BYP_CFG_GETS(value)              (ARCHI_BEXTRACT((value),1,1))
-#define APB_SOC_CL_BYPASS_BYP_CFG_SET(value,field)         (ARCHI_BINSERT((value),(field),1,1))
-#define APB_SOC_CL_BYPASS_BYP_CFG(val)                     ((val) << 1)
-
-#define APB_SOC_CL_BYPASS_CL_STATE_GET(value)              (ARCHI_BEXTRACTU((value),1,3))
-#define APB_SOC_CL_BYPASS_CL_STATE_GETS(value)             (ARCHI_BEXTRACT((value),1,3))
-#define APB_SOC_CL_BYPASS_CL_STATE_SET(value,field)        (ARCHI_BINSERT((value),(field),1,3))
-#define APB_SOC_CL_BYPASS_CL_STATE(val)                    ((val) << 3)
-
-#define APB_SOC_CL_BYPASS_CURRSET_GET(value)               (ARCHI_BEXTRACTU((value),3,4))
-#define APB_SOC_CL_BYPASS_CURRSET_GETS(value)              (ARCHI_BEXTRACT((value),3,4))
-#define APB_SOC_CL_BYPASS_CURRSET_SET(value,field)         (ARCHI_BINSERT((value),(field),3,4))
-#define APB_SOC_CL_BYPASS_CURRSET(val)                     ((val) << 4)
-
-#define APB_SOC_CL_BYPASS_PROG_DEL_GET(value)              (ARCHI_BEXTRACTU((value),2,7))
-#define APB_SOC_CL_BYPASS_PROG_DEL_GETS(value)             (ARCHI_BEXTRACT((value),2,7))
-#define APB_SOC_CL_BYPASS_PROG_DEL_SET(value,field)        (ARCHI_BINSERT((value),(field),2,7))
-#define APB_SOC_CL_BYPASS_PROG_DEL(val)                    ((val) << 7)
-
-#define APB_SOC_CL_BYPASS_BYP_CLK_GET(value)               (ARCHI_BEXTRACTU((value),1,9))
-#define APB_SOC_CL_BYPASS_BYP_CLK_GETS(value)              (ARCHI_BEXTRACT((value),1,9))
-#define APB_SOC_CL_BYPASS_BYP_CLK_SET(value,field)         (ARCHI_BINSERT((value),(field),1,9))
-#define APB_SOC_CL_BYPASS_BYP_CLK(val)                     ((val) << 9)
-
-#define APB_SOC_CL_BYPASS_CG_GET(value)                    (ARCHI_BEXTRACTU((value),1,10))
-#define APB_SOC_CL_BYPASS_CG_GETS(value)                   (ARCHI_BEXTRACT((value),1,10))
-#define APB_SOC_CL_BYPASS_CG_SET(value,field)              (ARCHI_BINSERT((value),(field),1,10))
-#define APB_SOC_CL_BYPASS_CG(val)                          ((val) << 10)
-
-#define APB_SOC_CL_BYPASS_FLL_PWD_GET(value)               (ARCHI_BEXTRACTU((value),1,11))
-#define APB_SOC_CL_BYPASS_FLL_PWD_GETS(value)              (ARCHI_BEXTRACT((value),1,11))
-#define APB_SOC_CL_BYPASS_FLL_PWD_SET(value,field)         (ARCHI_BINSERT((value),(field),1,11))
-#define APB_SOC_CL_BYPASS_FLL_PWD(val)                     ((val) << 11)
-
-#define APB_SOC_CL_BYPASS_FLL_RET_GET(value)               (ARCHI_BEXTRACTU((value),1,12))
-#define APB_SOC_CL_BYPASS_FLL_RET_GETS(value)              (ARCHI_BEXTRACT((value),1,12))
-#define APB_SOC_CL_BYPASS_FLL_RET_SET(value,field)         (ARCHI_BINSERT((value),(field),1,12))
-#define APB_SOC_CL_BYPASS_FLL_RET(val)                     ((val) << 12)
-
-#define APB_SOC_CL_BYPASS_RST_GET(value)                   (ARCHI_BEXTRACTU((value),1,13))
-#define APB_SOC_CL_BYPASS_RST_GETS(value)                  (ARCHI_BEXTRACT((value),1,13))
-#define APB_SOC_CL_BYPASS_RST_SET(value,field)             (ARCHI_BINSERT((value),(field),1,13))
-#define APB_SOC_CL_BYPASS_RST(val)                         ((val) << 13)
-
-#define APB_SOC_CL_BYPASS_BYP_ISO_GET(value)               (ARCHI_BEXTRACTU((value),1,14))
-#define APB_SOC_CL_BYPASS_BYP_ISO_GETS(value)              (ARCHI_BEXTRACT((value),1,14))
-#define APB_SOC_CL_BYPASS_BYP_ISO_SET(value,field)         (ARCHI_BINSERT((value),(field),1,14))
-#define APB_SOC_CL_BYPASS_BYP_ISO(val)                     ((val) << 14)
-
-#define APB_SOC_CL_BYPASS_PWISO_GET(value)                 (ARCHI_BEXTRACTU((value),1,15))
-#define APB_SOC_CL_BYPASS_PWISO_GETS(value)                (ARCHI_BEXTRACT((value),1,15))
-#define APB_SOC_CL_BYPASS_PWISO_SET(value,field)           (ARCHI_BINSERT((value),(field),1,15))
-#define APB_SOC_CL_BYPASS_PWISO(val)                       ((val) << 15)
-
-#define APB_SOC_CL_BYPASS_TRCPOWOK_GET(value)              (ARCHI_BEXTRACTU((value),1,16))
-#define APB_SOC_CL_BYPASS_TRCPOWOK_GETS(value)             (ARCHI_BEXTRACT((value),1,16))
-#define APB_SOC_CL_BYPASS_TRCPOWOK_SET(value,field)        (ARCHI_BINSERT((value),(field),1,16))
-#define APB_SOC_CL_BYPASS_TRCPOWOK(val)                    ((val) << 16)
-
-#define APB_SOC_CL_BYPASS_PMUPOWDOWN_GET(value)            (ARCHI_BEXTRACTU((value),1,17))
-#define APB_SOC_CL_BYPASS_PMUPOWDOWN_GETS(value)           (ARCHI_BEXTRACT((value),1,17))
-#define APB_SOC_CL_BYPASS_PMUPOWDOWN_SET(value,field)      (ARCHI_BINSERT((value),(field),1,17))
-#define APB_SOC_CL_BYPASS_PMUPOWDOWN(val)                  ((val) << 17)
 
 #define APB_SOC_JTAGREG_INT_SYNC_GET(value)                (ARCHI_BEXTRACTU((value),1,0))
 #define APB_SOC_JTAGREG_INT_SYNC_GETS(value)               (ARCHI_BEXTRACT((value),1,0))
@@ -1431,11 +1393,6 @@ static inline void apb_soc_reg_lvds_iso_set(uint32_t base, uint32_t value) { ARC
 #define APB_SOC_JTAGREG_EXT_BT_MD_SET(value,field)         (ARCHI_BINSERT((value),(field),3,9))
 #define APB_SOC_JTAGREG_EXT_BT_MD(val)                     ((val) << 9)
 
-#define APB_SOC_L2_SLEEP_L2_SLEEP_GET(value)               (ARCHI_BEXTRACTU((value),1,0))
-#define APB_SOC_L2_SLEEP_L2_SLEEP_GETS(value)              (ARCHI_BEXTRACT((value),1,0))
-#define APB_SOC_L2_SLEEP_L2_SLEEP_SET(value,field)         (ARCHI_BINSERT((value),(field),1,0))
-#define APB_SOC_L2_SLEEP_L2_SLEEP(val)                     ((val) << 0)
-
 #define APB_SOC_SLEEP_CTRL_SLEEP_CTRL_GET(value)           (ARCHI_BEXTRACTU((value),32,0))
 #define APB_SOC_SLEEP_CTRL_SLEEP_CTRL_GETS(value)          (ARCHI_BEXTRACT((value),32,0))
 #define APB_SOC_SLEEP_CTRL_SLEEP_CTRL_SET(value,field)     (ARCHI_BINSERT((value),(field),32,0))
@@ -1451,25 +1408,15 @@ static inline void apb_soc_reg_lvds_iso_set(uint32_t base, uint32_t value) { ARC
 #define APB_SOC_CORESTATUS_RO_STATUS_SET(value,field)      (ARCHI_BINSERT((value),(field),32,0))
 #define APB_SOC_CORESTATUS_RO_STATUS(val)                  ((val) << 0)
 
-#define APB_SOC_SAFE_PMU_RAR_NV_VOLT_GET(value)            (ARCHI_BEXTRACTU((value),5,0))
-#define APB_SOC_SAFE_PMU_RAR_NV_VOLT_GETS(value)           (ARCHI_BEXTRACT((value),5,0))
-#define APB_SOC_SAFE_PMU_RAR_NV_VOLT_SET(value,field)      (ARCHI_BINSERT((value),(field),5,0))
-#define APB_SOC_SAFE_PMU_RAR_NV_VOLT(val)                  ((val) << 0)
+#define APB_SOC_CLK_SEL_CLK_SOC_GET(value)                 (ARCHI_BEXTRACTU((value),1,0))
+#define APB_SOC_CLK_SEL_CLK_SOC_GETS(value)                (ARCHI_BEXTRACT((value),1,0))
+#define APB_SOC_CLK_SEL_CLK_SOC_SET(value,field)           (ARCHI_BINSERT((value),(field),1,0))
+#define APB_SOC_CLK_SEL_CLK_SOC(val)                       ((val) << 0)
 
-#define APB_SOC_SAFE_PMU_RAR_MV_VOLT_GET(value)            (ARCHI_BEXTRACTU((value),5,8))
-#define APB_SOC_SAFE_PMU_RAR_MV_VOLT_GETS(value)           (ARCHI_BEXTRACT((value),5,8))
-#define APB_SOC_SAFE_PMU_RAR_MV_VOLT_SET(value,field)      (ARCHI_BINSERT((value),(field),5,8))
-#define APB_SOC_SAFE_PMU_RAR_MV_VOLT(val)                  ((val) << 8)
-
-#define APB_SOC_SAFE_PMU_RAR_LV_VOLT_GET(value)            (ARCHI_BEXTRACTU((value),5,16))
-#define APB_SOC_SAFE_PMU_RAR_LV_VOLT_GETS(value)           (ARCHI_BEXTRACT((value),5,16))
-#define APB_SOC_SAFE_PMU_RAR_LV_VOLT_SET(value,field)      (ARCHI_BINSERT((value),(field),5,16))
-#define APB_SOC_SAFE_PMU_RAR_LV_VOLT(val)                  ((val) << 16)
-
-#define APB_SOC_SAFE_PMU_RAR_RV_VOLT_GET(value)            (ARCHI_BEXTRACTU((value),5,24))
-#define APB_SOC_SAFE_PMU_RAR_RV_VOLT_GETS(value)           (ARCHI_BEXTRACT((value),5,24))
-#define APB_SOC_SAFE_PMU_RAR_RV_VOLT_SET(value,field)      (ARCHI_BINSERT((value),(field),5,24))
-#define APB_SOC_SAFE_PMU_RAR_RV_VOLT(val)                  ((val) << 24)
+#define APB_SOC_CLK_SEL_CLK_CLUSTER_GET(value)             (ARCHI_BEXTRACTU((value),2,1))
+#define APB_SOC_CLK_SEL_CLK_CLUSTER_GETS(value)            (ARCHI_BEXTRACT((value),2,1))
+#define APB_SOC_CLK_SEL_CLK_CLUSTER_SET(value,field)       (ARCHI_BINSERT((value),(field),2,1))
+#define APB_SOC_CLK_SEL_CLK_CLUSTER(val)                   ((val) << 1)
 
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0_GET(value)        (ARCHI_BEXTRACTU((value),1,0))
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0_GETS(value)       (ARCHI_BEXTRACT((value),1,0))
@@ -1541,65 +1488,10 @@ static inline void apb_soc_reg_lvds_iso_set(uint32_t base, uint32_t value) { ARC
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_SET(value,field) (ARCHI_BINSERT((value),(field),1,20))
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE(val)            ((val) << 20)
 
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R0_GET(value)        (ARCHI_BEXTRACTU((value),1,0))
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R0_GETS(value)       (ARCHI_BEXTRACT((value),1,0))
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R0_SET(value,field)  (ARCHI_BINSERT((value),(field),1,0))
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R0(val)              ((val) << 0)
-
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R1_GET(value)        (ARCHI_BEXTRACTU((value),1,1))
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R1_GETS(value)       (ARCHI_BEXTRACT((value),1,1))
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R1_SET(value,field)  (ARCHI_BINSERT((value),(field),1,1))
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R1(val)              ((val) << 1)
-
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R2_GET(value)        (ARCHI_BEXTRACTU((value),1,2))
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R2_GETS(value)       (ARCHI_BEXTRACT((value),1,2))
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R2_SET(value,field)  (ARCHI_BINSERT((value),(field),1,2))
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R2(val)              ((val) << 2)
-
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R3_GET(value)        (ARCHI_BEXTRACTU((value),1,3))
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R3_GETS(value)       (ARCHI_BEXTRACT((value),1,3))
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R3_SET(value,field)  (ARCHI_BINSERT((value),(field),1,3))
-#define APB_SOC_SAFE_PMU_FORCE_RET_L2_R3(val)              ((val) << 3)
-
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R0_GET(value)         (ARCHI_BEXTRACTU((value),1,4))
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R0_GETS(value)        (ARCHI_BEXTRACT((value),1,4))
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R0_SET(value,field)   (ARCHI_BINSERT((value),(field),1,4))
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R0(val)               ((val) << 4)
-
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R1_GET(value)         (ARCHI_BEXTRACTU((value),1,5))
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R1_GETS(value)        (ARCHI_BEXTRACT((value),1,5))
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R1_SET(value,field)   (ARCHI_BINSERT((value),(field),1,5))
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R1(val)               ((val) << 5)
-
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R2_GET(value)         (ARCHI_BEXTRACTU((value),1,6))
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R2_GETS(value)        (ARCHI_BEXTRACT((value),1,6))
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R2_SET(value,field)   (ARCHI_BINSERT((value),(field),1,6))
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R2(val)               ((val) << 6)
-
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R3_GET(value)         (ARCHI_BEXTRACTU((value),1,7))
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R3_GETS(value)        (ARCHI_BEXTRACT((value),1,7))
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R3_SET(value,field)   (ARCHI_BINSERT((value),(field),1,7))
-#define APB_SOC_SAFE_PMU_FORCE_PD_L2_R3(val)               ((val) << 7)
-
 #define APB_SOC_SAFE_PADSLEEP_EN_GET(value)                (ARCHI_BEXTRACTU((value),1,0))
 #define APB_SOC_SAFE_PADSLEEP_EN_GETS(value)               (ARCHI_BEXTRACT((value),1,0))
 #define APB_SOC_SAFE_PADSLEEP_EN_SET(value,field)          (ARCHI_BINSERT((value),(field),1,0))
 #define APB_SOC_SAFE_PADSLEEP_EN(val)                      ((val) << 0)
-
-#define APB_SOC_REG_GPIO_ISO_ISO_GET(value)                (ARCHI_BEXTRACTU((value),1,0))
-#define APB_SOC_REG_GPIO_ISO_ISO_GETS(value)               (ARCHI_BEXTRACT((value),1,0))
-#define APB_SOC_REG_GPIO_ISO_ISO_SET(value,field)          (ARCHI_BINSERT((value),(field),1,0))
-#define APB_SOC_REG_GPIO_ISO_ISO(val)                      ((val) << 0)
-
-#define APB_SOC_REG_CAM_ISO_ISO_GET(value)                 (ARCHI_BEXTRACTU((value),1,0))
-#define APB_SOC_REG_CAM_ISO_ISO_GETS(value)                (ARCHI_BEXTRACT((value),1,0))
-#define APB_SOC_REG_CAM_ISO_ISO_SET(value,field)           (ARCHI_BINSERT((value),(field),1,0))
-#define APB_SOC_REG_CAM_ISO_ISO(val)                       ((val) << 0)
-
-#define APB_SOC_REG_LVDS_ISO_ISO_GET(value)                (ARCHI_BEXTRACTU((value),1,0))
-#define APB_SOC_REG_LVDS_ISO_ISO_GETS(value)               (ARCHI_BEXTRACT((value),1,0))
-#define APB_SOC_REG_LVDS_ISO_ISO_SET(value,field)          (ARCHI_BINSERT((value),(field),1,0))
-#define APB_SOC_REG_LVDS_ISO_ISO(val)                      ((val) << 0)
 
 #endif
 
