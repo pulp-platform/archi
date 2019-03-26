@@ -285,75 +285,45 @@
 #define APB_SOC_CLK_SEL_CLK_CLUSTER_WIDTH                            2
 #define APB_SOC_CLK_SEL_CLK_CLUSTER_MASK                             0x6
 
-// Configure retention mode for region 0 of L2 memory: - 1'b0: Non retentive - 1'b1: Retentive (access: R/W)
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0_BIT                         0
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0_WIDTH                       1
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0_MASK                        0x1
+// User value which is kept retentive after wakeup (even in non-retentive sleep). This value is only partially interpreted by the ROM code (TBD) to distinguish betweem cold boot, non-retentive sleep and retentive sleep. (access: R/W)
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_REBOOT_BIT                        0
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_REBOOT_WIDTH                      3
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_REBOOT_MASK                       0x7
 
-// Configure retention mode for region 1 of L2 memory: - 1'b0: Non retentive - 1'b1: Retentive (access: R/W)
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R1_BIT                         1
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R1_WIDTH                       1
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R1_MASK                        0x2
+// Enable smart wake-up; - 1'b0; smart wake-up disabled - 1'b1: smart wake-up enabled (access: R/W)
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_SMARTWAKE_EN_BIT                  9
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_SMARTWAKE_EN_WIDTH                1
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_SMARTWAKE_EN_MASK                 0x200
 
-// Configure retention mode for region 2 of L2 memory: - 1'b0: Non retentive - 1'b1: Retentive (access: R/W)
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R2_BIT                         2
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R2_WIDTH                       1
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R2_MASK                        0x4
+// Enable RTC wake-up; - 1'b0; rtc wake-up disabled - 1'b1: rtc wake-up enabled (access: R/W)
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RTCWAKE_EN_BIT                    10
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RTCWAKE_EN_WIDTH                  1
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RTCWAKE_EN_MASK                   0x400
 
-// Configure retention mode for region 3 of L2 memory: - 1'b0: Non retentive - 1'b1: Retentive (access: R/W)
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R3_BIT                         3
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R3_WIDTH                       1
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R3_MASK                        0x8
-
-// Configure retention mode for SoC FLL: - 1'b0: Non retentive - 1'b1: Retentive (access: R/W)
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_SOC_FLL_BIT                       4
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_SOC_FLL_WIDTH                     1
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_SOC_FLL_MASK                      0x10
-
-// Configure retention mode for cluster FLL: - 1'b0: Non retentive - 1'b1: Retentive (access: R/W)
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_FLL_BIT                        5
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_FLL_WIDTH                      1
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_FLL_MASK                       0x20
-
-// Select external wake-up source (GPIO ID): - 5'b00000: GPIO 0 - 5'b00001: GPIO 1 - 5'b00010: GPIO 2 - 5'b00011: GPIO 3 - 5'b00100: GPIO 4 - 5'b00101: GPIO 5 - 5'b00110: GPIO 6 - 5'b00101: GPIO 7 - 5'b01000: GPIO 8 - 5'b01001: GPIO 9 - 5'b01010: GPIO 10 - 5'b01011: GPIO 11 - 5'b01100: GPIO 12 - 5'b01101: GPIO 13 - 5'b01110: GPIO 14 - 5'b01111: GPIO 15 - 5'b10000: GPIO 16 - 5'b10001: GPIO 17 - 5'b10010: GPIO 18 - 5'b10011: GPIO 19 - 5'b10100: GPIO 20 - 5'b10101: GPIO 21 - 5'b10110: GPIO 22 - 5'b10101: GPIO 23 - 5'b11000: GPIO 24 - 5'b11001: GPIO 25 - 5'b11010: GPIO 26 - 5'b11011: GPIO 27 - 5'b11100: GPIO 28 - 5'b11101: GPIO 29 - 5'b11110: GPIO 30 - 5'b11111: GPIO 31 (access: R/W)
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_SRC_BIT                   6
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_SRC_WIDTH                 5
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_SRC_MASK                  0x7c0
-
-// Select external wake-up  mode: - 2'b00: rise event - 2'b01: fall event - 2'b10: high level - 2'b11: low level (access: R/W)
+// Select external wake-up  mode (through dedicated pin): - 2'b00: rise event - 2'b01: fall event - 2'b10: high level - 2'b11: low level (access: R/W)
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_TYPE_BIT                  11
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_TYPE_WIDTH                2
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_TYPE_MASK                 0x1800
 
-// Enable external wake-up; - 1'b0; external wake-up disabled - 1'b1: external wake-up enabled (access: R/W)
+// Enable external wake-up (through dedicated pin); - 1'b0; external wake-up disabled - 1'b1: external wake-up enabled (access: R/W)
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_EN_BIT                    13
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_EN_WIDTH                  1
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_EN_MASK                   0x2000
 
-// - (access: R/W)
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_WAKESTATE_BIT                     15
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_WAKESTATE_WIDTH                   1
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_WAKESTATE_MASK                    0x8000
+// Power state of the MRAM to restore after warm boot - 1'b0: MRAM OFF - 1'b1: MRAM ON  (access: R/W)
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_MRAM_WAKESTATE_BIT                14
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_MRAM_WAKESTATE_WIDTH              1
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_MRAM_WAKESTATE_MASK               0x4000
 
-// Warm bootmode: - 1'b0: Boot from ROM - 1'b1: Boot from L2 (access: R/W)
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTDEV_BIT                         16
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTDEV_WIDTH                       1
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTDEV_MASK                        0x10000
+// Power state of the cluster to restore after warm boot - 1'b0: cluster OFF - 1'b1: cluster ON  (access: R/W)
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_CLUSTER_WAKESTATE_BIT             15
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_CLUSTER_WAKESTATE_WIDTH           1
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_CLUSTER_WAKESTATE_MASK            0x8000
 
-// External wake-up interrupt status (automatically resetted after read) - 1'b0: wake-up triggered by RTC - 1'b1: wake-up triggered by external event (access: R)
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTINT_BIT                        17
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTINT_WIDTH                      1
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTINT_MASK                       0x20000
-
-// Select boot type: - 2'b00: cold boot - 2'b01: deep sleep - 2'b10: retentive deep sleep (access: R/W)
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTTYPE_BIT                        18
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTTYPE_WIDTH                      2
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTTYPE_MASK                       0xc0000
-
-// Cluster state to restore after warm boot: - 1’b0: off - 1’b1: on (access: R/W)
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_BIT                       20
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_WIDTH                     1
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_MASK                      0x100000
+// Configure retention mode of L2 memory. There is one bit per cut: - 1'b0: Non retentive - 1'b1: Retentive (access: R/W)
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM_BIT                       16
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM_WIDTH                     16
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM_MASK                      0xffff0000
 
 // Enable pad sleep mode: 1'b0: disable 1'b1: enable (access: R/W)
 #define APB_SOC_SAFE_PADSLEEP_EN_BIT                                 0
@@ -650,21 +620,15 @@ typedef union {
 
 typedef union {
   struct {
-    unsigned int l2_r0           :1 ; // Configure retention mode for region 0 of L2 memory: - 1'b0: Non retentive - 1'b1: Retentive
-    unsigned int l2_r1           :1 ; // Configure retention mode for region 1 of L2 memory: - 1'b0: Non retentive - 1'b1: Retentive
-    unsigned int l2_r2           :1 ; // Configure retention mode for region 2 of L2 memory: - 1'b0: Non retentive - 1'b1: Retentive
-    unsigned int l2_r3           :1 ; // Configure retention mode for region 3 of L2 memory: - 1'b0: Non retentive - 1'b1: Retentive
-    unsigned int soc_fll         :1 ; // Configure retention mode for SoC FLL: - 1'b0: Non retentive - 1'b1: Retentive
-    unsigned int cl_fll          :1 ; // Configure retention mode for cluster FLL: - 1'b0: Non retentive - 1'b1: Retentive
-    unsigned int extwake_src     :5 ; // Select external wake-up source (GPIO ID): - 5'b00000: GPIO 0 - 5'b00001: GPIO 1 - 5'b00010: GPIO 2 - 5'b00011: GPIO 3 - 5'b00100: GPIO 4 - 5'b00101: GPIO 5 - 5'b00110: GPIO 6 - 5'b00101: GPIO 7 - 5'b01000: GPIO 8 - 5'b01001: GPIO 9 - 5'b01010: GPIO 10 - 5'b01011: GPIO 11 - 5'b01100: GPIO 12 - 5'b01101: GPIO 13 - 5'b01110: GPIO 14 - 5'b01111: GPIO 15 - 5'b10000: GPIO 16 - 5'b10001: GPIO 17 - 5'b10010: GPIO 18 - 5'b10011: GPIO 19 - 5'b10100: GPIO 20 - 5'b10101: GPIO 21 - 5'b10110: GPIO 22 - 5'b10101: GPIO 23 - 5'b11000: GPIO 24 - 5'b11001: GPIO 25 - 5'b11010: GPIO 26 - 5'b11011: GPIO 27 - 5'b11100: GPIO 28 - 5'b11101: GPIO 29 - 5'b11110: GPIO 30 - 5'b11111: GPIO 31
-    unsigned int extwake_type    :2 ; // Select external wake-up  mode: - 2'b00: rise event - 2'b01: fall event - 2'b10: high level - 2'b11: low level
-    unsigned int extwake_en      :1 ; // Enable external wake-up; - 1'b0; external wake-up disabled - 1'b1: external wake-up enabled
-    unsigned int padding0:1 ;
-    unsigned int wakestate       :1 ; // -
-    unsigned int btdev           :1 ; // Warm bootmode: - 1'b0: Boot from ROM - 1'b1: Boot from L2
-    unsigned int extint          :1 ; // External wake-up interrupt status (automatically resetted after read) - 1'b0: wake-up triggered by RTC - 1'b1: wake-up triggered by external event
-    unsigned int bttype          :2 ; // Select boot type: - 2'b00: cold boot - 2'b01: deep sleep - 2'b10: retentive deep sleep
-    unsigned int cl_wake         :1 ; // Cluster state to restore after warm boot: - 1’b0: off - 1’b1: on
+    unsigned int reboot          :3 ; // User value which is kept retentive after wakeup (even in non-retentive sleep). This value is only partially interpreted by the ROM code (TBD) to distinguish betweem cold boot, non-retentive sleep and retentive sleep.
+    unsigned int padding0:6 ;
+    unsigned int smartwake_en    :1 ; // Enable smart wake-up; - 1'b0; smart wake-up disabled - 1'b1: smart wake-up enabled
+    unsigned int rtcwake_en      :1 ; // Enable RTC wake-up; - 1'b0; rtc wake-up disabled - 1'b1: rtc wake-up enabled
+    unsigned int extwake_type    :2 ; // Select external wake-up  mode (through dedicated pin): - 2'b00: rise event - 2'b01: fall event - 2'b10: high level - 2'b11: low level
+    unsigned int extwake_en      :1 ; // Enable external wake-up (through dedicated pin); - 1'b0; external wake-up disabled - 1'b1: external wake-up enabled
+    unsigned int mram_wakestate  :1 ; // Power state of the MRAM to restore after warm boot - 1'b0: MRAM OFF - 1'b1: MRAM ON 
+    unsigned int cluster_wakestate:1 ; // Power state of the cluster to restore after warm boot - 1'b0: cluster OFF - 1'b1: cluster ON 
+    unsigned int ret_mem         :16; // Configure retention mode of L2 memory. There is one bit per cut: - 1'b0: Non retentive - 1'b1: Retentive
   };
   unsigned int raw;
 } __attribute__((packed)) apb_soc_safe_pmu_sleepctrl_t;
@@ -999,34 +963,22 @@ public:
 class vp_apb_soc_safe_pmu_sleepctrl : public vp::reg_32
 {
 public:
-  inline void l2_r0_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0_WIDTH); }
-  inline uint32_t l2_r0_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0_WIDTH); }
-  inline void l2_r1_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R1_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R1_WIDTH); }
-  inline uint32_t l2_r1_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R1_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R1_WIDTH); }
-  inline void l2_r2_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R2_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R2_WIDTH); }
-  inline uint32_t l2_r2_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R2_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R2_WIDTH); }
-  inline void l2_r3_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R3_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R3_WIDTH); }
-  inline uint32_t l2_r3_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R3_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R3_WIDTH); }
-  inline void soc_fll_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_SOC_FLL_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_SOC_FLL_WIDTH); }
-  inline uint32_t soc_fll_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_SOC_FLL_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_SOC_FLL_WIDTH); }
-  inline void cl_fll_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_CL_FLL_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_CL_FLL_WIDTH); }
-  inline uint32_t cl_fll_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_CL_FLL_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_CL_FLL_WIDTH); }
-  inline void extwake_src_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_SRC_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_SRC_WIDTH); }
-  inline uint32_t extwake_src_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_SRC_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_SRC_WIDTH); }
+  inline void reboot_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_REBOOT_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_REBOOT_WIDTH); }
+  inline uint32_t reboot_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_REBOOT_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_REBOOT_WIDTH); }
+  inline void smartwake_en_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_SMARTWAKE_EN_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_SMARTWAKE_EN_WIDTH); }
+  inline uint32_t smartwake_en_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_SMARTWAKE_EN_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_SMARTWAKE_EN_WIDTH); }
+  inline void rtcwake_en_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_RTCWAKE_EN_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_RTCWAKE_EN_WIDTH); }
+  inline uint32_t rtcwake_en_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_RTCWAKE_EN_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_RTCWAKE_EN_WIDTH); }
   inline void extwake_type_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_TYPE_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_TYPE_WIDTH); }
   inline uint32_t extwake_type_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_TYPE_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_TYPE_WIDTH); }
   inline void extwake_en_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_EN_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_EN_WIDTH); }
   inline uint32_t extwake_en_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_EN_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_EN_WIDTH); }
-  inline void wakestate_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_WAKESTATE_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_WAKESTATE_WIDTH); }
-  inline uint32_t wakestate_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_WAKESTATE_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_WAKESTATE_WIDTH); }
-  inline void btdev_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_BTDEV_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_BTDEV_WIDTH); }
-  inline uint32_t btdev_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_BTDEV_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_BTDEV_WIDTH); }
-  inline void extint_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_EXTINT_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_EXTINT_WIDTH); }
-  inline uint32_t extint_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_EXTINT_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_EXTINT_WIDTH); }
-  inline void bttype_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_BTTYPE_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_BTTYPE_WIDTH); }
-  inline uint32_t bttype_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_BTTYPE_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_BTTYPE_WIDTH); }
-  inline void cl_wake_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_WIDTH); }
-  inline uint32_t cl_wake_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_WIDTH); }
+  inline void mram_wakestate_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_MRAM_WAKESTATE_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_MRAM_WAKESTATE_WIDTH); }
+  inline uint32_t mram_wakestate_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_MRAM_WAKESTATE_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_MRAM_WAKESTATE_WIDTH); }
+  inline void cluster_wakestate_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_CLUSTER_WAKESTATE_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_CLUSTER_WAKESTATE_WIDTH); }
+  inline uint32_t cluster_wakestate_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_CLUSTER_WAKESTATE_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_CLUSTER_WAKESTATE_WIDTH); }
+  inline void ret_mem_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM_WIDTH); }
+  inline uint32_t ret_mem_get() { return this->get_field(APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM_BIT, APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM_WIDTH); }
 };
 
 class vp_apb_soc_safe_wd : public vp::reg_32
@@ -1418,40 +1370,20 @@ static inline void apb_soc_reg_lvds_iso_set(uint32_t base, uint32_t value) { ARC
 #define APB_SOC_CLK_SEL_CLK_CLUSTER_SET(value,field)       (ARCHI_BINSERT((value),(field),2,1))
 #define APB_SOC_CLK_SEL_CLK_CLUSTER(val)                   ((val) << 1)
 
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0_GET(value)        (ARCHI_BEXTRACTU((value),1,0))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0_GETS(value)       (ARCHI_BEXTRACT((value),1,0))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0_SET(value,field)  (ARCHI_BINSERT((value),(field),1,0))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R0(val)              ((val) << 0)
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_REBOOT_GET(value)       (ARCHI_BEXTRACTU((value),3,0))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_REBOOT_GETS(value)      (ARCHI_BEXTRACT((value),3,0))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_REBOOT_SET(value,field) (ARCHI_BINSERT((value),(field),3,0))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_REBOOT(val)             ((val) << 0)
 
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R1_GET(value)        (ARCHI_BEXTRACTU((value),1,1))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R1_GETS(value)       (ARCHI_BEXTRACT((value),1,1))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R1_SET(value,field)  (ARCHI_BINSERT((value),(field),1,1))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R1(val)              ((val) << 1)
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_SMARTWAKE_EN_GET(value) (ARCHI_BEXTRACTU((value),1,9))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_SMARTWAKE_EN_GETS(value) (ARCHI_BEXTRACT((value),1,9))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_SMARTWAKE_EN_SET(value,field) (ARCHI_BINSERT((value),(field),1,9))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_SMARTWAKE_EN(val)       ((val) << 9)
 
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R2_GET(value)        (ARCHI_BEXTRACTU((value),1,2))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R2_GETS(value)       (ARCHI_BEXTRACT((value),1,2))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R2_SET(value,field)  (ARCHI_BINSERT((value),(field),1,2))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R2(val)              ((val) << 2)
-
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R3_GET(value)        (ARCHI_BEXTRACTU((value),1,3))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R3_GETS(value)       (ARCHI_BEXTRACT((value),1,3))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R3_SET(value,field)  (ARCHI_BINSERT((value),(field),1,3))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_L2_R3(val)              ((val) << 3)
-
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_SOC_FLL_GET(value)      (ARCHI_BEXTRACTU((value),1,4))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_SOC_FLL_GETS(value)     (ARCHI_BEXTRACT((value),1,4))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_SOC_FLL_SET(value,field) (ARCHI_BINSERT((value),(field),1,4))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_SOC_FLL(val)            ((val) << 4)
-
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_FLL_GET(value)       (ARCHI_BEXTRACTU((value),1,5))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_FLL_GETS(value)      (ARCHI_BEXTRACT((value),1,5))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_FLL_SET(value,field) (ARCHI_BINSERT((value),(field),1,5))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_FLL(val)             ((val) << 5)
-
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_SRC_GET(value)  (ARCHI_BEXTRACTU((value),5,6))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_SRC_GETS(value) (ARCHI_BEXTRACT((value),5,6))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_SRC_SET(value,field) (ARCHI_BINSERT((value),(field),5,6))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_SRC(val)        ((val) << 6)
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RTCWAKE_EN_GET(value)   (ARCHI_BEXTRACTU((value),1,10))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RTCWAKE_EN_GETS(value)  (ARCHI_BEXTRACT((value),1,10))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RTCWAKE_EN_SET(value,field) (ARCHI_BINSERT((value),(field),1,10))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RTCWAKE_EN(val)         ((val) << 10)
 
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_TYPE_GET(value) (ARCHI_BEXTRACTU((value),2,11))
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_TYPE_GETS(value) (ARCHI_BEXTRACT((value),2,11))
@@ -1463,30 +1395,20 @@ static inline void apb_soc_reg_lvds_iso_set(uint32_t base, uint32_t value) { ARC
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_EN_SET(value,field) (ARCHI_BINSERT((value),(field),1,13))
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTWAKE_EN(val)         ((val) << 13)
 
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_WAKESTATE_GET(value)    (ARCHI_BEXTRACTU((value),1,15))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_WAKESTATE_GETS(value)   (ARCHI_BEXTRACT((value),1,15))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_WAKESTATE_SET(value,field) (ARCHI_BINSERT((value),(field),1,15))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_WAKESTATE(val)          ((val) << 15)
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_MRAM_WAKESTATE_GET(value) (ARCHI_BEXTRACTU((value),1,14))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_MRAM_WAKESTATE_GETS(value) (ARCHI_BEXTRACT((value),1,14))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_MRAM_WAKESTATE_SET(value,field) (ARCHI_BINSERT((value),(field),1,14))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_MRAM_WAKESTATE(val)     ((val) << 14)
 
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTDEV_GET(value)        (ARCHI_BEXTRACTU((value),1,16))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTDEV_GETS(value)       (ARCHI_BEXTRACT((value),1,16))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTDEV_SET(value,field)  (ARCHI_BINSERT((value),(field),1,16))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTDEV(val)              ((val) << 16)
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_CLUSTER_WAKESTATE_GET(value) (ARCHI_BEXTRACTU((value),1,15))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_CLUSTER_WAKESTATE_GETS(value) (ARCHI_BEXTRACT((value),1,15))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_CLUSTER_WAKESTATE_SET(value,field) (ARCHI_BINSERT((value),(field),1,15))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_CLUSTER_WAKESTATE(val)  ((val) << 15)
 
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTINT_GET(value)       (ARCHI_BEXTRACTU((value),1,17))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTINT_GETS(value)      (ARCHI_BEXTRACT((value),1,17))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTINT_SET(value,field) (ARCHI_BINSERT((value),(field),1,17))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_EXTINT(val)             ((val) << 17)
-
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTTYPE_GET(value)       (ARCHI_BEXTRACTU((value),2,18))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTTYPE_GETS(value)      (ARCHI_BEXTRACT((value),2,18))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTTYPE_SET(value,field) (ARCHI_BINSERT((value),(field),2,18))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_BTTYPE(val)             ((val) << 18)
-
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_GET(value)      (ARCHI_BEXTRACTU((value),1,20))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_GETS(value)     (ARCHI_BEXTRACT((value),1,20))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_SET(value,field) (ARCHI_BINSERT((value),(field),1,20))
-#define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE(val)            ((val) << 20)
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM_GET(value)      (ARCHI_BEXTRACTU((value),16,16))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM_GETS(value)     (ARCHI_BEXTRACT((value),16,16))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM_SET(value,field) (ARCHI_BINSERT((value),(field),16,16))
+#define APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM(val)            ((val) << 16)
 
 #define APB_SOC_SAFE_PADSLEEP_EN_GET(value)                (ARCHI_BEXTRACTU((value),1,0))
 #define APB_SOC_SAFE_PADSLEEP_EN_GETS(value)               (ARCHI_BEXTRACT((value),1,0))
