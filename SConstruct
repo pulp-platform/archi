@@ -50,6 +50,13 @@ for config in configs:
   if udma_hyper is not None:
     append_file('archi/udma/hyper/udma_hyper_v%d.h' % udma_hyper)
 
+
+  # UDMA MRAM
+  udma_mram = config.get_child_int('**/udma/mram/version')
+  if udma_mram is not None:
+    append_file('archi/udma/mram/udma_mram_v%d.h' % udma_mram)
+
+
   # RTC
   rtc = config.get('**/soc/rtc')
   if rtc is None:
