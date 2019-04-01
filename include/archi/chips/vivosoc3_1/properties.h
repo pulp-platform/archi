@@ -45,7 +45,7 @@
 #define UDMA_VERSION        3
 #define PERIPH_VERSION      2
 #define TIMER_VERSION       2
-#define SOC_EU_VERSION      2
+#define SOC_EU_VERSION      3
 #define APB_SOC_VERSION     2
 #define STDOUT_VERSION      2
 #define GPIO_VERSION        2
