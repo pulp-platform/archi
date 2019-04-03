@@ -27,6 +27,14 @@
 #define SOC_TIMER_SEL_HI            0x08
 #define SOC_TIMER_SEL_LO            0x0C
 
+// compatibility definitions
+#define SOC_FC_MASK_LSB             SOC_FC_FIRST_MASK
+#define SOC_FC_MASK_MSB             (SOC_FC_FIRST_MASK + 0x4)
+#define SOC_CL_MASK_LSB             SOC_CL_FIRST_MASK
+#define SOC_CL_MASK_MSB             (SOC_CL_FIRST_MASK + 0x4)
+#define SOC_PR_MASK_LSB             SOC_PR_FIRST_MASK
+#define SOC_PR_MASK_MSB             (SOC_PR_FIRST_MASK + 0x4)
+
 #define SOC_EU_EVENT_0              0x1
 #define SOC_EU_EVENT_1              0x2
 #define SOC_EU_EVENT_2              0x4
