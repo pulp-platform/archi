@@ -113,15 +113,15 @@
 #define UDMA_MRAM_RX_CFG_EN_WIDTH                                    1
 #define UDMA_MRAM_RX_CFG_EN_MASK                                     0x10
 
-// RX channel clear and stop transfer: -1'b0: disable -1'b1: stop and clear the on-going transfer (access: W)
-#define UDMA_MRAM_RX_CFG_CLR_BIT                                     5
-#define UDMA_MRAM_RX_CFG_CLR_WIDTH                                   1
-#define UDMA_MRAM_RX_CFG_CLR_MASK                                    0x20
-
 // RX transfer pending in queue status flag: -1'b0: no pending transfer in the queue -1'b1: pending transfer in the queue (access: R)
 #define UDMA_MRAM_RX_CFG_PENDING_BIT                                 5
 #define UDMA_MRAM_RX_CFG_PENDING_WIDTH                               1
 #define UDMA_MRAM_RX_CFG_PENDING_MASK                                0x20
+
+// RX channel clear and stop transfer: -1'b0: disable -1'b1: stop and clear the on-going transfer (access: W)
+#define UDMA_MRAM_RX_CFG_CLR_BIT                                     6
+#define UDMA_MRAM_RX_CFG_CLR_WIDTH                                   1
+#define UDMA_MRAM_RX_CFG_CLR_MASK                                    0x40
 
 // TX buffer base address bitfield: - Read: returns value of the buffer pointer until transfer is finished. Else returns 0. - Write: sets buffer base address (access: R/W)
 #define UDMA_MRAM_TX_SADDR_TX_SADDR_BIT                              0
@@ -143,15 +143,15 @@
 #define UDMA_MRAM_TX_CFG_EN_WIDTH                                    1
 #define UDMA_MRAM_TX_CFG_EN_MASK                                     0x10
 
-// TX channel clear and stop transfer bitfield: -1'b0: disabled -1'b1: stop and clear the on-going transfer (access: W)
-#define UDMA_MRAM_TX_CFG_CLR_BIT                                     5
-#define UDMA_MRAM_TX_CFG_CLR_WIDTH                                   1
-#define UDMA_MRAM_TX_CFG_CLR_MASK                                    0x20
-
 // TX transfer pending in queue status flag: -1'b0: no pending transfer in the queue -1'b1: pending transfer in the queue (access: R)
 #define UDMA_MRAM_TX_CFG_PENDING_BIT                                 5
 #define UDMA_MRAM_TX_CFG_PENDING_WIDTH                               1
 #define UDMA_MRAM_TX_CFG_PENDING_MASK                                0x20
+
+// TX channel clear and stop transfer bitfield: -1'b0: disabled -1'b1: stop and clear the on-going transfer (access: W)
+#define UDMA_MRAM_TX_CFG_CLR_BIT                                     6
+#define UDMA_MRAM_TX_CFG_CLR_WIDTH                                   1
+#define UDMA_MRAM_TX_CFG_CLR_MASK                                    0x40
 
 // TX destination address (access: R/W)
 #define UDMA_MRAM_TX_DADDR_TX_DST_ADDR_BIT                           0
@@ -182,6 +182,51 @@
 #define UDMA_MRAM_STATUS_REF_LINE_PENDING_BIT                        3
 #define UDMA_MRAM_STATUS_REF_LINE_PENDING_WIDTH                      1
 #define UDMA_MRAM_STATUS_REF_LINE_PENDING_MASK                       0x8
+
+// nan (access: R/W)
+#define UDMA_MRAM_MRAM_MODE_ECC_BYPS_BIT                             0
+#define UDMA_MRAM_MRAM_MODE_ECC_BYPS_WIDTH                           1
+#define UDMA_MRAM_MRAM_MODE_ECC_BYPS_MASK                            0x1
+
+// nan (access: R/W)
+#define UDMA_MRAM_MRAM_MODE_DPD_BIT                                  1
+#define UDMA_MRAM_MRAM_MODE_DPD_WIDTH                                1
+#define UDMA_MRAM_MRAM_MODE_DPD_MASK                                 0x2
+
+// nan (access: R/W)
+#define UDMA_MRAM_MRAM_MODE_AREF_BIT                                 2
+#define UDMA_MRAM_MRAM_MODE_AREF_WIDTH                               1
+#define UDMA_MRAM_MRAM_MODE_AREF_MASK                                0x4
+
+// nan (access: R/W)
+#define UDMA_MRAM_MRAM_MODE_TMEN_BIT                                 3
+#define UDMA_MRAM_MRAM_MODE_TMEN_WIDTH                               1
+#define UDMA_MRAM_MRAM_MODE_TMEN_MASK                                0x8
+
+// nan (access: R/W)
+#define UDMA_MRAM_MRAM_MODE_NVR_BIT                                  4
+#define UDMA_MRAM_MRAM_MODE_NVR_WIDTH                                1
+#define UDMA_MRAM_MRAM_MODE_NVR_MASK                                 0x10
+
+// nan (access: R/W)
+#define UDMA_MRAM_MRAM_MODE_RST_B_BIT                                5
+#define UDMA_MRAM_MRAM_MODE_RST_B_WIDTH                              1
+#define UDMA_MRAM_MRAM_MODE_RST_B_MASK                               0x20
+
+// nan (access: R/W)
+#define UDMA_MRAM_MRAM_MODE_RET_B_BIT                                6
+#define UDMA_MRAM_MRAM_MODE_RET_B_WIDTH                              1
+#define UDMA_MRAM_MRAM_MODE_RET_B_MASK                               0x40
+
+// nan (access: R/W)
+#define UDMA_MRAM_MRAM_MODE_POR_B_BIT                                7
+#define UDMA_MRAM_MRAM_MODE_POR_B_WIDTH                              1
+#define UDMA_MRAM_MRAM_MODE_POR_B_MASK                               0x80
+
+// MRAM command: - 8’h1: TRIM_CFG - 8’h2: NORMAL_TX - 8’h4: ERASE_CHIP - 8’h8: ERASE_SECT - 8’h10: ERASE_WORD - 8’h20: PWDN - 8’h40: READ_RX - 8’h80: REF_LINE_P - 8’hC0: REF_LINE_AP (access: R/W)
+#define UDMA_MRAM_MRAM_MODE_CMD_BIT                                  8
+#define UDMA_MRAM_MRAM_MODE_CMD_WIDTH                                8
+#define UDMA_MRAM_MRAM_MODE_CMD_MASK                                 0xff00
 
 // Erase  address (access: R/W)
 #define UDMA_MRAM_ERASE_ADDR_ADDR_BIT                                0
@@ -290,8 +335,8 @@ typedef union {
     unsigned int continous       :1 ; // RX channel continuous mode bitfield: -1'b0: disabled -1'b1: enabled At the end of the buffer transfer, the uDMA reloads the address / buffer size and starts a new transfer.
     unsigned int padding0:3 ;
     unsigned int en              :1 ; // RX channel enable and start transfer bitfield: -1'b0: disable -1'b1: enable and start the transfer This signal is used also to queue a transfer if one is already ongoing.
-    unsigned int clr             :1 ; // RX channel clear and stop transfer: -1'b0: disable -1'b1: stop and clear the on-going transfer
     unsigned int pending         :1 ; // RX transfer pending in queue status flag: -1'b0: no pending transfer in the queue -1'b1: pending transfer in the queue
+    unsigned int clr             :1 ; // RX channel clear and stop transfer: -1'b0: disable -1'b1: stop and clear the on-going transfer
   };
   unsigned int raw;
 } __attribute__((packed)) udma_mram_rx_cfg_t;
@@ -315,8 +360,8 @@ typedef union {
     unsigned int continous       :1 ; // TX channel continuous mode bitfield: -1'b0: disabled -1'b1: enabled At the end of the buffer transfer, the uDMA reloads the address / buffer size and starts a new transfer.
     unsigned int padding0:3 ;
     unsigned int en              :1 ; // TX channel enable and start transfer bitfield: -1'b0: disabled -1'b1: enable and start the transfer This signal is used also to queue a transfer if one is already ongoing.
-    unsigned int clr             :1 ; // TX channel clear and stop transfer bitfield: -1'b0: disabled -1'b1: stop and clear the on-going transfer
     unsigned int pending         :1 ; // TX transfer pending in queue status flag: -1'b0: no pending transfer in the queue -1'b1: pending transfer in the queue
+    unsigned int clr             :1 ; // TX channel clear and stop transfer bitfield: -1'b0: disabled -1'b1: stop and clear the on-going transfer
   };
   unsigned int raw;
 } __attribute__((packed)) udma_mram_tx_cfg_t;
@@ -347,6 +392,15 @@ typedef union {
 
 typedef union {
   struct {
+    unsigned int ecc_byps        :1 ; // nan
+    unsigned int dpd             :1 ; // nan
+    unsigned int aref            :1 ; // nan
+    unsigned int tmen            :1 ; // nan
+    unsigned int nvr             :1 ; // nan
+    unsigned int rst_b           :1 ; // nan
+    unsigned int ret_b           :1 ; // nan
+    unsigned int por_b           :1 ; // nan
+    unsigned int cmd             :8 ; // MRAM command: - 8’h1: TRIM_CFG - 8’h2: NORMAL_TX - 8’h4: ERASE_CHIP - 8’h8: ERASE_SECT - 8’h10: ERASE_WORD - 8’h20: PWDN - 8’h40: READ_RX - 8’h80: REF_LINE_P - 8’hC0: REF_LINE_AP
   };
   unsigned int raw;
 } __attribute__((packed)) udma_mram_mram_mode_t;
@@ -440,10 +494,10 @@ public:
   inline uint32_t continous_get() { return this->get_field(UDMA_MRAM_RX_CFG_CONTINOUS_BIT, UDMA_MRAM_RX_CFG_CONTINOUS_WIDTH); }
   inline void en_set(uint32_t value) { this->set_field(value, UDMA_MRAM_RX_CFG_EN_BIT, UDMA_MRAM_RX_CFG_EN_WIDTH); }
   inline uint32_t en_get() { return this->get_field(UDMA_MRAM_RX_CFG_EN_BIT, UDMA_MRAM_RX_CFG_EN_WIDTH); }
-  inline void clr_set(uint32_t value) { this->set_field(value, UDMA_MRAM_RX_CFG_CLR_BIT, UDMA_MRAM_RX_CFG_CLR_WIDTH); }
-  inline uint32_t clr_get() { return this->get_field(UDMA_MRAM_RX_CFG_CLR_BIT, UDMA_MRAM_RX_CFG_CLR_WIDTH); }
   inline void pending_set(uint32_t value) { this->set_field(value, UDMA_MRAM_RX_CFG_PENDING_BIT, UDMA_MRAM_RX_CFG_PENDING_WIDTH); }
   inline uint32_t pending_get() { return this->get_field(UDMA_MRAM_RX_CFG_PENDING_BIT, UDMA_MRAM_RX_CFG_PENDING_WIDTH); }
+  inline void clr_set(uint32_t value) { this->set_field(value, UDMA_MRAM_RX_CFG_CLR_BIT, UDMA_MRAM_RX_CFG_CLR_WIDTH); }
+  inline uint32_t clr_get() { return this->get_field(UDMA_MRAM_RX_CFG_CLR_BIT, UDMA_MRAM_RX_CFG_CLR_WIDTH); }
 };
 
 class vp_udma_mram_tx_saddr : public vp::reg_32
@@ -467,10 +521,10 @@ public:
   inline uint32_t continous_get() { return this->get_field(UDMA_MRAM_TX_CFG_CONTINOUS_BIT, UDMA_MRAM_TX_CFG_CONTINOUS_WIDTH); }
   inline void en_set(uint32_t value) { this->set_field(value, UDMA_MRAM_TX_CFG_EN_BIT, UDMA_MRAM_TX_CFG_EN_WIDTH); }
   inline uint32_t en_get() { return this->get_field(UDMA_MRAM_TX_CFG_EN_BIT, UDMA_MRAM_TX_CFG_EN_WIDTH); }
-  inline void clr_set(uint32_t value) { this->set_field(value, UDMA_MRAM_TX_CFG_CLR_BIT, UDMA_MRAM_TX_CFG_CLR_WIDTH); }
-  inline uint32_t clr_get() { return this->get_field(UDMA_MRAM_TX_CFG_CLR_BIT, UDMA_MRAM_TX_CFG_CLR_WIDTH); }
   inline void pending_set(uint32_t value) { this->set_field(value, UDMA_MRAM_TX_CFG_PENDING_BIT, UDMA_MRAM_TX_CFG_PENDING_WIDTH); }
   inline uint32_t pending_get() { return this->get_field(UDMA_MRAM_TX_CFG_PENDING_BIT, UDMA_MRAM_TX_CFG_PENDING_WIDTH); }
+  inline void clr_set(uint32_t value) { this->set_field(value, UDMA_MRAM_TX_CFG_CLR_BIT, UDMA_MRAM_TX_CFG_CLR_WIDTH); }
+  inline uint32_t clr_get() { return this->get_field(UDMA_MRAM_TX_CFG_CLR_BIT, UDMA_MRAM_TX_CFG_CLR_WIDTH); }
 };
 
 class vp_udma_mram_tx_daddr : public vp::reg_32
@@ -503,6 +557,24 @@ public:
 class vp_udma_mram_mram_mode : public vp::reg_32
 {
 public:
+  inline void ecc_byps_set(uint32_t value) { this->set_field(value, UDMA_MRAM_MRAM_MODE_ECC_BYPS_BIT, UDMA_MRAM_MRAM_MODE_ECC_BYPS_WIDTH); }
+  inline uint32_t ecc_byps_get() { return this->get_field(UDMA_MRAM_MRAM_MODE_ECC_BYPS_BIT, UDMA_MRAM_MRAM_MODE_ECC_BYPS_WIDTH); }
+  inline void dpd_set(uint32_t value) { this->set_field(value, UDMA_MRAM_MRAM_MODE_DPD_BIT, UDMA_MRAM_MRAM_MODE_DPD_WIDTH); }
+  inline uint32_t dpd_get() { return this->get_field(UDMA_MRAM_MRAM_MODE_DPD_BIT, UDMA_MRAM_MRAM_MODE_DPD_WIDTH); }
+  inline void aref_set(uint32_t value) { this->set_field(value, UDMA_MRAM_MRAM_MODE_AREF_BIT, UDMA_MRAM_MRAM_MODE_AREF_WIDTH); }
+  inline uint32_t aref_get() { return this->get_field(UDMA_MRAM_MRAM_MODE_AREF_BIT, UDMA_MRAM_MRAM_MODE_AREF_WIDTH); }
+  inline void tmen_set(uint32_t value) { this->set_field(value, UDMA_MRAM_MRAM_MODE_TMEN_BIT, UDMA_MRAM_MRAM_MODE_TMEN_WIDTH); }
+  inline uint32_t tmen_get() { return this->get_field(UDMA_MRAM_MRAM_MODE_TMEN_BIT, UDMA_MRAM_MRAM_MODE_TMEN_WIDTH); }
+  inline void nvr_set(uint32_t value) { this->set_field(value, UDMA_MRAM_MRAM_MODE_NVR_BIT, UDMA_MRAM_MRAM_MODE_NVR_WIDTH); }
+  inline uint32_t nvr_get() { return this->get_field(UDMA_MRAM_MRAM_MODE_NVR_BIT, UDMA_MRAM_MRAM_MODE_NVR_WIDTH); }
+  inline void rst_b_set(uint32_t value) { this->set_field(value, UDMA_MRAM_MRAM_MODE_RST_B_BIT, UDMA_MRAM_MRAM_MODE_RST_B_WIDTH); }
+  inline uint32_t rst_b_get() { return this->get_field(UDMA_MRAM_MRAM_MODE_RST_B_BIT, UDMA_MRAM_MRAM_MODE_RST_B_WIDTH); }
+  inline void ret_b_set(uint32_t value) { this->set_field(value, UDMA_MRAM_MRAM_MODE_RET_B_BIT, UDMA_MRAM_MRAM_MODE_RET_B_WIDTH); }
+  inline uint32_t ret_b_get() { return this->get_field(UDMA_MRAM_MRAM_MODE_RET_B_BIT, UDMA_MRAM_MRAM_MODE_RET_B_WIDTH); }
+  inline void por_b_set(uint32_t value) { this->set_field(value, UDMA_MRAM_MRAM_MODE_POR_B_BIT, UDMA_MRAM_MRAM_MODE_POR_B_WIDTH); }
+  inline uint32_t por_b_get() { return this->get_field(UDMA_MRAM_MRAM_MODE_POR_B_BIT, UDMA_MRAM_MRAM_MODE_POR_B_WIDTH); }
+  inline void cmd_set(uint32_t value) { this->set_field(value, UDMA_MRAM_MRAM_MODE_CMD_BIT, UDMA_MRAM_MRAM_MODE_CMD_WIDTH); }
+  inline uint32_t cmd_get() { return this->get_field(UDMA_MRAM_MRAM_MODE_CMD_BIT, UDMA_MRAM_MRAM_MODE_CMD_WIDTH); }
 };
 
 class vp_udma_mram_erase_addr : public vp::reg_32
@@ -693,15 +765,15 @@ static inline void udma_mram_icr_set(uint32_t base, uint32_t value) { ARCHI_WRIT
 #define UDMA_MRAM_RX_CFG_EN_SET(value,field)               (ARCHI_BINSERT((value),(field),1,4))
 #define UDMA_MRAM_RX_CFG_EN(val)                           ((val) << 4)
 
-#define UDMA_MRAM_RX_CFG_CLR_GET(value)                    (ARCHI_BEXTRACTU((value),1,5))
-#define UDMA_MRAM_RX_CFG_CLR_GETS(value)                   (ARCHI_BEXTRACT((value),1,5))
-#define UDMA_MRAM_RX_CFG_CLR_SET(value,field)              (ARCHI_BINSERT((value),(field),1,5))
-#define UDMA_MRAM_RX_CFG_CLR(val)                          ((val) << 5)
-
 #define UDMA_MRAM_RX_CFG_PENDING_GET(value)                (ARCHI_BEXTRACTU((value),1,5))
 #define UDMA_MRAM_RX_CFG_PENDING_GETS(value)               (ARCHI_BEXTRACT((value),1,5))
 #define UDMA_MRAM_RX_CFG_PENDING_SET(value,field)          (ARCHI_BINSERT((value),(field),1,5))
 #define UDMA_MRAM_RX_CFG_PENDING(val)                      ((val) << 5)
+
+#define UDMA_MRAM_RX_CFG_CLR_GET(value)                    (ARCHI_BEXTRACTU((value),1,6))
+#define UDMA_MRAM_RX_CFG_CLR_GETS(value)                   (ARCHI_BEXTRACT((value),1,6))
+#define UDMA_MRAM_RX_CFG_CLR_SET(value,field)              (ARCHI_BINSERT((value),(field),1,6))
+#define UDMA_MRAM_RX_CFG_CLR(val)                          ((val) << 6)
 
 #define UDMA_MRAM_TX_SADDR_TX_SADDR_GET(value)             (ARCHI_BEXTRACTU((value),16,0))
 #define UDMA_MRAM_TX_SADDR_TX_SADDR_GETS(value)            (ARCHI_BEXTRACT((value),16,0))
@@ -723,15 +795,15 @@ static inline void udma_mram_icr_set(uint32_t base, uint32_t value) { ARCHI_WRIT
 #define UDMA_MRAM_TX_CFG_EN_SET(value,field)               (ARCHI_BINSERT((value),(field),1,4))
 #define UDMA_MRAM_TX_CFG_EN(val)                           ((val) << 4)
 
-#define UDMA_MRAM_TX_CFG_CLR_GET(value)                    (ARCHI_BEXTRACTU((value),1,5))
-#define UDMA_MRAM_TX_CFG_CLR_GETS(value)                   (ARCHI_BEXTRACT((value),1,5))
-#define UDMA_MRAM_TX_CFG_CLR_SET(value,field)              (ARCHI_BINSERT((value),(field),1,5))
-#define UDMA_MRAM_TX_CFG_CLR(val)                          ((val) << 5)
-
 #define UDMA_MRAM_TX_CFG_PENDING_GET(value)                (ARCHI_BEXTRACTU((value),1,5))
 #define UDMA_MRAM_TX_CFG_PENDING_GETS(value)               (ARCHI_BEXTRACT((value),1,5))
 #define UDMA_MRAM_TX_CFG_PENDING_SET(value,field)          (ARCHI_BINSERT((value),(field),1,5))
 #define UDMA_MRAM_TX_CFG_PENDING(val)                      ((val) << 5)
+
+#define UDMA_MRAM_TX_CFG_CLR_GET(value)                    (ARCHI_BEXTRACTU((value),1,6))
+#define UDMA_MRAM_TX_CFG_CLR_GETS(value)                   (ARCHI_BEXTRACT((value),1,6))
+#define UDMA_MRAM_TX_CFG_CLR_SET(value,field)              (ARCHI_BINSERT((value),(field),1,6))
+#define UDMA_MRAM_TX_CFG_CLR(val)                          ((val) << 6)
 
 #define UDMA_MRAM_TX_DADDR_TX_DST_ADDR_GET(value)          (ARCHI_BEXTRACTU((value),19,0))
 #define UDMA_MRAM_TX_DADDR_TX_DST_ADDR_GETS(value)         (ARCHI_BEXTRACT((value),19,0))
@@ -762,6 +834,51 @@ static inline void udma_mram_icr_set(uint32_t base, uint32_t value) { ARCHI_WRIT
 #define UDMA_MRAM_STATUS_REF_LINE_PENDING_GETS(value)      (ARCHI_BEXTRACT((value),1,3))
 #define UDMA_MRAM_STATUS_REF_LINE_PENDING_SET(value,field) (ARCHI_BINSERT((value),(field),1,3))
 #define UDMA_MRAM_STATUS_REF_LINE_PENDING(val)             ((val) << 3)
+
+#define UDMA_MRAM_MRAM_MODE_ECC_BYPS_GET(value)            (ARCHI_BEXTRACTU((value),1,0))
+#define UDMA_MRAM_MRAM_MODE_ECC_BYPS_GETS(value)           (ARCHI_BEXTRACT((value),1,0))
+#define UDMA_MRAM_MRAM_MODE_ECC_BYPS_SET(value,field)      (ARCHI_BINSERT((value),(field),1,0))
+#define UDMA_MRAM_MRAM_MODE_ECC_BYPS(val)                  ((val) << 0)
+
+#define UDMA_MRAM_MRAM_MODE_DPD_GET(value)                 (ARCHI_BEXTRACTU((value),1,1))
+#define UDMA_MRAM_MRAM_MODE_DPD_GETS(value)                (ARCHI_BEXTRACT((value),1,1))
+#define UDMA_MRAM_MRAM_MODE_DPD_SET(value,field)           (ARCHI_BINSERT((value),(field),1,1))
+#define UDMA_MRAM_MRAM_MODE_DPD(val)                       ((val) << 1)
+
+#define UDMA_MRAM_MRAM_MODE_AREF_GET(value)                (ARCHI_BEXTRACTU((value),1,2))
+#define UDMA_MRAM_MRAM_MODE_AREF_GETS(value)               (ARCHI_BEXTRACT((value),1,2))
+#define UDMA_MRAM_MRAM_MODE_AREF_SET(value,field)          (ARCHI_BINSERT((value),(field),1,2))
+#define UDMA_MRAM_MRAM_MODE_AREF(val)                      ((val) << 2)
+
+#define UDMA_MRAM_MRAM_MODE_TMEN_GET(value)                (ARCHI_BEXTRACTU((value),1,3))
+#define UDMA_MRAM_MRAM_MODE_TMEN_GETS(value)               (ARCHI_BEXTRACT((value),1,3))
+#define UDMA_MRAM_MRAM_MODE_TMEN_SET(value,field)          (ARCHI_BINSERT((value),(field),1,3))
+#define UDMA_MRAM_MRAM_MODE_TMEN(val)                      ((val) << 3)
+
+#define UDMA_MRAM_MRAM_MODE_NVR_GET(value)                 (ARCHI_BEXTRACTU((value),1,4))
+#define UDMA_MRAM_MRAM_MODE_NVR_GETS(value)                (ARCHI_BEXTRACT((value),1,4))
+#define UDMA_MRAM_MRAM_MODE_NVR_SET(value,field)           (ARCHI_BINSERT((value),(field),1,4))
+#define UDMA_MRAM_MRAM_MODE_NVR(val)                       ((val) << 4)
+
+#define UDMA_MRAM_MRAM_MODE_RST_B_GET(value)               (ARCHI_BEXTRACTU((value),1,5))
+#define UDMA_MRAM_MRAM_MODE_RST_B_GETS(value)              (ARCHI_BEXTRACT((value),1,5))
+#define UDMA_MRAM_MRAM_MODE_RST_B_SET(value,field)         (ARCHI_BINSERT((value),(field),1,5))
+#define UDMA_MRAM_MRAM_MODE_RST_B(val)                     ((val) << 5)
+
+#define UDMA_MRAM_MRAM_MODE_RET_B_GET(value)               (ARCHI_BEXTRACTU((value),1,6))
+#define UDMA_MRAM_MRAM_MODE_RET_B_GETS(value)              (ARCHI_BEXTRACT((value),1,6))
+#define UDMA_MRAM_MRAM_MODE_RET_B_SET(value,field)         (ARCHI_BINSERT((value),(field),1,6))
+#define UDMA_MRAM_MRAM_MODE_RET_B(val)                     ((val) << 6)
+
+#define UDMA_MRAM_MRAM_MODE_POR_B_GET(value)               (ARCHI_BEXTRACTU((value),1,7))
+#define UDMA_MRAM_MRAM_MODE_POR_B_GETS(value)              (ARCHI_BEXTRACT((value),1,7))
+#define UDMA_MRAM_MRAM_MODE_POR_B_SET(value,field)         (ARCHI_BINSERT((value),(field),1,7))
+#define UDMA_MRAM_MRAM_MODE_POR_B(val)                     ((val) << 7)
+
+#define UDMA_MRAM_MRAM_MODE_CMD_GET(value)                 (ARCHI_BEXTRACTU((value),8,8))
+#define UDMA_MRAM_MRAM_MODE_CMD_GETS(value)                (ARCHI_BEXTRACT((value),8,8))
+#define UDMA_MRAM_MRAM_MODE_CMD_SET(value,field)           (ARCHI_BINSERT((value),(field),8,8))
+#define UDMA_MRAM_MRAM_MODE_CMD(val)                       ((val) << 8)
 
 #define UDMA_MRAM_ERASE_ADDR_ADDR_GET(value)               (ARCHI_BEXTRACTU((value),19,0))
 #define UDMA_MRAM_ERASE_ADDR_ADDR_GETS(value)              (ARCHI_BEXTRACT((value),19,0))
