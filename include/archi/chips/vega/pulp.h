@@ -20,7 +20,7 @@
 
 #include "archi/chips/vega/properties.h"
 
-#include "archi/riscv/priv_1_9.h"
+#include "archi/riscv/priv_1_10.h"
 #include "archi/riscv/pcer_v2.h"
 
 #include "archi/chips/vega/memory_map.h"

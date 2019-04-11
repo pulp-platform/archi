@@ -33,8 +33,8 @@
 #endif
 
 #define CSR_PCCR(N)	(0x780 + (N))
-#define CSR_PCER	0x7A0
-#define CSR_PCMR	0x7A1
+#define CSR_PCER	0xCC0
+#define CSR_PCMR	0xCC1
 
 #define CSR_STACK_CONF   0x7D0
 #define CSR_STACK_START  0x7D1
@@ -45,11 +45,11 @@
 
 #define CSR_MESTATUS_PRV_MACH  3
 
-#define CSR_HWLOOP0_START   0x7B0
-#define CSR_HWLOOP0_END     0x7B1
-#define CSR_HWLOOP0_COUNTER 0x7B2
-#define CSR_HWLOOP1_START   0x7B4
-#define CSR_HWLOOP1_END     0x7B5
-#define CSR_HWLOOP1_COUNTER 0x7B6
+#define CSR_HWLOOP0_START   0x7C0
+#define CSR_HWLOOP0_END     0x7C1
+#define CSR_HWLOOP0_COUNTER 0x7C2
+#define CSR_HWLOOP1_START   0x7C4
+#define CSR_HWLOOP1_END     0x7C5
+#define CSR_HWLOOP1_COUNTER 0x7C6
 
 #endif
