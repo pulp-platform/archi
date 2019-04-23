@@ -32,7 +32,7 @@
 #define PLP_TIMER_RESET_LOW    0x20
 #define PLP_TIMER_RESET_HIGH   0x24
 
-#define PLP_TIMER_AREA_SIZE    0x40          // Why this area size macro ?
+#define PLP_TIMER_AREA_SIZE    0x800       // Why this area size macro ?
 
 
 
