@@ -338,5 +338,11 @@
 #define ARCHI_CL_EVT_CLUSTER1   23
 #define ARCHI_CL_EVT_SOC_EVT    27
 
+/*
+ * EFUSE
+ */
+
+#define ARCHI_EFUSE_NB_REGS    128
+#define ARCHI_EFUSE_REG_WIDTH  32
 
 #endif
