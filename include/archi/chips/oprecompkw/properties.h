@@ -47,6 +47,7 @@
 #define STDOUT_VERSION      2
 #define EU_VERSION          3
 #define RISCV_VERSION       4
+#define MCHAN_VERSION       6
 
 
 /*
