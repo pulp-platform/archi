@@ -76,7 +76,6 @@
 #define ARCHI_UDMA_HAS_SPIM   1
 #define ARCHI_UDMA_HAS_UART   1
 #define ARCHI_UDMA_HAS_I2C    1
-#define ARCHI_UDMA_HAS_HYPER  1
 #define ARCHI_UDMA_HAS_CAM    1
 #define ARCHI_UDMA_HAS_FILTER 1
 #define ARCHI_UDMA_HAS_FPGA   1
@@ -84,17 +83,13 @@
 #define ARCHI_UDMA_NB_SPIM   1
 #define ARCHI_UDMA_NB_UART   1
 #define ARCHI_UDMA_NB_I2C    1
-#define ARCHI_UDMA_NB_HYPER  1
 #define ARCHI_UDMA_NB_CAM    1
 #define ARCHI_UDMA_NB_FILTER 1
 #define ARCHI_UDMA_NB_FPGA   1
 
-#define ARCHI_UDMA_HYPER_VERSION 2
-
 #define ARCHI_UDMA_SPIM_ID(id)             (0   + (id))
 #define ARCHI_UDMA_UART_ID(id)             (1   + (id))
 #define ARCHI_UDMA_I2C_ID(id)              (2   + (id))
-#define ARCHI_UDMA_HYPER_ID(id)            (3   + (id))
 #define ARCHI_UDMA_CAM_ID(id)              (4  + (id))
 #define ARCHI_UDMA_FILTER_ID(id)           (5  + (id))
 #define ARCHI_UDMA_FPGA_ID(id)             (6  + (id))
@@ -142,9 +137,6 @@
 
 #define ARCHI_SOC_EVENT_I2C0_RX           8
 #define ARCHI_SOC_EVENT_I2C0_TX           9
-
-#define ARCHI_SOC_EVENT_HYPER0_RX         12
-#define ARCHI_SOC_EVENT_HYPER0_TX         13
 
 #define ARCHI_SOC_EVENT_CPI0_RX           16
 
