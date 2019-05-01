@@ -7,6 +7,9 @@ clean:
 hwce_v4:
 	regmap --name=hwce --input-xls=doc/hwce/HWCE_v4_reference.xlsx --header=include/archi/hwce/hwce_v4.h
 
+hwce_v5:
+	regmap --name=hwce --input-xls=doc/hwce/HWCE_v5_reference.xlsx --header=include/archi/hwce/hwce_v5.h
+
 mchan_v7:
 	regmap --name=mchan --input-xls=doc/mchan/CL_DMA_v7_reference.xlsx --header=include/archi/dma/mchan_v7.h
 
@@ -22,7 +25,7 @@ udma_hyper_v2:
 pmu_v3:
 	regmap --name=maestro  --input-json=ips/pmu/pmu_v3.json           --header=include/archi/maestro/maestro_v3.h
 	
-vega: udma_i2s_v2 pmu_v3 udma_hyper_v2 mchan_v7 udma_mram_v1
+vega: udma_i2s_v2 pmu_v3 udma_hyper_v2 mchan_v7 udma_mram_v1 hwce_v5
 	regmap --name=apb_soc  --input-xls=doc/VEGA_APB_SOC_CTRL_reference.xlsx  --header=include/archi/chips/vega/apb_soc_ctrl.h
 	regmap --name=pmu      --input-json=chips/vega/pmu.json           --header=include/archi/chips/vega/pmu.h
 
