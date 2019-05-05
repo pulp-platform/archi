@@ -26,5 +26,6 @@
 #include "archi/chips/multino/memory_map.h"
 #include "archi/chips/multino/apb_soc.h"
 #include "archi/stdout/stdout_v3.h"
+#include "archi/gpio/gpio_v2.h"
 
 #endif
