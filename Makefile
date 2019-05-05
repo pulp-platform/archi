@@ -25,7 +25,10 @@ udma_hyper_v2:
 pmu_v3:
 	regmap --name=maestro  --input-json=ips/pmu/pmu_v3.json           --header=include/archi/maestro/maestro_v3.h
 	
-vega: udma_i2s_v2 pmu_v3 udma_hyper_v2 mchan_v7 udma_mram_v1 hwce_v5
+gpio_v3:
+	regmap --name=gpio  --input-xls=doc/gpio/APB_GPIO_V3_reference.xlsx           --header=include/archi/gpio/gpio_v3.h
+	
+vega: udma_i2s_v2 pmu_v3 udma_hyper_v2 mchan_v7 udma_mram_v1 hwce_v5 gpio_v3
 	regmap --name=apb_soc  --input-xls=doc/VEGA_APB_SOC_CTRL_reference.xlsx  --header=include/archi/chips/vega/apb_soc_ctrl.h
 	regmap --name=pmu      --input-json=chips/vega/pmu.json           --header=include/archi/chips/vega/pmu.h
 

@@ -88,9 +88,10 @@ for config in configs:
 
   # GPIO
   gpio = config.get_child_int('**/gpio/version')
-  if gpio is not None and gpio == 2:
+  if gpio is not None:
     append_file('archi/gpio/gpio_v%d.h' % gpio)
-    append_file('archi/gpio/gpio_v%d_new.h' % gpio)
+    if gpio == 2:
+      append_file('archi/gpio/gpio_v%d_new.h' % gpio)
 
   # TIMER
   timer = config.get_child_int('**/timer/version')
