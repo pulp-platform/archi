@@ -21,9 +21,9 @@
 #include "archi/chips/pulpissimo_v1/properties.h"
 
 //#include "archi/periph_v2.h"
-//#include "archi/gpio_v2.h"
 #include "archi/riscv/priv_1_9.h"
 #include "archi/riscv/pcer_v1.h"
+#include "archi/gpio/gpio_v2.h"
 
 #include "archi/chips/pulpissimo_v1/memory_map.h"
 #include "archi/chips/pulpissimo_v1/apb_soc.h"

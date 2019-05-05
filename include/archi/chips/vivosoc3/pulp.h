@@ -26,6 +26,7 @@
 #include "archi/chips/vivosoc3/memory_map.h"
 #include "archi/chips/vivosoc3/apb_soc.h"
 #include "archi/stdout/stdout_v3.h"
+#include "archi/gpio/gpio_v2.h"
 
 #include "archi/udma/i2c/udma_i2c_v2.h"
 #include "archi/udma/spim/udma_spim_v2.h"
