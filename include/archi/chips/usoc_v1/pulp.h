@@ -26,5 +26,6 @@
 #include "archi/chips/usoc_v1/memory_map.h"
 #include "archi/chips/usoc_v1/apb_soc.h"
 #include "archi/stdout/stdout_v3.h"
+#include "archi/gpio/gpio_v2.h"
 
 #endif
