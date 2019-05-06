@@ -174,20 +174,11 @@
 // Enables and configures WatchDog Timer
 #define APB_SOC_SAFE_WD_OFFSET                   0x110
 
-// Sleep config register (pad 0-15)
+// Sleep config register (pad 0-7)
 #define APB_SOC_SAFE_SLEEPPADCFG0_OFFSET         0x150
 
-// Mux config register (pad 16-31)
+// Sleep config register (pad 8-15)
 #define APB_SOC_SAFE_SLEEPPADCFG1_OFFSET         0x154
-
-// Mux config register (pad 32-47)
-#define APB_SOC_SAFE_SLEEPPADCFG2_OFFSET         0x158
-
-// Mux config register (pad 48-63)
-#define APB_SOC_SAFE_SLEEPPADCFG3_OFFSET         0x15c
-
-// Enable Sleep mode for pads
-#define APB_SOC_SAFE_PADSLEEP_OFFSET             0x160
 
 // Config timings for NEVA
 #define APB_SOC_SAFE_NEVACF_OFFSET               0x164
@@ -325,10 +316,10 @@
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM_WIDTH                     16
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM_MASK                      0xffff0000
 
-// Enable pad sleep mode: 1'b0: disable 1'b1: enable (access: R/W)
-#define APB_SOC_SAFE_PADSLEEP_EN_BIT                                 0
-#define APB_SOC_SAFE_PADSLEEP_EN_WIDTH                               1
-#define APB_SOC_SAFE_PADSLEEP_EN_MASK                                0x1
+// Pad state when the chip is down with low-speed IOs ON: - 4’b0000: Tristate with no pull-up and no pull-down - 4’b0001: Tristate with pull-up - 4’b0010: Tristate with pull-down - 4’b0011: Drive 0 - 4’b0100: Drive 1 (access: R/W)
+#define APB_SOC_SAFE_SLEEPPADCFG0_STATE_BIT                          0
+#define APB_SOC_SAFE_SLEEPPADCFG0_STATE_WIDTH                        4
+#define APB_SOC_SAFE_SLEEPPADCFG0_STATE_MASK                         0xf
 
 
 
@@ -641,6 +632,7 @@ typedef union {
 
 typedef union {
   struct {
+    unsigned int state           :4 ; // Pad state when the chip is down with low-speed IOs ON: - 4’b0000: Tristate with no pull-up and no pull-down - 4’b0001: Tristate with pull-up - 4’b0010: Tristate with pull-down - 4’b0011: Drive 0 - 4’b0100: Drive 1
   };
   unsigned int raw;
 } __attribute__((packed)) apb_soc_safe_sleeppadcfg0_t;
@@ -650,25 +642,6 @@ typedef union {
   };
   unsigned int raw;
 } __attribute__((packed)) apb_soc_safe_sleeppadcfg1_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_sleeppadcfg2_t;
-
-typedef union {
-  struct {
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_sleeppadcfg3_t;
-
-typedef union {
-  struct {
-    unsigned int en              :1 ; // Enable pad sleep mode: 1'b0: disable 1'b1: enable
-  };
-  unsigned int raw;
-} __attribute__((packed)) apb_soc_safe_padsleep_t;
 
 typedef union {
   struct {
@@ -989,28 +962,13 @@ public:
 class vp_apb_soc_safe_sleeppadcfg0 : public vp::reg_32
 {
 public:
+  inline void state_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_SLEEPPADCFG0_STATE_BIT, APB_SOC_SAFE_SLEEPPADCFG0_STATE_WIDTH); }
+  inline uint32_t state_get() { return this->get_field(APB_SOC_SAFE_SLEEPPADCFG0_STATE_BIT, APB_SOC_SAFE_SLEEPPADCFG0_STATE_WIDTH); }
 };
 
 class vp_apb_soc_safe_sleeppadcfg1 : public vp::reg_32
 {
 public:
-};
-
-class vp_apb_soc_safe_sleeppadcfg2 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_sleeppadcfg3 : public vp::reg_32
-{
-public:
-};
-
-class vp_apb_soc_safe_padsleep : public vp::reg_32
-{
-public:
-  inline void en_set(uint32_t value) { this->set_field(value, APB_SOC_SAFE_PADSLEEP_EN_BIT, APB_SOC_SAFE_PADSLEEP_EN_WIDTH); }
-  inline uint32_t en_get() { return this->get_field(APB_SOC_SAFE_PADSLEEP_EN_BIT, APB_SOC_SAFE_PADSLEEP_EN_WIDTH); }
 };
 
 class vp_apb_soc_safe_nevacf : public vp::reg_32
@@ -1095,11 +1053,8 @@ typedef struct {
   unsigned int rwm_grp6        ; // nan
   unsigned int safe_pmu_sleepctrl; // Sleep modes configuration register
   unsigned int safe_wd         ; // Enables and configures WatchDog Timer
-  unsigned int safe_sleeppadcfg0; // Sleep config register (pad 0-15)
-  unsigned int safe_sleeppadcfg1; // Mux config register (pad 16-31)
-  unsigned int safe_sleeppadcfg2; // Mux config register (pad 32-47)
-  unsigned int safe_sleeppadcfg3; // Mux config register (pad 48-63)
-  unsigned int safe_padsleep   ; // Enable Sleep mode for pads
+  unsigned int safe_sleeppadcfg0; // Sleep config register (pad 0-7)
+  unsigned int safe_sleeppadcfg1; // Sleep config register (pad 8-15)
   unsigned int safe_nevacf     ; // Config timings for NEVA
   unsigned int safe_gpreg      ; // General purpouse register AO
   unsigned int reg_gpio_iso    ; // GPIO power domain pad input isolation register
@@ -1261,15 +1216,6 @@ static inline void apb_soc_safe_sleeppadcfg0_set(uint32_t base, uint32_t value) 
 static inline uint32_t apb_soc_safe_sleeppadcfg1_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_SLEEPPADCFG1_OFFSET); }
 static inline void apb_soc_safe_sleeppadcfg1_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_SLEEPPADCFG1_OFFSET, value); }
 
-static inline uint32_t apb_soc_safe_sleeppadcfg2_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_SLEEPPADCFG2_OFFSET); }
-static inline void apb_soc_safe_sleeppadcfg2_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_SLEEPPADCFG2_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_sleeppadcfg3_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_SLEEPPADCFG3_OFFSET); }
-static inline void apb_soc_safe_sleeppadcfg3_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_SLEEPPADCFG3_OFFSET, value); }
-
-static inline uint32_t apb_soc_safe_padsleep_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_PADSLEEP_OFFSET); }
-static inline void apb_soc_safe_padsleep_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_PADSLEEP_OFFSET, value); }
-
 static inline uint32_t apb_soc_safe_nevacf_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_SAFE_NEVACF_OFFSET); }
 static inline void apb_soc_safe_nevacf_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_SAFE_NEVACF_OFFSET, value); }
 
@@ -1410,10 +1356,10 @@ static inline void apb_soc_reg_lvds_iso_set(uint32_t base, uint32_t value) { ARC
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM_SET(value,field) (ARCHI_BINSERT((value),(field),16,16))
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_RET_MEM(val)            ((val) << 16)
 
-#define APB_SOC_SAFE_PADSLEEP_EN_GET(value)                (ARCHI_BEXTRACTU((value),1,0))
-#define APB_SOC_SAFE_PADSLEEP_EN_GETS(value)               (ARCHI_BEXTRACT((value),1,0))
-#define APB_SOC_SAFE_PADSLEEP_EN_SET(value,field)          (ARCHI_BINSERT((value),(field),1,0))
-#define APB_SOC_SAFE_PADSLEEP_EN(val)                      ((val) << 0)
+#define APB_SOC_SAFE_SLEEPPADCFG0_STATE_GET(value)         (ARCHI_BEXTRACTU((value),4,0))
+#define APB_SOC_SAFE_SLEEPPADCFG0_STATE_GETS(value)        (ARCHI_BEXTRACT((value),4,0))
+#define APB_SOC_SAFE_SLEEPPADCFG0_STATE_SET(value,field)   (ARCHI_BINSERT((value),(field),4,0))
+#define APB_SOC_SAFE_SLEEPPADCFG0_STATE(val)               ((val) << 0)
 
 #endif
 
