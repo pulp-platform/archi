@@ -230,6 +230,9 @@ typedef unsigned int rt_pointerT;
 /* Number of sign bits */
 #define __CLB(x)			__builtin_pulp_clb((x))
 
+static inline unsigned int __attribute__ ((always_inline)) ExtInsMaskFast(unsigned int Size, unsigned int Offset) { return ((((Size-1))<<5)|(Offset)); }
+static inline unsigned int __attribute__ ((always_inline)) ExtInsMaskSafe(unsigned int Size, unsigned int Offset) { return ((((Size-1)&0x1F)<<5)|(Offset&0x1F)); }
+
 /* Bit set */
 #define __BITSET(x, size, off)               __builtin_pulp_bset((x), (((1<<(size))-1)<<(off)))
 #define __BITSET_R(x, size, off)             __builtin_pulp_bset_r((x), ExtInsMaskFast((size), (off)))
