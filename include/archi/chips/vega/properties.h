@@ -284,35 +284,33 @@
  * FC EVENTS
  */
 
-#define ARCHI_FC_EVT_FIRST_SW         0
-#define ARCHI_FC_EVT_NB_SW            8
+#define ARCHI_FC_EVT_FIRST_SW          0
+#define ARCHI_FC_EVT_NB_SW             8
 
-#define ARCHI_FC_EVT_DMA_EVT          8
-#define ARCHI_FC_EVT_DMA_IRQ          9
+#define ARCHI_FC_EVT_DMA_EVT           8
+#define ARCHI_FC_EVT_DMA_IRQ           9
 
-#define ARCHI_FC_EVT_TIMER0_LO        10
-#define ARCHI_FC_EVT_TIMER0_HI        11
-#define ARCHI_FC_EVT_TIMER1_LO        12
-#define ARCHI_FC_EVT_TIMER1_HI        13
-#define ARCHI_FC_EVT_CLK_REF          14
-#define ARCHI_FC_EVT_GPIO             15
-#define ARCHI_FC_EVT_RTC              16
-#define ARCHI_FC_EVT_ADV_TIMER0       17
-#define ARCHI_FC_EVT_ADV_TIMER1       18
-#define ARCHI_FC_EVT_ADV_TIMER2       19
-#define ARCHI_FC_EVT_ADV_TIMER3       20
-#define ARCHI_FC_EVT_CLUSTER_NOT_BUSY 21
-
-// #define ARCHI_FC_EVT_CLUSTER_POK      22
-// #define ARCHI_FC_EVT_CLUSTER_CG_OK    23
-#define ARCHI_FC_EVT_PICL_OK          24
-#define ARCHI_FC_EVT_SCU_OK           25
-#define ARCHI_FC_EVT_SOC_EVT          26
-#define ARCHI_FC_EVT_QUIDDIKEY_IRQ    27
-#define ARCHI_FC_EVT_MPU_ERROR        28
-#define ARCHI_FC_EVT_QUEUE_ERROR      29
-#define ARCHI_FC_EVT_HP0              30
-#define ARCHI_FC_EVT_HP1              31
+#define ARCHI_FC_EVT_TIMER0_LO         10
+#define ARCHI_FC_EVT_TIMER0_HI         11
+#define ARCHI_FC_EVT_TIMER1_LO         12
+#define ARCHI_FC_EVT_TIMER1_HI         13
+#define ARCHI_FC_EVT_CLK_REF           14
+#define ARCHI_FC_EVT_GPIO              15
+#define ARCHI_FC_EVT_CLK_REF_RISE      16
+#define ARCHI_FC_EVT_ADV_TIMER0        17
+#define ARCHI_FC_EVT_ADV_TIMER1        18
+#define ARCHI_FC_EVT_ADV_TIMER2        19
+#define ARCHI_FC_EVT_ADV_TIMER3        20
+#define ARCHI_FC_EVT_RTC_APB_IRQ       21
+#define ARCHI_FC_EVT_RTC_IRQ           22
+#define ARCHI_FC_EVT_PICL_OK           24
+#define ARCHI_FC_EVT_SCU_OK            25
+#define ARCHI_FC_EVT_SOC_EVT           26
+#define ARCHI_FC_EVT_QUIDDIKEY_IRQ     27
+#define ARCHI_FC_EVT_MPU_ERROR         28
+#define ARCHI_FC_EVT_QUEUE_ERROR       29
+#define ARCHI_FC_EVT_HP0               30
+#define ARCHI_FC_EVT_HP1               31
 
 
 
