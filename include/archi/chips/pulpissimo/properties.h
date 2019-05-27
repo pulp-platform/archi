@@ -19,6 +19,13 @@
 #define __ARCHI_PULPISSIMO_PROPERTIES_H__
 
 /*
+ * FPGA
+ */
+
+#define ARCHI_FPGA_FREQUENCY 5000000
+
+
+/*
  * MEMORIES
  */ 
 

@@ -34,5 +34,6 @@
 #include "archi/udma/i2s/udma_i2s_v2.h"
 #include "archi/udma/spim/udma_spim_v3.h"
 #include "archi/udma/uart/udma_uart_v1.h"
+#include "archi/udma/udma_v3.h"
 
 #endif
