@@ -30,6 +30,7 @@
 #include "archi/udma/i2c/udma_i2c_v2.h"
 #include "archi/udma/spim/udma_spim_v2.h"
 #include "archi/udma/uart/udma_uart_v1.h"
+#include "archi/udma/udma_v2.h"
 
 #include "archi/chips/vivosoc3_5/fll.h"
 #include "archi/chips/vivosoc3_5/freq.h"
