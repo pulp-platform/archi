@@ -22,8 +22,8 @@
 
 //#include "archi/periph_v2.h"
 //#include "archi/gpio_v2.h"
-#include "archi/riscv/priv_1_9.h"
-#include "archi/riscv/pcer_v1.h"
+#include "archi/riscv/priv_1_10.h"
+#include "archi/riscv/pcer_v2.h"
 
 #include "archi/chips/arnold/memory_map.h"
 #include "archi/chips/arnold/apb_soc.h"
