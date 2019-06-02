@@ -65,6 +65,15 @@ for config in configs:
     append_file('archi/udma/mram/udma_mram_v%d.h' % udma_mram)
 
 
+
+  # HWCE
+  hwce = config.get_child_int('**/hwce/version')
+  if hwce is not None:
+    append_file('archi/hwce/hwce_v%d.h' % hwce)
+    if hwce == 4:
+      append_file('archi/hwce/hwce_v%d_old.h' % hwce)
+
+
   # RTC
   rtc = config.get('**/soc/rtc')
   if rtc is None:
