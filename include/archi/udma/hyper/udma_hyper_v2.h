@@ -282,7 +282,7 @@
 #define HYPER_IRQ_EN_EN_WIDTH                                        1
 #define HYPER_IRQ_EN_EN_MASK                                         0x1
 
-// Clock divide data, form 0 – 255, frequency divide table is : -8’h0 – IO_FREQUENCY / 1 -8’h1 – IO_FREQUENCY / 2 -8’h2 – IO_FREQUENCY / 4 …  (access: R/W)
+// Clock divide data, form 0 - 255, frequency divide table is : -8’h0 - IO_FREQUENCY / 1 -8’h1 - IO_FREQUENCY / 2 -8’h2 - IO_FREQUENCY / 4 …  (access: R/W)
 #define HYPER_CLK_DIV_DATA_BIT                                       0
 #define HYPER_CLK_DIV_DATA_WIDTH                                     8
 #define HYPER_CLK_DIV_DATA_MASK                                      0xff
@@ -469,7 +469,7 @@ typedef union {
 
 typedef union {
   struct {
-    unsigned int data            :8 ; // Clock divide data, form 0 – 255, frequency divide table is : -8’h0 – IO_FREQUENCY / 1 -8’h1 – IO_FREQUENCY / 2 -8’h2 – IO_FREQUENCY / 4 … 
+    unsigned int data            :8 ; // Clock divide data, form 0 - 255, frequency divide table is : -8’h0 - IO_FREQUENCY / 1 -8’h1 - IO_FREQUENCY / 2 -8’h2 - IO_FREQUENCY / 4 … 
     unsigned int valid           :1 ; // Clock divide valid, user can not control. Every time there is clock divide write access, set 1 by default, then when clock divide is finished, set 0. 
   };
   unsigned int raw;
