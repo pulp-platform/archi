@@ -63,7 +63,7 @@
 // MRAM status for pending operation
 #define UDMA_MRAM_STATUS_OFFSET                  0x28
 
-// MRAM MODE: READ - ERASE  - PROG – TRIM_CFG
+// MRAM MODE: READ - ERASE  - PROG - TRIM_CFG
 #define UDMA_MRAM_MRAM_MODE_OFFSET               0x2c
 
 // Erase Address for word or Sector Erase
@@ -233,7 +233,7 @@
 #define UDMA_MRAM_ERASE_ADDR_ADDR_WIDTH                              19
 #define UDMA_MRAM_ERASE_ADDR_ADDR_MASK                               0x7ffff
 
-// Clock divide data, form 0 – 255, frequency divide table is : -8’h0 – IO_FREQUENCY / 1 -8’h1 – IO_FREQUENCY / 2 -8’h2 – IO_FREQUENCY / 4 …  (access: R/W)
+// Clock divide data, form 0 - 255, frequency divide table is : -8’h0 - IO_FREQUENCY / 1 -8’h1 - IO_FREQUENCY / 2 -8’h2 - IO_FREQUENCY / 4 …  (access: R/W)
 #define UDMA_MRAM_CLOCK_DIV_DATA_BIT                                 0
 #define UDMA_MRAM_CLOCK_DIV_DATA_WIDTH                               8
 #define UDMA_MRAM_CLOCK_DIV_DATA_MASK                                0xff
@@ -420,7 +420,7 @@ typedef union {
 
 typedef union {
   struct {
-    unsigned int data            :8 ; // Clock divide data, form 0 – 255, frequency divide table is : -8’h0 – IO_FREQUENCY / 1 -8’h1 – IO_FREQUENCY / 2 -8’h2 – IO_FREQUENCY / 4 … 
+    unsigned int data            :8 ; // Clock divide data, form 0 - 255, frequency divide table is : -8’h0 - IO_FREQUENCY / 1 -8’h1 - IO_FREQUENCY / 2 -8’h2 - IO_FREQUENCY / 4 … 
     unsigned int en              :1 ; // Clock divider enable : - 1'b0: disabled - 1'b1: enabled
   };
   unsigned int raw;
@@ -664,7 +664,7 @@ typedef struct {
   unsigned int tx_daddr        ; // Destination Address register for programing.
   unsigned int rx_daddr        ; // Destination Address register for reading.
   unsigned int status          ; // MRAM status for pending operation
-  unsigned int mram_mode       ; // MRAM MODE: READ - ERASE  - PROG – TRIM_CFG
+  unsigned int mram_mode       ; // MRAM MODE: READ - ERASE  - PROG - TRIM_CFG
   unsigned int erase_addr      ; // Erase Address for word or Sector Erase
   unsigned int erase_size      ; // Size of Words or Sector to erase
   unsigned int clock_div       ; // Set Clock div Enable and Div factor.
