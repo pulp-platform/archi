@@ -27,6 +27,7 @@
 
 #define ARCHI_L1_SIZE                  0x20000
 
+#define ARCHI_MEMORY_POWER             1
 
 /*
  * MEMORY ALIAS
