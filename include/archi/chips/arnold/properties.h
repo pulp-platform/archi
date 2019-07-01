@@ -44,7 +44,7 @@
 #define SOC_EU_VERSION      2
 #define APB_SOC_VERSION     3
 #define STDOUT_VERSION      2
-#define GPIO_VERSION        2
+#define GPIO_VERSION        3
 #define ITC_VERSION         1
 #define FLL_VERSION         1
 #define RISCV_VERSION       4
