@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#ifndef __INCLUDE_ARCHI_CHIPS_GAP_APB_SOC_CTRL_H__
-#define __INCLUDE_ARCHI_CHIPS_GAP_APB_SOC_CTRL_H__
+#ifndef __INCLUDE_ARCHI_CHIPS_GAP_APB_SOC_H__
+#define __INCLUDE_ARCHI_CHIPS_GAP_APB_SOC_H__
 
-#ifndef LANGUAGE_ASSEMBLY
+#if !defined(LANGUAGE_ASSEMBLY) && !defined(__ASSEMBLER__)
 
 #include <stdint.h>
 #include "archi/utils.h"
@@ -188,17 +188,17 @@
 #define APB_SOC_CL_BUSY_BUSY_WIDTH                                   1
 #define APB_SOC_CL_BUSY_BUSY_MASK                                    0x1
 
-// Bypass Maestro PMU controller configuration bitfield: - 1’b0: disabled - 1’b1: enabled (access: R/W)
+// Bypass Maestro PMU controller configuration bitfield: - 1b0: disabled - 1b1: enabled (access: R/W)
 #define APB_SOC_CL_BYPASS_BYP_POW_BIT                                0
 #define APB_SOC_CL_BYPASS_BYP_POW_WIDTH                              1
 #define APB_SOC_CL_BYPASS_BYP_POW_MASK                               0x1
 
-// Bypass Maestro PMU configuration selection configuration bitfield: - 1’b0: use default - 1’b1: use user configuration (bitfields from bits 3 to 15 of CL_BYPASS register) (access: R/W)
+// Bypass Maestro PMU configuration selection configuration bitfield: - 1b0: use default - 1b1: use user configuration (bitfields from bits 3 to 15 of CL_BYPASS register) (access: R/W)
 #define APB_SOC_CL_BYPASS_BYP_CFG_BIT                                1
 #define APB_SOC_CL_BYPASS_BYP_CFG_WIDTH                              1
 #define APB_SOC_CL_BYPASS_BYP_CFG_MASK                               0x2
 
-// Cluster state configuration and status bitfield: - 1’b0: off - 1’b1: on Status information is correct only when bypass mode is enabled. (access: R/W)
+// Cluster state configuration and status bitfield: - 1b0: off - 1b1: on Status information is correct only when bypass mode is enabled. (access: R/W)
 #define APB_SOC_CL_BYPASS_CL_STATE_BIT                               3
 #define APB_SOC_CL_BYPASS_CL_STATE_WIDTH                             1
 #define APB_SOC_CL_BYPASS_CL_STATE_MASK                              0x8
@@ -213,27 +213,27 @@
 #define APB_SOC_CL_BYPASS_PROG_DEL_WIDTH                             2
 #define APB_SOC_CL_BYPASS_PROG_DEL_MASK                              0x180
 
-// Bypass cluster clock and reset control by Maestro PMU configuration bitfield: - 1’b0: disabled - 1’b1: enabled (access: R/W)
+// Bypass cluster clock and reset control by Maestro PMU configuration bitfield: - 1b0: disabled - 1b1: enabled (access: R/W)
 #define APB_SOC_CL_BYPASS_BYP_CLK_BIT                                9
 #define APB_SOC_CL_BYPASS_BYP_CLK_WIDTH                              1
 #define APB_SOC_CL_BYPASS_BYP_CLK_MASK                               0x200
 
-// Cluster clock gate configuration bitfield: - 1’b0: disabled - 1’b1: enabled It should always be used before switching cluster FLL to shutdown or retentive mode. (access: R/W)
+// Cluster clock gate configuration bitfield: - 1b0: disabled - 1b1: enabled It should always be used before switching cluster FLL to shutdown or retentive mode. (access: R/W)
 #define APB_SOC_CL_BYPASS_CG_BIT                                     10
 #define APB_SOC_CL_BYPASS_CG_WIDTH                                   1
 #define APB_SOC_CL_BYPASS_CG_MASK                                    0x400
 
-// Cluster FLL shutdown configuration bitfield: - 1’b0: FLL on - 1’b1: FLL shutdown mode (access: R/W)
+// Cluster FLL shutdown configuration bitfield: - 1b0: FLL on - 1b1: FLL shutdown mode (access: R/W)
 #define APB_SOC_CL_BYPASS_FLL_PWD_BIT                                11
 #define APB_SOC_CL_BYPASS_FLL_PWD_WIDTH                              1
 #define APB_SOC_CL_BYPASS_FLL_PWD_MASK                               0x800
 
-// Cluster FLL retentive configuration bitfield: - 1’b0: FLL on - 1’b1: FLL retentive mode (access: R/W)
+// Cluster FLL retentive configuration bitfield: - 1b0: FLL on - 1b1: FLL retentive mode (access: R/W)
 #define APB_SOC_CL_BYPASS_FLL_RET_BIT                                12
 #define APB_SOC_CL_BYPASS_FLL_RET_WIDTH                              1
 #define APB_SOC_CL_BYPASS_FLL_RET_MASK                               0x1000
 
-// Cluster reset configuration bitfield: - 1’b0: nothing - 1’b1: reset the cluster (access: R/W)
+// Cluster reset configuration bitfield: - 1b0: nothing - 1b1: reset the cluster (access: R/W)
 #define APB_SOC_CL_BYPASS_RST_BIT                                    13
 #define APB_SOC_CL_BYPASS_RST_WIDTH                                  1
 #define APB_SOC_CL_BYPASS_RST_MASK                                   0x2000
@@ -383,7 +383,7 @@
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_BTTYPE_WIDTH                      2
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_BTTYPE_MASK                       0xc0000
 
-// Cluster state to restore after warm boot: - 1’b0: off - 1’b1: on (access: R/W)
+// Cluster state to restore after warm boot: - 1b0: off - 1b1: on (access: R/W)
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_BIT                       20
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_WIDTH                     1
 #define APB_SOC_SAFE_PMU_SLEEPCTRL_CL_WAKE_MASK                      0x100000
@@ -454,7 +454,7 @@
 // REGISTERS STRUCTS
 //
 
-#ifndef LANGUAGE_ASSEMBLY
+#if !defined(LANGUAGE_ASSEMBLY) && !defined(__ASSEMBLER__)
 
 typedef union {
   struct {
@@ -492,17 +492,17 @@ typedef union {
 
 typedef union {
   struct {
-    unsigned int byp_pow         :1 ; // Bypass Maestro PMU controller configuration bitfield: - 1’b0: disabled - 1’b1: enabled
-    unsigned int byp_cfg         :1 ; // Bypass Maestro PMU configuration selection configuration bitfield: - 1’b0: use default - 1’b1: use user configuration (bitfields from bits 3 to 15 of CL_BYPASS register)
+    unsigned int byp_pow         :1 ; // Bypass Maestro PMU controller configuration bitfield: - 1b0: disabled - 1b1: enabled
+    unsigned int byp_cfg         :1 ; // Bypass Maestro PMU configuration selection configuration bitfield: - 1b0: use default - 1b1: use user configuration (bitfields from bits 3 to 15 of CL_BYPASS register)
     unsigned int padding0:1 ;
-    unsigned int cl_state        :1 ; // Cluster state configuration and status bitfield: - 1’b0: off - 1’b1: on Status information is correct only when bypass mode is enabled.
+    unsigned int cl_state        :1 ; // Cluster state configuration and status bitfield: - 1b0: off - 1b1: on Status information is correct only when bypass mode is enabled.
     unsigned int currset         :3 ; // Max current allowed on cluster TRC configuration bitfield.
     unsigned int prog_del        :2 ; // Number of REFCLK 32kHz after cluster power ok has arised to release TR isolation configuration bitfield.
-    unsigned int byp_clk         :1 ; // Bypass cluster clock and reset control by Maestro PMU configuration bitfield: - 1’b0: disabled - 1’b1: enabled
-    unsigned int cg              :1 ; // Cluster clock gate configuration bitfield: - 1’b0: disabled - 1’b1: enabled It should always be used before switching cluster FLL to shutdown or retentive mode.
-    unsigned int fll_pwd         :1 ; // Cluster FLL shutdown configuration bitfield: - 1’b0: FLL on - 1’b1: FLL shutdown mode
-    unsigned int fll_ret         :1 ; // Cluster FLL retentive configuration bitfield: - 1’b0: FLL on - 1’b1: FLL retentive mode
-    unsigned int rst             :1 ; // Cluster reset configuration bitfield: - 1’b0: nothing - 1’b1: reset the cluster
+    unsigned int byp_clk         :1 ; // Bypass cluster clock and reset control by Maestro PMU configuration bitfield: - 1b0: disabled - 1b1: enabled
+    unsigned int cg              :1 ; // Cluster clock gate configuration bitfield: - 1b0: disabled - 1b1: enabled It should always be used before switching cluster FLL to shutdown or retentive mode.
+    unsigned int fll_pwd         :1 ; // Cluster FLL shutdown configuration bitfield: - 1b0: FLL on - 1b1: FLL shutdown mode
+    unsigned int fll_ret         :1 ; // Cluster FLL retentive configuration bitfield: - 1b0: FLL on - 1b1: FLL retentive mode
+    unsigned int rst             :1 ; // Cluster reset configuration bitfield: - 1b0: nothing - 1b1: reset the cluster
     unsigned int byp_iso         :1 ; // ?
     unsigned int pwiso           :1 ; // ?
     unsigned int trcpowok        :1 ; // Cluster power ok from cluster TRC status bitfield
@@ -579,7 +579,7 @@ typedef union {
     unsigned int btdev           :1 ; // Warm bootmode: - 1'b0: Boot from ROM - 1'b1: Boot from L2
     unsigned int extint          :1 ; // External wake-up interrupt status (automatically resetted after read) - 1'b0: wake-up triggered by RTC - 1'b1: wake-up triggered by external event
     unsigned int bttype          :2 ; // Select boot type: - 2'b00: cold boot - 2'b01: deep sleep - 2'b10: retentive deep sleep
-    unsigned int cl_wake         :1 ; // Cluster state to restore after warm boot: - 1’b0: off - 1’b1: on
+    unsigned int cl_wake         :1 ; // Cluster state to restore after warm boot: - 1b0: off - 1b1: on
   };
   unsigned int raw;
 } __attribute__((packed)) apb_soc_safe_pmu_sleepctrl_t;
@@ -1110,7 +1110,7 @@ public:
 // REGISTERS GLOBAL STRUCT
 //
 
-#ifndef LANGUAGE_ASSEMBLY
+#if !defined(LANGUAGE_ASSEMBLY) && !defined(__ASSEMBLER__)
 
 typedef struct {
   unsigned int info            ; // Core information register
@@ -1165,7 +1165,7 @@ typedef struct {
 // REGISTERS ACCESS FUNCTIONS
 //
 
-#ifndef LANGUAGE_ASSEMBLY
+#if !defined(LANGUAGE_ASSEMBLY) && !defined(__ASSEMBLER__)
 
 static inline uint32_t apb_soc_info_get(uint32_t base) { return ARCHI_READ(base, APB_SOC_INFO_OFFSET); }
 static inline void apb_soc_info_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, APB_SOC_INFO_OFFSET, value); }
@@ -1301,7 +1301,7 @@ static inline void apb_soc_reg_lvds_iso_set(uint32_t base, uint32_t value) { ARC
 // REGISTERS FIELDS MACROS
 //
 
-#ifndef LANGUAGE_ASSEMBLY
+#if !defined(LANGUAGE_ASSEMBLY) && !defined(__ASSEMBLER__)
 
 #define APB_SOC_INFO_NB_CL_GET(value)                      (ARCHI_BEXTRACTU((value),16,0))
 #define APB_SOC_INFO_NB_CL_GETS(value)                     (ARCHI_BEXTRACT((value),16,0))

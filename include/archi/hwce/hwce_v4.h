@@ -22,7 +22,7 @@
 #ifndef __INCLUDE_ARCHI_HWCE_HWCE_V4_H__
 #define __INCLUDE_ARCHI_HWCE_HWCE_V4_H__
 
-#ifndef LANGUAGE_ASSEMBLY
+#if !defined(LANGUAGE_ASSEMBLY) && !defined(__ASSEMBLER__)
 
 #include <stdint.h>
 #include "archi/utils.h"
@@ -459,7 +459,7 @@
 // REGISTERS STRUCTS
 //
 
-#ifndef LANGUAGE_ASSEMBLY
+#if !defined(LANGUAGE_ASSEMBLY) && !defined(__ASSEMBLER__)
 
 typedef union {
   struct {
@@ -1303,7 +1303,7 @@ public:
 // REGISTERS GLOBAL STRUCT
 //
 
-#ifndef LANGUAGE_ASSEMBLY
+#if !defined(LANGUAGE_ASSEMBLY) && !defined(__ASSEMBLER__)
 
 typedef struct {
   unsigned int trigger         ; // Trigger the execution of an offloaded job
@@ -1378,7 +1378,7 @@ typedef struct {
 // REGISTERS ACCESS FUNCTIONS
 //
 
-#ifndef LANGUAGE_ASSEMBLY
+#if !defined(LANGUAGE_ASSEMBLY) && !defined(__ASSEMBLER__)
 
 static inline uint32_t hwce_trigger_get(uint32_t base) { return ARCHI_READ(base, HWCE_TRIGGER_OFFSET); }
 static inline void hwce_trigger_set(uint32_t base, uint32_t value) { ARCHI_WRITE(base, HWCE_TRIGGER_OFFSET, value); }
@@ -1574,7 +1574,7 @@ static inline void hwce_job_config1_ctx1_set(uint32_t base, uint32_t value) { AR
 // REGISTERS FIELDS MACROS
 //
 
-#ifndef LANGUAGE_ASSEMBLY
+#if !defined(LANGUAGE_ASSEMBLY) && !defined(__ASSEMBLER__)
 
 #define HWCE_TRIGGER_ANY_GET(value)                        (ARCHI_BEXTRACTU((value),32,0))
 #define HWCE_TRIGGER_ANY_GETS(value)                       (ARCHI_BEXTRACT((value),32,0))
