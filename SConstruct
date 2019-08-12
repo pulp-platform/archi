@@ -58,6 +58,11 @@ for config in configs:
   if udma_hyper is not None:
     append_file('archi/udma/hyper/udma_hyper_v%d.h' % udma_hyper)
 
+  # UDMA MEMCPY
+  udma_memcpy = config.get_child_int('**/udma/tcdm/version')
+  if udma_memcpy is not None:
+    append_file('archi/udma/memcpy/udma_memcpy_v%d.h' % udma_memcpy)
+
 
   # UDMA MRAM
   udma_mram = config.get_child_int('**/udma/mram/version')
