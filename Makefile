@@ -17,7 +17,7 @@ udma_mram_v1:
 	regmap --name=udma_mram --input-xls=doc/udma/MRAM_reference.xlsx --header=include/archi/udma/mram/udma_mram_v1.h
 	
 udma_memcpy_v1:
-	regmap --name=udma_memcpy --input-xls=doc/udma/MEMCPY_v1_reference.xlsx --header=include/archi/udma/memcpy/udma_memcpy_v1.h
+	regmap --name=udma_memcpy --input-xls=doc/udma/MEMCPY_v1_reference.xlsx --header=include/archi/udma/memcpy/v1/udma_memcpy_v1
 	
 udma_i2s_v2:
 	regmap --name=udma_i2s --input-xls=doc/I2S_V2_reference.xlsx --header=include/archi/udma/i2s/udma_i2s_v2.h

@@ -29,6 +29,18 @@ def append_file(file):
   if not file in files:
     files.append(file)
 
+def append_archi_files(file):
+  append_file(file + '.h')
+  append_file(file + '_accessors.h')
+  append_file(file + '_constants.h')
+  append_file(file + '_groups.h')
+  append_file(file + '_gvsoc.h')
+  append_file(file + '_macros.h')
+  append_file(file + '_regfields.h')
+  append_file(file + '_regmap.h')
+  append_file(file + '_regs.h')
+  append_file(file + '_structs.h')
+
 
 for config in configs:
 
@@ -61,7 +73,7 @@ for config in configs:
   # UDMA MEMCPY
   udma_memcpy = config.get_child_int('**/udma/tcdm/version')
   if udma_memcpy is not None:
-    append_file('archi/udma/memcpy/udma_memcpy_v%d.h' % udma_memcpy)
+    append_archi_files('archi/udma/memcpy/v1/udma_memcpy_v%d' % udma_memcpy)
 
 
   # UDMA MRAM
