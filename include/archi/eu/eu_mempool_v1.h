@@ -23,18 +23,18 @@
 
 // Global offsets
 #define EU_CORES_AREA_OFFSET                0x0000
-#define EU_CORES_AREA_SIZE                  0x0400
+#define EU_CORES_AREA_SIZE                  0x2000 // Should be 0x00010000 for 1024 cores
 #define EU_CORE_AREA_SIZE_LOG2              6
 #define EU_CORE_AREA_SIZE                   (1<<EU_CORE_AREA_SIZE_LOG2)
-#define EU_BARRIER_AREA_OFFSET              0x0400
+#define EU_BARRIER_AREA_OFFSET              0x2000
 #define EU_BARRIER_AREA_SIZE                0x0200
 #define EU_BARRIER_SIZE_LOG2                5
 #define EU_BARRIER_SIZE                     (1<<EU_BARRIER_SIZE_LOG2)
-#define EU_SW_EVENTS_AREA_BASE              0x0600
-#define EU_SW_EVENTS_AREA_SIZE              0x0100
-#define EU_SOC_EVENTS_AREA_OFFSET           0x0700
+#define EU_SW_EVENTS_AREA_BASE              0x2200
+#define EU_SW_EVENTS_AREA_SIZE              0x0100 // Should be 0x0C00
+#define EU_SOC_EVENTS_AREA_OFFSET           0x2300
 #define EU_SOC_EVENTS_AREA_SIZE             0x0080
-#define EU_EXT_EVENT_AREA_OFFSET            0x0780
+#define EU_EXT_EVENT_AREA_OFFSET            0x2380
 #define EU_EXT_EVENT_AREA_SIZE              0x0080
 #define EU_MUTEX_AREA_SIZE_LOG2             6
 #define EU_MUTEX_AREA_SIZE                  (1<<EU_MUTEX_AREA_SIZE_LOG2)
@@ -82,12 +82,13 @@
 #define EU_CORE_EVENT_WAIT                     0x38
 #define EU_CORE_EVENT_WAIT_CLEAR               0x3C
 
-#define EU_CORE_TRIGG_SW_EVENT                 0x00
-#define EU_CORE_TRIGG_SW_EVENT_SIZE            0x40
-#define EU_CORE_TRIGG_SW_EVENT_WAIT            0x40
-#define EU_CORE_TRIGG_SW_EVENT_WAIT_SIZE       0x40
-#define EU_CORE_TRIGG_SW_EVENT_WAIT_CLEAR      0x80
-#define EU_CORE_TRIGG_SW_EVENT_WAIT_CLEAR_SIZE 0x40
+#define EU_CORE_TRIGG_SW_EVENT                 0x0000
+#define EU_CORE_TRIGG_SW_EVENT_REG_SIZE        0x0080 // Size of one software event register (max_nb_cores/8 bytes)
+#define EU_CORE_TRIGG_SW_EVENT_SIZE            0x0100 // Limit to two software event for the moment (0x0400 for 8 sw events)
+// #define EU_CORE_TRIGG_SW_EVENT_WAIT            0x0040 // Ignore for now
+// #define EU_CORE_TRIGG_SW_EVENT_WAIT_SIZE       0x0040 // Ignore for now
+// #define EU_CORE_TRIGG_SW_EVENT_WAIT_CLEAR      0x0080 // Ignore for now
+// #define EU_CORE_TRIGG_SW_EVENT_WAIT_CLEAR_SIZE 0x0040 // Ignore for now
 
 #define EU_CORE_MASK_SEC_IRQ                   0x40
 
@@ -168,9 +169,9 @@
 #define EU_DISPATCH_AREA_DISPATCHID_GET(offset)         (((offset) & (EU_DISPATCH_AREA_SIZE - 1)) >> 3)
 
 // Core area
-#define EU_CORE_TRIGG_SW_EVENT_OFFSET(event)            (EU_CORE_TRIGG_SW_EVENT + ((event)*0x4))
-#define EU_CORE_TRIGG_SW_EVENT_WAIT_OFFSET(event)       (EU_CORE_TRIGG_SW_EVENT_WAIT + ((event)*0x4))
-#define EU_CORE_TRIGG_SW_EVENT_WAIT_CLEAR_OFFSET(event) (EU_CORE_TRIGG_SW_EVENT_WAIT_CLEAR + ((event)*0x4))
+#define EU_CORE_TRIGG_SW_EVENT_OFFSET(event)            (EU_CORE_TRIGG_SW_EVENT + ((event)*EU_CORE_TRIGG_SW_EVENT_REG_SIZE))
+// #define EU_CORE_TRIGG_SW_EVENT_WAIT_OFFSET(event)       (EU_CORE_TRIGG_SW_EVENT_WAIT + ((event)*0x4))
+// #define EU_CORE_TRIGG_SW_EVENT_WAIT_CLEAR_OFFSET(event) (EU_CORE_TRIGG_SW_EVENT_WAIT_CLEAR + ((event)*0x4))
 
 // ROM area
 #define EU_ROM_EVENT_SOURCE_OFFSET(event)               (EU_ROM_EVENT_SOURCE + ((event)*0x4))
