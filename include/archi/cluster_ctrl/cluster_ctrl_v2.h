@@ -17,13 +17,6 @@
 #ifndef ARCHI_CLUSTER_CTRL_CLUSTER_CTRL_V2_H
 #define ARCHI_CLUSTER_CTRL_CLUSTER_CTRL_V2_H
 
-#define EOC_EOC_OFFSET          0x0
-#define EOC_FETCH_OFFSET        0x8
-#define EOC_CLUSTER_CFG_OFFSET  0x18
-#define EOC_BOOTADDR_OFFSET     0x40
-#define EOC_BOOTADDR_SIZE       0x40
-#define EOC_BOOTADDR_COREID(offset) ((offset) >> 2)
-
 #define ARCHI_CLUSTER_CTRL_EOC                      0x0
 #define ARCHI_CLUSTER_CTRL_FETCH_EN                 0x8
 #define ARCHI_CLUSTER_CTRL_EVENT                    0x10
@@ -33,6 +26,5 @@
 #define ARCHI_CLUSTER_CTRL_DBG_HALT_MASK            0x38
 #define ARCHI_CLUSTER_CTRL_BOOTADDR(core)          (0x40 + 4*(core))
 #define ARCHI_CLUSTER_CTRL_BOOTADDR_COREID(offset) (((offset) - ARCHI_CLUSTER_CTRL_BOOTADDR(0)) >> 2)
-
 
 #endif
