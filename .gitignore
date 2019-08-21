@@ -1,3 +1,7 @@
 *~
 build
 build.log
+*.out
+*.dblite
+*.log
+*.bk
