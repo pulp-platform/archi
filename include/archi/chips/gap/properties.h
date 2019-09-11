@@ -253,6 +253,7 @@
 #define ARCHI_FC_EVT_TIMER0_HI        11
 #define ARCHI_FC_EVT_SOC_EVT          27
 #if PULP_CHIP == CHIP_GAP8_REVC
+#define ARCHI_FC_IRQ_HYPER_TX         29
 #define ARCHI_FC_IRQ_HYPER_RX         30
 #endif
 
