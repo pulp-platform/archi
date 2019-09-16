@@ -35,6 +35,7 @@
 // SPI command fields offset, mask, value definition
 // SPI commands fields offsets
 #define SPI_CMD_ID_OFFSET       28
+#define SPI_CMD_ID_WIDTH         4
 
 // COMMON definitions
 #define SPI_CMD_QPI_ENA   1
@@ -95,7 +96,9 @@
 #define SPI_CMD_RX_DATA_SIZE_OFFSET         0
 #define SPI_CMD_RX_DATA_SIZE_WIDTH      16
 #define SPI_CMD_RX_DATA_BYTE_ALIGN_OFFSET   26
+#define SPI_CMD_RX_DATA_BYTE_ALIGN_WIDTH    1
 #define SPI_CMD_RX_DATA_QPI_OFFSET          27
+#define SPI_CMD_RX_DATA_QPI_WIDTH           1
 
 // RPT
 #define SPI_CMD_RPT_NB_OFFSET           0
@@ -143,7 +146,15 @@
 #define SPI_CMD_SEND_ADDR(bits,qpi)       ((SPI_CMD_SEND_ADDR_ID<<SPI_CMD_ID_OFFSET) | ((qpi)<<SPI_CMD_SEND_ADDR_QPI_OFFSET) | (((bits)-1)<<SPI_CMD_SEND_ADDR_SIZE_OFFSET))
 #define SPI_CMD_DUMMY(cycles)             ((SPI_CMD_DUMMY_ID<<SPI_CMD_ID_OFFSET) | (((cycles)-1)<<SPI_CMD_DUMMY_CYCLE_OFFSET))
 #define SPI_CMD_TX_DATA(bits,qpi,byte_align)         ((SPI_CMD_TX_DATA_ID<<SPI_CMD_ID_OFFSET) | ((qpi)<<SPI_CMD_TX_DATA_QPI_OFFSET) | (((bits)-1) << SPI_CMD_TX_DATA_SIZE_OFFSET) | ((byte_align)<<SPI_CMD_TX_DATA_BYTE_ALIGN_OFFSET))
-#define SPI_CMD_RX_DATA(bits,qpi,byte_align)         ((SPI_CMD_RX_DATA_ID<<SPI_CMD_ID_OFFSET) | ((qpi)<<SPI_CMD_RX_DATA_QPI_OFFSET) | (((bits)-1) << SPI_CMD_RX_DATA_SIZE_OFFSET) | ((byte_align)<<SPI_CMD_RX_DATA_BYTE_ALIGN_OFFSET))
+#define SPI_CMD_RX_DATA(bits,qpi,byte_align) \
+({ \
+  unsigned int result = __BITINSERT(0, SPI_CMD_RX_DATA_ID, SPI_CMD_ID_WIDTH, SPI_CMD_ID_OFFSET); \
+  result = __BITINSERT_R(result, qpi, SPI_CMD_RX_DATA_QPI_WIDTH, SPI_CMD_RX_DATA_QPI_OFFSET); \
+  result = __BITINSERT_R(result, (bits)-1, SPI_CMD_RX_DATA_SIZE_WIDTH, SPI_CMD_RX_DATA_SIZE_OFFSET); \
+  result = __BITINSERT_R(result, (byte_align), SPI_CMD_RX_DATA_BYTE_ALIGN_WIDTH, SPI_CMD_RX_DATA_BYTE_ALIGN_OFFSET); \
+  result; \
+})
+#endif
 #define SPI_CMD_RPT(iter)                 ((SPI_CMD_RPT_ID<<SPI_CMD_ID_OFFSET) | ((iter)<<SPI_CMD_RPT_NB_OFFSET))
 #define SPI_CMD_EOT(evt)                  ((SPI_CMD_EOT_ID<<SPI_CMD_ID_OFFSET) | ((evt)<<SPI_CMD_EOT_GEN_EVT_OFFSET))
 
