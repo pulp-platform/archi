@@ -154,7 +154,6 @@
   result = __BITINSERT_R(result, (byte_align), SPI_CMD_RX_DATA_BYTE_ALIGN_WIDTH, SPI_CMD_RX_DATA_BYTE_ALIGN_OFFSET); \
   result; \
 })
-#endif
 #define SPI_CMD_RPT(iter)                 ((SPI_CMD_RPT_ID<<SPI_CMD_ID_OFFSET) | ((iter)<<SPI_CMD_RPT_NB_OFFSET))
 #define SPI_CMD_EOT(evt)                  ((SPI_CMD_EOT_ID<<SPI_CMD_ID_OFFSET) | ((evt)<<SPI_CMD_EOT_GEN_EVT_OFFSET))
 
