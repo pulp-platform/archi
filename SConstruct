@@ -138,6 +138,10 @@ for config in configs:
     append_file('archi/pwm/pwm_v1.h')
     append_file('archi/chips/vega/apb_soc_ctrl.h')
     append_file('archi/chips/vega/pmu.h')
+  elif chip == 'gap9':
+    append_file('archi/pwm/pwm_v1.h')
+    append_file('archi/chips/gap9/apb_soc_ctrl.h')
+    append_file('archi/chips/gap9/pmu.h')
   elif chip == 'pulpissimo':
     append_file('archi/chips/pulpissimo/apb_soc_ctrl.h')
   elif chip == 'gap':
@@ -160,7 +164,7 @@ for config in configs:
     append_file('archi/chips/vivosoc3_1/freq.h')
 
 
-  if chip == 'vega':
+  if chip == 'vega' or chip == 'gap9':
     out_file_path = 'archi/chips/%s/memory_map.h' % chip
 
     try:
