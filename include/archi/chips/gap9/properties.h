@@ -160,12 +160,12 @@
 #define ARCHI_UDMA_JTAG_FIFO_ID(id) (9   + (id))
 #define ARCHI_UDMA_SDIO_ID(id)      (10  + (id))
 #define ARCHI_UDMA_I2S_ID(id)       (11  + (id))
-#define ARCHI_UDMA_CAM_ID(id)       (12  + (id))
-#define ARCHI_UDMA_CSI2_ID(id)      (13  + (id))
-#define ARCHI_UDMA_MRAM_ID(id)      (14  + (id))
-#define ARCHI_UDMA_FILTER_ID(id)    (15  + (id))
+#define ARCHI_UDMA_CAM_ID(id)       (16  + (id))
+#define ARCHI_UDMA_CSI2_ID(id)      (17  + (id))
+#define ARCHI_UDMA_MRAM_ID(id)      (18  + (id))
+#define ARCHI_UDMA_FILTER_ID(id)    (19  + (id))
 
-#define ARCHI_NB_PERIPH             (16)
+#define ARCHI_NB_PERIPH             (20)
 
 
 /*

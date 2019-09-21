@@ -20,7 +20,10 @@ udma_memcpy_v1:
 	regmap --name=udma_memcpy --input-xls=doc/udma/MEMCPY_v1_reference.xlsx --header=include/archi/udma/memcpy/v1/udma_memcpy_v1
 	
 udma_i2s_v2:
-	regmap --name=udma_i2s --input-xls=doc/I2S_V2_reference.xlsx --header=include/archi/udma/i2s/udma_i2s_v2.h
+	regmap --name=udma_i2s --input-xls=doc/udma/i2s/I2S_V2_reference.xlsx --header=include/archi/udma/i2s/udma_i2s_v2.h
+	
+udma_i2s_v3:
+	regmap --name=udma_i2s --input-xls=doc/udma/i2s/I2S_V3_reference.xlsx --header=include/archi/udma/i2s/v3/udma_i2s_v3
 	
 udma_cpi_v1:
 	regmap --name=udma_cpi --input-xls=doc/udma/CAM_CPI_V1_reference.xlsx --header=include/archi/udma/cpi/udma_cpi_v1.h
@@ -36,6 +39,8 @@ gpio_v3:
 	
 vega.apb_soc_ctrl:
 	regmap --name=apb_soc  --input-xls=doc/vega/APB_SOC_CTRL_reference.xlsx  --header=include/archi/chips/vega/apb_soc_ctrl.h
+
+gap9: udma_i2s_v3
 
 vega: udma_i2s_v2 pmu_v3 udma_hyper_v2 mchan_v7 udma_mram_v1 hwce_v5 gpio_v3 vega.apb_soc_ctrl udma_cpi_v1
 	regmap --name=pmu      --input-json=chips/vega/pmu.json           --header=include/archi/chips/vega/pmu.h

@@ -54,9 +54,13 @@ for config in configs:
   # UDMA I2S
   udma_i2s = config.get_child_int('**/udma/i2s/version')
   if udma_i2s is not None:
-    append_file('archi/udma/i2s/udma_i2s_v%d.h' % udma_i2s)
     if udma_i2s == 1:
       append_file('archi/udma/i2s/udma_i2s_v%d_new.h' % udma_i2s)
+    else:
+      if udma_i2s >= 3:
+        append_archi_files('archi/udma/i2s/v%d/udma_i2s_v%d' % (udma_i2s, udma_i2s))
+      else:
+        append_file('archi/udma/i2s/udma_i2s_v%d.h' % udma_i2s)
 
   # UDMA CPI
   udma_cpi = config.get_child_int('**/udma/cpi/version')

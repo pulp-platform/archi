@@ -35,7 +35,7 @@
 #include "archi/udma/csi2/udma_csi2_v1.h"
 #include "archi/udma/hyper/udma_hyper_v2.h"
 #include "archi/udma/i2c/udma_i2c_v2.h"
-#include "archi/udma/i2s/udma_i2s_v2.h"
+#include "archi/udma/i2s/v3/udma_i2s_v3.h"
 #include "archi/udma/spim/udma_spim_v3.h"
 #include "archi/udma/uart/udma_uart_v1.h"
 #include "archi/udma/mram/udma_mram_v1.h"
