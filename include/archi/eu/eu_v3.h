@@ -36,9 +36,9 @@
 #define EU_SOC_EVENTS_AREA_SIZE             0x0080
 #define EU_EXT_EVENT_AREA_OFFSET            0x0780
 #define EU_EXT_EVENT_AREA_SIZE              0x0080
-#define EU_MUTEX_AREA_SIZE_LOG2             6
+#define EU_MUTEX_AREA_SIZE_LOG2             4
 #define EU_MUTEX_AREA_SIZE                  (1<<EU_MUTEX_AREA_SIZE_LOG2)
-#define EU_DISPATCH_AREA_SIZE_LOG2          6
+#define EU_DISPATCH_AREA_SIZE_LOG2          4
 #define EU_DISPATCH_AREA_SIZE               (1<<EU_DISPATCH_AREA_SIZE_LOG2)
 
 // Demux offsets
@@ -164,8 +164,8 @@
 #define EU_BARRIER_AREA_BARRIERID_GET(offset)           (((offset) & (EU_BARRIER_AREA_SIZE - 1)) >> EU_BARRIER_SIZE_LOG2)
 #define EU_MUTEX_AREA_OFFSET_GET(mutex)                 ((mutex)*EU_MUTEX_AREA_SIZE)
 #define EU_MUTEX_AREA_MUTEXID_GET(offset)               (((offset) & (EU_MUTEX_AREA_SIZE - 1)) >> 2)
-#define EU_DISPATCH_AREA_OFFSET_GET(mutex)              ((dispatch)*EU_DISPATCH_AREA_SIZE)
-#define EU_DISPATCH_AREA_DISPATCHID_GET(offset)         (((offset) & (EU_DISPATCH_AREA_SIZE - 1)) >> 3)
+#define EU_DISPATCH_AREA_OFFSET_GET(dispatch)              ((dispatch)*EU_DISPATCH_AREA_SIZE)
+#define EU_DISPATCH_AREA_DISPATCHID_GET(dispatch)         (((offset) & (EU_DISPATCH_AREA_SIZE - 1)) >> 3)
 
 // Core area
 #define EU_CORE_TRIGG_SW_EVENT_OFFSET(event)            (EU_CORE_TRIGG_SW_EVENT + ((event)*0x4))

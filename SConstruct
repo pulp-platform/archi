@@ -148,6 +148,8 @@ for config in configs:
     append_file('archi/chips/gap9/pmu.h')
   elif chip == 'pulpissimo':
     append_file('archi/chips/pulpissimo/apb_soc_ctrl.h')
+  elif chip == 'pulp':
+    append_file('archi/chips/pulp/apb_soc_ctrl.h')
   elif chip == 'gap':
     append_file('archi/pwm/pwm_v1.h')
   elif chip == 'wolfe':

@@ -225,6 +225,7 @@ typedef unsigned int rt_pointerT;
 #endif
 
 /* Position of the most significant bit of x */
+#define __FF1(x)			__builtin_pulp_ff1((x))
 #define __FL1(x)			__builtin_pulp_fl1((x))
 
 /* Number of sign bits */

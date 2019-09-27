@@ -19,20 +19,21 @@
 #define __ARCHI_CHIPS_PULP_PULP_H__
 
 #include "archi/chips/pulp/properties.h"
+#include "archi/chips/pulp/apb_soc_ctrl.h"
 
+#include "archi/gpio/gpio_v3.h"
 #include "archi/riscv/priv_1_10.h"
 #include "archi/riscv/pcer_v2.h"
 
 #include "archi/chips/pulp/memory_map.h"
 #include "archi/chips/pulp/apb_soc.h"
 #include "archi/stdout/stdout_v3.h"
-#include "archi/gpio/gpio_v2.h"
 
 #include "archi/udma/cpi/udma_cpi_v1.h"
 #include "archi/udma/i2c/udma_i2c_v2.h"
-#include "archi/udma/i2s/udma_i2s_v1.h"
-#include "archi/udma/spim/udma_spim_v2.h"
+#include "archi/udma/i2s/udma_i2s_v2.h"
+#include "archi/udma/spim/udma_spim_v3.h"
 #include "archi/udma/uart/udma_uart_v1.h"
-#include "archi/soc_eu/soc_eu_v1.h"
+#include "archi/udma/udma_v3.h"
 
 #endif
