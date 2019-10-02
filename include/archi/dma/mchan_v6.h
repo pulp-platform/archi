@@ -54,10 +54,10 @@
 // Stride bitfield
 
 #define PLP_DMA_2D_STRIDE_BIT    16
-#define PLP_DMA_2D_STRIDE_WIDTH  16
+#define PLP_DMA_2D_STRIDE_WIDTH  15
 
 #define PLP_DMA_2D_LEN_BIT       0
-#define PLP_DMA_2D_LEN_WIDTH     16
+#define PLP_DMA_2D_LEN_WIDTH     15
 
 // Macros
 #define PLP_DMA_SIZE_GET(x)    (((x) >> PLP_DMA_SIZE_BIT) & ((1<<PLP_DMA_SIZE_WIDTH)-1))
