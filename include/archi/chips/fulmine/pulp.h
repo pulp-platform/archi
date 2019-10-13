@@ -22,5 +22,6 @@
 #include "archi/chips/fulmine/properties.h"
 #include "archi/chips/fulmine/apb_soc.h"
 #include "archi/stdout/stdout_v2.h"
+#include "archi/dma/mchan_v5.h"
 
 #endif

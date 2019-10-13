@@ -27,5 +27,6 @@
 #include "archi/chips/multino/apb_soc.h"
 #include "archi/stdout/stdout_v3.h"
 #include "archi/gpio/gpio_v2.h"
+#include "archi/dma/mchan_v6.h"
 
 #endif

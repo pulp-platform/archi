@@ -30,6 +30,7 @@
 #include "archi/chips/vega/apb_soc_ctrl.h"
 #include "archi/stdout/stdout_v3.h"
 #include "archi/gpio/gpio_v3.h"
+#include "archi/dma/mchan_v7.h"
 
 #include "archi/udma/cpi/udma_cpi_v1.h"
 #include "archi/udma/csi2/udma_csi2_v1.h"

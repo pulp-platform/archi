@@ -19,8 +19,13 @@
 
 // Register map
 
+#define MCHAN_CMD_OFFSET                         0x0
+
 #define PLP_DMA_QUEUE_OFFSET   0x0
 #define PLP_DMA_STATUS_OFFSET  0x4
+
+#define MCHAN_CMD_CMD_LEN_BIT                                        0
+#define MCHAN_CMD_CMD_LEN_WIDTH                                      16
 
 // Command bitfield
 

@@ -22,6 +22,7 @@
 
 #include "archi/riscv/priv_1_9.h"
 #include "archi/riscv/pcer_v1.h"
+#include "archi/dma/mchan_v6.h"
 
 #include "archi/chips/devchip/memory_map.h"
 #include "archi/chips/devchip/apb_soc.h"

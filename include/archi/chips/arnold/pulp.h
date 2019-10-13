@@ -24,6 +24,7 @@
 //#include "archi/gpio_v2.h"
 #include "archi/riscv/priv_1_10.h"
 #include "archi/riscv/pcer_v2.h"
+#include "archi/dma/mchan_v6.h"
 
 #include "archi/chips/arnold/memory_map.h"
 #include "archi/chips/arnold/apb_soc.h"

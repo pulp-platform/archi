@@ -21,5 +21,6 @@
 #include "archi/chips/vivosoc2_1/memory_map.h"
 #include "archi/chips/vivosoc2_1/properties.h"
 #include "archi/stdout/stdout_v2.h"
+#include "archi/dma/mchan_v5.h"
 
 #endif
