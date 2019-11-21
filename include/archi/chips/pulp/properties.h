@@ -19,6 +19,12 @@
 #define __ARCHI_CHIPS_PULP_PROPERTIES_H__
 
 /*
+ * FPGA
+ */
+
+#define ARCHI_FPGA_FREQUENCY 5000000
+
+/*
  * MEMORIES
  */ 
 
