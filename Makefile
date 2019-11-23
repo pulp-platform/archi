@@ -2,6 +2,7 @@ build:
 	scons
 
 clean:
+	rm .sconsign.dblite
 	scons -c
 
 hwce_v4:
