@@ -38,6 +38,9 @@ pmu_v3:
 gpio_v3:
 	regmap --name=gpio  --input-xls=doc/gpio/APB_GPIO_V3_reference.xlsx           --header=include/archi/gpio/gpio_v3.h
 	
+pwm_v1:
+	regmap --name=pwm  --input-xls=doc/pwm/pwm_v1.xlsx           --header=include/archi/pwm/v1/pwm_v1
+
 vega.apb_soc_ctrl:
 	regmap --name=apb_soc  --input-xls=doc/vega/APB_SOC_CTRL_reference.xlsx  --header=include/archi/chips/vega/apb_soc_ctrl.h
 
@@ -46,7 +49,7 @@ gap9: udma_i2s_v3
 vega: udma_i2s_v2 pmu_v3 udma_hyper_v2 mchan_v7 udma_mram_v1 hwce_v5 gpio_v3 vega.apb_soc_ctrl udma_cpi_v1
 	regmap --name=pmu      --input-json=chips/vega/pmu.json           --header=include/archi/chips/vega/pmu.h
 
-gap: hwce_v4 udma_memcpy_v1
+gap: hwce_v4 udma_memcpy_v1 pwm_v1
 	regmap --name=apb_soc  --input-xls doc/gap/APB_SOC_CTRL_reference.xlsx    --header=include/archi/chips/gap/apb_soc.h
 
 pulpissimo: udma_i2s_v2
