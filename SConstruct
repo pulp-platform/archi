@@ -152,6 +152,7 @@ for config in configs:
     append_file('archi/chips/pulp/apb_soc_ctrl.h')
   elif chip == 'gap':
     append_file('archi/pwm/pwm_v1.h')
+    append_archi_files('archi/pwm/v1/pwm_v1')
   elif chip == 'wolfe':
     append_file('archi/pwm/pwm_v1.h')
     append_file('archi/chips/wolfe/pmu.h')
