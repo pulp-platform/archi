@@ -169,6 +169,9 @@ for config in configs:
   elif chip == 'vivosoc3_1':
     append_file('archi/chips/vivosoc3_1/fll.h')
     append_file('archi/chips/vivosoc3_1/freq.h')
+  elif chip == 'vivosoc4':
+    append_file('archi/chips/vivosoc4/fll.h')
+    append_file('archi/chips/vivosoc4/freq.h')
 
 
   if chip == 'vega' or chip == 'gap9':
