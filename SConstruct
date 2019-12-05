@@ -154,6 +154,7 @@ for config in configs:
     append_file('archi/pwm/pwm_v1.h')
     append_archi_files('archi/pwm/v1/pwm_v1')
   elif chip == 'wolfe':
+    append_archi_files('archi/pwm/v1/pwm_v1')
     append_file('archi/pwm/pwm_v1.h')
     append_file('archi/chips/wolfe/pmu.h')
     append_file('archi/chips/wolfe/apb_soc.h')
