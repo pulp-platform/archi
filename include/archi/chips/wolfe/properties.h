@@ -72,7 +72,11 @@
 
 #define ARCHI_HAS_CLUSTER   1
 #define ARCHI_L1_TAS_BIT    20
+#if PULP_CHIP == CHIP_WOLFE_16
+#define ARCHI_CLUSTER_NB_PE 16
+#else
 #define ARCHI_CLUSTER_NB_PE 8
+#endif
 
 
 
