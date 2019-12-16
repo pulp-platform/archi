@@ -29,6 +29,7 @@
  */ 
 
 #define ARCHI_HAS_L2                   1
+#define ARCHI_HAS_L2_MULTI             1
 #define ARCHI_HAS_L1                   1
 
 #define ARCHI_L2_PRIV0_ADDR  0x1c000000
@@ -77,6 +78,7 @@
 #define ARCHI_HAS_CLUSTER   1
 #define ARCHI_L1_TAS_BIT    20
 #define ARCHI_CLUSTER_NB_PE 8
+#define ARCHI_NB_CLUSTER    1
 
 
 /*
@@ -93,7 +95,7 @@
 
 #define ARCHI_FC_CID        31
 #define ARCHI_HAS_FC_ITC     1
-
+#define ARCHI_HAS_FC         1
 
 
 /*
