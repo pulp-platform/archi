@@ -3,6 +3,7 @@ import subprocess
 import shlex
 import pulp_config as plpconfig
 import SCons.Util
+import os.path
 
 install_dir = os.environ.get('INSTALL_DIR')
 target_install_dir = os.environ.get('TARGET_INSTALL_DIR')
@@ -17,7 +18,9 @@ files = [ 'archi/pulp_defs.h', 'archi/pulp.h', 'archi/utils.h' ]
 files.append('archi/gvsoc/gvsoc.h')
 
 try:
-  files += subprocess.check_output(shlex.split('plpfiles copy --item=archi_files')).decode('UTF-8').split()
+  for file in subprocess.check_output(shlex.split('plpfiles copy --item=archi_files')).decode('UTF-8').split():
+    if os.path.exists('include/' + file):
+      files.append(file)
 except subprocess.CalledProcessError as e:
   print (e.output)
   raise
