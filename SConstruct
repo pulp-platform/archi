@@ -29,7 +29,7 @@ configs = plpconfig.get_configs_from_env()
 
 def append_file(file):
   global files
-  if not file in files:
+  if not file in files and os.path.exists('include/' + file):
     files.append(file)
 
 def append_archi_files(file):
