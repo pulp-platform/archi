@@ -190,7 +190,7 @@ for config in configs:
       with open('include/archi/chips/%s/memory_map.h.in' % chip, 'r') as in_file:
         content = in_file.read()
 
-        content = content.replace('@l2_shared_size@', config.get_int('**/l2_shared/size'))
+        content = content.replace('@l2_shared_size@', config.get_str('**/l2_shared/size'))
 
         out_file.write(content)
 
