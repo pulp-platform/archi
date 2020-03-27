@@ -14,7 +14,7 @@ if install_dir is None:
 if target_install_dir is None:
   target_install_dir = 'install'
 
-files = [ 'archi/pulp_defs.h', 'archi/pulp.h', 'archi/utils.h' ]
+files = [ 'archi/pulp_defs.h', 'archi/pulp.h', 'archi/utils.h', 'archi/gap_utils.h' ]
 files.append('archi/gvsoc/gvsoc.h')
 
 try:
@@ -35,6 +35,7 @@ def append_file(file):
 def append_archi_files(file):
   append_file(file + '.h')
   append_file(file + '_accessors.h')
+  append_file(file + '_regfields_accessors.h')
   append_file(file + '_constants.h')
   append_file(file + '_groups.h')
   append_file(file + '_gvsoc.h')
@@ -93,9 +94,10 @@ for config in configs:
   # HWCE
   hwce = config.get_child_int('**/hwce/version')
   if hwce is not None:
-    append_file('archi/hwce/hwce_v%d.h' % hwce)
     if hwce == 4:
-      append_file('archi/hwce/hwce_v%d_old.h' % hwce)
+      append_archi_files('archi/hwce/v4/hwce')
+    else:
+      append_file('archi/hwce/hwce_v%d.h' % hwce)
 
 
   # RTC
