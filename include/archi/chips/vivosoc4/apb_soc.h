@@ -67,6 +67,9 @@
 #define APB_SOC_WD_MAIN_CTRL_OFFSET     0x84 // control register for the system watchdog
 #define APB_SOC_WD_MAIN_DEARM_OFFSET    0x88 // writing this register resets the main watchdog counter
 
+#define APB_SOC_FLASH_PAD_SHORT_OFFSET  0x90 // short flash IO [5:0] to some IO pads on bank0
+#define APB_SOC_FLASH_PAD_CFG_OFFSET  	0x94 // PU/PD for flash IO
+
 // aliases
 #define APB_SOC_CLKDIV_CLUSTER_OFFSET   APB_SOC_CLKDIV0_OFFSET
 #define APB_SOC_CLKDIV_SOC_OFFSET       APB_SOC_CLKDIV1_OFFSET

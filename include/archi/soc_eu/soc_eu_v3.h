@@ -21,9 +21,9 @@
 
 #define SOC_EU_EVENT                0x00
 #define SOC_FC_FIRST_MASK           0x10
-#define SOC_CL_FIRST_MASK           0x20
-#define SOC_PR_FIRST_MASK           0x30
-#define SOC_ERR_FIRST_MASK          0x40
+#define SOC_CL_FIRST_MASK           0x30
+#define SOC_PR_FIRST_MASK           0x50
+#define SOC_ERR_FIRST_MASK          0x70
 #define SOC_TIMER_SEL_HI            0x08
 #define SOC_TIMER_SEL_LO            0x0C
 
