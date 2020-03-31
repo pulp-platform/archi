@@ -261,6 +261,22 @@ static inline int32_t hwce_gen_config0_ncp_gets(uint32_t base)
 }
 
 
+static inline void hwce_gen_config0_rnd_set(uint32_t base, uint32_t value)
+{
+    GAP_WRITE(base, HWCE_GEN_CONFIG0_OFFSET, GAP_BINSERT(GAP_READ(base, HWCE_GEN_CONFIG0_OFFSET), value, 1, 14));
+}
+
+static inline uint32_t hwce_gen_config0_rnd_get(uint32_t base)
+{
+    return GAP_BEXTRACTU(GAP_READ(base, HWCE_GEN_CONFIG0_OFFSET), 1, 14);
+}
+
+static inline int32_t hwce_gen_config0_rnd_gets(uint32_t base)
+{
+    return GAP_BEXTRACT(GAP_READ(base, HWCE_GEN_CONFIG0_OFFSET), 1, 14);
+}
+
+
 static inline void hwce_gen_config0_wstride_set(uint32_t base, uint32_t value)
 {
     GAP_WRITE(base, HWCE_GEN_CONFIG0_OFFSET, GAP_BINSERT(GAP_READ(base, HWCE_GEN_CONFIG0_OFFSET), value, 16, 16));

@@ -87,7 +87,8 @@ typedef union {
     unsigned int vect            :2 ; // Vector mode: - 2'b00 - mode is scalar (1 feat/cycle, 1x16-bit weights). - 2'b01 - mode is vectorial 2 (2 feat/cycle, 2x8-bit weights). - 2'b10 - mode is vectorial 4 (4 feat/cycle, 4x4-bit weights).
     unsigned int conv            :2 ; // Convolution mode: - 2'b00 - mode is 5x5. - 2'b01 - mode is 3x3. - 2'b10 - mode is 4x7.
     unsigned int ncp             :1 ; // No job copy: - 1'b0 - do job copy - 1'b1 - don't do job copy
-    unsigned int padding0:2 ;
+    unsigned int rnd             :1 ; // If 1, do normalization-and-rounding instead of only normalization.
+    unsigned int padding0:1 ;
     unsigned int wstride         :16; // Stride between one FILTER_SIZExFILTER_SIZE filter and the next.
   };
   unsigned int raw;

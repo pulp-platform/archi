@@ -106,6 +106,11 @@
 #define HWCE_GEN_CONFIG0_NCP_SET(value,field)              (GAP_BINSERT((value),(field),1,13))
 #define HWCE_GEN_CONFIG0_NCP(val)                          ((val) << 13)
 
+#define HWCE_GEN_CONFIG0_RND_GET(value)                    (GAP_BEXTRACTU((value),1,14))
+#define HWCE_GEN_CONFIG0_RND_GETS(value)                   (GAP_BEXTRACT((value),1,14))
+#define HWCE_GEN_CONFIG0_RND_SET(value,field)              (GAP_BINSERT((value),(field),1,14))
+#define HWCE_GEN_CONFIG0_RND(val)                          ((val) << 14)
+
 #define HWCE_GEN_CONFIG0_WSTRIDE_GET(value)                (GAP_BEXTRACTU((value),16,16))
 #define HWCE_GEN_CONFIG0_WSTRIDE_GETS(value)               (GAP_BEXTRACT((value),16,16))
 #define HWCE_GEN_CONFIG0_WSTRIDE_SET(value,field)          (GAP_BINSERT((value),(field),16,16))

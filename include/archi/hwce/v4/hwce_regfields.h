@@ -117,6 +117,12 @@
 #define HWCE_GEN_CONFIG0_NCP_MASK                                    0x2000
 #define HWCE_GEN_CONFIG0_NCP_RESET                                   0x0
 
+// If 1, do normalization-and-rounding instead of only normalization. (access: R/W)
+#define HWCE_GEN_CONFIG0_RND_BIT                                     14
+#define HWCE_GEN_CONFIG0_RND_WIDTH                                   1
+#define HWCE_GEN_CONFIG0_RND_MASK                                    0x4000
+#define HWCE_GEN_CONFIG0_RND_RESET                                   0x0
+
 // Stride between one FILTER_SIZExFILTER_SIZE filter and the next. (access: R/W)
 #define HWCE_GEN_CONFIG0_WSTRIDE_BIT                                 16
 #define HWCE_GEN_CONFIG0_WSTRIDE_WIDTH                               16

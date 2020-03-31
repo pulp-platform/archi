@@ -152,6 +152,8 @@ public:
     inline uint32_t conv_get() { return this->get_field(HWCE_GEN_CONFIG0_CONV_BIT, HWCE_GEN_CONFIG0_CONV_WIDTH); }
     inline void ncp_set(uint32_t value) { this->set_field(value, HWCE_GEN_CONFIG0_NCP_BIT, HWCE_GEN_CONFIG0_NCP_WIDTH); }
     inline uint32_t ncp_get() { return this->get_field(HWCE_GEN_CONFIG0_NCP_BIT, HWCE_GEN_CONFIG0_NCP_WIDTH); }
+    inline void rnd_set(uint32_t value) { this->set_field(value, HWCE_GEN_CONFIG0_RND_BIT, HWCE_GEN_CONFIG0_RND_WIDTH); }
+    inline uint32_t rnd_get() { return this->get_field(HWCE_GEN_CONFIG0_RND_BIT, HWCE_GEN_CONFIG0_RND_WIDTH); }
     inline void wstride_set(uint32_t value) { this->set_field(value, HWCE_GEN_CONFIG0_WSTRIDE_BIT, HWCE_GEN_CONFIG0_WSTRIDE_WIDTH); }
     inline uint32_t wstride_get() { return this->get_field(HWCE_GEN_CONFIG0_WSTRIDE_BIT, HWCE_GEN_CONFIG0_WSTRIDE_WIDTH); }
     vp_hwce_gen_config0()
@@ -168,6 +170,7 @@ public:
         this->regfields.push_back(new vp::regfield("VECT", 9, 2));
         this->regfields.push_back(new vp::regfield("CONV", 11, 2));
         this->regfields.push_back(new vp::regfield("NCP", 13, 1));
+        this->regfields.push_back(new vp::regfield("RND", 14, 1));
         this->regfields.push_back(new vp::regfield("WSTRIDE", 16, 16));
     }
 };
@@ -1025,24 +1028,24 @@ public:
     vp_hwce_w_base_addr w_base_addr_ctx0;
     vp_hwce_job_config0 job_config0_ctx0;
     vp_hwce_job_config1 job_config1_ctx0;
-    vp_hwce_y_trans_size  y_trans_size_ctx1;
-    vp_hwce_y_line_stride_length  y_line_stride_length_ctx1;
-    vp_hwce_y_feat_stride_length  y_feat_stride_length_ctx1;
-    vp_hwce_y_out_3_base_addr  y_out_3_base_addr_ctx1;
-    vp_hwce_y_out_2_base_addr  y_out_2_base_addr_ctx1;
-    vp_hwce_y_out_1_base_addr  y_out_1_base_addr_ctx1;
-    vp_hwce_y_out_0_base_addr  y_out_0_base_addr_ctx1;
-    vp_hwce_y_in_3_base_addr  y_in_3_base_addr_ctx1;
-    vp_hwce_y_in_2_base_addr  y_in_2_base_addr_ctx1;
-    vp_hwce_y_in_1_base_addr  y_in_1_base_addr_ctx1;
-    vp_hwce_y_in_0_base_addr  y_in_0_base_addr_ctx1;
-    vp_hwce_x_trans_size  x_trans_size_ctx1;
-    vp_hwce_x_line_stride_length  x_line_stride_length_ctx1;
-    vp_hwce_x_feat_stride_length  x_feat_stride_length_ctx1;
-    vp_hwce_x_in_base_addr  x_in_base_addr_ctx1;
-    vp_hwce_w_base_addr  w_base_addr_ctx1;
-    vp_hwce_job_config0  job_config0_ctx1;
-    vp_hwce_job_config1  job_config1_ctx1;
+    vp_hwce_y_trans_size y_trans_size_ctx1;
+    vp_hwce_y_line_stride_length y_line_stride_length_ctx1;
+    vp_hwce_y_feat_stride_length y_feat_stride_length_ctx1;
+    vp_hwce_y_out_3_base_addr y_out_3_base_addr_ctx1;
+    vp_hwce_y_out_2_base_addr y_out_2_base_addr_ctx1;
+    vp_hwce_y_out_1_base_addr y_out_1_base_addr_ctx1;
+    vp_hwce_y_out_0_base_addr y_out_0_base_addr_ctx1;
+    vp_hwce_y_in_3_base_addr y_in_3_base_addr_ctx1;
+    vp_hwce_y_in_2_base_addr y_in_2_base_addr_ctx1;
+    vp_hwce_y_in_1_base_addr y_in_1_base_addr_ctx1;
+    vp_hwce_y_in_0_base_addr y_in_0_base_addr_ctx1;
+    vp_hwce_x_trans_size x_trans_size_ctx1;
+    vp_hwce_x_line_stride_length x_line_stride_length_ctx1;
+    vp_hwce_x_feat_stride_length x_feat_stride_length_ctx1;
+    vp_hwce_x_in_base_addr x_in_base_addr_ctx1;
+    vp_hwce_w_base_addr w_base_addr_ctx1;
+    vp_hwce_job_config0 job_config0_ctx1;
+    vp_hwce_job_config1 job_config1_ctx1;
     vp_regmap_hwce()
     {
         this->registers.push_back(&this->trigger);
