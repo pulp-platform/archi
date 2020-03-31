@@ -95,6 +95,7 @@ for config in configs:
   hwce = config.get_child_int('**/hwce/version')
   if hwce is not None:
     if hwce == 4:
+      append_file('archi/hwce/hwce_v%d_old.h' % hwce)
       append_archi_files('archi/hwce/v4/hwce')
     else:
       append_file('archi/hwce/hwce_v%d.h' % hwce)
